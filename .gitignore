@@ -1,2 +1,5 @@
 .git
 secrets
+credentials.json
+calendar-privatekey.json
+node_modules

@@ -1,0 +1,23 @@
+## features:
+
+– upcoming class list
+  - title, date, location
+- calendar page
+  - hover details
+- event page
+  - title, date, description
+  - recurring event list
+    - see all recurring by month
+  - details:
+    - date, time
+    - event category
+      - see all in category
+    - venue
+  - export: google calendar, ical
+
+json:
+
+title -> summary
+location
+start, end
+recurringEventId
