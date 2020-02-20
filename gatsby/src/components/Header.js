@@ -17,7 +17,7 @@ const HeaderImageContainer = styled.div`
 const HeaderImage = styled.img`
   max-width: 365px;
   max-height: 204px;
-  margin-right: 15px;
+  padding-right: 20px;
 `
 
 const Catchphrase = styled.h3`
