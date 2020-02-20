@@ -17,7 +17,12 @@ const AboutUs = () => {
   return (
     <Layout>
       <SEO title="About Us" description="About description goes here" />
-      <Grid container>
+      <Grid
+        container
+        css={css`
+          padding: 0 95px;
+        `}
+      >
         <Grid
           item
           xs={12}

@@ -10,6 +10,10 @@ const HeaderContainer = styled.header`
   background: ${props => props.theme.colors.background};
 `
 
+const HeaderImageContainer = styled.div`
+  margin: auto;
+`
+
 const HeaderImage = styled.img`
   max-width: 365px;
   max-height: 204px;
@@ -44,7 +48,9 @@ const Header = () => {
         alignItems="flex-start"
       >
         <Grid sm={12} md={4} item container>
-          <HeaderImage src={HeaderImagePath} alt="Header Image" />
+          <HeaderImageContainer>
+            <HeaderImage src={HeaderImagePath} alt="Header Image" />
+          </HeaderImageContainer>
         </Grid>
         <Grid
           sm={12}
