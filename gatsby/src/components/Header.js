@@ -34,10 +34,11 @@ const SmallDescription = styled.p`
   font-size: 0.8em;
 `
 
-const Header = () => {
+const Header = props => {
+  const { onMenuClick } = props
   return (
     <HeaderContainer>
-      <MaterialMenu />
+      <MaterialMenu onMenuClick={onMenuClick} />
       <Grid
         css={css`
           margin: 24px 0px;

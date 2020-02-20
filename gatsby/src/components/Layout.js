@@ -17,6 +17,7 @@ const DividerContainer = styled.div`
   margin: 40px 0;
 `
 const Layout = props => {
+  const { width } = props
   return (
     <Root>
       <Container>
