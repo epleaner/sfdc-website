@@ -31,21 +31,21 @@ const Footer = () => (
         xs={2}
       >
         <Centered>
-          <Link>
+          <Link to="/teachers">
             <LinkText>Teachers</LinkText>
           </Link>
         </Centered>
       </Grid>
       <Grid item xs={2}>
         <Centered>
-          <Link>
+          <Link to="/about-us">
             <LinkText>About Us</LinkText>
           </Link>
         </Centered>
       </Grid>
       <Grid item xs={2}>
         <Centered>
-          <Link>
+          <Link to="/donate">
             <LinkText>Donate</LinkText>
           </Link>
         </Centered>
