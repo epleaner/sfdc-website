@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
-import Menu from '../components/Menu'
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { globalStyles } from '../styles/globalStyles.js'
 
 const Root = styled.div`
   font-family: ${props => props.theme.fonts.body};
+  background: ${props => props.theme.colors.background};
 `
 
 const Skip = styled.a`
@@ -42,7 +43,7 @@ const Layout = props => {
         <Skip href="#main" id="skip-navigation">
           Skip to content
         </Skip>
-        <Menu />
+        <Header />
         <div id="main">{props.children}</div>
       </div>
       <Footer />

@@ -3,14 +3,11 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
-const Header = styled.header`
-  background: ${props => props.theme.colors.primary};
-  width: 100%;
-  padding: 1.5em 0;
-`
 const Nav = styled.nav`
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
+  height: 56px;
+
   margin: 0 auto;
   padding: 0 1.5em;
 
@@ -48,19 +45,17 @@ const activeLinkStyle = {
 const Menu = () => {
   const { menuLinks } = useSiteMetadata()
   return (
-    <Header>
-      <Nav>
-        <ul>
-          {menuLinks.map(link => (
-            <li key={link.name}>
-              <Link to={link.slug} activeStyle={activeLinkStyle}>
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Nav>
-    </Header>
+    <Nav>
+      <ul>
+        {menuLinks.map(link => (
+          <li key={link.name}>
+            <Link to={link.slug} activeStyle={activeLinkStyle}>
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </Nav>
   )
 }
 
