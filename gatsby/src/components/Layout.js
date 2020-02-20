@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
+import Container from '@material-ui/core/Container'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { globalStyles } from '../styles/globalStyles.js'
@@ -30,24 +31,17 @@ const Skip = styled.a`
 `
 
 const Layout = props => {
-  function handleFirstTab(e) {
-    if (e.keyCode === 9) {
-      document.body.classList.add('user-is-tabbing')
-    }
-  }
-  useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
-
   return (
     <Root className="siteRoot">
-      <div className="siteContent">
+      <Container>
         <Skip href="#main" id="skip-navigation">
           Skip to content
         </Skip>
         <Header />
         <div id="main">{props.children}</div>
-      </div>
-      <Footer />
-      <Global styles={globalStyles} />
+        <Footer />
+        <Global styles={globalStyles} />
+      </Container>
     </Root>
   )
 }

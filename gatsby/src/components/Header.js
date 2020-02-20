@@ -36,7 +36,7 @@ const Header = () => {
       <MaterialMenu />
       <Grid
         css={css`
-          margin: 24px 48px;
+          margin: 24px 0px;
         `}
         container
         direction="row"
@@ -51,17 +51,15 @@ const Header = () => {
           md={8}
           item
           container
-          direction="column"
+          direction="row"
           justify="space-between"
           spacing={5}
-          css={css`
-            padding-right: 80px;
-          `}
+          css={css``}
         >
-          <Grid item>
+          <Grid item xs={12}>
             <Catchphrase>Meditate with us.</Catchphrase>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <SecondaryPhrase>
               The SF Dharma Collective is a community-led sangha.
             </SecondaryPhrase>

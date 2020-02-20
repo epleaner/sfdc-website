@@ -1,81 +1,88 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import Grid from '@material-ui/core/Grid'
+import { Link } from 'gatsby'
 
-const Wrapper = styled.footer`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 0 auto;
-  max-width: ${props => props.theme.sizes.maxWidth};
+const Centered = styled.div`
+  text-align: center;
 `
 
-const List = styled.ul`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  border-top: 1px solid ${props => props.theme.colors.secondary};
-  padding: 1em 0 2em;
-  margin: 0 1.5em;
+const Address = styled.address`
+  font-size: 0.8em;
 `
 
-const Item = styled.li`
-  display: inline-block;
-  padding: 0.25em 0;
-  width: 100%;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    width: auto;
-  }
-  a {
-    font-weight: 600;
-    transition: all 0.2s;
-    color: ${props => props.theme.colors.text};
-    &:hover {
-      color: ${props => props.theme.colors.highlight};
-    }
-    &:visited {
-      color: ${props => props.theme.colors.text};
-    }
-  }
+const LinkText = styled.span`
+  font-size: 1.5em;
+`
+
+const Footnote = styled.span`
+  font-size: 0.8em;
 `
 
 const Footer = () => (
-  <Wrapper>
-    <List>
-      <Item>
-        <a
-          href="https://www.contentful.com/"
-          rel="nofollow noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
-            style={{ width: '100px' }}
-            alt="Powered by Contentful"
-          />
-        </a>
-      </Item>
-      <Item>
-        <a
-          href="https://github.com/ryanwiemer/gatsby-starter-gcn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          gatsby-starter-gcn
-        </a>{' '}
-        by{' '}
-        <a
-          href="https://github.com/ryanwiemer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @ryanwiemer
-        </a>
-      </Item>
-    </List>
-  </Wrapper>
+  <Grid container direction="row" justify="center" alignItems="center">
+    <Grid item xs={12} container direction="row" justify="center">
+      <Grid
+        css={css`
+          padding-bottom: 25px;
+        `}
+        item
+        xs={2}
+      >
+        <Centered>
+          <Link>
+            <LinkText>Teachers</LinkText>
+          </Link>
+        </Centered>
+      </Grid>
+      <Grid item xs={2}>
+        <Centered>
+          <Link>
+            <LinkText>About Us</LinkText>
+          </Link>
+        </Centered>
+      </Grid>
+      <Grid item xs={2}>
+        <Centered>
+          <Link>
+            <LinkText>Donate</LinkText>
+          </Link>
+        </Centered>
+      </Grid>
+    </Grid>
+    <Grid
+      css={css`
+        padding-bottom: 25px;
+      `}
+      item
+      xs={12}
+    >
+      <Centered>
+        <Address>
+          <span>San Francisco Dharma Collective</span>
+          <span> • </span>
+          <span>2701 Folsom Street, San Francisco, CA 94110</span>
+          <span> • </span>
+          <span>415-404-9333</span>
+          <span> • </span>
+          <span>
+            <a href="mailto:sfdharmacollective@gmail.com">
+              sfdharmacollective@gmail.com
+            </a>
+          </span>
+        </Address>
+      </Centered>
+    </Grid>
+    <Grid item xs={12}>
+      <Footnote>
+        All classes and sits are open to all and no registration is necessary.
+        We are supported by your generosity (dana). No one is ever turned away
+        for lack of funds. SFDC is wheelchair accessible and has two accessible
+        bathroom stalls. We use fragrance-free cleaning products.
+      </Footnote>
+    </Grid>
+  </Grid>
 )
 
 export default Footer
