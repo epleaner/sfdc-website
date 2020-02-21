@@ -1,24 +1,24 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import Layout from '../components/Layout'
-import Container from '../components/Container'
-import PageTitle from '../components/PageTitle'
-import SEO from '../components/SEO'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import LotusImagePath from '../../static/images/lotus.png'
-import axios from 'axios'
+import React from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
+import Layout from "../components/Layout";
+import Container from "../components/Container";
+import PageTitle from "../components/PageTitle";
+import SEO from "../components/SEO";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import LotusImagePath from "../../static/images/lotus.png";
+import axios from "axios";
 
 const LotusImage = styled.img`
   max-width: 500px;
-`
+`;
 
 const AboutUs = () => {
-  axios
-    .get('/.netlify/functions/hello')
-    .then(response => response.json())
-    .then(console.log)
+  // axios
+  //   .get('/.netlify/functions/hello')
+  //   .then(response => response.json())
+  //   .then(console.log)
   return (
     <Layout>
       <SEO title="About Us" description="About description goes here" />
@@ -128,7 +128,7 @@ const AboutUs = () => {
         </Grid>
       </Grid>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;

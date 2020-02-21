@@ -3,3 +3,6 @@ credentials.json
 calendar-privatekey.json
 node_modules
 public
+.contentful.json
+.cache
+bin
