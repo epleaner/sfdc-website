@@ -1,41 +1,30 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import Grid from '@material-ui/core/Grid'
-import MaterialMenu from './MaterialMenu'
-import HeaderImagePath from '../../static/images/sfdc-header.png'
+import React from "react";
+import { Link } from "gatsby";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
+import Grid from "@material-ui/core/Grid";
+import MaterialMenu from "./MaterialMenu";
 
 const HeaderContainer = styled.header`
   background: ${props => props.theme.colors.background};
-`
-
-const HeaderImageContainer = styled.div`
-  margin: auto;
-`
-
-const HeaderImage = styled.img`
-  max-width: 365px;
-  max-height: 204px;
-  padding-right: 20px;
-`
+`;
 
 const Catchphrase = styled.h3`
-  font-size: 3.5em;
+  font-size: 5.5em;
   font-weight: 100;
-`
+`;
 
 const SecondaryPhrase = styled.h4`
-  font-size: 1.5em;
+  font-size: 2.5em;
   font-weight: 100;
-`
+`;
 
 const SmallDescription = styled.p`
-  font-size: 0.8em;
-`
+  font-size: 1em;
+`;
 
 const Header = props => {
-  const { onMenuClick } = props
+  const { onMenuClick } = props;
   return (
     <HeaderContainer>
       <MaterialMenu onMenuClick={onMenuClick} />
@@ -48,14 +37,9 @@ const Header = props => {
         justify="center"
         alignItems="flex-start"
       >
-        <Grid sm={12} md={4} item container>
-          <HeaderImageContainer>
-            <HeaderImage src={HeaderImagePath} alt="Header Image" />
-          </HeaderImageContainer>
-        </Grid>
         <Grid
           sm={12}
-          md={8}
+          md={9}
           item
           container
           direction="row"
@@ -83,7 +67,7 @@ const Header = props => {
         </Grid>
       </Grid>
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
