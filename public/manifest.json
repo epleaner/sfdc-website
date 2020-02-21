@@ -1,0 +1,6 @@
+{
+  "main.js": "render-page.js",
+  "main.js.map": "render-page.js.map",
+  "static/lotus.png": "static/lotus-43fea02d13b105f0eb754ff1d678f298.png",
+  "static/sfdc-header.png": "static/sfdc-header-dca322617c0dfda643453ccb33508fe8.png"
+}
