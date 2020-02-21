@@ -11,7 +11,6 @@ const LotusImage = styled.img`
 `;
 
 const Catchphrase = styled.h3`
-  margin-top: 20px;
   font-size: 5.5em;
   font-weight: 100;
 `;

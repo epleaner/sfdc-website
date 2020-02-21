@@ -15,6 +15,10 @@ const Root = styled.div`
   margin-bottom: 25px;
 `;
 
+const HeaderContainer = styled.div`
+  margin: 40px 0;
+`;
+
 const DividerContainer = styled.div`
   margin: 40px 0;
 `;
@@ -24,7 +28,9 @@ const Layout = props => {
   return (
     <Root>
       <Container>
-        <Header />
+        <HeaderContainer>
+          <Header />
+        </HeaderContainer>
         <div id="main">{props.children}</div>
         <DividerContainer>
           <Divider variant="middle" />
