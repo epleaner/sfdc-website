@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -13,6 +14,12 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import withWidth from '@material-ui/core/withWidth'
+import HeaderImagePath from '../../static/images/sfdc-header.png'
+
+const HeaderImage = styled.img`
+  max-width: 100px;
+  filter: invert(1);
+`
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,11 +28,14 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(1),
     fontWeight: 100,
+    color: '#fafafa',
   },
   title: {
     flexGrow: 1,
     fontWeight: 100,
     fontSize: '1.2em',
+    minHeight: '64px',
+    marginTop: '10px',
   },
   list: {
     width: 250,
@@ -85,10 +95,16 @@ const ButtonAppBar = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar color="inherit" position="fixed">
+      <AppBar
+        css={css`
+          background-color: '#fafafa';
+        `}
+        elevation={0}
+        position="fixed"
+      >
         <Toolbar>
           <Typography className={classes.title}>
-            SF Dharma Collective
+            <HeaderImage src={HeaderImagePath} alt="Header Image" />
           </Typography>
           <Hidden smDown>
             <Button className={classes.menuButton}>Home</Button>

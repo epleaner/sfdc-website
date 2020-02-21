@@ -23,7 +23,7 @@ let calendar = google.calendar("v3");
 calendar.events.list(
   {
     auth: jwtClient,
-    calendarId: "3b9p1dldbrlujih4ok1hqu7qq4@group.calendar.google.com"
+    calendarId: "6lmk34aeh3mpas0kop9ve8hc94@group.calendar.google.com"
   },
   function(err, response) {
     if (err) {
@@ -32,6 +32,7 @@ calendar.events.list(
     }
     try {
       var events = response.data.items;
+      console.log(response.data);
       if (events.length == 0) {
         console.log("No events found.");
       } else {
