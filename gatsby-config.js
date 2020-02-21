@@ -34,27 +34,11 @@ module.exports = {
   //   );
   // },
   siteMetadata: {
-    title: "GCN",
+    title: "San Francisco Dharma Collective",
     description:
-      "A starter template to build amazing static websites with Gatsby, Contentful and Netlify",
-    siteUrl: "https://gcn.netlify.com",
+      "San Francisco Dharma Collective's website: The SF Dharma Collective is a community-led sangha. Meditate with us.",
+    siteUrl: "https://sfdharmacollective.org",
     image: "/images/share.jpg",
-    menuLinks: [
-      {
-        name: "Home",
-        slug: "/"
-      },
-      {
-        name: "About",
-        slug: "/about/"
-      },
-      {
-        name: "Contact",
-        slug: "/contact/"
-      }
-    ],
-    postsPerFirstPage: 7,
-    postsPerPage: 6,
     basePath: "/"
   },
   plugins: [
@@ -99,8 +83,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "GCN",
-        short_name: "GCN",
+        name: "SF Dharma Collective",
+        short_name: "SFDC",
         start_url: "/",
         background_color: "#ffffff",
         theme_color: "#ffffff",
