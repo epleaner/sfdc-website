@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import { Global } from '@emotion/core'
-import Container from '@material-ui/core/Container'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Divider from '@material-ui/core/Divider'
-import { globalStyles } from '../styles/globalStyles.js'
+import React, { useEffect } from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
+import { Global } from "@emotion/core";
+import Container from "@material-ui/core/Container";
+import Footer from "../components/Footer";
+import Divider from "@material-ui/core/Divider";
+import Header from "../components/Header";
+
+import { globalStyles } from "../styles/globalStyles.js";
 
 const Root = styled.div`
   font-family: ${props => props.theme.fonts.body};
   background: ${props => props.theme.colors.background};
   margin-bottom: 25px;
-`
+`;
+
 const DividerContainer = styled.div`
   margin: 40px 0;
-`
+`;
+
 const Layout = props => {
-  const { width } = props
+  const { width } = props;
   return (
     <Root>
       <Container>
@@ -30,7 +33,7 @@ const Layout = props => {
         <Global styles={globalStyles} />
       </Container>
     </Root>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
