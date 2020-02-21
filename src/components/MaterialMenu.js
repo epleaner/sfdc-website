@@ -16,6 +16,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import withWidth from "@material-ui/core/withWidth";
 import HeaderImagePath from "../../static/images/sfdc-header.png";
 import { Link } from "gatsby";
+import PopoverMenu from "./PopoverMenu";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -130,11 +131,10 @@ const ButtonAppBar = props => {
                 Donate
               </Link>
             </Button>
-            <Button className={classes.menuButton}>
-              <Link to="/about-us" className={classes.link}>
-                About Us
-              </Link>
-            </Button>
+            <PopoverMenu
+              mainText={"About Us"}
+              links={["Leadership", "Contact"]}
+            />
             <Button className={classes.menuButton}>
               <Link to="/teachers" className={classes.link}>
                 Teachers
@@ -150,11 +150,15 @@ const ButtonAppBar = props => {
                 Volunteer
               </Link>
             </Button>
-            <Button className={classes.menuButton}>
-              <Link to="/resources" className={classes.link}>
-                Resources
-              </Link>
-            </Button>
+            <PopoverMenu
+              mainText={"Resources"}
+              links={[
+                "From Our Friends",
+                "Local Sits / Centers",
+                "Podcasts",
+                "Other Offerings @ SFDC"
+              ]}
+            />
           </Hidden>
           <Hidden mdUp>
             <IconButton
