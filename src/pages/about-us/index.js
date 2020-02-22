@@ -21,7 +21,7 @@ const AboutUs = () => {
         <Grid item container xs={12}>
           <Grid item container alignContent="center" xs={12} md={8}>
             <Grid item xs={12}>
-              <Typography variant="h4">
+              <Typography variant="h2">
                 The San Francisco Dharma Collective is a sangha-led dharma
                 community.
               </Typography>
@@ -35,7 +35,7 @@ const AboutUs = () => {
         </Grid>
         <Grid item xs={12} container>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="h4">
+            <Typography paragraph={true} variant="h3">
               Vision
             </Typography>
           </Grid>
@@ -48,7 +48,7 @@ const AboutUs = () => {
         </Grid>
         <Grid item xs={12} container>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="h4">
+            <Typography paragraph={true} variant="h3">
               Mission
             </Typography>
           </Grid>
@@ -73,7 +73,7 @@ const AboutUs = () => {
         </Grid>
         <Grid item xs={12} container>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="h4">
+            <Typography paragraph={true} variant="h3">
               Join Us
             </Typography>
           </Grid>
