@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 
 const CalendarContainer = styled.div`
   margin-top: 10px;
@@ -30,6 +29,7 @@ const Calendar = () => {
         <Grid item container justify="center" xs={12}>
           <CalendarContainer>
             <iframe
+              title="sfdc-calendar-iframe"
               src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FLos_Angeles"
               width="800"
               height="600"

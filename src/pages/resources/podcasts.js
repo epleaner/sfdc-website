@@ -1,20 +1,18 @@
 import React from "react";
 import Layout from "../../components/Layout";
-import Container from "../../components/Container";
-import PageTitle from "../../components/PageTitle";
-import ContactForm from "../../components/ContactForm";
 import SEO from "../../components/SEO";
+import Grid from "@material-ui/core/Grid";
 
-const Contact = ({ data }) => {
+const Podcasts = () => {
   return (
     <Layout>
-      <SEO title="Contact" description="Contact description goes here" />
-      <Container>
-        <PageTitle>Contact</PageTitle>
-        <ContactForm />
-      </Container>
+      <SEO
+        title="Podcasts"
+        description="San Francisco Dharma Collective Podcasts Page"
+      />
+      <Grid container />
     </Layout>
   );
 };
 
-export default Contact;
+export default Podcasts;

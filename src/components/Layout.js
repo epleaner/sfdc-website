@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/core";
 import { Global } from "@emotion/core";
 import Container from "@material-ui/core/Container";
 import Footer from "../components/Footer";
@@ -24,7 +23,6 @@ const DividerContainer = styled.div`
 `;
 
 const Layout = props => {
-  const { width } = props;
   return (
     <Root>
       <Container>

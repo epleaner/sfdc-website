@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -51,7 +50,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ButtonAppBar = props => {
-  const { width, onMenuClick } = props;
   const classes = useStyles();
 
   const [state, setState] = React.useState({
@@ -112,7 +110,7 @@ const ButtonAppBar = props => {
             <img
               className={classes.headerImage}
               src={HeaderImagePath}
-              alt="Header Image"
+              alt="Header"
             />
           </Typography>
           <Hidden smDown>
