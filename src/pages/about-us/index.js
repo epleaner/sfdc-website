@@ -1,16 +1,18 @@
 import React from "react";
-import styled from "@emotion/styled";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import LotusImagePath from "../../../static/images/lotus.png";
 
-const LotusImage = styled.img`
-  max-width: 500px;
-`;
+const useStyles = makeStyles(theme => ({
+  lotusImage: { maxWidth: "500px" }
+}));
 
 const AboutUs = () => {
+  const classes = useStyles();
+
   return (
     <Layout>
       <SEO
@@ -29,15 +31,17 @@ const AboutUs = () => {
           </Grid>
           <Grid item container justify="center" xs={12} md={4}>
             <Grid item>
-              <LotusImage src={LotusImagePath} alt="Lotus Image" />
+              <img
+                className={classes.lotusImage}
+                src={LotusImagePath}
+                alt="Lotus"
+              />
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container spacing={3}>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="h3">
-              Vision
-            </Typography>
+            <Typography variant="h3">Vision</Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1">
@@ -46,19 +50,19 @@ const AboutUs = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container spacing={3}>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="h3">
-              Mission
-            </Typography>
+            <Typography variant="h3">Mission</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="body1">
+            <Typography variant="body1">
               SFDC creates a welcoming and inclusive space for community,
               meditation, and transformation through diverse teachings and
               practices.
             </Typography>
-            <Typography paragraph={true} variant="body1">
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body1">
               The SF Dharma Collective makes a continuing effort to establish
               programming for groups outside the dominant culture who might
               otherwise not assume that their needs are seen or their selves are
@@ -71,21 +75,19 @@ const AboutUs = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container spacing={3}>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="h3">
-              Join Us
-            </Typography>
+            <Typography variant="h3">Join Us</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="body1">
+            <Typography variant="body1">
               Join us by checking out a sit, volunteering and/or coming to a
               collective meeting, and help us turn our aspirations and yours
               into a durable community.
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography paragraph={true} variant="body1">
+            <Typography variant="body1">
               All classes and sits are open to all and no registration is
               necessary. We are supported by your generosity (dana). No one is
               ever turned away for lack of funds. SFDC is wheelchair accessible
