@@ -43,7 +43,7 @@ const Home = () => {
             <img
               className={classes.lotusImage}
               src={LotusImagePath}
-              alt="Lotus Image"
+              alt="Lotus"
             />
           </Grid>
           <Grid item xs={12}>
