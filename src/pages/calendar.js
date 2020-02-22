@@ -1,13 +1,8 @@
 import React from "react";
-import styled from "@emotion/styled";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-
-const CalendarContainer = styled.div`
-  margin-top: 10px;
-`;
 
 const Calendar = () => {
   return (
@@ -16,32 +11,32 @@ const Calendar = () => {
         title="Calendar"
         description="San Francisco Dharma Collective Calendar Page"
       />
-      <Grid container>
-        <Grid item container justify="center" xs={12} md={6}>
-          <Typography variant="body1">
-            <a href="https://calendar.google.com/calendar/ical/6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com/public/basic.ics">
-              iCal Address for Download
-            </a>
-          </Typography>
-        </Grid>
-        <Grid item container justify="center" xs={12} md={6}>
-          <Typography variant="body1">
-            <a href="https://calendar.google.com/calendar/embed?src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&ctz=America%2FLos_Angeles">
-              Public URL for this Calendar
-            </a>
-          </Typography>
+      <Grid container spacing={3}>
+        <Grid item container xs={12}>
+          <Grid item container justify="center" xs={12} sm={6}>
+            <Typography variant="body1">
+              <a href="https://calendar.google.com/calendar/ical/6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com/public/basic.ics">
+                iCal Address for Download
+              </a>
+            </Typography>
+          </Grid>
+          <Grid item container justify="center" xs={12} sm={6}>
+            <Typography variant="body1">
+              <a href="https://calendar.google.com/calendar/embed?src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&ctz=America%2FLos_Angeles">
+                Public URL for this Calendar
+              </a>
+            </Typography>
+          </Grid>
         </Grid>
         <Grid item container justify="center" xs={12}>
-          <CalendarContainer>
-            <iframe
-              title="sfdc-calendar-iframe"
-              src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FLos_Angeles"
-              width="800"
-              height="600"
-              frameborder="0"
-              scrolling="no"
-            />
-          </CalendarContainer>
+          <iframe
+            title="sfdc-calendar-iframe"
+            src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FLos_Angeles"
+            width="800"
+            height="600"
+            frameborder="0"
+            scrolling="no"
+          />
         </Grid>
       </Grid>
     </Layout>
