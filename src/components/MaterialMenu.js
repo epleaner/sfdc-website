@@ -127,9 +127,12 @@ const ButtonAppBar = props => {
               </Link>
             </Button>
             <Button className={classes.menuButton}>
-              <Link to="/donate" className={classes.link}>
+              <a
+                href="https://sfdharmacollective.org/donate"
+                className={classes.link}
+              >
                 Donate
-              </Link>
+              </a>
             </Button>
             <PopoverMenu
               mainText={"About Us"}
