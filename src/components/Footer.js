@@ -1,6 +1,4 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/core";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "gatsby";
