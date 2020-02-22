@@ -1,20 +1,20 @@
 import React from "react";
+import styled from "@emotion/styled";
 import Layout from "../../components/Layout";
-import Container from "../../components/Container";
-import PageTitle from "../../components/PageTitle";
-import ContactForm from "../../components/ContactForm";
 import SEO from "../../components/SEO";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
-const Contact = ({ data }) => {
+const Leadership = () => {
   return (
     <Layout>
-      <SEO title="Contact" description="Contact description goes here" />
-      <Container>
-        <PageTitle>Contact</PageTitle>
-        <ContactForm />
-      </Container>
+      <SEO
+        title="Leadership"
+        description="San Francisco Dharma Collective Leadership Page"
+      />
+      <Grid container />
     </Layout>
   );
 };
 
-export default Contact;
+export default Leadership;
