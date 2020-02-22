@@ -4,8 +4,6 @@ import SEO from "../components/SEO";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import styled from "@emotion/styled";
-import { css } from "@emotion/core";
 import LotusImagePath from "../../static/images/lotus.png";
 
 const useStyles = makeStyles(theme => ({
