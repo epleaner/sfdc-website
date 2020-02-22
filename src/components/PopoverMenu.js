@@ -23,7 +23,7 @@ const NoStyleLinkDarkSmall = styled(NoStyleLink)`
 `;
 
 const StyledButton = styled(Button)`
-  margin-ight: theme.spacing(1);
+  margin-right: theme.spacing(1);
   font-weight: 100;
   color: #fafafa;
 `;
