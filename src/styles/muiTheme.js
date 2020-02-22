@@ -16,6 +16,14 @@ const MuiTheme = responsiveFontSizes(
       h3: {
         fontSize: "2rem",
         fontWeight: 100
+      },
+      h4: {
+        fontSize: "1.75rem",
+        fontWeight: 100
+      },
+      h5: {
+        fontSize: "1.5rem",
+        fontWeight: 100
       }
     }
   })
