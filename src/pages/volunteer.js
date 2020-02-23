@@ -198,7 +198,9 @@ const Volunteer = () => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h3">Why do you volunteer?</Typography>
+          <Typography align="center" variant="h3">
+            Why do you volunteer?
+          </Typography>
         </Grid>
       </Grid>
     </Layout>
