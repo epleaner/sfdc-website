@@ -23,8 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(1),
-    fontWeight: 100,
-    color: "#fafafa"
+    fontWeight: 100
   },
   title: {
     flexGrow: 1,
@@ -40,12 +39,17 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center"
   },
   headerImage: {
-    maxWidth: "100px",
-    filter: "invert(1)"
+    maxWidth: "100px"
   },
   link: {
     textDecoration: "none",
     color: "inherit"
+  },
+  toolbar: {
+    backgroundColor: theme.palette.backgroundColor
+  },
+  appBar: {
+    backgroundColor: theme.palette.backgroundColor
   }
 }));
 
@@ -98,13 +102,7 @@ const ButtonAppBar = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar
-        css={css`
-          background-color: "#fafafa";
-        `}
-        elevation={0}
-        position="fixed"
-      >
+      <AppBar className={classes.appBar} elevation={0} position="fixed">
         <Toolbar>
           <Typography className={classes.title}>
             <img
@@ -164,7 +162,6 @@ const ButtonAppBar = props => {
           <Hidden mdUp>
             <IconButton
               edge="start"
-              color="inherit"
               aria-label="menu"
               onClick={toggleDrawer("right", true)}
             >
@@ -182,7 +179,7 @@ const ButtonAppBar = props => {
           </Hidden>
         </Toolbar>
       </AppBar>
-      <Toolbar />
+      <Toolbar disableGutters={true} className={classes.toolbar} />
     </div>
   );
 };

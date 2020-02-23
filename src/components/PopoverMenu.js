@@ -13,7 +13,7 @@ import styled from "@emotion/styled";
 const NoStyleLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
-  color: #fafafa;
+  color: black;
   font-weight: 100;
 `;
 

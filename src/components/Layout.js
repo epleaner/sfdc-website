@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { makeStyles } from "@material-ui/core/styles";
 import { Global } from "@emotion/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import MuiTheme from "../styles/muiTheme";
@@ -10,9 +11,11 @@ import Header from "../components/Header";
 
 import { globalStyles } from "../styles/globalStyles.js";
 
-const Root = styled.div`
-  margin-bottom: 25px;
-`;
+const useStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: "#fafafa"
+  }
+}));
 
 const HeaderContainer = styled.div`
   margin: 40px 0;
@@ -23,21 +26,21 @@ const DividerContainer = styled.div`
 `;
 
 const Layout = props => {
+  const classes = useStyles();
+
   return (
     <ThemeProvider theme={MuiTheme}>
-      <Root>
-        <Container>
-          <HeaderContainer>
-            <Header />
-          </HeaderContainer>
-          <div id="main">{props.children}</div>
-          <DividerContainer>
-            <Divider />
-          </DividerContainer>
-          <Footer />
-          <Global styles={globalStyles} />
-        </Container>
-      </Root>
+      <Container className={classes.root}>
+        <HeaderContainer>
+          <Header />
+        </HeaderContainer>
+        <div id="main">{props.children}</div>
+        <DividerContainer>
+          <Divider />
+        </DividerContainer>
+        <Footer />
+        <Global styles={globalStyles} />
+      </Container>
     </ThemeProvider>
   );
 };

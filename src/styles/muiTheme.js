@@ -2,6 +2,9 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
 const MuiTheme = responsiveFontSizes(
   createMuiTheme({
+    palette: {
+      backgroundColor: "#fafafa"
+    },
     typography: {
       fontFamily:
         '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
