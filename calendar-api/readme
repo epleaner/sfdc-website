@@ -26,8 +26,9 @@ recurringEventId
 typography component="h2"
 - mailchimp
 - popover scroll
-- grey gutter
 - layout margins
 - replace spacing with box
 - accessability: heading levels
 – material baseline
+- active menu item
+- animations
