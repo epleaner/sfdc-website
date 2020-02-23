@@ -95,6 +95,24 @@ const AboutUs = () => {
               cleaning products.
             </Typography>
           </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body1">
+              Find us on{" "}
+              <a href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/">
+                Facebook
+              </a>
+              .
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body1">
+              Read{" "}
+              <a href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx">
+                meeting notes
+              </a>{" "}
+              in our Google drive.
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
     </Layout>
