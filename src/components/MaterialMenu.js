@@ -1,12 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { css } from "@emotion/core";
+import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -33,23 +35,27 @@ const useStyles = makeStyles(theme => ({
     marginTop: "10px"
   },
   list: {
-    width: 250
-  },
-  listItem: {
-    textAlign: "center"
+    width: "100vw",
+    paddingTop: "50px"
   },
   headerImage: {
     maxWidth: "100px"
   },
   link: {
     textDecoration: "none",
-    color: "inherit"
+    color: "inherit",
+    textTransform: "uppercase"
   },
   toolbar: {
     backgroundColor: theme.palette.backgroundColor
   },
   appBar: {
     backgroundColor: theme.palette.backgroundColor
+  },
+  closeButton: {
+    position: "absolute",
+    top: "12px",
+    right: "17px"
   }
 }));
 
@@ -57,9 +63,6 @@ const ButtonAppBar = props => {
   const classes = useStyles();
 
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
     right: false
   });
 
@@ -75,29 +78,62 @@ const ButtonAppBar = props => {
   };
 
   const sideList = side => (
-    <div
+    <Grid
+      container
       className={classes.list}
       role="presentation"
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      <List>
-        {[
-          "Home",
-          "Calendar",
-          "Donate",
-          "About Us",
-          "Teachers",
-          "Newsletter",
-          "Volunteer",
-          "Resources"
-        ].map((text, index) => (
-          <ListItem className={classes.listItem} button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
+      <IconButton
+        className={classes.closeButton}
+        edge="start"
+        aria-label="close-menu"
+        onClick={toggleDrawer("right", false)}
+      >
+        <CloseIcon />
+      </IconButton>
+      <Grid item xs={12} container justify="center">
+        <List>
+          {[
+            { name: "Home", path: "/" },
+            { name: "Calendar", path: "/calendar" },
+            { name: "Donate", path: "https://sfdharmacollective.org/donate" },
+            { name: "About Us", path: "/about-us" },
+            { name: "Leadership", path: "/about-us/leadership" },
+            { name: "Contact", path: "/about-us/contact" },
+            { name: "Teachers", path: "/teachers" },
+            { name: "Newsletter", path: "/newsletter" },
+            { name: "Volunteer", path: "/volunteer" },
+            { name: "Resources", path: "/resources" },
+            { name: "From Our Friends", path: "/resources/from-our-friends" },
+            {
+              name: "Local Sits / Centers",
+              path: "/resources/local-sits-centers"
+            },
+            { name: "Podcasts", path: "/resources/podcasts" },
+            {
+              name: "Other Offerings @ SFDC",
+              path: "/resources/other-offerings-sfdc"
+            }
+          ].map(({ name, path }, index) => (
+            <ListItem className={classes.listItem} button key={index}>
+              <Typography variant="h6">
+                {path.startsWith("/") ? (
+                  <Link className={classes.link} to={path}>
+                    {name}
+                  </Link>
+                ) : (
+                  <a className={classes.link} href={path}>
+                    {name}
+                  </a>
+                )}
+              </Typography>
+            </ListItem>
+          ))}
+        </List>
+      </Grid>
+    </Grid>
   );
 
   return (
