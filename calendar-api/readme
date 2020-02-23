@@ -23,3 +23,9 @@ start, end
 recurringEventId
 
 - dark mode
+typography component="h2"
+- mailchimp
+- popover scroll
+- grey gutter
+- layout margins
+- horizontal scroll
