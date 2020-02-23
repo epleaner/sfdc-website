@@ -28,4 +28,6 @@ typography component="h2"
 - popover scroll
 - grey gutter
 - layout margins
-- horizontal scroll
+- replace spacing with box
+- accessability: heading levels
+– material baseline
