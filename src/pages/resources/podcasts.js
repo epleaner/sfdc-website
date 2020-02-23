@@ -106,7 +106,7 @@ const Podcasts = () => {
                   }}
                 />
               </Grid>
-              {index + 1 != podcastData.length && (
+              {index + 1 !== podcastData.length && (
                 <Grid item xs={12}>
                   <Box my={2}>
                     <Divider />
