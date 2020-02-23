@@ -190,12 +190,15 @@ const Volunteer = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <Box my={4}>
-                    <Divider />
+                    <Divider variant="middle" />
                   </Box>
                 </Grid>
               </Grid>
             ))}
           </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h3">Why do you volunteer?</Typography>
         </Grid>
       </Grid>
     </Layout>
