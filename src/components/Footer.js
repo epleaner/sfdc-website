@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 import { Link } from "gatsby";
 
 const Footer = () => (
@@ -23,19 +24,21 @@ const Footer = () => (
       </Grid>
     </Grid>
     <Grid item xs={12}>
-      <Typography align="center" variant="body1">
-        <span>San Francisco Dharma Collective</span>
-        <span> • </span>
-        <span>2701 Folsom Street, San Francisco, CA 94110</span>
-        <span> • </span>
-        <span>415-404-9333</span>
-        <span> • </span>
-        <span>
-          <a href="mailto:sfdharmacollective@gmail.com">
-            sfdharmacollective@gmail.com
-          </a>
-        </span>
-      </Typography>
+      <Box my={3}>
+        <Typography align="center" variant="body1">
+          <span>San Francisco Dharma Collective</span>
+          <span> • </span>
+          <span>2701 Folsom Street, San Francisco, CA 94110</span>
+          <span> • </span>
+          <span>415-404-9333</span>
+          <span> • </span>
+          <span>
+            <a href="mailto:sfdharmacollective@gmail.com">
+              sfdharmacollective@gmail.com
+            </a>
+          </span>
+        </Typography>
+      </Box>
     </Grid>
     <Grid item xs={12}>
       <Typography align="center" variant="body2">
@@ -44,6 +47,7 @@ const Footer = () => (
         for lack of funds. SFDC is wheelchair accessible and has two accessible
         bathroom stalls. We use fragrance-free cleaning products.
       </Typography>
+      <Box mb={6} />
     </Grid>
   </Grid>
 );
