@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { makeStyles } from "@material-ui/core/styles";
 import { Global } from "@emotion/core";
 import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import MuiTheme from "../styles/muiTheme";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
@@ -13,7 +14,8 @@ import { globalStyles } from "../styles/globalStyles.js";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: "#fafafa"
+    backgroundColor: "#fafafa",
+    minHeight: "100vh"
   }
 }));
 
@@ -29,19 +31,21 @@ const Layout = props => {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={MuiTheme}>
-      <Container className={classes.root}>
-        <HeaderContainer>
-          <Header />
-        </HeaderContainer>
-        <div id="main">{props.children}</div>
-        <DividerContainer>
-          <Divider />
-        </DividerContainer>
-        <Footer />
-        <Global styles={globalStyles} />
-      </Container>
-    </ThemeProvider>
+    <CssBaseline>
+      <ThemeProvider theme={MuiTheme}>
+        <Container className={classes.root}>
+          <HeaderContainer>
+            <Header />
+          </HeaderContainer>
+          <div id="main">{props.children}</div>
+          <DividerContainer>
+            <Divider />
+          </DividerContainer>
+          <Footer />
+          <Global styles={globalStyles} />
+        </Container>
+      </ThemeProvider>
+    </CssBaseline>
   );
 };
 
