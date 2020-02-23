@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import MailChimpSignup from "../components/MailChimpSignup";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 const Newsletter = () => {
   return (
@@ -12,9 +12,10 @@ const Newsletter = () => {
         description="San Francisco Dharma Collective Newsletter Page"
       />
       <Grid container>
-        <Grid item xs={12} md={6}>
-          <MailChimpSignup />
-          <div />
+        <Grid item xs={12}>
+          <Typography align="center" variant="h2">
+            Coming soon...
+          </Typography>
         </Grid>
       </Grid>
     </Layout>

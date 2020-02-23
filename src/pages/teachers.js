@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import MaterialCard from "../components/MaterialCard";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 // const teachers = [
 //   { name: "Adreanna Limbach", url: "adreannalimbach.com
@@ -227,9 +227,11 @@ const Teachers = () => {
         title="Teachers"
         description="San Francisco Dharma Collective Teachers Page"
       />
-      <Grid container spacing={3}>
-        <Grid item container justify="center" xs={12} sm={6} md={4} lg={3}>
-          <MaterialCard />
+      <Grid container>
+        <Grid item xs={12}>
+          <Typography align="center" variant="h2">
+            Coming soon...
+          </Typography>
         </Grid>
       </Grid>
     </Layout>
