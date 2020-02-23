@@ -32,7 +32,7 @@ const Layout = props => {
           </HeaderContainer>
           <div id="main">{props.children}</div>
           <DividerContainer>
-            <Divider variant="middle" />
+            <Divider />
           </DividerContainer>
           <Footer />
           <Global styles={globalStyles} />

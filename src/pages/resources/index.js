@@ -52,7 +52,7 @@ const Resources = () => {
           <Grid item xs={12}>
             <Hidden mdUp>
               <Box my={1}>
-                <Divider variant="middle" />
+                <Divider />
               </Box>
             </Hidden>
           </Grid>
@@ -73,7 +73,7 @@ const Resources = () => {
           <Grid item xs={12}>
             <Hidden mdUp>
               <Box my={1}>
-                <Divider variant="middle" />
+                <Divider />
               </Box>
             </Hidden>
           </Grid>
@@ -93,7 +93,7 @@ const Resources = () => {
           <Grid item xs={12}>
             <Hidden mdUp>
               <Box my={1}>
-                <Divider variant="middle" />
+                <Divider />
               </Box>
             </Hidden>
           </Grid>

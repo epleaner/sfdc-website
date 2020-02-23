@@ -190,7 +190,7 @@ const Volunteer = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <Box my={4}>
-                    <Divider variant="middle" />
+                    <Divider />
                   </Box>
                 </Grid>
               </Grid>
