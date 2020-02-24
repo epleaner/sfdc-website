@@ -14,7 +14,6 @@ const Header = props => {
 
   return (
     <div className={classes.header}>
-      s
       <Location>
         {locationProps => <MaterialMenu {...locationProps} />}
       </Location>
