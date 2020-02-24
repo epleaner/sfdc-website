@@ -143,7 +143,7 @@ const LocalSits = () => {
           </Grid>
           <Grid item container xs={12}>
             {sitData.map((data, index) => (
-              <Grid item container xs={12} sm={6}>
+              <Grid key={index} item container xs={12} sm={6}>
                 <Box mb={4}>
                   <Card>
                     <CardContent>
