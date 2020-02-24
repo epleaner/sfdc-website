@@ -118,16 +118,16 @@ const Volunteer = () => {
               <ul>
                 <li>
                   <Typography variant="body1">
-                    – host our classes / sits / teachers
+                    host our classes / sits / teachers
                   </Typography>
                 </li>
                 <li>
                   <Typography variant="body1">
-                    – help with PR / Marketing / Social Media
+                    help with PR / Marketing / Social Media
                   </Typography>
                 </li>
                 <li>
-                  <Typography variant="body1">– website development</Typography>
+                  <Typography variant="body1">website development</Typography>
                 </li>
               </ul>
             </Grid>
