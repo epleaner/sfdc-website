@@ -42,6 +42,7 @@ module.exports = {
     basePath: "/"
   },
   plugins: [
+    "gatsby-plugin-material-ui",
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-transformer-remark`,
