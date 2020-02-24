@@ -135,6 +135,45 @@ const AboutUs = () => {
             </Typography>
           </Grid>
         </Grid>
+        <Grid item xs={12} container>
+          <Grid item xs={12}>
+            <Box my={3}>
+              <Typography align="center" variant="h3">
+                Our Location
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={3}>
+              <Grid item xs={12} container>
+                <Grid item xs={12}>
+                  <Typography align="center" variant="body1">
+                    San Francisco Dharma Collective
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography align="center" variant="body1">
+                    2701 Folsom Street
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography align="center" variant="body1">
+                    San Francisco, CA 94110
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.537979505336!2d-122.41610668477435!3d37.75398197976332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7f589b10caed%3A0x75f9d155a81c5872!2sSF%20Dharma%20Collective!5e0!3m2!1sen!2suk!4v1582538375324!5m2!1sen!2suk"
+              frameborder="0"
+              style={{ border: 0, width: "100%", height: "400px" }}
+              allowfullscreen=""
+              title="Google map of SFDC location"
+            />
+          </Grid>
+        </Grid>
       </Grid>
     </Layout>
   );
