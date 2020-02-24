@@ -29,7 +29,7 @@ typography component="h2"
 - layout margins
 - replace spacing with box
 - accessability: heading levels
-– material baseline
 - active menu item
 - animations
-- sticky footer
+- mobile image rendering weird
+- mobile calendar
