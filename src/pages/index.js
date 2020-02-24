@@ -20,15 +20,8 @@ const Home = () => {
         title="Home"
         description="Home page of San Francisco Dharma Collective"
       />
-      <Grid container direction="row" justify="center" alignItems="flex-start">
-        <Grid
-          sm={12}
-          md={9}
-          item
-          container
-          direction="row"
-          justify="space-between"
-        >
+      <Grid container justify="center">
+        <Grid sm={12} item container>
           <Grid item xs={12}>
             <Box mb={5}>
               <Typography align="center" variant="h1">
