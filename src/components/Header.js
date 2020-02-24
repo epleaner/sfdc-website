@@ -1,19 +1,24 @@
 import React from "react";
-import styled from "@emotion/styled";
-import MaterialMenu from "./MaterialMenu";
 import { Location } from "@reach/router";
+import { makeStyles } from "@material-ui/core/styles";
+import MaterialMenu from "./MaterialMenu";
 
-const HeaderContainer = styled.header`
-  background: ${props => props.theme.colors.background};
-`;
+const useStyles = makeStyles(theme => ({
+  header: {
+    background: "#fafafa"
+  }
+}));
 
 const Header = props => {
+  const classes = useStyles();
+
   return (
-    <HeaderContainer>
+    <div className={classes.header}>
+      s
       <Location>
         {locationProps => <MaterialMenu {...locationProps} />}
       </Location>
-    </HeaderContainer>
+    </div>
   );
 };
 
