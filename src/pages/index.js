@@ -4,10 +4,11 @@ import SEO from "../components/SEO";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 import LotusImagePath from "../../static/images/lotus.png";
 
 const useStyles = makeStyles(theme => ({
-  lotusImage: { maxWidth: "500px" }
+  lotusImage: { maxWidth: "500px", width: "100%", height: "100%" }
 }));
 
 const Home = () => {
@@ -27,12 +28,13 @@ const Home = () => {
           container
           direction="row"
           justify="space-between"
-          spacing={5}
         >
           <Grid item xs={12}>
-            <Typography align="center" variant="h1">
-              Meditate with us.
-            </Typography>
+            <Box mb={5}>
+              <Typography align="center" variant="h1">
+                Meditate with us.
+              </Typography>
+            </Box>
           </Grid>
           <Grid item xs={12}>
             <Typography align="center" variant="h2">
@@ -40,11 +42,13 @@ const Home = () => {
             </Typography>
           </Grid>
           <Grid item container justify="center" xs={12}>
-            <img
-              className={classes.lotusImage}
-              src={LotusImagePath}
-              alt="Lotus"
-            />
+            <Box my={5}>
+              <img
+                className={classes.lotusImage}
+                src={LotusImagePath}
+                alt="Lotus"
+              />
+            </Box>
           </Grid>
           <Grid item xs={12}>
             <Typography align="center" variant="body1">
