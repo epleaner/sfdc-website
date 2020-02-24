@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles({ listItem: { "&::before": { content: "–" } } });
 
@@ -158,7 +159,7 @@ const LocalSits = () => {
                                 key={`${index}${bodyIndex}`}
                               >
                                 <Typography variant="body1">
-                                  – {bodyText}
+                                  {bodyText}
                                 </Typography>
                               </li>
                             ))}
@@ -183,6 +184,11 @@ const LocalSits = () => {
           </Grid>
         </Grid>
         <Grid item xs={12} container>
+          <Grid item xs={12}>
+            <Box my={4}>
+              <Divider />
+            </Box>
+          </Grid>
           <Grid item xs={12}>
             <Box mb={4}>
               <Typography align="center" variant="h2">
