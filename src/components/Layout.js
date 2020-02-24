@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { makeStyles } from "@material-ui/core/styles";
-import { Global } from "@emotion/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MuiTheme from "../styles/muiTheme";
@@ -10,12 +9,12 @@ import Divider from "@material-ui/core/Divider";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-import { globalStyles } from "../styles/globalStyles.js";
-
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: "#fafafa",
-    minHeight: "100vh"
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column"
   }
 }));
 
@@ -42,7 +41,6 @@ const Layout = props => {
             <Divider />
           </DividerContainer>
           <Footer />
-          <Global styles={globalStyles} />
         </Container>
       </ThemeProvider>
     </CssBaseline>
