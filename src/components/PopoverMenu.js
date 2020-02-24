@@ -1,6 +1,7 @@
 import * as React from "react";
 import Menu from "material-ui-popup-state/HoverMenu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import {
   usePopupState,
@@ -9,6 +10,12 @@ import {
 } from "material-ui-popup-state/hooks";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
+
+const useStyles = makeStyles({
+  active: {
+    borderBottom: "thin solid"
+  }
+});
 
 const NoStyleLink = styled(Link)`
   text-decoration: none;
@@ -29,8 +36,8 @@ const StyledButton = styled(Button)`
 `;
 
 const MenuPopupState = props => {
-  const { mainText, links } = props;
-
+  const { mainText, links, pathname } = props;
+  const classes = useStyles();
   const createTextLink = text =>
     `/${text
       .toLowerCase()
@@ -45,7 +52,12 @@ const MenuPopupState = props => {
   return (
     <React.Fragment>
       <StyledButton>
-        <NoStyleLink {...bindHover(popupState)} to={createTextLink(mainText)}>
+        <NoStyleLink
+          className={`${classes.link} ${pathname === createTextLink(mainText) &&
+            classes.active}`}
+          {...bindHover(popupState)}
+          to={createTextLink(mainText)}
+        >
           {mainText}
         </NoStyleLink>
       </StyledButton>
@@ -55,15 +67,21 @@ const MenuPopupState = props => {
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         transformOrigin={{ vertical: "top", horizontal: "center" }}
       >
-        {links.map((text, index) => (
-          <MenuItem key={index} onClick={popupState.close}>
-            <NoStyleLinkDarkSmall
-              to={`${createTextLink(mainText)}/${createTextLink(text)}`}
-            >
-              {text}
-            </NoStyleLinkDarkSmall>
-          </MenuItem>
-        ))}
+        {links.map((text, index) => {
+          const linkText = `${createTextLink(mainText)}${createTextLink(text)}`;
+
+          return (
+            <MenuItem key={index} onClick={popupState.close}>
+              <NoStyleLinkDarkSmall
+                to={linkText}
+                className={`${classes.link} ${pathname === linkText &&
+                  classes.active}`}
+              >
+                {text}
+              </NoStyleLinkDarkSmall>
+            </MenuItem>
+          );
+        })}
       </Menu>
     </React.Fragment>
   );

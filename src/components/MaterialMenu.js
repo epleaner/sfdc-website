@@ -54,11 +54,17 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     top: "12px",
     right: "17px"
+  },
+  active: {
+    borderBottom: "thin solid"
   }
 }));
 
 const ButtonAppBar = props => {
   const classes = useStyles();
+  const {
+    location: { pathname }
+  } = props;
 
   const [state, setState] = React.useState({
     right: false
@@ -116,7 +122,10 @@ const ButtonAppBar = props => {
             }
           ].map(({ name, path }, index) => (
             <ListItem className={classes.listItem} button key={index}>
-              <Typography variant="h6">
+              <Typography
+                className={pathname === path && classes.active}
+                variant="h6"
+              >
                 {path.startsWith("/") ? (
                   <Link className={classes.link} to={path}>
                     {name}
@@ -147,12 +156,20 @@ const ButtonAppBar = props => {
           </Typography>
           <Hidden smDown>
             <Button className={classes.menuButton}>
-              <Link to="/" className={classes.link}>
+              <Link
+                to="/"
+                className={`${classes.link} ${pathname === "/" &&
+                  classes.active}`}
+              >
                 Home
               </Link>
             </Button>
             <Button className={classes.menuButton}>
-              <Link to="/calendar" className={classes.link}>
+              <Link
+                to="/calendar"
+                className={`${classes.link} ${pathname === "/calendar" &&
+                  classes.active}`}
+              >
                 Calendar
               </Link>
             </Button>
@@ -165,26 +182,40 @@ const ButtonAppBar = props => {
               </a>
             </Button>
             <PopoverMenu
+              pathname={pathname}
               mainText={"About Us"}
               links={["Leadership", "Contact"]}
             />
             <Button className={classes.menuButton}>
-              <Link to="/teachers" className={classes.link}>
+              <Link
+                to="/teachers"
+                className={`${classes.link} ${pathname === "/teachers" &&
+                  classes.active}`}
+              >
                 Teachers
               </Link>
             </Button>
             <Button className={classes.menuButton}>
-              <Link to="/newsletter" className={classes.link}>
+              <Link
+                to="/newsletter"
+                className={`${classes.link} ${pathname === "/newsletter" &&
+                  classes.active}`}
+              >
                 Newsletter
               </Link>
             </Button>
             <Button className={classes.menuButton}>
-              <Link to="/volunteer" className={classes.link}>
+              <Link
+                to="/volunteer"
+                className={`${classes.link} ${pathname === "/volunteer" &&
+                  classes.active}`}
+              >
                 Volunteer
               </Link>
             </Button>
             <PopoverMenu
               mainText={"Resources"}
+              pathname={pathname}
               links={[
                 "From Our Friends",
                 "Local Sits / Centers",
