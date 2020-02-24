@@ -13,7 +13,7 @@ import styled from "@emotion/styled";
 
 const useStyles = makeStyles({
   active: {
-    borderBottom: "thin solid"
+    borderBottom: "thin solid #5ac8cd"
   }
 });
 

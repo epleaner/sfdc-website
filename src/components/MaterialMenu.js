@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
     right: "17px"
   },
   active: {
-    borderBottom: "thin solid"
+    borderBottom: "thin solid #5ac8cd"
   }
 }));
 
@@ -148,11 +148,13 @@ const ButtonAppBar = props => {
       <AppBar className={classes.appBar} elevation={0} position="fixed">
         <Toolbar>
           <Typography className={classes.title}>
-            <img
-              className={classes.headerImage}
-              src={HeaderImagePath}
-              alt="Header"
-            />
+            <Link to="/">
+              <img
+                className={classes.headerImage}
+                src={HeaderImagePath}
+                alt="Header"
+              />
+            </Link>
           </Typography>
           <Hidden smDown>
             <Button className={classes.menuButton}>
