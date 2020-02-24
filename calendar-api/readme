@@ -22,14 +22,17 @@ location
 start, end
 recurringEventId
 
-- dark mode
-typography component="h2"
+- typography component="h2"
 - mailchimp
 - popover scroll
 - layout margins
-- replace spacing with box
 - accessability: heading levels
 - active menu item
 - animations
 - mobile image rendering weird
 - mobile calendar
+- sub menu in mobile
+
+nice to have
+- https://www.gatsbyjs.org/docs/adding-page-transitions-with-plugin-transition-link/
+- dark mode
