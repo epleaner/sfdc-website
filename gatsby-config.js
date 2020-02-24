@@ -42,8 +42,6 @@ module.exports = {
     basePath: "/"
   },
   plugins: [
-    `gatsby-plugin-emotion`,
-    "gatsby-plugin-theme-ui",
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-transformer-remark`,
