@@ -41,8 +41,8 @@ calendar.events.list(
           console.log(
             "Event name: %s, Creator name: %s, Create date: %s",
             event.summary,
-            event.creator.displayName,
-            event.start.date
+            event.creator && event.creator.displayName,
+            event.start && event.start.date
           );
         }
       }

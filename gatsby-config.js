@@ -11,7 +11,10 @@ try {
     }
   };
 } finally {
-  const { spaceId, accessToken } = contentfulConfig.production;
+  const {
+    spaceId,
+    accessToken
+  } = contentfulConfig.production;
   if (!spaceId || !accessToken) {
     throw new Error(
       "Contentful space ID and access token need to be provided."
@@ -20,23 +23,22 @@ try {
 }
 
 module.exports = {
-  // // for avoiding CORS while developing Netlify Functions locally
-  // // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-  // developMiddleware: app => {
-  //   app.use(
-  //     "/.netlify/functions/",
-  //     proxy({
-  //       target: "http://localhost:9000",
-  //       pathRewrite: {
-  //         "/.netlify/functions/": ""
-  //       }
-  //     })
-  //   );
-  // },
+  // for avoiding CORS while developing Netlify Functions locally
+  // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      proxy.createProxyMiddleware({
+        target: "http://localhost:9000",
+        pathRewrite: {
+          "/.netlify/functions/": ""
+        },
+      })
+    );
+  },
   siteMetadata: {
     title: "San Francisco Dharma Collective",
-    description:
-      "San Francisco Dharma Collective's website: The SF Dharma Collective is a community-led sangha. Meditate with us.",
+    description: "San Francisco Dharma Collective's website: The SF Dharma Collective is a community-led sangha. Meditate with us.",
     siteUrl: "https://sfdharmacollective.org",
     image: "/images/share.jpg",
     basePath: "/"
@@ -47,8 +49,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          {
+        plugins: [{
             resolve: `gatsby-remark-prismjs`
           },
           `gatsby-remark-autolink-headers`,
@@ -66,10 +67,9 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     {
       resolve: "gatsby-source-contentful",
-      options:
-        process.env.NODE_ENV === "development"
-          ? contentfulConfig.development
-          : contentfulConfig.production
+      options: process.env.NODE_ENV === "development" ?
+        contentfulConfig.development :
+        contentfulConfig.production
     },
     {
       resolve: "gatsby-plugin-google-analytics",
