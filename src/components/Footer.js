@@ -1,19 +1,15 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "gatsby";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import {makeStyles} from '@material-ui/core/styles';
+import {Link} from 'gatsby';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   footer: {
-    marginTop: "auto"
-    // backgroundColor:
-    //   theme.palette.type === "dark"
-    //     ? theme.palette.grey[800]
-    //     : theme.palette.grey[200]
-  }
-}));
+    marginTop: 'auto',
+  },
+});
 
 const Footer = () => {
   const classes = useStyles();
@@ -27,21 +23,17 @@ const Footer = () => {
       alignItems="center"
     >
       <Grid item xs={12} container direction="row" justify="center">
-        <Grid item xs={12} sm={2}>
-          <Typography variant="body1" align="center">
-            <Link to="/teachers">Teachers</Link>
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          <Typography variant="body1" align="center">
-            <Link to="/about-us">About Us</Link>
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          <Typography variant="body1" align="center">
-            <Link to="/donate">Donate</Link>
-          </Typography>
-        </Grid>
+        {[
+          {label: 'Teachers', linkTo: '/teachers'},
+          {label: 'Abous Us', linkTo: '/about-us'},
+          {label: 'Donate', linkTo: '/donate'},
+        ].map(({label, linkTo}) => (
+          <Grid item xs={12} sm={2} key={label}>
+            <Typography variant="body1" align="center">
+              <Link to={linkTo}>{label}</Link>
+            </Typography>
+          </Grid>
+        ))}
       </Grid>
       <Grid item xs={12}>
         <Box my={3}>
