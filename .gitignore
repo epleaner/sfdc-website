@@ -6,3 +6,4 @@ public/
 .contentful.json
 .cache
 bin
+functions/
