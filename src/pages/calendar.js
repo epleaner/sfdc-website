@@ -1,9 +1,9 @@
-import React from "react";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import React from 'react';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 const Calendar = () => {
   return (
@@ -36,7 +36,7 @@ const Calendar = () => {
               src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FLos_Angeles"
               width="800"
               height="600"
-              frameborder="0"
+              frameBorder="0"
               scrolling="no"
             />
           </Box>

@@ -1,21 +1,21 @@
-import React from "react";
-import { Location } from "@reach/router";
-import { makeStyles } from "@material-ui/core/styles";
-import MaterialMenu from "./MaterialMenu";
+import React from 'react';
+import {Location} from '@reach/router';
+import {makeStyles} from '@material-ui/core/styles';
+import MaterialMenu from './MaterialMenu';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   header: {
-    background: "#fafafa"
-  }
-}));
+    background: '#fafafa',
+  },
+});
 
-const Header = props => {
+const Header = (props) => {
   const classes = useStyles();
 
   return (
     <div className={classes.header}>
       <Location>
-        {locationProps => <MaterialMenu {...locationProps} />}
+        {(locationProps) => <MaterialMenu {...locationProps} />}
       </Location>
     </div>
   );

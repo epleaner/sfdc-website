@@ -1,30 +1,30 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import MuiTheme from "../styles/muiTheme";
-import Container from "@material-ui/core/Container";
-import Divider from "@material-ui/core/Divider";
-import Box from "@material-ui/core/Box";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import MuiTheme from '../styles/muiTheme';
+import Container from '@material-ui/core/Container';
+import Divider from '@material-ui/core/Divider';
+import Box from '@material-ui/core/Box';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-    backgroundColor: "#fafafa",
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column"
+    backgroundColor: '#fafafa',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
   },
   header: {
-    margin: "40px 0"
+    margin: '40px 0',
   },
   divider: {
-    margin: "40px 0"
-  }
-}));
+    margin: '40px 0',
+  },
+});
 
-const Layout = props => {
+const Layout = (props) => {
   const classes = useStyles();
 
   return (
@@ -34,7 +34,7 @@ const Layout = props => {
           <Box mb={3}>
             <Header />
           </Box>
-          <div id="main">{props.children}</div>
+          <main id="main">{props.children}</main>
           <Box my={3}>
             <Divider className={classes.divider} />
           </Box>
