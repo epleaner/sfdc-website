@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Fade from '@material-ui/core/Fade';
+import MenuItem from './MenuItem';
 
 const useStyles = makeStyles({
   hidden: {
@@ -27,9 +27,6 @@ const useStyles = makeStyles({
     color: 'inherit',
     textTransform: 'uppercase',
   },
-  nested: {
-    paddingLeft: '29px',
-  },
   active: {
     borderBottom: 'thin solid #5ac8cd',
   },
@@ -48,21 +45,7 @@ const ExpandingMenu = (props) => {
   return (
     <>
       <ListItem button key={mainItem.name}>
-        <Typography
-          className={currentPath === mainItem.path ? classes.active : ''}
-          variant="h6"
-          component="li"
-        >
-          {mainItem.path.startsWith('/') ? (
-            <Link className={classes.link} to={mainItem.path}>
-              {mainItem.name}
-            </Link>
-          ) : (
-            <a className={classes.link} href={mainItem.path}>
-              {mainItem.name}
-            </a>
-          )}
-        </Typography>
+        <MenuItem currentPath={currentPath} item={mainItem} />
         <IconButton
           className={`
           ${classes.icon}
@@ -77,23 +60,9 @@ const ExpandingMenu = (props) => {
         </IconButton>
       </ListItem>
       {isExpanded ?
-        nestedItems.map((nestItem) => (
-          <ListItem button key={nestItem.name} className={classes.nested}>
-            <Typography
-              className={currentPath === nestItem.path ? classes.active : ''}
-              variant="h6"
-              component="li"
-            >
-              {nestItem.path.startsWith('/') ? (
-                  <Link className={classes.link} to={nestItem.path}>
-                    {nestItem.name}
-                  </Link>
-                ) : (
-                  <a className={classes.link} href={nestItem.path}>
-                    {nestItem.name}
-                  </a>
-                )}
-            </Typography>
+        nestedItems.map((nestedItem) => (
+          <ListItem button key={nestedItem.name}>
+            <MenuItem currentPath={currentPath} item={nestedItem} />
           </ListItem>
         )) :
         null}

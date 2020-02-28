@@ -8,25 +8,17 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Drawer from '@material-ui/core/Drawer';
 import ExpandingMenu from './ExpandingMenu';
-import {Link} from 'gatsby';
+import MenuItem from './MenuItem';
 
 const useStyles = makeStyles({
   list: {
     width: '100vw',
     paddingTop: '50px',
   },
-  link: {
-    textDecoration: 'none',
-    color: 'inherit',
-    textTransform: 'uppercase',
-  },
   closeButton: {
     position: 'absolute',
     top: '12px',
     right: '17px',
-  },
-  active: {
-    borderBottom: 'thin solid #5ac8cd',
   },
 });
 
@@ -92,21 +84,7 @@ const DrawerMenu = (props) => {
                 />
               ) : (
                 <ListItem button key={name}>
-                  <Typography
-                    className={currentPath === path ? classes.active : ''}
-                    variant="h6"
-                    component="li"
-                  >
-                    {path.startsWith('/') ? (
-                      <Link className={classes.link} to={path}>
-                        {name}
-                      </Link>
-                    ) : (
-                      <a className={classes.link} href={path}>
-                        {name}
-                      </a>
-                    )}
-                  </Typography>
+                  <MenuItem currentPath={currentPath} item={{name, path}} />
                 </ListItem>
               ),
             )}
