@@ -1,84 +1,79 @@
-import * as React from "react";
-import Menu from "material-ui-popup-state/HoverMenu";
-import MenuItem from "@material-ui/core/MenuItem";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import * as React from 'react';
+import Menu from 'material-ui-popup-state/HoverMenu';
+import MenuItem from '@material-ui/core/MenuItem';
+import {makeStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import {
   usePopupState,
   bindHover,
-  bindMenu
-} from "material-ui-popup-state/hooks";
-import { Link } from "gatsby";
-import styled from "@emotion/styled";
+  bindMenu,
+} from 'material-ui-popup-state/hooks';
+import {Link} from 'gatsby';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   active: {
-    borderBottom: "thin solid #5ac8cd"
-  }
-});
+    borderBottom: 'thin solid #5ac8cd',
+  },
+  link: {
+    textDecoration: 'none',
+    textTransform: 'uppercase',
+    color: 'black',
+    fontWeight: 100,
+  },
+  small: {
+    fontSize: '0.8em',
+  },
+  button: {
+    marginRight: theme.spacing(1),
+    fontWeight: 100,
+    color: '#fafafa',
+  },
+}));
 
-const NoStyleLink = styled(Link)`
-  text-decoration: none;
-  text-transform: uppercase;
-  color: black;
-  font-weight: 100;
-`;
-
-const NoStyleLinkDarkSmall = styled(NoStyleLink)`
-  font-size: 0.8em;
-  color: black;
-`;
-
-const StyledButton = styled(Button)`
-  margin-right: theme.spacing(1);
-  font-weight: 100;
-  color: #fafafa;
-`;
-
-const MenuPopupState = props => {
-  const { mainText, links, pathname } = props;
+const MenuPopupState = (props) => {
+  const {mainText, links, pathname} = props;
   const classes = useStyles();
-  const createTextLink = text =>
+  const createTextLink = (text) =>
     `/${text
-      .toLowerCase()
-      .replace(/[^\w\s]/gi, "")
-      .replace(/\s\s*/g, "-")}`;
+        .toLowerCase()
+        .replace(/[^\w\s]/gi, '')
+        .replace(/\s\s*/g, '-')}`;
 
   const popupState = usePopupState({
-    variant: "popover",
-    popupId: "popupMenu"
+    variant: 'popover',
+    popupId: 'popupMenu',
   });
 
   return (
     <React.Fragment>
-      <StyledButton>
-        <NoStyleLink
+      <Button className={classes.button}>
+        <Link
           className={`${classes.link} ${pathname === createTextLink(mainText) &&
             classes.active}`}
           {...bindHover(popupState)}
           to={createTextLink(mainText)}
         >
           {mainText}
-        </NoStyleLink>
-      </StyledButton>
+        </Link>
+      </Button>
       <Menu
         {...bindMenu(popupState)}
         getContentAnchorEl={null}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        transformOrigin={{ vertical: "top", horizontal: "center" }}
+        anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+        transformOrigin={{vertical: 'top', horizontal: 'center'}}
       >
         {links.map((text, index) => {
           const linkText = `${createTextLink(mainText)}${createTextLink(text)}`;
 
           return (
             <MenuItem key={index} onClick={popupState.close}>
-              <NoStyleLinkDarkSmall
+              <Link
                 to={linkText}
-                className={`${classes.link} ${pathname === linkText &&
-                  classes.active}`}
+                className={`${classes.link} ${classes.small} ${pathname ===
+                  linkText && classes.active}`}
               >
                 {text}
-              </NoStyleLinkDarkSmall>
+              </Link>
             </MenuItem>
           );
         })}
