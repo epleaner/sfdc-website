@@ -1,10 +1,10 @@
 import moment from 'moment';
 
-const isAfterToday = (e) => moment(e.start).isAfter(moment().startOf('day'));
+const isAfterToday = (e) => e.start.isAfter(moment().startOf('day'));
 
-const descendingStartDate = (a, b) => moment(a.start).isAfter(moment(b.start));
+const descendingStartDate = (a, b) => a.start.isAfter(b.start);
 
-const getReadableMonth = (e) => moment(e.start).format('MMMM');
+const getReadableMonth = (e) => e.start.format('MMMM');
 
 const getEventsByMonth = (unsortedEvents) => {
   const futureEvents = unsortedEvents
@@ -35,8 +35,9 @@ const parseEvents = (eventData) => {
   activeEvents.forEach(
       ({summary, start, end, description, recurrence, id}) => {
         const pluckedEvent = {summary, start, end, description, id, recurrence};
-        pluckedEvent.start = pluckedEvent.start.dateTime;
-        pluckedEvent.end = pluckedEvent.end.dateTime;
+        pluckedEvent.start = moment(pluckedEvent.start.dateTime);
+        pluckedEvent.end = moment(pluckedEvent.end.dateTime);
+
       pluckedEvent.recurrence ?
         recurringEvents.push(pluckedEvent) :
         singleEvents.push(pluckedEvent);

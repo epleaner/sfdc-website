@@ -8,11 +8,9 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import Event from './Event.js';
 
 const useStyles = makeStyles((theme) => ({
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
   divider: {
     margin: `${theme.spacing(2)}px 0`,
   },
@@ -40,31 +38,10 @@ export default function EventList(props) {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="article" disablePadding className={classes.eventList}>
           {events.map((event) => (
-            <>
-              <ListItem key={event.id} button className={classes.nested}>
-                <ListItemText
-                  primary={event.summary}
-                  secondary={
-                    <>
-                      <Typography
-                        component="span"
-                        variant="body2"
-                        color="textPrimary"
-                      >
-                        {event.start} - {event.end}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        dangerouslySetInnerHTML={{
-                          __html: `${event.description}`,
-                        }}
-                      />
-                    </>
-                  }
-                />
-              </ListItem>
+            <React.Fragment key={event.id}>
+              <Event {...event} />
               <Divider className={classes.divider} />
-            </>
+            </React.Fragment>
           ))}
         </List>
       </Collapse>
