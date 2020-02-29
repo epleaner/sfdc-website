@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {parseEvents} from '../utils/eventParser';
 import MonthList from './MonthList';
+import RecurringEventsList from './RecurringEventsList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,25 +29,45 @@ const UpcomingEvents = () => {
         });
   }, []);
 
+  const {singleEventsByMonth, recurringEvents} = eventData;
+
   let headerText;
   if (isLoading) headerText = 'Loading upcoming events...';
-  else if (eventData.length === 0) headerText = 'No events found';
+  else if (singleEventsByMonth.length === 0) headerText = 'No events found';
   else headerText = 'Upcoming Events';
 
   return (
-    <List
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader>
-          <Box mb={2}>
-            <Typography variant={'h3'}>{headerText}</Typography>
-          </Box>
-        </ListSubheader>
-      }
-      className={classes.root}
-    >
-      {!isLoading && <MonthList eventData={eventData} />}
-    </List>
+    <>
+      <List
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader>
+            <Box mb={2}>
+              <Typography variant={'h3'}>{headerText}</Typography>
+            </Box>
+          </ListSubheader>
+        }
+        className={classes.root}
+      >
+        {!isLoading && <MonthList eventData={singleEventsByMonth} />}
+      </List>
+
+      {!isLoading && recurringEvents.length > 0 && (
+        <List
+          aria-labelledby="nested-list-subheader"
+          subheader={
+            <ListSubheader>
+              <Box mb={2}>
+                <Typography variant={'h3'}>Recurring events</Typography>
+              </Box>
+            </ListSubheader>
+          }
+          className={classes.root}
+        >
+          <RecurringEventsList eventData={recurringEvents} />
+        </List>
+      )}
+    </>
   );
 };
 
