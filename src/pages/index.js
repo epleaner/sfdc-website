@@ -1,14 +1,16 @@
-import React from "react";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import LotusImagePath from "../../static/images/lotus.png";
+import React from 'react';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import {makeStyles} from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Divider from '@material-ui/core/Divider';
+import LotusImagePath from '../../static/images/lotus.png';
+import UpcomingEvents from '../components/UpcomingEvents';
 
-const useStyles = makeStyles(theme => ({
-  lotusImage: { maxWidth: "500px", width: "100%", height: "100%" }
+const useStyles = makeStyles((theme) => ({
+  lotusImage: {maxWidth: '500px', width: '100%', height: '100%'},
 }));
 
 const Home = () => {
@@ -51,6 +53,15 @@ const Home = () => {
               and has two accessible bathroom stalls. We use fragrance-free
               cleaning products.
             </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Box my={5}>
+              <Divider />
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <UpcomingEvents />
           </Grid>
         </Grid>
       </Grid>

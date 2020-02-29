@@ -1,16 +1,10 @@
-import React, {useEffect} from 'react';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const Newsletter = () => {
-  useEffect(() => {
-    fetch('/.netlify/functions/google-calendar')
-        .then((response) => response.json())
-        .then(console.log);
-  }, []);
-
   return (
     <Layout>
       <SEO
