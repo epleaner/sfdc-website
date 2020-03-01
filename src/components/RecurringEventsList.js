@@ -1,13 +1,27 @@
 import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import Divider from '@material-ui/core/divider';
+import EventListContainer from './EventListContainer';
 import Event from './Event';
+
+const useStyles = makeStyles((theme) => ({
+  divider: {
+    margin: `${theme.spacing(2)}px 0`,
+  },
+}));
 
 export default function RecurringEventsList(props) {
   const {eventData} = props;
+  const classes = useStyles();
 
-  return (
-    <>
-      {eventData.length > 0 &&
-        eventData.map((event) => <Event key={event.id} {...event} />)}
-    </>
-  );
+  return eventData ? (
+    <EventListContainer headerText="Recurring events">
+      {eventData.map((event) => (
+        <React.Fragment key={event.id}>
+          <Event {...event} />
+          <Divider className={classes.divider} />
+        </React.Fragment>
+      ))}
+    </EventListContainer>
+  ) : null;
 }

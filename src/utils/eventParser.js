@@ -76,4 +76,68 @@ const parseEvents = (eventData) => {
   };
 };
 
-export {parseEvents};
+const humanReadableRecurrance = (recurranceRules) => {
+  if (!recurranceRules.freq) return '';
+
+  const daysOfWeekStrings = {
+    mo: 'Monday',
+    tu: 'Tuesday',
+    we: 'Wednesday',
+    th: 'Thursday',
+    fr: 'Friday',
+    sa: 'Saturday',
+    su: 'Sunday',
+  };
+
+  const messageParts = [];
+  let measure = '';
+
+  if (recurranceRules.count) {
+    messageParts.push(recurranceRules.count);
+  } else messageParts.push('Every');
+
+  const dayRules = recurranceRules.byday.split(',');
+
+  if (dayRules.length > 1) {
+    measure += dayRules.map((rule) => daysOfWeekStrings[rule]).join(', ');
+  } else {
+    const [full, ordinal, day] = recurranceRules.byday.match(/(-?\d)?([a-z]+)/);
+
+    if (ordinal) {
+      measure +=
+        ordinal === '-1' ? 'last ' : `${moment.localeData().ordinal(ordinal)} `;
+    }
+
+    if (day) {
+      measure += `${daysOfWeekStrings[day]}`;
+    }
+  }
+
+  if (recurranceRules.count) measure += 's';
+
+  messageParts.push(measure);
+
+  if (recurranceRules.freq === 'monthly') messageParts.push('of the month');
+
+  if (recurranceRules.until) {
+    messageParts.push(
+        `until ${moment(recurranceRules.until.toUpperCase())
+            .add(1, 'months')
+            .format('MMMM YYYY')}`,
+    );
+  }
+  return messageParts.join(' ') + ', ';
+};
+
+const humanReadableDateTime = (start, end) =>
+  `${start.format('dddd, MMMM Do, h:mma')} - ${end.format('h:mma')}`;
+
+const humanReadableTime = (start, end) =>
+  `${start.format('h:mma')} - ${end.format('h:mma')}`;
+
+export {
+  parseEvents,
+  humanReadableRecurrance,
+  humanReadableDateTime,
+  humanReadableTime,
+};

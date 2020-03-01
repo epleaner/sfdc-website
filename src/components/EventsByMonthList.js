@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function EventList(props) {
   const {month, events} = props;
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const classes = useStyles();
 
   const handleClick = () => {
     setOpen(!open);
