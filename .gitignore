@@ -6,4 +6,4 @@ public/
 .contentful.json
 .cache
 bin
-functions/
+functions/google-calendar.js
