@@ -7,3 +7,4 @@ public/
 .cache
 bin
 functions/google-calendar.js
+events_data.json
