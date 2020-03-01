@@ -1,22 +1,3 @@
-let contentfulConfig;
-try {
-  contentfulConfig = require('./.contentful');
-} catch (e) {
-  contentfulConfig = {
-    production: {
-      spaceId: process.env.SPACE_ID,
-      accessToken: process.env.ACCESS_TOKEN,
-    },
-  };
-} finally {
-  const {spaceId, accessToken} = contentfulConfig.production;
-  if (!spaceId || !accessToken) {
-    throw new Error(
-        'Contentful space ID and access token need to be provided.',
-    );
-  }
-}
-
 module.exports = {
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
@@ -50,25 +31,10 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
           },
           `gatsby-remark-autolink-headers`,
-          {
-            resolve: `gatsby-remark-images-contentful`,
-            options: {
-              maxWidth: 650,
-              backgroundColor: 'white',
-              linkImagesToOriginal: false,
-            },
-          },
         ],
       },
     },
     `gatsby-plugin-catch-links`,
-    {
-      resolve: 'gatsby-source-contentful',
-      options:
-        process.env.NODE_ENV === 'development' ?
-          contentfulConfig.development :
-          contentfulConfig.production,
-    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
