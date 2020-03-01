@@ -56,7 +56,7 @@ const Home = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <Box my={5}>
+            <Box my={3}>
               <Divider />
             </Box>
           </Grid>

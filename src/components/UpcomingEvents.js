@@ -42,7 +42,7 @@ const UpcomingEvents = () => {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader>
-            <Box mb={2}>
+            <Box mb={3}>
               <Typography variant={'h3'}>{headerText}</Typography>
             </Box>
           </ListSubheader>

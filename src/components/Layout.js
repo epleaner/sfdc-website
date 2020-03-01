@@ -4,7 +4,6 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiTheme from '../styles/muiTheme';
 import Container from '@material-ui/core/Container';
-import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -35,9 +34,6 @@ const Layout = (props) => {
             <Header />
           </Box>
           <main id="main">{props.children}</main>
-          <Box my={3}>
-            <Divider className={classes.divider} />
-          </Box>
           <Footer />
         </Container>
       </ThemeProvider>

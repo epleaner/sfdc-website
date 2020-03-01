@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Divider from '@material-ui/core/Divider';
 import {makeStyles} from '@material-ui/core/styles';
 import {Link} from 'gatsby';
 
@@ -22,6 +23,11 @@ const Footer = () => {
       justify="center"
       alignItems="center"
     >
+      <Grid item xs={12}>
+        <Box mb={3}>
+          <Divider className={classes.divider} />
+        </Box>
+      </Grid>
       <Grid item xs={12} container direction="row" justify="center">
         {[
           {label: 'Teachers', linkTo: '/teachers'},
