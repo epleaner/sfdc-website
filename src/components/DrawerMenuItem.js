@@ -1,10 +1,9 @@
 import React from 'react';
 import {Link} from 'gatsby';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   link: {
     textDecoration: 'none',
     color: 'inherit',
@@ -13,42 +12,37 @@ const useStyles = makeStyles((theme) => ({
   active: {
     borderBottom: 'thin solid #5ac8cd',
   },
-  menuButton: {
-    marginRight: theme.spacing(1),
-    fontWeight: 100,
+  small: {
+    fontSize: '.9rem',
   },
-}));
+});
 
 const MenuItem = (props) => {
   const {
     currentPath,
     item: {name, path},
+    small,
   } = props;
 
   const classes = useStyles();
 
   return (
     <Typography
-      className={currentPath === path ? classes.active : ''}
+      className={[
+        currentPath === path && classes.active,
+        small && classes.small,
+      ].join(' ')}
       variant="h6"
       component="li"
     >
       {path.startsWith('/') ? (
-        <Button className={classes.menuButton}>
-          <Link
-            to={path}
-            className={`${classes.link} ${currentPath === '/' &&
-              classes.active}`}
-          >
-            {name}
-          </Link>
-        </Button>
+        <Link className={classes.link} to={path}>
+          {name}
+        </Link>
       ) : (
-        <Button className={classes.menuButton}>
-          <a href={path} className={classes.link}>
-            {name}
-          </a>
-        </Button>
+        <a className={classes.link} href={path}>
+          {name}
+        </a>
       )}
     </Typography>
   );

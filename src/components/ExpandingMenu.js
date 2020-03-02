@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MenuItem from './MenuItem';
+import DrawerMenuItem from './DrawerMenuItem';
 
 const useStyles = makeStyles({
   hidden: {
@@ -45,7 +45,7 @@ const ExpandingMenu = (props) => {
   return (
     <>
       <ListItem button key={mainItem.name}>
-        <MenuItem currentPath={currentPath} item={mainItem} />
+        <DrawerMenuItem currentPath={currentPath} item={mainItem} />
         <IconButton
           className={`
           ${classes.icon}
@@ -62,7 +62,11 @@ const ExpandingMenu = (props) => {
       {isExpanded ?
         nestedItems.map((nestedItem) => (
           <ListItem button key={nestedItem.name}>
-            <MenuItem currentPath={currentPath} item={nestedItem} />
+            <DrawerMenuItem
+              small
+              currentPath={currentPath}
+              item={nestedItem}
+            />
           </ListItem>
         )) :
         null}

@@ -8,7 +8,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Drawer from '@material-ui/core/Drawer';
 import ExpandingMenu from './ExpandingMenu';
-import MenuItem from './MenuItem';
+import DrawerMenuItem from './DrawerMenuItem';
 
 const useStyles = makeStyles({
   list: {
@@ -84,7 +84,10 @@ const DrawerMenu = (props) => {
                 />
               ) : (
                 <ListItem button key={name}>
-                  <MenuItem currentPath={currentPath} item={{name, path}} />
+                  <DrawerMenuItem
+                    currentPath={currentPath}
+                    item={{name, path}}
+                  />
                 </ListItem>
               ),
             )}

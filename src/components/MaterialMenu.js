@@ -13,14 +13,11 @@ import withWidth from '@material-ui/core/withWidth';
 import HeaderImagePath from '../../static/images/sfdc-header.png';
 import PopoverMenu from './PopoverMenu';
 import DrawerMenu from './DrawerMenu';
+import MenuItem from './MenuItem';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(1),
-    fontWeight: 100,
   },
   title: {
     flexGrow: 1,
@@ -47,6 +44,34 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: 'thin solid #5ac8cd',
   },
 }));
+
+const menuItems = [
+  {name: 'Home', path: '/'},
+  {
+    name: 'Calendar',
+    path: '/calendar',
+    nested: ['Upcoming & Recurring Events'],
+  },
+  {name: 'Donate', path: 'https://sfdharmacollective.org/donate'},
+  {
+    name: 'About Us',
+    path: '/about-us',
+    nested: ['Leadership', 'Contact'],
+  },
+  {name: 'Teachers', path: '/teachers'},
+  {name: 'Newsletter', path: '/newsletter'},
+  {name: 'Volunteer', path: '/volunteer'},
+  {
+    name: 'Resources',
+    path: '/resources',
+    nested: [
+      'From Our Friends',
+      'Local Centers',
+      'Podcasts',
+      'Other Offerings',
+    ],
+  },
+];
 
 const MaterialMenu = (props) => {
   const {
@@ -82,70 +107,22 @@ const MaterialMenu = (props) => {
             </Link>
           </Typography>
           <Hidden smDown>
-            <Button className={classes.menuButton}>
-              <Link
-                to="/"
-                className={`${classes.link} ${pathname === '/' &&
-                  classes.active}`}
-              >
-                Home
-              </Link>
-            </Button>
-            <PopoverMenu
-              pathname={pathname}
-              mainText={'Calendar'}
-              links={['Upcoming & Recurring Events']}
-            />
-            <Button className={classes.menuButton}>
-              <a
-                href="https://sfdharmacollective.org/donate"
-                className={classes.link}
-              >
-                Donate
-              </a>
-            </Button>
-            <PopoverMenu
-              pathname={pathname}
-              mainText={'About Us'}
-              links={['Leadership', 'Contact']}
-            />
-            <Button className={classes.menuButton}>
-              <Link
-                to="/teachers"
-                className={`${classes.link} ${pathname === '/teachers' &&
-                  classes.active}`}
-              >
-                Teachers
-              </Link>
-            </Button>
-            <Button className={classes.menuButton}>
-              <Link
-                to="/newsletter"
-                className={`${classes.link} ${pathname === '/newsletter' &&
-                  classes.active}`}
-              >
-                Newsletter
-              </Link>
-            </Button>
-            <Button className={classes.menuButton}>
-              <Link
-                to="/volunteer"
-                className={`${classes.link} ${pathname === '/volunteer' &&
-                  classes.active}`}
-              >
-                Volunteer
-              </Link>
-            </Button>
-            <PopoverMenu
-              mainText={'Resources'}
-              pathname={pathname}
-              links={[
-                'From Our Friends',
-                'Local Sits / Centers',
-                'Podcasts',
-                'Other Offerings @ SFDC',
-              ]}
-            />
+            {menuItems.map(({name, path, nested}) =>
+              nested ? (
+                <PopoverMenu
+                  key={name}
+                  mainText={name}
+                  links={nested}
+                  currentPath={pathname}
+                />
+              ) : (
+                <MenuItem
+                  key={name}
+                  currentPath={pathname}
+                  item={{name, path}}
+                />
+              ),
+            )}
           </Hidden>
           <Hidden mdUp>
             <>

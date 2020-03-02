@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MenuPopupState = (props) => {
-  const {mainText, links, pathname} = props;
+  const {mainText, links, currentPath} = props;
   const classes = useStyles();
   const createTextLink = (text) =>
     `/${text
@@ -48,8 +48,8 @@ const MenuPopupState = (props) => {
     <React.Fragment>
       <Button className={classes.button}>
         <Link
-          className={`${classes.link} ${pathname === createTextLink(mainText) &&
-            classes.active}`}
+          className={`${classes.link} ${currentPath ===
+            createTextLink(mainText) && classes.active}`}
           {...bindHover(popupState)}
           to={createTextLink(mainText)}
         >
@@ -69,7 +69,7 @@ const MenuPopupState = (props) => {
             <MenuItem key={index} onClick={popupState.close}>
               <Link
                 to={linkText}
-                className={`${classes.link} ${classes.small} ${pathname ===
+                className={`${classes.link} ${classes.small} ${currentPath ===
                   linkText && classes.active}`}
               >
                 {text}
