@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import MailChimpSignup from '../components/MailChimpSignup';
 
 const Newsletter = () => {
   return (
@@ -16,6 +17,9 @@ const Newsletter = () => {
           <Typography align="center" variant="h2">
             Coming soon...
           </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <MailChimpSignup />
         </Grid>
       </Grid>
     </Layout>

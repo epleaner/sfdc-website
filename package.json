@@ -16,6 +16,7 @@
     "gatsby-image": "^2.2.40",
     "gatsby-plugin-catch-links": "^2.1.25",
     "gatsby-plugin-google-analytics": "^2.1.35",
+    "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-netlify": "^2.1.32",
@@ -39,7 +40,8 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "sharp": "^0.24.1",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "validator": "^12.2.0"
   },
   "keywords": [
     "gatsby"

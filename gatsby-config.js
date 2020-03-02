@@ -64,5 +64,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://protonmail.us19.list-manage.com/subscribe/post?u=5e50289148a8d3072490ebc26&amp;id=5fb6916e41',
+      },
+    },
   ],
 };
