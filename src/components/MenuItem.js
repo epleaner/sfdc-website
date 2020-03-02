@@ -28,16 +28,12 @@ const MenuItem = (props) => {
   const classes = useStyles();
 
   return (
-    <Typography
-      className={currentPath === path ? classes.active : ''}
-      variant="h6"
-      component="li"
-    >
+    <Typography variant="h6" component="li">
       {path.startsWith('/') ? (
         <Button className={classes.menuButton}>
           <Link
             to={path}
-            className={`${classes.link} ${currentPath === '/' &&
+            className={`${classes.link} ${currentPath === path &&
               classes.active}`}
           >
             {name}
