@@ -32,7 +32,10 @@ const MailChimpSignup = () => {
     } else {
       setIsLoading(true);
       setEmailError(false);
-      addToMailchimp(email, {firstName, lastName}).then((data) => {
+      addToMailchimp(email, {
+        FNAME: firstName.trim(),
+        LNAME: lastName.trim(),
+      }).then((data) => {
         setIsLoading(false);
         setMailChimpResponse(data);
       });
@@ -78,7 +81,7 @@ const MailChimpSignup = () => {
               variant="outlined"
               value={firstName}
               onChange={(e) => {
-                setFirstName(e.target.value.trim());
+                setFirstName(e.target.value);
                 setMailChimpResponse();
               }}
             />
