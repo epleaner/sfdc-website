@@ -2,9 +2,10 @@
 credentials.json
 calendar-privatekey.json
 node_modules/
-public/
+public
 .contentful.json
 .cache
 bin
 functions/google-calendar.js
 events_data.json
+todo
