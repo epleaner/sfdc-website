@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Divider from '@material-ui/core/divider';
+import Divider from '@material-ui/core/Divider';
 import EventListContainer from './EventListContainer';
 import Event from './Event';
 
