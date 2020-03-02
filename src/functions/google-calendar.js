@@ -1,7 +1,7 @@
 const moment = require('moment');
 const {google} = require('googleapis');
 
-const privatekey = require('../../credentials.json');
+// const privatekey = require('../../credentials.json');
 
 const calendarId = '6lmk34aeh3mpas0kop9ve8hc94@group.calendar.google.com';
 
@@ -15,9 +15,11 @@ function handleError(error, callback) {
 
 export function handler(event, context, callback) {
   const jwtClient = new google.auth.JWT(
-      privatekey.client_email,
+      process.env.GCAL_CLIENT_EMAIL,
+      // privatekey.client_email,
       null,
-      privatekey.private_key,
+      process.env.GCAL_PRIVATE_KEY,
+      // privatekey.private_key,
       ['https://www.googleapis.com/auth/calendar'],
   );
 
