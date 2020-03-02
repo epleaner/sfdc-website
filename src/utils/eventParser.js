@@ -36,7 +36,6 @@ const formatRecurringEvents = (events) => {
         .forEach(([rule, value]) => (recurrenceValues[rule] = value));
 
     event.recurrenceValues = recurrenceValues;
-    console.log(recurrenceValues);
     return event;
   });
 };
