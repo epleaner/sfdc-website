@@ -12,12 +12,7 @@ const Newsletter = () => {
         title="Newsletter"
         description="San Francisco Dharma Collective Newsletter Page"
       />
-      <Grid container>
-        <Grid item xs={12}>
-          <Typography align="center" variant="h2">
-            Coming soon...
-          </Typography>
-        </Grid>
+      <Grid container justify="center">
         <Grid item xs={12}>
           <MailChimpSignup />
         </Grid>

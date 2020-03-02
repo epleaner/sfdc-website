@@ -40,83 +40,87 @@ const MailChimpSignup = () => {
   };
 
   return (
-    <form
-      id="mailchimp-form"
-      className={classes.root}
-      onSubmit={onSubmit}
-      autoComplete="off"
-    >
-      <Grid container>
-        <Grid item xs={12}>
-          <Typography align="center">Subscribe to our mailing list</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            margin={'normal'}
-            label="Email"
-            variant="outlined"
-            required
-            error={emailError}
-            helperText={emailError && emailErrorMessage}
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value.trim());
-              setEmailError(false);
-              setMailChimpResponse();
-            }}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            margin={'normal'}
-            label="First Name"
-            variant="outlined"
-            value={firstName}
-            onChange={(e) => {
-              setFirstName(e.target.value.trim());
-              setMailChimpResponse();
-            }}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            margin={'normal'}
-            label="Last Name"
-            variant="outlined"
-            value={lastName}
-            onChange={(e) => {
-              setLastName(e.target.value.trim());
-              setMailChimpResponse();
-            }}
-          />
-        </Grid>
-        <Grid item container justify="center" xs={12}>
-          {mailChimpResponse ? (
-            mailChimpResponse.result === 'success' ? (
-              <Typography color="primary">{mailChimpResponse.msg}</Typography>
+    <Grid container justify="center">
+      <form
+        id="mailchimp-form"
+        className={classes.root}
+        onSubmit={onSubmit}
+        autoComplete="off"
+      >
+        <Grid container>
+          <Grid item xs={12}>
+            <Typography align="center">
+              Subscribe to our mailing list
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              margin={'normal'}
+              label="Email"
+              variant="outlined"
+              required
+              error={emailError}
+              helperText={emailError && emailErrorMessage}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value.trim());
+                setEmailError(false);
+                setMailChimpResponse();
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              margin={'normal'}
+              label="First Name"
+              variant="outlined"
+              value={firstName}
+              onChange={(e) => {
+                setFirstName(e.target.value.trim());
+                setMailChimpResponse();
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              margin={'normal'}
+              label="Last Name"
+              variant="outlined"
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value.trim());
+                setMailChimpResponse();
+              }}
+            />
+          </Grid>
+          <Grid item container justify="center" xs={12}>
+            {mailChimpResponse ? (
+              mailChimpResponse.result === 'success' ? (
+                <Typography color="primary">{mailChimpResponse.msg}</Typography>
+              ) : (
+                <Typography color="error">
+                  {Array(
+                      mailChimpResponse.msg.match(/.+is already subscribed/),
+                  )[0] || 'An error occured. Please try again!'}
+                </Typography>
+              )
             ) : (
-              <Typography color="error">
-                {Array(
-                    mailChimpResponse.msg.match(/.+is already subscribed/),
-                )[0] || 'An error occured. Please try again!'}
-              </Typography>
-            )
-          ) : (
-            <Button
-              disabled={isLoading}
-              htmlFor="mailchimp-form"
-              color="primary"
-              type="submit"
-            >
-              Submit
-            </Button>
-          )}
+              <Button
+                disabled={isLoading}
+                htmlFor="mailchimp-form"
+                color="primary"
+                type="submit"
+              >
+                Submit
+              </Button>
+            )}
+          </Grid>
         </Grid>
-      </Grid>
-    </form>
+      </form>
+    </Grid>
   );
 };
 
