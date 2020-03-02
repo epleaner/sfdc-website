@@ -46,22 +46,15 @@ const Home = () => {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Typography align="center" variant="body1">
-              All classes and sits are open to all and no registration is
-              necessary. We are supported by your generosity (dana). No one is
-              ever turned away for lack of funds. SFDC is wheelchair accessible
-              and has two accessible bathroom stalls. We use fragrance-free
-              cleaning products.
-            </Typography>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Box my={3}>
-              <Divider />
+            <Box mb={3}>
+              <Typography align="center" variant="body1">
+                All classes and sits are open to all and no registration is
+                necessary. We are supported by your generosity (dana). No one is
+                ever turned away for lack of funds. SFDC is wheelchair
+                accessible and has two accessible bathroom stalls. We use
+                fragrance-free cleaning products.
+              </Typography>
             </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <UpcomingEvents />
           </Grid>
         </Grid>
       </Grid>

@@ -91,15 +91,11 @@ const MaterialMenu = (props) => {
                 Home
               </Link>
             </Button>
-            <Button className={classes.menuButton}>
-              <Link
-                to="/calendar"
-                className={`${classes.link} ${pathname === '/calendar' &&
-                  classes.active}`}
-              >
-                Calendar
-              </Link>
-            </Button>
+            <PopoverMenu
+              pathname={pathname}
+              mainText={'Calendar'}
+              links={['Upcoming & Recurring Events']}
+            />
             <Button className={classes.menuButton}>
               <a
                 href="https://sfdharmacollective.org/donate"
@@ -152,20 +148,20 @@ const MaterialMenu = (props) => {
             />
           </Hidden>
           <Hidden mdUp>
-            <IconButton
-              edge="start"
-              aria-label="menu"
-              onClick={toggleDrawerMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Hidden>
-          <Hidden mdUp>
-            <DrawerMenu
-              toggleDrawerMenu={toggleDrawerMenu}
-              isOpen={showDrawerMenu}
-              currentPath={pathname}
-            />
+            <>
+              <IconButton
+                edge="start"
+                aria-label="menu"
+                onClick={toggleDrawerMenu}
+              >
+                <MenuIcon />
+              </IconButton>
+              <DrawerMenu
+                toggleDrawerMenu={toggleDrawerMenu}
+                isOpen={showDrawerMenu}
+                currentPath={pathname}
+              />
+            </>
           </Hidden>
         </Toolbar>
       </AppBar>
