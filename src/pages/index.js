@@ -25,7 +25,7 @@ const Home = () => {
       <Grid container justify="center">
         <Grid sm={12} item container>
           <Grid item xs={12}>
-            <Box mb={5}>
+            <Box mb={5} mt={2}>
               <Typography align="center" variant="h1">
                 Meditate with us.
               </Typography>
@@ -37,23 +37,12 @@ const Home = () => {
             </Typography>
           </Grid>
           <Grid item container justify="center" xs={12}>
-            <Box my={5}>
+            <Box my={10}>
               <img
                 className={classes.lotusImage}
                 src={LotusImagePath}
                 alt="Lotus"
               />
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box mb={3}>
-              <Typography align="center" variant="body1">
-                All classes and sits are open to all and no registration is
-                necessary. We are supported by your generosity (dana). No one is
-                ever turned away for lack of funds. SFDC is wheelchair
-                accessible and has two accessible bathroom stalls. We use
-                fragrance-free cleaning products.
-              </Typography>
             </Box>
           </Grid>
         </Grid>
