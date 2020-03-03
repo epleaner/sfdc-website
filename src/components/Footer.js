@@ -30,7 +30,7 @@ const Footer = () => {
       alignItems="center"
     >
       <Grid item xs={12}>
-        <Box mb={3}>
+        <Box my={3}>
           <Divider className={classes.divider} />
         </Box>
       </Grid>
