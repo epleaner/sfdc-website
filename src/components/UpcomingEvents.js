@@ -5,7 +5,8 @@ import {parseEvents} from '../utils/eventParser';
 
 const UpcomingEvents = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [eventData, setEventData] = useState([]);
+  const [error, setError] = useState(false);
+  const [eventData, setEventData] = useState({});
 
   useEffect(() => {
     fetch('/.netlify/functions/google-calendar')
@@ -15,20 +16,28 @@ const UpcomingEvents = () => {
         .then((parsedResponse) => {
           setEventData(parsedResponse);
           setIsLoading(false);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setError(true);
         });
   }, []);
 
   const {singleEventsByMonth, recurringEvents} = eventData;
 
   let headerText;
-  if (isLoading) headerText = 'Loading upcoming events...';
-  else if (singleEventsByMonth.length === 0) headerText = 'No events found';
-  else headerText = 'Upcoming Events';
+  if (error) headerText = 'There was error, please try again 😑';
+  else if (isLoading) headerText = 'Loading upcoming events...';
+  else if (!singleEventsByMonth || singleEventsByMonth.length === 0) {
+    headerText = 'No events found';
+  } else headerText = 'Upcoming Events';
 
   return (
     <>
       <MonthList headerText={headerText} eventData={singleEventsByMonth} />
-      {!isLoading && <RecurringEventsList eventData={recurringEvents} />}
+      {!error && !isLoading && (
+        <RecurringEventsList eventData={recurringEvents} />
+      )}
     </>
   );
 };
