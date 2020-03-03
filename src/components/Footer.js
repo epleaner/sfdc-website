@@ -3,12 +3,18 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import {Link} from 'gatsby';
 
 const useStyles = makeStyles({
   footer: {
     marginTop: 'auto',
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
+    textTransform: 'uppercase',
   },
 });
 
@@ -34,10 +40,14 @@ const Footer = () => {
           {label: 'Abous Us', linkTo: '/about-us'},
           {label: 'Donate', linkTo: '/donate'},
         ].map(({label, linkTo}) => (
-          <Grid item xs={12} sm={2} key={label}>
-            <Typography variant="body1" align="center">
-              <Link to={linkTo}>{label}</Link>
-            </Typography>
+          <Grid item container justify="center" xs={12} sm={1} key={label}>
+            <Button color="primary">
+              <Typography variant="body1" align="center">
+                <Link to={linkTo} className={classes.link}>
+                  {label}
+                </Link>
+              </Typography>
+            </Button>
           </Grid>
         ))}
       </Grid>
