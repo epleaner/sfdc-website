@@ -19,9 +19,11 @@ export default function EventListContainer(props) {
     <List
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader>
+        <ListSubheader disableSticky>
           <Box mb={3}>
-            <Typography variant={'h3'}>{headerText}</Typography>
+            <Typography variant={'h3'} align="center">
+              {headerText}
+            </Typography>
           </Box>
         </ListSubheader>
       }
