@@ -40,7 +40,7 @@ const Footer = () => {
           {label: 'Abous Us', linkTo: '/about-us'},
           {label: 'Donate', linkTo: '/donate'},
         ].map(({label, linkTo}) => (
-          <Grid item container justify="center" xs={12} sm={1} key={label}>
+          <Grid item container justify="center" xs={12} sm={3} key={label}>
             <Button color="primary">
               <Typography variant="body1" align="center">
                 <Link to={linkTo} className={classes.link}>
