@@ -1,14 +1,14 @@
-import React from "react";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import LotusImagePath from "../../../static/images/lotus.png";
+import React from 'react';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import LotusImagePath from '../../../static/images/lotus.png';
 
-const useStyles = makeStyles(theme => ({
-  lotusImage: { maxWidth: "500px", width: "100%", height: "100%" }
+const useStyles = makeStyles((theme) => ({
+  lotusImage: {maxWidth: '500px', width: '100%', height: '100%'},
 }));
 
 const AboutUs = () => {
@@ -117,7 +117,7 @@ const AboutUs = () => {
           <Grid item xs={12}>
             <Box mb={2}>
               <Typography align="center" variant="body1">
-                Find us on{" "}
+                Find us on{' '}
                 <a href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/">
                   Facebook
                 </a>
@@ -127,10 +127,10 @@ const AboutUs = () => {
           </Grid>
           <Grid item xs={12}>
             <Typography align="center" variant="body1">
-              Read{" "}
+              Read{' '}
               <a href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx">
                 meeting notes
-              </a>{" "}
+              </a>{' '}
               in our Google drive.
             </Typography>
           </Grid>
@@ -167,9 +167,9 @@ const AboutUs = () => {
           <Grid item xs={12}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.537979505336!2d-122.41610668477435!3d37.75398197976332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7f589b10caed%3A0x75f9d155a81c5872!2sSF%20Dharma%20Collective!5e0!3m2!1sen!2suk!4v1582538375324!5m2!1sen!2suk"
-              frameborder="0"
-              style={{ border: 0, width: "100%", height: "400px" }}
-              allowfullscreen=""
+              frameBorder="0"
+              style={{border: 0, width: '100%', height: '400px'}}
+              allowFullScreen=""
               title="Google map of SFDC location"
             />
           </Grid>
