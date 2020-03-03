@@ -24,7 +24,7 @@ const AboutUs = () => {
         <Grid item container xs={12}>
           <Grid item container alignContent="center" xs={12} md={8}>
             <Grid item xs={12}>
-              <Typography align="center" variant="h2">
+              <Typography variant="h2">
                 The San Francisco Dharma Collective is a sangha-led dharma
                 community.
               </Typography>
@@ -43,13 +43,11 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography align="center" variant="h3">
-                Vision
-              </Typography>
+              <Typography variant="h3">Vision</Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Typography align="center" variant="body1">
+            <Typography variant="body1">
               A compassionate and awakened world where all beings are cared for,
               supported, and safe.
             </Typography>
@@ -58,14 +56,12 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography align="center" variant="h3">
-                Mission
-              </Typography>
+              <Typography variant="h3">Mission</Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Box mb={2}>
-              <Typography align="center" variant="body1">
+              <Typography variant="body1">
                 SFDC creates a welcoming and inclusive space for community,
                 meditation, and transformation through diverse teachings and
                 practices.
@@ -73,7 +69,7 @@ const AboutUs = () => {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Typography align="center" variant="body1">
+            <Typography variant="body1">
               The SF Dharma Collective makes a continuing effort to establish
               programming for groups outside the dominant culture who might
               otherwise not assume that their needs are seen or their selves are
@@ -89,14 +85,12 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography align="center" variant="h3">
-                Join Us
-              </Typography>
+              <Typography variant="h3">Join Us</Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Box mb={2}>
-              <Typography align="center" variant="body1">
+              <Typography variant="body1">
                 Join us by checking out a sit, volunteering and/or coming to a
                 collective meeting, and help us turn our aspirations and yours
                 into a durable community.
@@ -105,7 +99,7 @@ const AboutUs = () => {
           </Grid>
           <Grid item xs={12}>
             <Box mb={2}>
-              <Typography align="center" variant="body1">
+              <Typography variant="body1">
                 All classes and sits are open to all and no registration is
                 necessary. We are supported by your generosity (dana). No one is
                 ever turned away for lack of funds. SFDC is wheelchair
@@ -116,7 +110,7 @@ const AboutUs = () => {
           </Grid>
           <Grid item xs={12}>
             <Box mb={2}>
-              <Typography align="center" variant="body1">
+              <Typography variant="body1">
                 Find us on{' '}
                 <a href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/">
                   Facebook
@@ -126,7 +120,7 @@ const AboutUs = () => {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Typography align="center" variant="body1">
+            <Typography variant="body1">
               Read{' '}
               <a href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx">
                 meeting notes
@@ -138,26 +132,22 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography align="center" variant="h3">
-                Our Location
-              </Typography>
+              <Typography variant="h3">Our Location</Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Box mb={3}>
               <Grid item xs={12} container>
                 <Grid item xs={12}>
-                  <Typography align="center" variant="body1">
+                  <Typography variant="body1">
                     San Francisco Dharma Collective
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography align="center" variant="body1">
-                    2701 Folsom Street
-                  </Typography>
+                  <Typography variant="body1">2701 Folsom Street</Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography align="center" variant="body1">
+                  <Typography variant="body1">
                     San Francisco, CA 94110
                   </Typography>
                 </Grid>
