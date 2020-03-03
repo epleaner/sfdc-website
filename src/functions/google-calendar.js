@@ -19,9 +19,6 @@ export function handler(event, context, callback) {
   const privateKey =
     process.env.GATSBY_GCAL_PRIVATE_KEY || devCredentials.private_key;
 
-  console.log(clientEmail);
-  console.log(privateKey);
-
   const jwtClient = new google.auth.JWT(clientEmail, null, privateKey, [
     'https://www.googleapis.com/auth/calendar',
   ]);
