@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
   },
   active: {
-    borderBottom: 'thin solid #5ac8cd',
+    borderBottom: `thin solid ${theme.palette.lightBlue}`,
   },
   menuButton: {
     marginRight: theme.spacing(1),
