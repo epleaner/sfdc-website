@@ -24,7 +24,16 @@ const useStyles = makeStyles({
 
 const menuItems = [
   {name: 'Home', path: '/'},
-  {name: 'Calendar', path: '/calendar'},
+  {
+    name: 'Calendar',
+    path: '/calendar',
+    nested: [
+      {
+        name: 'Upcoming and Recurring Events',
+        path: '/calendar/upcoming-recurring-events',
+      },
+    ],
+  },
   {name: 'Donate', path: 'https://sfdharmacollective.org/donate'},
   {
     name: 'About Us',
