@@ -33,6 +33,7 @@
     "gatsby-transformer-remark": "^2.6.50",
     "googleapis": "^47.0.0",
     "inquirer": "^7.0.4",
+    "js-base64": "^2.5.2",
     "lodash": "^4.17.15",
     "material-ui-popup-state": "^1.5.3",
     "moment": "^2.24.0",
