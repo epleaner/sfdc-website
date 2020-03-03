@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '10px',
   },
   headerImage: {
-    maxWidth: '100px',
+    maxWidth: '90px',
   },
   link: {
     textDecoration: 'none',
@@ -39,9 +39,6 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     backgroundColor: theme.palette.backgroundColor,
-  },
-  active: {
-    borderBottom: 'thin solid #5ac8cd',
   },
 }));
 
@@ -94,9 +91,9 @@ const MaterialMenu = (props) => {
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar className={classes.appBar} elevation={0} position="fixed">
-        <Toolbar>
+    <>
+      <AppBar className={classes.appBar} position="relative" elevation={0}>
+        <Toolbar disableGutters>
           <Typography className={classes.title}>
             <Link to="/">
               <img
@@ -142,8 +139,7 @@ const MaterialMenu = (props) => {
           </Hidden>
         </Toolbar>
       </AppBar>
-      <Toolbar disableGutters={true} className={classes.toolbar} />
-    </div>
+    </>
   );
 };
 
