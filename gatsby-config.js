@@ -1,3 +1,9 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+console.log(process.env);
+
 module.exports = {
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
@@ -67,8 +73,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint:
-          'https://protonmail.us19.list-manage.com/subscribe/post?u=5e50289148a8d3072490ebc26&amp;id=5fb6916e41',
+        endpoint: process.env.GATSBY_MAILCHIMP_SUBSCRIBE_ENDPOINT,
       },
     },
   ],
