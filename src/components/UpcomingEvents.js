@@ -15,22 +15,22 @@ const UpcomingEvents = () => {
         .then((responseDataItems) => parseEvents(responseDataItems))
         .then((parsedResponse) => {
           setEventData(parsedResponse);
-          setIsLoading(false);
         })
         .catch((error) => {
-          setIsLoading(false);
           setError(true);
-        });
+        })
+        .finally(() => setIsLoading(false));
   }, []);
 
   const {singleEventsByMonth, recurringEvents} = eventData;
 
-  let headerText;
+  let headerText = 'Upcoming Events';
+
   if (error) headerText = 'There was error, please try again 😑';
   else if (isLoading) headerText = 'Loading upcoming events...';
   else if (!singleEventsByMonth || singleEventsByMonth.length === 0) {
     headerText = 'No events found';
-  } else headerText = 'Upcoming Events';
+  }
 
   return (
     <>
