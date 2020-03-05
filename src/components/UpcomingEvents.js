@@ -26,7 +26,7 @@ const UpcomingEvents = () => {
 
   let headerText = 'Upcoming Events';
 
-  if (error) headerText = 'There was error, please try again 😑';
+  if (error) headerText = 'There was an error, please try again 😑';
   else if (isLoading) headerText = 'Loading upcoming events...';
   else if (!singleEventsByMonth || singleEventsByMonth.length === 0) {
     headerText = 'No events found';
