@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     fontWeight: 100,
   },
+  menuListItem: {
+    listStyle: 'none',
+  },
 }));
 
 const MenuItem = (props) => {
@@ -28,7 +31,7 @@ const MenuItem = (props) => {
   const classes = useStyles();
 
   return (
-    <Typography variant="h6" component="li">
+    <Typography variant="h6" component="li" className={classes.menuListItem}>
       {path.startsWith('/') ? (
         <Button className={classes.menuButton}>
           <Link
