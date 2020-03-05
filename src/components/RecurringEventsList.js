@@ -16,10 +16,12 @@ export default function RecurringEventsList(props) {
 
   return eventData ? (
     <EventListContainer headerText="Recurring events">
-      {eventData.map((event) => (
+      {eventData.map((event, index) => (
         <React.Fragment key={event.id}>
           <Event {...event} />
-          <Divider className={classes.divider} />
+          {index !== eventData.length - 1 && (
+            <Divider className={classes.divider} />
+          )}
         </React.Fragment>
       ))}
     </EventListContainer>
