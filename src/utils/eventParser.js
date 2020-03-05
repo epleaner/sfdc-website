@@ -25,17 +25,17 @@ const getEventsByMonth = (unsortedEvents) => {
   return eventsByMonth;
 };
 
-const formatRecurringEvents = (events) => {
+const formatRecurrenceRules = (events) => {
   return events.map((event) => {
-    const recurrenceValues = {};
+    const recurrenceRules = {};
     event.recurrence[0]
         .substring(6)
         .toLowerCase()
         .split(';')
-        .map((ruleValueTuple) => [...ruleValueTuple.split('=')])
-        .forEach(([rule, value]) => (recurrenceValues[rule] = value));
+        .map((ruleTuple) => [...ruleTuple.split('=')])
+        .forEach(([rule, value]) => (recurrenceRules[rule] = value));
 
-    event.recurrenceValues = recurrenceValues;
+    event.recurrenceRules = recurrenceRules;
     return event;
   });
 };
@@ -49,8 +49,17 @@ const parseEvents = (eventData) => {
   const recurringEvents = [];
 
   activeEvents.forEach(
-      ({summary, start, end, description, recurrence, id}) => {
-        const pluckedEvent = {summary, start, end, description, id, recurrence};
+      ({id, summary, start, end, description, recurrence, attachments}) => {
+        const pluckedEvent = {
+          id,
+          summary,
+          start,
+          end,
+          description,
+          recurrence,
+          attachments,
+        };
+
         pluckedEvent.start = moment(pluckedEvent.start.dateTime);
         pluckedEvent.end = moment(pluckedEvent.end.dateTime);
 
@@ -60,10 +69,10 @@ const parseEvents = (eventData) => {
       },
   );
 
-  const formattedRecurringEvents = formatRecurringEvents(recurringEvents);
+  const formattedRecurringEvents = formatRecurrenceRules(recurringEvents);
 
   const activeRecurringEvents = formattedRecurringEvents.filter(
-      ({recurrenceValues: {until}}) =>
+      ({recurrenceRules: {until}}) =>
         !until || moment(until.toUpperCase()).isAfter(moment().startOf('day')),
   );
 
@@ -75,7 +84,7 @@ const parseEvents = (eventData) => {
   };
 };
 
-const humanReadableRecurrance = (recurranceRules) => {
+const humanReadableRecurranceRules = (recurranceRules) => {
   if (!recurranceRules.freq) return '';
 
   const daysOfWeekStrings = {
@@ -136,7 +145,7 @@ const humanReadableTime = (start, end) =>
 
 export {
   parseEvents,
-  humanReadableRecurrance,
+  humanReadableRecurranceRules,
   humanReadableDateTime,
   humanReadableTime,
 };
