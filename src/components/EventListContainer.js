@@ -21,7 +21,7 @@ export default function EventListContainer(props) {
       subheader={
         <ListSubheader disableSticky>
           <Box mb={3}>
-            <Typography variant={'h3'} align="center">
+            <Typography variant={'h2'} align="center">
               {headerText}
             </Typography>
           </Box>

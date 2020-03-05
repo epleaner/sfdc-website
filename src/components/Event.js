@@ -51,7 +51,12 @@ export default function Event(props) {
               </Typography>
             </Grid>
             <Grid item container xs={12}>
-              <Grid item xs={12} sm={6} md={8}>
+              <Grid
+                item
+                xs={12}
+                sm={attachments ? 6 : 12}
+                md={attachments ? 8 : 12}
+              >
                 <Typography
                   variant="body1"
                   component="div"
