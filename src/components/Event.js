@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
-import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import moment from 'moment';
 import {
   humanReadableRecurranceRules,
@@ -14,6 +17,9 @@ import {
 } from '../utils/eventParser';
 
 const useStyles = makeStyles((theme) => ({
+  eventHeader: {
+    textTransform: 'none',
+  },
   eventDescription: {
     marginTop: theme.spacing(2),
   },
@@ -33,23 +39,51 @@ export default function Event(props) {
     recurrenceRules,
     attachments,
   } = props;
+
   const classes = useStyles();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
   return (
     <ListItem key={id}>
       <ListItemText
         disableTypography
-        primary={<Typography variant="h5">{summary}</Typography>}
-        secondary={
+        primary={
           <Grid container>
-            <Grid item xs={12}>
-              <Typography component="span" variant="body2" color="textPrimary">
-                {recurrenceRules ?
-                  `${humanReadableRecurranceRules(recurrenceRules)}
-                  ${humanReadableTime(start, end)}` :
-                  humanReadableDateTime(start, end)}
-              </Typography>
-            </Grid>
+            <Button
+              fullWidth
+              onClick={handleClick}
+              className={classes.eventHeader}
+            >
+              <Grid item container xs={11}>
+                <Grid item xs={12}>
+                  <Typography align="left" variant="h5">
+                    {summary}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography align="left" variant="body2" color="textPrimary">
+                    {recurrenceRules ?
+                      `${humanReadableRecurranceRules(recurrenceRules)}
+              ${humanReadableTime(start, end)}` :
+                      humanReadableDateTime(start, end)}
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid item container justify="end" xs={1}>
+                <Grid item xs={12}>
+                  {open ? <ExpandLess /> : <ExpandMore />}
+                </Grid>
+              </Grid>
+            </Button>
+          </Grid>
+        }
+        secondary={
+          <Collapse in={open} timeout="auto" unmountOnExit>
             <Grid item container xs={12}>
               <Grid
                 item
@@ -59,7 +93,6 @@ export default function Event(props) {
               >
                 <Typography
                   variant="body1"
-                  component="div"
                   className={classes.eventDescription}
                   dangerouslySetInnerHTML={{
                     __html: `${description || ''}`,
@@ -82,7 +115,7 @@ export default function Event(props) {
                 </Grid>
               )}
             </Grid>
-          </Grid>
+          </Collapse>
         }
       />
     </ListItem>
