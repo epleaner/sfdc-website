@@ -6,7 +6,7 @@ const devCredentials = require('../../credentials.json');
 
 const devCalendarId = 'efn6ejscdben4hvlh3msn9knlk@group.calendar.google.com';
 const publicCalendarId = '6lmk34aeh3mpas0kop9ve8hc94@group.calendar.google.com';
-const calendarId = devCalendarId;
+const calendarId = publicCalendarId;
 
 function handleError(error, callback) {
   console.log('There was an error...', error);
