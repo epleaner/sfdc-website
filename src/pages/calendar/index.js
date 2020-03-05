@@ -2,10 +2,18 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
 import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+const useStyles = makeStyles({
+  iframe: {
+    overflow: 'scroll',
+  },
+});
+
 const Calendar = () => {
+  const classes = useStyles();
   return (
     <Layout>
       <SEO
@@ -30,7 +38,7 @@ const Calendar = () => {
           </Grid>
         </Grid>
         <Grid item container justify="center" xs={12}>
-          <Box mt={3}>
+          <Box className={classes.iframe} mt={3}>
             <iframe
               title="sfdc-calendar-iframe"
               src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FLos_Angeles"
