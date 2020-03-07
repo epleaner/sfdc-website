@@ -6,6 +6,6 @@ public
 .contentful.json
 .cache
 bin
-functions/google-calendar.js
+functions/*
 events_data.json
 todo
