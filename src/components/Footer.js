@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
+import MaterialUILink from '@material-ui/core/Link';
 import {makeStyles} from '@material-ui/core/styles';
 import {Link} from 'gatsby';
 
@@ -61,9 +62,9 @@ const Footer = () => {
             <span>415-404-9333</span>
             <span> • </span>
             <span>
-              <a href="mailto:sfdharmacollective@gmail.com">
+              <MaterialUILink href="mailto:sfdharmacollective@gmail.com">
                 sfdharmacollective@gmail.com
-              </a>
+              </MaterialUILink>
             </span>
           </Typography>
         </Box>
