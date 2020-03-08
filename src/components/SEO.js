@@ -1,10 +1,10 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import Helmet from 'react-helmet';
+import {useStaticQuery, graphql} from 'gatsby';
 
-const SEO = ({ title, description, image }) => {
-  const { site } = useStaticQuery(
-    graphql`
+const SEO = ({title, description, image}) => {
+  const {site} = useStaticQuery(
+      graphql`
       query {
         site {
           siteMetadata {
@@ -15,12 +15,12 @@ const SEO = ({ title, description, image }) => {
           }
         }
       }
-    `
-  )
+    `,
+  );
 
-  const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.image
-  const metaDescription = description || site.siteMetadata.description
-  const metaImage = image || defaultImage
+  const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.image;
+  const metaDescription = description || site.siteMetadata.description;
+  const metaImage = image || defaultImage;
 
   return (
     <Helmet
@@ -36,6 +36,7 @@ const SEO = ({ title, description, image }) => {
       {/* General tags */}
       <meta name="image" content={image} />
       <meta name="description" content={metaDescription} />
+      <meta name="robots" />
 
       {/* OpenGraph tags */}
       <meta property="og:title" content={title} />
@@ -48,7 +49,7 @@ const SEO = ({ title, description, image }) => {
       <meta name="twitter:image" content={metaImage} />
       <meta name="twitter:description" content={metaDescription} />
     </Helmet>
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;

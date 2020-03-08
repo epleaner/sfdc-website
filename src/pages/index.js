@@ -18,7 +18,7 @@ const Home = () => {
     <Layout>
       <SEO
         title="Home"
-        description="Home page of San Francisco Dharma Collective"
+        description="Home page of San Francisco Dharma Collective, a sangha-run meditation collective in San Francisco's Mission district"
       />
       <Grid container justify="center">
         <Grid item container sm={12}>

@@ -28,7 +28,7 @@ const Contact = () => {
     <Layout>
       <SEO
         title="Contact"
-        description="San Francisco Dharma Collective Contact Page"
+        description="Contact page of San Francisco Dharma Collective, a sangha-run meditation collective in San Francisco's Mission district"
       />
       <Grid container>
         <Grid item xs={12}>

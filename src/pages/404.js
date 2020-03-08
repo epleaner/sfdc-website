@@ -10,7 +10,7 @@ const NotFoundPage = () => {
     <Layout>
       <SEO
         title="Not Found"
-        description="San Francisco Dharma Collective Not Found Page"
+        description="Not found page of San Francisco Dharma Collective, a sangha-run meditation collective in San Francisco's Mission district"
       />
       <Grid container>
         <Grid item xs={12}>
