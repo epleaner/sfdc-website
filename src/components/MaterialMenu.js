@@ -16,26 +16,17 @@ import DrawerMenu from './DrawerMenu';
 import MenuItem from './MenuItem';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   title: {
     flexGrow: 1,
-    fontWeight: 100,
-    fontSize: '1.2em',
-    minHeight: '64px',
     marginTop: '10px',
   },
   headerImage: {
-    maxWidth: '90px',
-  },
-  link: {
-    textDecoration: 'none',
-    color: 'inherit',
-    textTransform: 'uppercase',
-  },
-  toolbar: {
-    backgroundColor: theme.palette.backgroundColor,
+    'maxWidth': '90px',
+    'transition': 'all 0.2s ease-in-out',
+    '&:hover': {
+      filter:
+        'invert(82%) sepia(47%) saturate(536%) hue-rotate(136deg) brightness(84%) contrast(89%)',
+    },
   },
   appBar: {
     backgroundColor: theme.palette.backgroundColor,
@@ -99,7 +90,7 @@ const MaterialMenu = (props) => {
               <img
                 className={classes.headerImage}
                 src={HeaderImagePath}
-                alt="Header"
+                alt="SFCD Logo"
               />
             </Link>
           </Typography>
