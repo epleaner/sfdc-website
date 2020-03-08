@@ -84,7 +84,7 @@ const MaterialMenu = (props) => {
   return (
     <>
       <AppBar className={classes.appBar} position="relative" elevation={0}>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters component="nav">
           <Typography className={classes.title}>
             <Link to="/">
               <img
