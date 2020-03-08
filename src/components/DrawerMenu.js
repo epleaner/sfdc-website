@@ -20,6 +20,9 @@ const useStyles = makeStyles({
     top: '12px',
     right: '17px',
   },
+  nonExpandingItem: {
+    height: '64px',
+  },
 });
 
 const menuItems = [
@@ -53,12 +56,12 @@ const menuItems = [
       {name: 'From Our Friends', path: '/resources/from-our-friends'},
       {
         name: 'Local Centers',
-        path: '/resources/local-sits-centers',
+        path: '/resources/local-centers',
       },
       {name: 'Podcasts', path: '/resources/podcasts'},
       {
         name: 'Other Offerings',
-        path: '/resources/other-offerings-sfdc',
+        path: '/resources/other-offerings',
       },
     ],
   },
@@ -92,7 +95,11 @@ const DrawerMenu = (props) => {
                   currentPath={currentPath}
                 />
               ) : (
-                <ListItem button key={name}>
+                <ListItem
+                  button
+                  key={name}
+                  className={classes.nonExpandingItem}
+                >
                   <DrawerMenuItem
                     currentPath={currentPath}
                     item={{name, path}}
