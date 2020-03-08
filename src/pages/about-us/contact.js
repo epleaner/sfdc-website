@@ -1,21 +1,29 @@
-import React from "react";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+
+const useStyles = makeStyles({
+  contactEmail: {lineBreak: 'anywhere'},
+});
 
 const contactData = [
-  { name: "Programming", email: "programming.sfdharmacollective@gmail.com" },
-  { name: "Volunteers", email: "sfdcvolunteers@gmail.com" },
-  { name: "Marketing", email: "sfdharmacollective@gmail.com" },
-  { name: "Finance", email: "finance.sfdharmacollective@gmail.com " },
-  { name: "Buildings", email: "sfdharmacollective@gmail.com" },
-  { name: "Teacher", email: "sfdharmacollective@gmail.com" },
-  { name: "Arts", email: "art.sfdharmacollective@gmail.com" }
+  {name: 'Programming', email: 'programming.sfdharmacollective@gmail.com'},
+  {name: 'Volunteers', email: 'sfdcvolunteers@gmail.com'},
+  {name: 'Marketing', email: 'sfdharmacollective@gmail.com'},
+  {name: 'Finance', email: 'finance.sfdharmacollective@gmail.com '},
+  {name: 'Buildings', email: 'sfdharmacollective@gmail.com'},
+  {name: 'Teacher', email: 'sfdharmacollective@gmail.com'},
+  {name: 'Arts', email: 'art.sfdharmacollective@gmail.com'},
 ];
 
 const Contact = () => {
+  const classes = useStyles();
+
   return (
     <Layout>
       <SEO
@@ -25,7 +33,7 @@ const Contact = () => {
       <Grid container>
         <Grid item xs={12}>
           <Box mb={5}>
-            <Typography align="center" variant="h2">
+            <Typography align="center" variant="h2" component="h1">
               SF Dharma Collective Committees Contact Information
             </Typography>
           </Box>
@@ -34,11 +42,18 @@ const Contact = () => {
           {contactData.map((data, index) => (
             <Grid item key={index} xs={12} alignItems="center" container>
               <Grid item xs={12} sm={2}>
-                <Typography variant="h6">{data.name}</Typography>
+                <Typography variant="h6" component="h2">
+                  {data.name}
+                </Typography>
               </Grid>
               <Grid item xs={12} sm={10}>
                 <Typography variant="body1">
-                  <a href={`mailto:${data.email}`}>{data.email}</a>
+                  <Link
+                    href={`mailto:${data.email}`}
+                    className={classes.contactEmail}
+                  >
+                    {data.email}
+                  </Link>
                 </Typography>
               </Grid>
             </Grid>

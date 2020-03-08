@@ -1,10 +1,11 @@
 import React from 'react';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
 import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 import LotusImagePath from '../../../static/images/lotus.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +25,7 @@ const AboutUs = () => {
         <Grid item container xs={12}>
           <Grid item container alignContent="center" xs={12} md={8}>
             <Grid item xs={12}>
-              <Typography variant="h2">
+              <Typography variant="h2" component="h1">
                 The San Francisco Dharma Collective is a sangha-led dharma
                 community.
               </Typography>
@@ -43,7 +44,9 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography variant="h3">Vision</Typography>
+              <Typography variant="h3" component="h2">
+                Vision
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
@@ -56,7 +59,9 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography variant="h3">Mission</Typography>
+              <Typography variant="h3" component="h2">
+                Mission
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
@@ -85,7 +90,9 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography variant="h3">Join Us</Typography>
+              <Typography variant="h3" component="h2">
+                Join Us
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
@@ -112,9 +119,9 @@ const AboutUs = () => {
             <Box mb={2}>
               <Typography variant="body1">
                 Find us on{' '}
-                <a href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/">
+                <Link href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/">
                   Facebook
-                </a>
+                </Link>
                 .
               </Typography>
             </Box>
@@ -122,9 +129,9 @@ const AboutUs = () => {
           <Grid item xs={12}>
             <Typography variant="body1">
               Read{' '}
-              <a href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx">
+              <Link href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx">
                 meeting notes
-              </a>{' '}
+              </Link>{' '}
               in our Google drive.
             </Typography>
           </Grid>
@@ -132,7 +139,9 @@ const AboutUs = () => {
         <Grid item xs={12} container>
           <Grid item xs={12}>
             <Box my={3}>
-              <Typography variant="h3">Our Location</Typography>
+              <Typography variant="h3" component="h2">
+                Our Location
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
@@ -159,7 +168,6 @@ const AboutUs = () => {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.537979505336!2d-122.41610668477435!3d37.75398197976332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7f589b10caed%3A0x75f9d155a81c5872!2sSF%20Dharma%20Collective!5e0!3m2!1sen!2suk!4v1582538375324!5m2!1sen!2suk"
               frameBorder="0"
               style={{border: 0, width: '100%', height: '400px'}}
-              allowFullScreen=""
               title="Google map of SFDC location"
             />
           </Grid>

@@ -1,10 +1,11 @@
 import React from 'react';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
 import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 
 const useStyles = makeStyles({
   iframe: {
@@ -24,16 +25,16 @@ const Calendar = () => {
         <Grid item container xs={12}>
           <Grid item container justify="center" xs={12} sm={6}>
             <Typography variant="body1">
-              <a href="https://calendar.google.com/calendar/ical/6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com/public/basic.ics">
+              <Link href="https://calendar.google.com/calendar/ical/6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com/public/basic.ics">
                 iCal Address for Download
-              </a>
+              </Link>
             </Typography>
           </Grid>
           <Grid item container justify="center" xs={12} sm={6}>
             <Typography variant="body1">
-              <a href="https://calendar.google.com/calendar/embed?src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&ctz=America%2FLos_Angeles">
+              <Link href="https://calendar.google.com/calendar/embed?src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&ctz=America%2FLos_Angeles">
                 Public URL for this Calendar
-              </a>
+              </Link>
             </Typography>
           </Grid>
         </Grid>

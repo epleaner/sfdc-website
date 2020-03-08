@@ -1,21 +1,26 @@
-import React from "react";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import Hidden from "@material-ui/core/Hidden";
-import Divider from "@material-ui/core/Divider";
-import { Link } from "gatsby";
+import React from 'react';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import {makeStyles} from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
+import Divider from '@material-ui/core/Divider';
+import {Link} from 'gatsby';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   buttonContainer: {
-    [theme.breakpoints.up("md")]: {
-      textAlign: "right"
-    }
-  }
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'right',
+    },
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
+    textTransform: 'uppercase',
+  },
 }));
 
 const Resources = () => {
@@ -30,7 +35,7 @@ const Resources = () => {
       <Grid container>
         <Grid item xs={12}>
           <Box mb={6}>
-            <Typography align="center" variant="h3">
+            <Typography align="center" variant="h3" component="h1">
               In addition to our regular programming, we offer the following
               resources to our community:
             </Typography>
@@ -40,7 +45,9 @@ const Resources = () => {
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
               <Button color="primary">
-                <Link to="/resources/from-our-friends">From Our Friends</Link>
+                <Link to="/resources/from-our-friends" className={classes.link}>
+                  From Our Friends
+                </Link>
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -59,7 +66,10 @@ const Resources = () => {
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
               <Button color="primary">
-                <Link to="/resources/local-sits-centers">
+                <Link
+                  to="/resources/local-sits-centers"
+                  className={classes.link}
+                >
                   Local Sits & Centers
                 </Link>
               </Button>
@@ -80,7 +90,9 @@ const Resources = () => {
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
               <Button color="primary">
-                <Link to="/resources/podcasts">Podcasts</Link>
+                <Link to="/resources/podcasts" className={classes.link}>
+                  Podcasts
+                </Link>
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -100,7 +112,10 @@ const Resources = () => {
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
               <Button color="primary">
-                <Link to="/resources/other-offerings-sfdc">
+                <Link
+                  to="/resources/other-offerings-sfdc"
+                  className={classes.link}
+                >
                   Other Offerings @ SFDC
                 </Link>
               </Button>

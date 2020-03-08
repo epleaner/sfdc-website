@@ -1,11 +1,12 @@
 import React from 'react';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
-import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+import Link from '@material-ui/core/Link';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 
 const useStyles = makeStyles({
   podcastDescription: {whiteSpace: 'pre-wrap'},
@@ -84,18 +85,18 @@ const Podcasts = () => {
       <Grid container>
         <Grid item xs={12}>
           <Box mb={3}>
-            <Typography align="center" variant="h2">
+            <Typography align="center" variant="h2" component="h1">
               Podcasts
             </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} container>
           {podcastData.map((podcast, index) => (
-            <Grid item xs={12} container key={index}>
+            <Grid item xs={12} container key={index} component="article">
               <Grid item xs={12}>
                 <Box mb={2}>
-                  <Typography variant="h6">
-                    <a href={podcast.url}>{podcast.name}</a>
+                  <Typography variant="h4" component="h1">
+                    <Link href={podcast.url}>{podcast.name}</Link>
                     {podcast.author.length > 0 && ` with ${podcast.author}`}
                   </Typography>
                 </Box>

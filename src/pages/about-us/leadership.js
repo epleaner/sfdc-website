@@ -1,13 +1,14 @@
-import React from "react";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import React from 'react';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
-  list: { listStyle: "none", padding: 0 }
+  list: {listStyle: 'none', padding: 0},
 });
 
 const Leadership = () => {
@@ -23,14 +24,14 @@ const Leadership = () => {
         <Grid item container>
           <Grid item xs={12}>
             <Box mb={3}>
-              <Typography align="center" variant="h2">
+              <Typography align="center" variant="h2" component="h1">
                 SF Dharma Collective Leadership
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Box mb={6}>
-              <Typography align="center" variant="h5">
+              <Typography align="center" variant="h5" component="h2">
                 The San Francisco Dharma Collective is a sangha-led dharma
                 community.
               </Typography>
@@ -49,10 +50,10 @@ const Leadership = () => {
               <Box mb={2}>
                 <Typography variant="body1">
                   We meet on Monday evenings in San Francisco. If you are
-                  interested in attending a meeting, please contact{" "}
-                  <a href="mailto:sfdharmacollective@gmail.com">
+                  interested in attending a meeting, please contact{' '}
+                  <Link href="mailto:sfdharmacollective@gmail.com">
                     sfdharmacollective@gmail.com
-                  </a>
+                  </Link>
                   .
                 </Typography>
               </Box>
@@ -60,16 +61,16 @@ const Leadership = () => {
             <Grid item xs={12}>
               <Typography variant="body1">
                 We welcome volunteers to join committees. If you are interested
-                in volunteering, please contact{" "}
-                <a href="mailto:sfdcvolunteers@gmail.com">
+                in volunteering, please contact{' '}
+                <Link href="mailto:sfdcvolunteers@gmail.com">
                   sfdcvolunteers@gmail.com
-                </a>
+                </Link>
               </Typography>
             </Grid>
           </Grid>
           <Grid item xs={12}>
             <Box mt={6}>
-              <Typography align="center" variant="h3">
+              <Typography align="center" variant="h3" component="h3">
                 SF Dharma Collective Board of Directors
               </Typography>
             </Box>
@@ -77,59 +78,47 @@ const Leadership = () => {
           <Grid item container xs={12}>
             <Grid item container justify="center" xs={12} sm={4}>
               <ul className={classes.list}>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Brendan O'Hara
-                  </Typography>
-                </li>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Genevieve Church
-                  </Typography>
-                </li>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Jenny Doll
-                  </Typography>
-                </li>
+                <Typography align="center" variant="body1" component="li">
+                  Brendan O'Hara
+                </Typography>
+
+                <Typography align="center" variant="body1" component="li">
+                  Genevieve Church
+                </Typography>
+
+                <Typography align="center" variant="body1" component="li">
+                  Jenny Doll
+                </Typography>
               </ul>
             </Grid>
             <Grid item container justify="center" xs={12} sm={4}>
               <ul className={classes.list}>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Kati Devaney
-                  </Typography>
-                </li>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Noam Szoke
-                  </Typography>
-                </li>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Rae Brosnan
-                  </Typography>
-                </li>
+                <Typography align="center" variant="body1" component="li">
+                  Kati Devaney
+                </Typography>
+
+                <Typography align="center" variant="body1" component="li">
+                  Noam Szoke
+                </Typography>
+
+                <Typography align="center" variant="body1" component="li">
+                  Rae Brosnan
+                </Typography>
               </ul>
             </Grid>
             <Grid item container justify="center" xs={12} sm={4}>
               <ul className={classes.list}>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Snow McNaughton
-                  </Typography>
-                </li>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Suzanne Hollis
-                  </Typography>
-                </li>
-                <li>
-                  <Typography align="center" variant="body1">
-                    Tia Paquin
-                  </Typography>
-                </li>
+                <Typography align="center" variant="body1" component="li">
+                  Snow McNaughton
+                </Typography>
+
+                <Typography align="center" variant="body1" component="li">
+                  Suzanne Hollis
+                </Typography>
+
+                <Typography align="center" variant="body1" component="li">
+                  Tia Paquin
+                </Typography>
               </ul>
             </Grid>
           </Grid>

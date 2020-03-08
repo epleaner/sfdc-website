@@ -15,10 +15,11 @@ const Newsletter = () => {
       />
       <Grid container justify="center">
         <Grid item xs={12}>
-          <MailChimpSignup />
+          <Box mb={3}>
+            <MailChimpSignup />
+          </Box>
         </Grid>
       </Grid>
-      <Box mb={3} />
     </Layout>
   );
 };
