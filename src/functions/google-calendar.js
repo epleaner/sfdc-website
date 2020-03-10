@@ -21,7 +21,7 @@ export function handler(event, context, callback) {
     process.env.GATSBY_GCAL_CLIENT_EMAIL || devCredentials.client_email;
 
   const privateKey = Base64.decode(
-      process.env.GATSBY_GCAL_PRIVATE_KEY || devCredentials.private_key,
+      process.env.GATSBY_GCAL_PRIVATE_KEY || devCredentials.private_key_base64,
   );
 
   const jwtClient = new google.auth.JWT(clientEmail, null, privateKey, [
@@ -42,6 +42,7 @@ export function handler(event, context, callback) {
           {
             auth: jwtClient,
             calendarId: calendarId,
+            // singleEvents: true,
             timeMin: moment()
                 .startOf('week')
                 .format(),
