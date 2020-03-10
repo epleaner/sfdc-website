@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
-import EcoSattvaImage from '../../../static/images/ecosattva-image.jpg';
+import EcoSattvaImage from '../../images/ecosattva-image.jpg';
 
 const useStyles = makeStyles({
   italic: {fontStyle: 'italic'},

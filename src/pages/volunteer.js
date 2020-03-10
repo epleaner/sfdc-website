@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import VolunteerTestimonies from '../components/VolunteerTestimonies';
-import HandsImagePath from '../../static/images/hands.png';
+import HandsImagePath from '../images/hands.png';
 
 const useStyles = makeStyles({
   handsImage: {maxWidth: '500px', width: '100%', height: '100%'},

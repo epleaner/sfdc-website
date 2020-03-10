@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 
-import ConsciousHackingImagePath from '../../../static/images/consciousness-hacking.png';
-import ZenHospiceImagePath from '../../../static/images/zen-hospice.jpg';
+import ConsciousHackingImagePath from '../../images/consciousness-hacking.png';
+import ZenHospiceImagePath from '../../images/zen-hospice.jpg';
 
 const useStyles = makeStyles({avatar: {width: '200px', height: '200px'}});
 

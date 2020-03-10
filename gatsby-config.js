@@ -25,6 +25,14 @@ module.exports = {
     basePath: '/',
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/`,
+      },
+    },
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     {
@@ -56,7 +64,7 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'minimal-ui',
-        icon: './static/images/favicon.png',
+        icon: './src/images/favicon.png',
       },
     },
     'gatsby-plugin-offline',
