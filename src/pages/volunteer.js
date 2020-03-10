@@ -7,11 +7,13 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
+import Link from '@material-ui/core/Link';
 import VolunteerTestimonies from '../components/VolunteerTestimonies';
 import HandsImagePath from '../images/hands.png';
 
 const useStyles = makeStyles({
   handsImage: {maxWidth: '500px', width: '100%', height: '100%'},
+  currentVolunteerText: {fontSize: '0.9rem'},
 });
 
 const Volunteer = () => {
@@ -25,10 +27,25 @@ const Volunteer = () => {
       />
       <Grid container>
         <Grid item container xs={12}>
+          <Typography
+            align="center"
+            gutterBottom
+            className={classes.currentVolunteerText}
+            variant="overline"
+            component="aside"
+          >
+            Current volunteers: the{' '}
+            <Link href="https://docs.google.com/spreadsheets/d/1rmWTnr84EGi30Vk4RvquNkMX4Zg_AjcrGfpe1uXeQoI/edit#gid=1161947904">
+              volunteer hosting spreadsheet is here
+            </Link>
+            .
+          </Typography>
+        </Grid>
+        <Grid item container xs={12}>
           <Grid item container alignContent="center" xs={12} md={8}>
             <Grid item xs={12}>
-              <Box mb={6}>
-                <Typography variant="h2" component="h1">
+              <Box mb={6} mt={4}>
+                <Typography align="center" variant="h2" component="h1">
                   Volunteer at your SF Dharma Collective.
                 </Typography>
               </Box>
