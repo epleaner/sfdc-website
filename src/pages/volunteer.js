@@ -100,9 +100,9 @@ const Volunteer = () => {
               <Box mb={4}>
                 <Typography variant="body1">
                   If you are interested in volunteering, please contact{' '}
-                  <a href="mailto:SFDCvolunteers@gmail.com">
+                  <Link href="mailto:SFDCvolunteers@gmail.com">
                     SFDCvolunteers@gmail.com
-                  </a>
+                  </Link>
                 </Typography>
               </Box>
             </Grid>
