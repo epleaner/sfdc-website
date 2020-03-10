@@ -32,8 +32,8 @@ const menuItems = [
     path: '/calendar',
     nested: [
       {
-        name: 'Upcoming and Recurring Events',
-        path: '/calendar/upcoming-recurring-events',
+        name: 'Upcoming Events',
+        path: '/calendar/upcoming-events',
       },
     ],
   },
