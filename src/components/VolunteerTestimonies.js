@@ -17,14 +17,14 @@ const useStyles = makeStyles({
   },
 });
 
-import claudiaVolunteerPath from '../images/volunteer/volunteer-claudia.jpg';
-import noamVolunteerPath from '../images/volunteer/volunteer-noam.jpg';
-import raeVolunteerPath from '../images/volunteer/volunteer-rae.jpg';
-import ritaVolunteerPath from '../images/volunteer/volunteer-rita.jpg';
-import sueVolunteerPath from '../images/volunteer/volunteer-sue.jpg';
-import suzanneVolunteerPath from '../images/volunteer/volunteer-suzanne.jpg';
-import tiaVolunteerPath from '../images/volunteer/volunteer-tia.jpg';
-import vickiVolunteerPath from '../images/volunteer/volunteer-vicki.jpg';
+import claudiaVolunteerPath from '../assets/volunteer/volunteer-claudia.jpg';
+import noamVolunteerPath from '../assets/volunteer/volunteer-noam.jpg';
+import raeVolunteerPath from '../assets/volunteer/volunteer-rae.jpg';
+import ritaVolunteerPath from '../assets/volunteer/volunteer-rita.jpg';
+import sueVolunteerPath from '../assets/volunteer/volunteer-sue.jpg';
+import suzanneVolunteerPath from '../assets/volunteer/volunteer-suzanne.jpg';
+import tiaVolunteerPath from '../assets/volunteer/volunteer-tia.jpg';
+import vickiVolunteerPath from '../assets/volunteer/volunteer-vicki.jpg';
 
 const volunteerData = [
   {

@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Hidden from '@material-ui/core/Hidden';
 import withWidth from '@material-ui/core/withWidth';
-import HeaderImagePath from '../images/sfdc-header.png';
+import HeaderImagePath from '../assets/sfdc-header.png';
 import PopoverMenu from './PopoverMenu';
 import DrawerMenu from './DrawerMenu';
 import MenuItem from './MenuItem';
