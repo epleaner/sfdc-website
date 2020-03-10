@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import Link from '@material-ui/core/Link';
 import VolunteerTestimonies from '../components/VolunteerTestimonies';
-import HandsImagePath from '../assets/hands.png';
+import HandsImagePath from '../assets/images/hands.png';
 
 const useStyles = makeStyles({
   handsImage: {maxWidth: '500px', width: '100%', height: '100%'},

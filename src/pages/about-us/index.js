@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
-import LotusImagePath from '../../assets/lotus.png';
+import LotusImagePath from '../../assets/images/lotus.png';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {maxWidth: '500px', width: '100%', height: '100%'},

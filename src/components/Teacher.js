@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -23,13 +23,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const Teacher = (props) => {
-  const {fluidImage, website} = props;
+  const { fluidImage } = props;
 
   const classes = useStyles();
 
   const name = fluidImage.originalName
-      .replace(/_/g, ' ')
-      .replace(/\.(jpg)|\.(png)/g, '');
+    .replace(/_/g, ' ')
+    .replace(/\.(jpg)|\.(png)/g, '');
+
+  const website = TeacherBios.filter(
+    ({ teacherName, website }) => teacherName === name
+  )?.website;
 
   return (
     <Grid container item xs={12} sm={5} md={4} lg={3}>
