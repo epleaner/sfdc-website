@@ -12,23 +12,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EventListContainer(props) {
-  const {headerText, children} = props;
+  const {children} = props;
   const classes = useStyles();
 
   return (
-    <List
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader disableSticky>
-          <Box mb={3}>
-            <Typography variant={'h2'} align="center">
-              {headerText}
-            </Typography>
-          </Box>
-        </ListSubheader>
-      }
-      className={classes.list}
-    >
+    <List aria-labelledby="nested-list-subheader" className={classes.list}>
       {children}
     </List>
   );

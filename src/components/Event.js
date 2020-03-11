@@ -75,7 +75,7 @@ export default function Event(props) {
                   </Typography>
                 </Grid>
               </Grid>
-              <Grid item container justify="end" xs={1}>
+              <Grid item container justify="flex-end" xs={1}>
                 <Grid item xs={12}>
                   {open ? <ExpandLess /> : <ExpandMore />}
                 </Grid>

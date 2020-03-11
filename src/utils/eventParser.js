@@ -40,15 +40,30 @@ const formatRecurrenceRules = (events) => {
   });
 };
 
+const createSingleEventsFromRecurringEvents = ({
+  recurringeEvents,
+  monthsAhead,
+}) => {
+  const singleEvents = [];
+
+  // recurringeEvents.forEach((event) => {});
+
+  return singleEvents;
+};
+
 const parseEvents = (eventData) => {
   const activeEvents = eventData.filter(
-      (event) => event.status !== 'cancelled',
+      (event) => event.status !== 'cancelled' && event.description,
+  );
+
+  const unstickedEvents = activeEvents.filter(
+      (event) => event.summary !== 'Morning Sit',
   );
 
   const singleEvents = [];
   const recurringEvents = [];
 
-  activeEvents.forEach(
+  unstickedEvents.forEach(
       ({id, summary, start, end, description, recurrence, attachments}) => {
         const pluckedEvent = {
           id,
@@ -76,7 +91,14 @@ const parseEvents = (eventData) => {
         !until || moment(until.toUpperCase()).isAfter(moment().startOf('day')),
   );
 
-  const eventsByMonth = getEventsByMonth(singleEvents);
+  const singleEventsFromRecurringEvents = createSingleEventsFromRecurringEvents(
+      {recurringEvents: activeRecurringEvents, monthsAhead: 6},
+  );
+
+  const eventsByMonth = getEventsByMonth([
+    ...singleEvents,
+    ...singleEventsFromRecurringEvents,
+  ]);
 
   return {
     singleEventsByMonth: eventsByMonth,

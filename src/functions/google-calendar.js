@@ -42,9 +42,15 @@ export function handler(event, context, callback) {
           {
             auth: jwtClient,
             calendarId: calendarId,
-            // singleEvents: true,
+            singleEvents: true,
+            orderBy: 'startTime',
+            maxResults: 2500,
             timeMin: moment()
                 .startOf('week')
+                .format(),
+            timeMax: moment()
+                .add(3, 'M')
+                .endOf('month')
                 .format(),
           },
           function(error, response) {

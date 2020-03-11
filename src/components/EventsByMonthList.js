@@ -29,10 +29,12 @@ export default function EventList(props) {
         />
       </ListItem>
       <List component="article" disablePadding>
-        {events.map((event) => (
+        {events.map((event, index) => (
           <React.Fragment key={event.id}>
             <Event {...event} />
-            <Divider className={classes.divider} />
+            {index !== events.length - 1 && (
+              <Divider className={classes.divider} />
+            )}
           </React.Fragment>
         ))}
       </List>
