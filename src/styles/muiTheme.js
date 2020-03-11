@@ -4,7 +4,34 @@ const MuiTheme = responsiveFontSizes(
     createMuiTheme({
       palette: {
         backgroundColor: '#fafafa',
+        lightestBlue: '#96dcde',
         lightBlue: '#5ac8cd',
+        middleBlue: '#36bdc3',
+        darkBlue: '#21b6bd',
+
+        primary0: 'rgba(150,219,222,1)' /* Main Primary color */,
+        primaryBlue1: 'rgba(244,254,254,1)',
+        primaryBlue2: 'rgba(199,241,243,1)',
+        primaryBlue3: 'rgba(103,188,192,1)',
+        primaryBlue4: 'rgba( 62,149,153,1)',
+
+        secondaryYellow0: 'rgba(255,228,172,1)' /* Main Secondary color (1) */,
+        secondaryYellow1: 'rgba(255,252,245,1)',
+        secondaryYellow2: 'rgba(255,240,209,1)',
+        secondaryYellow3: 'rgba(255,216,136,1)',
+        secondaryYellow4: 'rgba(254,204,102,1)',
+
+        secondaryRed0: 'rgba(255,174,172,1)' /* Main Secondary color (2) */,
+        secondaryRed1: 'rgba(255,245,245,1)',
+        secondaryRed2: 'rgba(255,210,209,1)',
+        secondaryRed3: 'rgba(255,139,136,1)',
+        secondaryRed4: 'rgba(254,106,102,1)',
+
+        complementaryOrange0: 'rgba(255,210,172,1)' /* Main Complement color */,
+        complementaryOrange1: 'rgba(255,249,245,1)',
+        complementaryOrange2: 'rgba(255,230,209,1)',
+        complementaryOrange3: 'rgba(255,191,136,1)',
+        complementaryOrange4: 'rgba(254,172,102,1)',
       },
       typography: {
         fontFamily:
