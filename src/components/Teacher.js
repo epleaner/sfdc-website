@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -13,27 +13,35 @@ import TeacherBios from '../assets/teacher_bios.json';
 const useStyles = makeStyles((theme) => ({
   image: {
     borderRadius: '50%',
+    minHeight: '244px',
   },
   imageContainer: {
     margin: theme.spacing(2),
   },
   card: {
-    margin: theme.spacing(2),
-    width: '100%',
+    'margin': theme.spacing(2),
+    'width': '100%',
+    // 'background': 'linear-gradient(0deg, #6dd5ed00, #2193b08a 90%)',
+    'transition': 'all 0.2s ease-in-out',
+    '&:hover': {opacity: '.75'},
   },
 }));
 const Teacher = (props) => {
-  const { fluidImage } = props;
+  const {fluidImage} = props;
 
   const classes = useStyles();
 
   const name = fluidImage.originalName
-    .replace(/_/g, ' ')
-    .replace(/\.(jpg)|\.(png)/g, '');
+      .replace(/_/g, ' ')
+      .replace(/\.(jpg)|\.(png)/g, '');
 
-  const website = TeacherBios.filter(
-    ({ teacherName, website }) => teacherName === name
-  )?.website;
+  const teacherHasWebsite = TeacherBios.filter(
+      ({name: teacherName, website}) => {
+        return teacherName === name;
+      },
+  );
+
+  const website = teacherHasWebsite.length > 0 && teacherHasWebsite[0].website;
 
   return (
     <Grid container item xs={12} sm={5} md={4} lg={3}>
@@ -48,7 +56,7 @@ const Teacher = (props) => {
           {website && (
             <Grid item xs={12}>
               <Typography align="center" variant="body2" component="h1">
-                <Link href={website}>{website}</Link>
+                <Link href={`https://${website}`}>{website}</Link>
               </Typography>
             </Grid>
           )}

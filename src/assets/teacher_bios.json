@@ -1,14 +1,18 @@
 [
-  { "name": "Amma Thanasanti ", "website": "awakeningtruth.org" },
+  { "name": "Amanda Gilbert", "website": "amandagilbertmeditation.com" },
+  { "name": "Alejandra Siroka", "website": "languagealchemy.com" },
+  { "name": "Aiko Michot", "website": "rememberingtruenature.com" },
+  { "name": "Adreanna Limbach", "website": "adreannalimbach.com" },
+  { "name": "Amma Thanasanti", "website": "awakeningtruth.org" },
   { "name": "Andrew Chaiken", "website": "heart.camp" },
   { "name": "Ayya Anandabodhi", "website": "alokavihara.org" },
-  { "name": "Ayya Santacitta ", "website": "alokavihara.org" },
+  { "name": "Ayya Santacitta", "website": "alokavihara.org" },
   { "name": "Chandra Easton", "website": "shunyatayoga.com" },
   { "name": "Cheryl Slean", "website": "CherylSleanMeditation.org" },
-  { "name": "Christian Howard", "website": "Rev. Daigan Gaither " },
   { "name": "Dan Petrie", "website": "silencebetween.com" },
-  { "name": "Dave Smith ", "website": "davesmithdharma.com" },
-  { "name": "David McKay", "website": "TheOneOpenDoor" },
+  { "name": "Dave Smith", "website": "davesmithdharma.com" },
+  { "name": "David McKay", "website": "www.facebook.com/theoneopendoor" },
+  { "name": "Daniel Ingram", "website": "www.dharmaoverground.org/home" },
   { "name": "Deborah Eden Tull", "website": "deborahedentull.com" },
   { "name": "Devin Berry", "website": "www.spiritrock.org/devin-berry" },
   { "name": "Devon Cresci", "website": "facebook.com/devoncresci" },
@@ -18,7 +22,10 @@
   { "name": "Fresh! “Lev” White", "website": "affirmativeacts.org" },
   { "name": "Gary Gach", "website": "levity.com/interbeing/" },
   { "name": "George Haas", "website": "mettagroup.org/about" },
-  { "name": "Howie Cohn", "website": "MissionDharma" },
+  {
+    "name": "Howie Cohn",
+    "website": "www.missiondharma.org/our-teacher---howard-cohn.html"
+  },
   { "name": "Isa Gucciardi", "website": "sacredstream.org" },
   { "name": "Jennifer Dumpert", "website": "liminaldreaming.com" },
   { "name": "Jessica Graham", "website": "yourwildawakening.com" },
@@ -45,7 +52,10 @@
     "website": "sfzc.org/teachers/koshin-steven-tierney"
   },
   { "name": "Tina Rasmussen", "website": "AwakeningDharma.com" },
-  { "name": "Toran \"Beja\" Ailisheva", "website": "White Noise Collective" },
+  {
+    "name": "Toran \"Beja\" Ailisheva",
+    "website": "www.conspireforchange.org/"
+  },
   { "name": "Venerable Dhammadipa", "website": "alokavihara.org" },
   { "name": "Venerable Tenzin Chogkyi", "website": "ventenzin.org" },
   { "name": "Vincent Horn", "website": "vincenthorn.com" },

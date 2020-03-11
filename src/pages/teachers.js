@@ -45,12 +45,18 @@ const Teachers = () => {
           </Typography>
         </Grid>
         <Grid item xs={12} container>
-          {imageEdges.map((edge) => (
-            <Teacher
-              key={edge.node.childImageSharp.fluid.originalName}
-              fluidImage={edge.node.childImageSharp.fluid}
-            />
-          ))}
+          {imageEdges
+              .sort((a, b) =>
+                a.node.childImageSharp.fluid.originalName.localeCompare(
+                    b.node.childImageSharp.fluid.originalName,
+                ),
+              )
+              .map((edge) => (
+                <Teacher
+                  key={edge.node.childImageSharp.fluid.originalName}
+                  fluidImage={edge.node.childImageSharp.fluid}
+                />
+              ))}
         </Grid>
       </Grid>
     </Layout>
