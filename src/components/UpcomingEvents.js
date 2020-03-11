@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import MonthList from './MonthList';
 import RecurringEventsList from './RecurringEventsList';
@@ -69,6 +70,9 @@ const UpcomingEvents = () => {
       </Grid>
       <Grid item xs={12}>
         <Box mt={6}>
+          <Box mb={6}>
+            <Divider />
+          </Box>
           <Typography
             gutterBottom
             variant="body1"
@@ -81,6 +85,9 @@ const UpcomingEvents = () => {
           <Typography variant="body1" align="center" component="aside">
             Beginning and experienced practitioners are welcome.
           </Typography>
+          <Box mt={6}>
+            <Divider />
+          </Box>
         </Box>
       </Grid>
       <Grid
@@ -133,6 +140,11 @@ const UpcomingEvents = () => {
               </Typography>
             </Box>
           </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Box mt={6}>
+            <Divider />
+          </Box>
         </Grid>
       </Grid>
       {statusHeaderText !== '' && (
