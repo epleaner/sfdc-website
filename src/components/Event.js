@@ -22,7 +22,14 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'none',
   },
   eventDescription: {
-    marginTop: theme.spacing(2),
+    'marginTop': theme.spacing(2),
+    '& a': {
+      'color': 'rgba(62,149,153,1)',
+      'textDecoration': 'none',
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
   },
   avatar: {
     width: '250px',

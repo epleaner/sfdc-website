@@ -9,6 +9,10 @@ import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
   list: {listStyle: 'none', padding: 0},
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 });
 
 const Leadership = () => {
@@ -51,7 +55,10 @@ const Leadership = () => {
                 <Typography variant="body1">
                   We meet on Monday evenings in San Francisco. If you are
                   interested in attending a meeting, please contact{' '}
-                  <Link href="mailto:sfdharmacollective@gmail.com">
+                  <Link
+                    className={classes.anchor}
+                    href="mailto:sfdharmacollective@gmail.com"
+                  >
                     sfdharmacollective@gmail.com
                   </Link>
                   .
@@ -62,7 +69,10 @@ const Leadership = () => {
               <Typography variant="body1">
                 We welcome volunteers to join committees. If you are interested
                 in volunteering, please contact{' '}
-                <Link href="mailto:sfdcvolunteers@gmail.com">
+                <Link
+                  className={classes.anchor}
+                  href="mailto:sfdcvolunteers@gmail.com"
+                >
                   sfdcvolunteers@gmail.com
                 </Link>
               </Typography>

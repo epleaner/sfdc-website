@@ -18,6 +18,10 @@ const useStyles = makeStyles({
     color: 'inherit',
     textTransform: 'uppercase',
   },
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 });
 
 const Footer = () => {
@@ -70,7 +74,10 @@ const Footer = () => {
             <span>415-404-9333</span>
             <span> • </span>
             <span>
-              <MaterialUILink href="mailto:sfdharmacollective@gmail.com">
+              <MaterialUILink
+                className={classes.anchor}
+                href="mailto:sfdharmacollective@gmail.com"
+              >
                 sfdharmacollective@gmail.com
               </MaterialUILink>
             </span>

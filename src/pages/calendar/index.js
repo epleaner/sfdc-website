@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -10,6 +11,13 @@ import SEO from '../../components/SEO';
 const useStyles = makeStyles({
   iframe: {
     overflow: 'scroll',
+  },
+  link: {
+    'color': 'inherit',
+    'textTransform': 'uppercase',
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
 });
 
@@ -24,18 +32,32 @@ const Calendar = () => {
       <Grid container>
         <Grid item container xs={12}>
           <Grid item container justify="center" xs={12} sm={6}>
-            <Typography variant="body1">
-              <Link href="https://calendar.google.com/calendar/ical/6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com/public/basic.ics">
-                iCal Address for Download
-              </Link>
-            </Typography>
+            <Box my={1}>
+              <Button color="primary" variant="outlined">
+                <Typography variant="body1">
+                  <Link
+                    className={classes.link}
+                    href="https://calendar.google.com/calendar/ical/6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com/public/basic.ics"
+                  >
+                    iCal Address for Download
+                  </Link>
+                </Typography>
+              </Button>
+            </Box>
           </Grid>
           <Grid item container justify="center" xs={12} sm={6}>
-            <Typography variant="body1">
-              <Link href="https://calendar.google.com/calendar/embed?src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&ctz=America%2FLos_Angeles">
-                Public URL for this Calendar
-              </Link>
-            </Typography>
+            <Box my={1}>
+              <Button color="primary" variant="outlined">
+                <Typography variant="body1">
+                  <Link
+                    className={classes.link}
+                    href="https://calendar.google.com/calendar/embed?src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&ctz=America%2FLos_Angeles"
+                  >
+                    Public URL for this Calendar
+                  </Link>
+                </Typography>
+              </Button>
+            </Box>
           </Grid>
         </Grid>
         <Grid item container justify="center" xs={12}>

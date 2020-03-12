@@ -25,6 +25,9 @@ const MuiTheme = responsiveFontSizes(
             },
           },
         },
+        MuiTypography: {
+          colorPrimary: 'rgba(150,219,222,1)',
+        },
       },
       palette: {
         backgroundColor: '#fafafa',
@@ -33,7 +36,7 @@ const MuiTheme = responsiveFontSizes(
         primaryBlue1: 'rgba(244,254,254,1)',
         primaryBlue2: 'rgba(199,241,243,1)',
         primaryBlue3: 'rgba(103,188,192,1)',
-        primaryBlue4: 'rgba( 62,149,153,1)',
+        primaryBlue4: 'rgba(62,149,153,1)',
 
         secondaryYellow0: 'rgba(255,228,172,1)' /* Main Secondary color (1) */,
         secondaryYellow1: 'rgba(255,252,245,1)',

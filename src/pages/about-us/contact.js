@@ -8,7 +8,11 @@ import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
 
 const useStyles = makeStyles({
-  contactEmail: {lineBreak: 'anywhere'},
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+    lineBreak: 'anywhere',
+  },
 });
 
 const contactData = [
@@ -50,7 +54,7 @@ const Contact = () => {
                 <Typography variant="body1">
                   <Link
                     href={`mailto:${data.email}`}
-                    className={classes.contactEmail}
+                    className={classes.anchor}
                   >
                     {data.email}
                   </Link>

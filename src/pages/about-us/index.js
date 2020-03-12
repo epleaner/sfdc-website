@@ -10,6 +10,10 @@ import LotusImagePath from '../../assets/images/lotus.png';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {maxWidth: '500px', width: '100%', height: '100%'},
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 }));
 
 const AboutUs = () => {
@@ -119,7 +123,10 @@ const AboutUs = () => {
             <Box mb={2}>
               <Typography variant="body1">
                 Find us on{' '}
-                <Link href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/">
+                <Link
+                  className={classes.anchor}
+                  href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/"
+                >
                   Facebook
                 </Link>
                 .
@@ -129,7 +136,10 @@ const AboutUs = () => {
           <Grid item xs={12}>
             <Typography variant="body1">
               Read{' '}
-              <Link href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx">
+              <Link
+                className={classes.anchor}
+                href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx"
+              >
                 meeting notes
               </Link>{' '}
               in our Google drive.

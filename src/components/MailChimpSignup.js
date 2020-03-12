@@ -8,7 +8,23 @@ import Typography from '@material-ui/core/Typography';
 import isEmail from 'validator/es/lib/isEmail';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 
-const useStyles = makeStyles({root: {maxWidth: '400px'}});
+const useStyles = makeStyles((theme) => ({
+  root: {
+    'maxWidth': '400px',
+
+    '& label.Mui-focused': {
+      color: theme.palette.primaryBlue4,
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: theme.palette.primaryBlue4,
+    },
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: theme.palette.primaryBlue4,
+      },
+    },
+  },
+}));
 
 const MailChimpSignup = () => {
   const [email, setEmail] = useState('');
@@ -100,26 +116,31 @@ const MailChimpSignup = () => {
             />
           </Grid>
           <Grid item container justify="center" xs={12}>
-            {mailChimpResponse ? (
-              mailChimpResponse.result === 'success' ? (
-                <Typography color="primary">{mailChimpResponse.msg}</Typography>
+            <Box my={2}>
+              {mailChimpResponse ? (
+                mailChimpResponse.result === 'success' ? (
+                  <Typography color="primary">
+                    {mailChimpResponse.msg}
+                  </Typography>
+                ) : (
+                  <Typography color="error">
+                    {Array(
+                        mailChimpResponse.msg.match(/.+is already subscribed/),
+                    )[0] || 'An error occured. Please try again!'}
+                  </Typography>
+                )
               ) : (
-                <Typography color="error">
-                  {Array(
-                      mailChimpResponse.msg.match(/.+is already subscribed/),
-                  )[0] || 'An error occured. Please try again!'}
-                </Typography>
-              )
-            ) : (
-              <Button
-                disabled={isLoading}
-                htmlFor="mailchimp-form"
-                color="primary"
-                type="submit"
-              >
-                Submit
-              </Button>
-            )}
+                <Button
+                  disabled={isLoading}
+                  htmlFor="mailchimp-form"
+                  color="primary"
+                  type="submit"
+                  variant="outlined"
+                >
+                  Submit
+                </Button>
+              )}
+            </Box>
           </Grid>
         </Grid>
       </form>

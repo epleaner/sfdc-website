@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     'transition': 'all 0.2s ease-in-out',
     '&:hover': {opacity: '.75'},
   },
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 }));
 const Teacher = (props) => {
   const {fluidImage} = props;
@@ -56,7 +60,9 @@ const Teacher = (props) => {
           {website && (
             <Grid item xs={12}>
               <Typography align="center" variant="body2" component="h1">
-                <Link href={`https://${website}`}>{website}</Link>
+                <Link className={classes.anchor} href={`https://${website}`}>
+                  {website}
+                </Link>
               </Typography>
             </Grid>
           )}
