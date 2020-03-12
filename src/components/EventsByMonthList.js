@@ -32,9 +32,6 @@ export default function EventList(props) {
         {events.map((event, index) => (
           <React.Fragment key={event.id}>
             <Event {...event} />
-            {index !== events.length - 1 && (
-              <Divider className={classes.divider} />
-            )}
           </React.Fragment>
         ))}
       </List>
