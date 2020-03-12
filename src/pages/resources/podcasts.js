@@ -9,7 +9,20 @@ import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
 
 const useStyles = makeStyles({
-  podcastDescription: {whiteSpace: 'pre-wrap'},
+  podcastDescription: {
+    'whiteSpace': 'pre-wrap',
+    '& a': {
+      'color': 'rgba(62,149,153,1)',
+      'textDecoration': 'none',
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
+  },
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 });
 
 const podcastData = [
@@ -96,7 +109,9 @@ const Podcasts = () => {
               <Grid item xs={12}>
                 <Box mb={2}>
                   <Typography variant="h4" component="h1">
-                    <Link href={podcast.url}>{podcast.name}</Link>
+                    <Link className={classes.anchor} href={podcast.url}>
+                      {podcast.name}
+                    </Link>
                     {podcast.author.length > 0 && ` with ${podcast.author}`}
                   </Typography>
                 </Box>

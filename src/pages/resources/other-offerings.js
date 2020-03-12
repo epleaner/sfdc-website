@@ -10,7 +10,18 @@ import Avatar from '@material-ui/core/Avatar';
 import ConsciousHackingImagePath from '../../assets/images/consciousness-hacking.png';
 import ZenHospiceImagePath from '../../assets/images/zen-hospice.jpg';
 
-const useStyles = makeStyles({avatar: {width: '200px', height: '200px'}});
+const useStyles = makeStyles({
+  description: {
+    '& a': {
+      'color': 'rgba(62,149,153,1)',
+      'textDecoration': 'none',
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
+  },
+  avatar: {width: '200px', height: '200px'},
+});
 
 const offeringsData = [
   {
@@ -58,6 +69,7 @@ const Offerings = () => {
               <Grid item xs={12}>
                 <Box mb={2}>
                   <Typography
+                    className={classes.description}
                     variant="body1"
                     dangerouslySetInnerHTML={{__html: `${offering.body}`}}
                   />

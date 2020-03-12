@@ -9,6 +9,10 @@ import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
   card: {margin: '0 5px'},
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 });
 
 const sitData = [
@@ -96,7 +100,9 @@ const SitsAndCenters = () => {
               <Grid item xs={12}>
                 {data.urls.map((url, urlIndex) => (
                   <Typography key={`${data.title}${urlIndex}`} variant="body1">
-                    <Link href={url}>{url}</Link>
+                    <Link className={classes.anchor} href={url}>
+                      {url}
+                    </Link>
                   </Typography>
                 ))}
               </Grid>

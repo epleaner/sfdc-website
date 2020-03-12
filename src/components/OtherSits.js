@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     marginBottom: theme.spacing(2),
   },
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 }));
 const otherSitsData = [
   {
@@ -79,7 +83,9 @@ const OtherSits = () => {
           component="li"
           className={classes.listItem}
         >
-          <Link href={sit.url}>{sit.name}</Link>
+          <Link className={classes.anchor} href={sit.url}>
+            {sit.name}
+          </Link>
           {sit.location.length > 0 && ` (${sit.location})`}
         </Typography>
       ))}

@@ -17,6 +17,10 @@ const useStyles = makeStyles({
     maxWidth: '300px',
     maxHeight: '300px',
   },
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 });
 const programLinks = [
   {
@@ -135,7 +139,9 @@ const FromOurFriends = () => {
                 {programLinks.map((link, index) => (
                   <li key={index}>
                     <Typography variant="body1">
-                      <Link href={link.url}>{link.text}</Link>
+                      <Link className={classes.anchor} href={link.url}>
+                        {link.text}
+                      </Link>
                     </Typography>
                   </li>
                 ))}
@@ -167,7 +173,10 @@ const FromOurFriends = () => {
             <Grid item container justify="center" xs={12}>
               <Box my={3}>
                 <Typography variant="h4" component="h5">
-                  <Link href="https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117">
+                  <Link
+                    className={classes.anchor}
+                    href="https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117"
+                  >
                     Find out more here
                   </Link>
                 </Typography>

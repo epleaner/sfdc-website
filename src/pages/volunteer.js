@@ -14,6 +14,10 @@ import HandsImagePath from '../assets/images/hands.png';
 const useStyles = makeStyles({
   handsImage: {maxWidth: '500px', width: '100%', height: '100%'},
   currentVolunteerText: {fontSize: '0.9rem'},
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 });
 
 const Volunteer = () => {
@@ -35,7 +39,10 @@ const Volunteer = () => {
             component="aside"
           >
             Current volunteers: the{' '}
-            <Link href="https://docs.google.com/spreadsheets/d/1rmWTnr84EGi30Vk4RvquNkMX4Zg_AjcrGfpe1uXeQoI/edit#gid=1161947904">
+            <Link
+              className={classes.anchor}
+              href="https://docs.google.com/spreadsheets/d/1rmWTnr84EGi30Vk4RvquNkMX4Zg_AjcrGfpe1uXeQoI/edit#gid=1161947904"
+            >
               volunteer hosting spreadsheet is here
             </Link>
             .
@@ -100,7 +107,10 @@ const Volunteer = () => {
               <Box mb={4}>
                 <Typography variant="body1">
                   If you are interested in volunteering, please contact{' '}
-                  <Link href="mailto:SFDCvolunteers@gmail.com">
+                  <Link
+                    className={classes.anchor}
+                    href="mailto:SFDCvolunteers@gmail.com"
+                  >
                     SFDCvolunteers@gmail.com
                   </Link>
                 </Typography>

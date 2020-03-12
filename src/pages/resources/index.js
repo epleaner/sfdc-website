@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     color: 'inherit',
     textTransform: 'uppercase',
   },
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 }));
 
 const Resources = () => {
@@ -44,7 +48,7 @@ const Resources = () => {
         <Grid item xs={12} container>
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color="primary">
+              <Button color="primary" className={classes.anchor}>
                 <Link to="/resources/from-our-friends" className={classes.link}>
                   From Our Friends
                 </Link>
@@ -65,7 +69,7 @@ const Resources = () => {
           </Grid>
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color="primary">
+              <Button color="primary" className={classes.anchor}>
                 <Link
                   to="/resources/local-sits-centers"
                   className={classes.link}
@@ -89,7 +93,7 @@ const Resources = () => {
           </Grid>
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color="primary">
+              <Button color="primary" className={classes.anchor}>
                 <Link to="/resources/podcasts" className={classes.link}>
                   Podcasts
                 </Link>
@@ -111,7 +115,7 @@ const Resources = () => {
           </Grid>
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color="primary">
+              <Button color="primary" className={classes.anchor}>
                 <Link
                   to="/resources/other-offerings-sfdc"
                   className={classes.link}
