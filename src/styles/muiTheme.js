@@ -2,14 +2,34 @@ import {createMuiTheme, responsiveFontSizes} from '@material-ui/core/styles';
 
 const MuiTheme = responsiveFontSizes(
     createMuiTheme({
+      props: {
+        MuiButtonBase: {
+          disableRipple: true,
+        },
+      },
+      overrides: {
+        MuiDivider: {
+          root: {
+            backgroundImage:
+            'linear-gradient(to right, rgba(244,254,254,1), rgba(150,219,222,1), rgba(244,254,254,1))',
+          },
+        },
+        MuiButton: {
+          outlinedPrimary: {
+            'color': 'rgba( 62,149,153,1)',
+            'border': '1px solid rgba( 62,149,153,1)',
+            '&:hover': {
+              color: 'rgba(244,254,254,1)',
+              border: '1px solid rgba( 62,149,153,1)',
+              backgroundColor: 'rgba( 62,149,153,1)',
+            },
+          },
+        },
+      },
       palette: {
         backgroundColor: '#fafafa',
-        lightestBlue: '#96dcde',
-        lightBlue: '#5ac8cd',
-        middleBlue: '#36bdc3',
-        darkBlue: '#21b6bd',
 
-        primary0: 'rgba(150,219,222,1)' /* Main Primary color */,
+        primaryBlue0: 'rgba(150,219,222,1)' /* Main Primary color */,
         primaryBlue1: 'rgba(244,254,254,1)',
         primaryBlue2: 'rgba(199,241,243,1)',
         primaryBlue3: 'rgba(103,188,192,1)',

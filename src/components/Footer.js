@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import MaterialUILink from '@material-ui/core/Link';
 import {makeStyles} from '@material-ui/core/styles';
 import {Link} from 'gatsby';
+import SocialMedia from '../components/SocialMedia';
 
 const useStyles = makeStyles({
   footer: {
@@ -31,29 +32,36 @@ const Footer = () => {
       alignItems="center"
     >
       <Grid item xs={12}>
-        <Box my={3}>
+        <Box my={6}>
           <Divider className={classes.divider} />
         </Box>
       </Grid>
-      <Grid item xs={12} container direction="row" justify="center">
+      <Grid item xs={12}>
+        <Box mb={3}>
+          <SocialMedia />
+        </Box>
+      </Grid>
+      <Grid item xs={12} container justify="center">
         {[
           {label: 'Teachers', linkTo: '/teachers'},
-          {label: 'Abous Us', linkTo: '/about-us'},
+          {label: 'About Us', linkTo: '/about-us'},
           {label: 'Donate', linkTo: '/donate'},
         ].map(({label, linkTo}) => (
           <Grid item container justify="center" xs={12} sm={3} key={label}>
-            <Button color="primary">
-              <Typography variant="body1" align="center">
-                <Link to={linkTo} className={classes.link}>
-                  {label}
-                </Link>
-              </Typography>
-            </Button>
+            <Box my={1}>
+              <Button color="primary" variant="outlined">
+                <Typography variant="body1" align="center">
+                  <Link to={linkTo} className={classes.link}>
+                    {label}
+                  </Link>
+                </Typography>
+              </Button>
+            </Box>
           </Grid>
         ))}
       </Grid>
       <Grid item xs={12}>
-        <Box my={3}>
+        <Box my={2}>
           <Typography align="center" variant="body1">
             <span>San Francisco Dharma Collective</span>
             <span> • </span>

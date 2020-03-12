@@ -12,7 +12,7 @@ import {Link} from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   active: {
-    borderBottom: 'thin solid #5ac8cd',
+    borderBottom: `thin solid ${theme.palette.primaryBlue0}`,
   },
   link: {
     textDecoration: 'none',
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: theme.spacing(1),
     fontWeight: 100,
-    color: '#fafafa',
+    color: theme.palette.backgroundColor,
   },
 }));
 

@@ -8,9 +8,9 @@ import Box from '@material-ui/core/Box';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#fafafa',
+    backgroundColor: theme.palette.backgroundColor,
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   divider: {
     margin: '40px 0',
   },
-});
+}));
 
 const Layout = (props) => {
   const classes = useStyles();
