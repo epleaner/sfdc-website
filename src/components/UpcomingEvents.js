@@ -55,8 +55,10 @@ const UpcomingEvents = () => {
   const {singleEventsByMonth, recurringEvents} = eventData;
 
   let statusHeaderText = '';
-  if (error) statusHeaderText = 'There was an error, please try again 😑';
-  else if (isLoading) statusHeaderText = 'Loading upcoming events...';
+  if (error) {
+    statusHeaderText =
+      'There was an error fetching our events, please try again 😑';
+  } else if (isLoading) statusHeaderText = 'Loading upcoming events...';
   else if (!singleEventsByMonth || singleEventsByMonth.length === 0) {
     statusHeaderText = 'No events found';
   }
@@ -149,7 +151,7 @@ const UpcomingEvents = () => {
       </Grid>
       {statusHeaderText !== '' && (
         <Grid item xs={12}>
-          <Box mb={3}>
+          <Box mt={4} mb={3}>
             <Typography variant={'h3'} align="center" component="h2">
               {statusHeaderText}
             </Typography>
