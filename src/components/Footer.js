@@ -14,9 +14,12 @@ const useStyles = makeStyles({
     marginTop: 'auto',
   },
   link: {
-    textDecoration: 'none',
-    color: 'inherit',
-    textTransform: 'uppercase',
+    'textDecoration': 'none',
+    'color': 'inherit',
+    'textTransform': 'uppercase',
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
   anchor: {
     color: 'rgba(62,149,153,1)',
@@ -47,9 +50,8 @@ const Footer = () => {
       </Grid>
       <Grid item xs={12} container justify="center">
         {[
-          {label: 'Teachers', linkTo: '/teachers'},
+          {label: 'Teachers', linkTo: '/about-us/teachers'},
           {label: 'About Us', linkTo: '/about-us'},
-          {label: 'Donate', linkTo: '/donate'},
         ].map(({label, linkTo}) => (
           <Grid item container justify="center" xs={12} sm={3} key={label}>
             <Box my={1}>
@@ -63,6 +65,20 @@ const Footer = () => {
             </Box>
           </Grid>
         ))}
+        <Grid item container justify="center" xs={12} sm={3}>
+          <Box my={1}>
+            <Button color="primary" variant="outlined">
+              <Typography variant="body1" align="center">
+                <MaterialUILink
+                  href={'https://sfdharmacollective.org/donate'}
+                  className={classes.link}
+                >
+                  Donate
+                </MaterialUILink>
+              </Typography>
+            </Button>
+          </Box>
+        </Grid>
       </Grid>
       <Grid item xs={12}>
         <Box my={4}>
