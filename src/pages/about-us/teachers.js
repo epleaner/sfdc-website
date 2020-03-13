@@ -3,9 +3,9 @@ import {useStaticQuery, graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import Teacher from '../components/Teacher';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import Teacher from '../../components/Teacher';
 
 const Teachers = () => {
   const data = useStaticQuery(graphql`
