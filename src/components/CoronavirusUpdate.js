@@ -24,7 +24,7 @@ const CoronavirusUpdate = () => {
     <>
       <Divider className={classes.divider} />
       <Box my={8}>
-        <Box mb={2}>
+        <Box mb={6}>
           <Typography variant="body1">
             In light of the COVID-19 outbreak and guidance from government and
             medical professionals,{' '}
@@ -35,26 +35,19 @@ const CoronavirusUpdate = () => {
         </Box>
         <Box mb={2}>
           <Typography variant="body1">
-            One way we can unite immediately is by sitting together{' '}
-            <b>online</b>. This will either be through our{' '}
-            <Link
-              className={classes.anchor}
-              href="https://www.youtube.com/channel/UCxrOXx3uqvfbYhs0A7twjSw/featured"
-            >
-              YouTube Channel
-            </Link>{' '}
-            or{' '}
-            <Link
-              className={classes.anchor}
-              href="https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fsfdharmacollective%2F&sa=D&sntz=1&usg=AFQjCNG5Lk5-CA4Fha2qpLby67dxtZ2nUw"
-            >
-              Facebook
-            </Link>
-            . We are working on this with the intention of live streaming many
-            of our sits.
+            One way we can unite immediately is by sitting together online. We
+            will be using Zoom to host most of our classes.
           </Typography>
         </Box>
         <Box mb={2}>
+          <Typography variant="body1">
+            This is the link:{' '}
+            <Link className={classes.anchor} href="https://zoom.us/j/545039806">
+              https://zoom.us/j/545039806
+            </Link>
+          </Typography>
+        </Box>
+        <Box mb={6}>
           <Typography variant="body1">
             Please join us online as we create a new means for connecting our
             collective consciousness.
