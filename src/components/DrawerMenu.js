@@ -31,7 +31,7 @@ const menuItems = [
     name: 'About Us',
     path: '/about-us',
     nested: [
-      {name: 'Teachers', path: '/teachers'},
+      {name: 'Teachers', path: '/about-us/teachers'},
       {name: 'Leadership', path: '/about-us/leadership'},
       {name: 'Contact', path: '/about-us/contact'},
     ],
@@ -52,7 +52,7 @@ const menuItems = [
     name: 'Resources',
     path: '/resources',
     nested: [
-      {name: 'Newsletter', path: '/newsletter'},
+      {name: 'Newsletter', path: '/resources/newsletter'},
       {name: 'From Our Friends', path: '/resources/from-our-friends'},
       {
         name: 'Local Centers',
