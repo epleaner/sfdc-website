@@ -8,6 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import MonthList from './MonthList';
 import RecurringEventsList from './RecurringEventsList';
+import CoronavirusUpdate from './CoronavirusUpdate';
 import {parseEvents} from '../utils/eventParser';
 
 const useStyles = makeStyles((theme) => ({
@@ -87,9 +88,11 @@ const UpcomingEvents = () => {
           <Typography variant="body1" align="center" component="aside">
             Beginning and experienced practitioners are welcome.
           </Typography>
-          <Box mt={6}>
-            <Divider />
-          </Box>
+        </Box>
+      </Grid>
+      <Grid item xs={12}>
+        <Box my={6}>
+          <CoronavirusUpdate />
         </Box>
       </Grid>
       <Grid
@@ -109,14 +112,14 @@ const UpcomingEvents = () => {
         <Grid item xs={12} sm={4} container>
           <Grid item xs={12} container alignContent="center" justify="center">
             <Box my={2}>
-              <Typography variant="h5" align="center" component="h2">
+              <Typography variant="h4" align="center" component="h2">
                 Every Weekday, Monday - Friday
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} container alignContent="center" justify="center">
             <Box mb={2}>
-              <Typography variant="h6" align="center" component="h3">
+              <Typography variant="h5" align="center" component="h3">
                 7:30 - 8:15am
               </Typography>
             </Box>
@@ -144,7 +147,7 @@ const UpcomingEvents = () => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Box mt={6}>
+          <Box mt={10}>
             <Divider />
           </Box>
         </Grid>
