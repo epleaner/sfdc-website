@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
 import MonthList from './MonthList';
 import RecurringEventsList from './RecurringEventsList';
 import CoronavirusUpdate from './CoronavirusUpdate';
@@ -14,9 +15,12 @@ import {parseEvents} from '../utils/eventParser';
 const useStyles = makeStyles((theme) => ({
   stickiedEvent: {
     margin: `${theme.spacing(6)}px 0`,
-    // background: theme.palette.primaryBlue2,
   },
   centerAligned: {alignSelf: 'center'},
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+  },
 }));
 
 const UpcomingEvents = () => {
@@ -100,39 +104,53 @@ const UpcomingEvents = () => {
         xs={12}
         container
         component="article"
+        justify="center"
         className={classes.stickiedEvent}
       >
-        <Grid item xs={12} sm={4} className={classes.centerAligned}>
+        <Grid item xs={12} sm={3} className={classes.centerAligned}>
           <Box my={3}>
             <Typography variant="h3" align="center" component="h1">
               Morning sits
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={4} container>
+        <Grid item xs={12} sm={6} container>
           <Grid item xs={12} container alignContent="center" justify="center">
-            <Box my={2}>
+            <Box mb={1}>
               <Typography variant="h4" align="center" component="h2">
                 Every Weekday, Monday - Friday
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} container alignContent="center" justify="center">
-            <Box mb={2}>
+            <Box>
               <Typography variant="h5" align="center" component="h3">
                 7:30 - 8:15am
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} container alignContent="center" justify="center">
-            <Box mb={3} mx={2}>
+            <Box my={3} mx={2}>
               <Typography variant="body1" align="center" component="p">
+                Join us online:{' '}
+                <Link
+                  className={classes.anchor}
+                  href="https://zoom.us/j/545039806"
+                >
+                  https://zoom.us/j/545039806
+                </Link>
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} container alignContent="center" justify="center">
+            <Box mb={3} mx={2}>
+              <Typography variant="body2" align="center" component="p">
                 Arriving late and leaving early is okay for morning sits!
               </Typography>
             </Box>
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={4} container alignSelf="center">
+        <Grid item xs={12} sm={3} container alignSelf="center">
           <Grid item xs={12} container justify="center">
             <Box mt={3}>
               <Img fixed={data.file.childImageSharp.fixed} alt="Lotus" />
