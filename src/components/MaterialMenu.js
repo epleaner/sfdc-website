@@ -36,23 +36,23 @@ const useStyles = makeStyles((theme) => ({
 const menuItems = [
   {name: 'Home', path: '/'},
   {
+    name: 'About Us',
+    path: '/about-us',
+    nested: ['Teachers', 'Leadership', 'Contact'],
+  },
+  {
     name: 'Calendar',
     path: '/calendar',
     nested: ['Upcoming Events'],
   },
   {name: 'Donate', path: 'https://sfdharmacollective.org/donate'},
-  {
-    name: 'About Us',
-    path: '/about-us',
-    nested: ['Leadership', 'Contact'],
-  },
-  {name: 'Teachers', path: '/teachers'},
-  {name: 'Newsletter', path: '/newsletter'},
+
   {name: 'Volunteer', path: '/volunteer'},
   {
     name: 'Resources',
     path: '/resources',
     nested: [
+      'Newsletter',
       'From Our Friends',
       'Local Centers',
       'Podcasts',

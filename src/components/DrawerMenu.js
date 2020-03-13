@@ -28,6 +28,15 @@ const useStyles = makeStyles({
 const menuItems = [
   {name: 'Home', path: '/'},
   {
+    name: 'About Us',
+    path: '/about-us',
+    nested: [
+      {name: 'Teachers', path: '/teachers'},
+      {name: 'Leadership', path: '/about-us/leadership'},
+      {name: 'Contact', path: '/about-us/contact'},
+    ],
+  },
+  {
     name: 'Calendar',
     path: '/calendar',
     nested: [
@@ -38,21 +47,12 @@ const menuItems = [
     ],
   },
   {name: 'Donate', path: 'https://sfdharmacollective.org/donate'},
-  {
-    name: 'About Us',
-    path: '/about-us',
-    nested: [
-      {name: 'Leadership', path: '/about-us/leadership'},
-      {name: 'Contact', path: '/about-us/contact'},
-    ],
-  },
-  {name: 'Teachers', path: '/teachers'},
-  {name: 'Newsletter', path: '/newsletter'},
   {name: 'Volunteer', path: '/volunteer'},
   {
     name: 'Resources',
     path: '/resources',
     nested: [
+      {name: 'Newsletter', path: '/newsletter'},
       {name: 'From Our Friends', path: '/resources/from-our-friends'},
       {
         name: 'Local Centers',
