@@ -10,8 +10,8 @@ const MuiTheme = responsiveFontSizes(
       overrides: {
         MuiDivider: {
           root: {
-            backgroundImage:
-            'linear-gradient(to right, rgba(244,254,254,1), rgba(150,219,222,1), rgba(244,254,254,1))',
+            width: '50vw',
+            margin: '0 auto',
           },
         },
         MuiButton: {
