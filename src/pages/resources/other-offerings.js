@@ -55,35 +55,37 @@ const Offerings = () => {
           </Box>
         </Grid>
         {offeringsData.map((offering, index) => (
-          <Grid item xs={12} container key={index} component="article">
-            <Grid item container xs={12} sm={9}>
-              <Grid item container alignContent="flex-end" xs={12}>
+          <Box mb={8}>
+            <Grid item xs={12} container key={index} component="article">
+              <Grid item container xs={12} sm={9}>
+                <Grid item container alignContent="flex-end" xs={12}>
+                  <Grid item xs={12}>
+                    <Box mb={2}>
+                      <Typography variant="h4" component="h1">
+                        {offering.name}
+                      </Typography>
+                    </Box>
+                  </Grid>
+                </Grid>
                 <Grid item xs={12}>
                   <Box mb={2}>
-                    <Typography variant="h4" component="h1">
-                      {offering.name}
-                    </Typography>
+                    <Typography
+                      className={classes.description}
+                      variant="body1"
+                      dangerouslySetInnerHTML={{__html: `${offering.body}`}}
+                    />
                   </Box>
                 </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <Box mb={2}>
-                  <Typography
-                    className={classes.description}
-                    variant="body1"
-                    dangerouslySetInnerHTML={{__html: `${offering.body}`}}
-                  />
-                </Box>
+              <Grid item container justify="center" xs={12} sm={3}>
+                <Avatar
+                  className={classes.avatar}
+                  src={offering.imgSrc}
+                  alt={offering.name}
+                />
               </Grid>
             </Grid>
-            <Grid item container justify="center" xs={12} sm={3}>
-              <Avatar
-                className={classes.avatar}
-                src={offering.imgSrc}
-                alt={offering.name}
-              />
-            </Grid>
-          </Grid>
+          </Box>
         ))}
       </Grid>
     </Layout>

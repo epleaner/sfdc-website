@@ -44,7 +44,7 @@ const Teachers = () => {
             Our Teachers
           </Typography>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container justify="center">
           {imageEdges
               .sort((a, b) =>
                 a.node.childImageSharp.fluid.originalName.localeCompare(

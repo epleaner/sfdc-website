@@ -14,6 +14,12 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
+    [theme.breakpoints.up('sm')]: {
+      padding: '0 50px',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '0 150px',
+    },
   },
   header: {
     margin: '40px 0',

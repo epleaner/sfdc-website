@@ -13,7 +13,8 @@ import TeacherBios from '../assets/teacher_bios.json';
 const useStyles = makeStyles((theme) => ({
   image: {
     borderRadius: '50%',
-    minHeight: '244px',
+    width: '100%',
+    height: '100%',
   },
   imageContainer: {
     margin: theme.spacing(2),
@@ -47,7 +48,7 @@ const Teacher = (props) => {
   const website = teacherHasWebsite.length > 0 && teacherHasWebsite[0].website;
 
   return (
-    <Grid container item xs={12} sm={5} md={4} lg={3}>
+    <Grid container item xs={12} sm={5} md={4}>
       <Card className={classes.card}>
         <CardMedia className={classes.imageContainer} title={name}>
           <Img className={classes.image} fluid={fluidImage} alt={name} />
