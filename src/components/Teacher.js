@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
   card: {
     'margin': theme.spacing(2),
     'width': '100%',
-    // 'background': 'linear-gradient(0deg, #6dd5ed00, #2193b08a 90%)',
     'transition': 'all 0.2s ease-in-out',
     '&:hover': {opacity: '.75'},
   },
