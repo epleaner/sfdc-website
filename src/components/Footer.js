@@ -65,7 +65,7 @@ const Footer = () => {
         ))}
       </Grid>
       <Grid item xs={12}>
-        <Box my={2}>
+        <Box my={4}>
           <Typography align="center" variant="body1">
             <span>San Francisco Dharma Collective</span>
             <span> • </span>
