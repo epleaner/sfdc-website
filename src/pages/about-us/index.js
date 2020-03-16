@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(62,149,153,1)',
     textDecoration: 'none',
   },
+  section: {
+    margin: `${theme.spacing(2)}px 0`,
+  },
 }));
 
 const AboutUs = () => {
@@ -45,7 +48,7 @@ const AboutUs = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container className={classes.section}>
           <Grid item xs={12}>
             <Box my={3}>
               <Typography variant="h3" component="h2">
@@ -60,7 +63,7 @@ const AboutUs = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container className={classes.section}>
           <Grid item xs={12}>
             <Box my={3}>
               <Typography variant="h3" component="h2">
@@ -91,7 +94,7 @@ const AboutUs = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container className={classes.section}>
           <Grid item xs={12}>
             <Box my={3}>
               <Typography variant="h3" component="h2">
@@ -150,7 +153,7 @@ const AboutUs = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container className={classes.section}>
           <Grid item xs={12}>
             <Box my={3}>
               <Typography variant="h3" component="h2">
