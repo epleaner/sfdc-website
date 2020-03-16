@@ -1,11 +1,13 @@
-import React from 'react';
-import {useStaticQuery, graphql} from 'gatsby';
-import Img from 'gatsby-image';
+import {graphql, useStaticQuery} from 'gatsby';
+
+import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import Img from 'gatsby-image';
 import Layout from '../../components/Layout';
+import React from 'react';
 import SEO from '../../components/SEO';
 import Teacher from '../../components/Teacher';
+import Typography from '@material-ui/core/Typography';
 
 const Teachers = () => {
   const data = useStaticQuery(graphql`
@@ -40,9 +42,11 @@ const Teachers = () => {
       />
       <Grid container>
         <Grid item xs={12}>
-          <Typography gutterBottom align="center" variant="h2" component="h1">
-            Our Teachers
-          </Typography>
+          <Box mb={3}>
+            <Typography gutterBottom align="center" variant="h2" component="h1">
+              Our Teachers
+            </Typography>
+          </Box>
         </Grid>
         <Grid item xs={12} container justify="center">
           {imageEdges

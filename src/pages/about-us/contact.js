@@ -38,7 +38,7 @@ const Contact = () => {
         <Grid item xs={12}>
           <Box mb={5}>
             <Typography align="center" variant="h2" component="h1">
-              SF Dharma Collective Committees Contact Information
+              SFDC Committees' Contact Information
             </Typography>
           </Box>
         </Grid>

@@ -34,7 +34,7 @@ const Leadership = () => {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Box mb={6}>
+            <Box mb={10}>
               <Typography align="center" variant="h5" component="h2">
                 The San Francisco Dharma Collective is a sangha-led dharma
                 community.
@@ -83,7 +83,7 @@ const Leadership = () => {
             </Grid>
           </Grid>
           <Grid item xs={12}>
-            <Box mt={6}>
+            <Box mt={10} mb={4}>
               <Typography align="center" variant="h3" component="h3">
                 SF Dharma Collective Board of Directors
               </Typography>
