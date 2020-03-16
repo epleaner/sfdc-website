@@ -91,6 +91,8 @@ const Footer = () => {
             <span> • </span>
             <span>
               <MaterialUILink
+                target="_blank"
+                rel="noopener noreferrer"
                 className={classes.anchor}
                 href="mailto:sfdharmacollective@gmail.com"
               >

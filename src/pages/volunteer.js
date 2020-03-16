@@ -1,15 +1,15 @@
-import React from 'react';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
+import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
-import Link from '@material-ui/core/Link';
-import VolunteerTestimonies from '../components/VolunteerTestimonies';
+import Grid from '@material-ui/core/Grid';
 import HandsImagePath from '../assets/images/hands.png';
+import Layout from '../components/Layout';
+import Link from '@material-ui/core/Link';
+import React from 'react';
+import SEO from '../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import VolunteerTestimonies from '../components/VolunteerTestimonies';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   handsImage: {maxWidth: '500px', width: '100%', height: '100%'},
@@ -40,6 +40,8 @@ const Volunteer = () => {
           >
             Current volunteers: the{' '}
             <Link
+              target="_blank"
+              rel="noopener noreferrer"
               className={classes.anchor}
               href="https://docs.google.com/spreadsheets/d/1rmWTnr84EGi30Vk4RvquNkMX4Zg_AjcrGfpe1uXeQoI/edit#gid=1161947904"
             >
@@ -108,6 +110,8 @@ const Volunteer = () => {
                 <Typography variant="body1">
                   If you are interested in volunteering, please contact{' '}
                   <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={classes.anchor}
                     href="mailto:SFDCvolunteers@gmail.com"
                   >

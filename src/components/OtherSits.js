@@ -1,7 +1,7 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -83,7 +83,12 @@ const OtherSits = () => {
           component="li"
           className={classes.listItem}
         >
-          <Link className={classes.anchor} href={sit.url}>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.anchor}
+            href={sit.url}
+          >
             {sit.name}
           </Link>
           {sit.location.length > 0 && ` (${sit.location})`}

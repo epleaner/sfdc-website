@@ -1,14 +1,14 @@
-import React from 'react';
-import Img from 'gatsby-image';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
 import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
+import Img from 'gatsby-image';
+import Link from '@material-ui/core/Link';
+import React from 'react';
 import TeacherBios from '../assets/teacher_bios.json';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -60,7 +60,12 @@ const Teacher = (props) => {
           {website && (
             <Grid item xs={12}>
               <Typography align="center" variant="body2" component="h1">
-                <Link className={classes.anchor} href={`https://${website}`}>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={classes.anchor}
+                  href={`https://${website}`}
+                >
                   {website}
                 </Link>
               </Typography>

@@ -1,13 +1,13 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
 import EcoSattvaImage from '../../assets/images/ecosattva-image.jpg';
+import Grid from '@material-ui/core/Grid';
+import Layout from '../../components/Layout';
+import Link from '@material-ui/core/Link';
+import React from 'react';
+import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   italic: {fontStyle: 'italic'},
@@ -139,7 +139,12 @@ const FromOurFriends = () => {
                 {programLinks.map((link, index) => (
                   <li key={index}>
                     <Typography variant="body1">
-                      <Link className={classes.anchor} href={link.url}>
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={classes.anchor}
+                        href={link.url}
+                      >
                         {link.text}
                       </Link>
                     </Typography>
@@ -174,6 +179,8 @@ const FromOurFriends = () => {
               <Box my={3}>
                 <Typography variant="h4" component="h5">
                   <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={classes.anchor}
                     href="https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117"
                   >

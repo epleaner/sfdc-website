@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {useStaticQuery, graphql} from 'gatsby';
-import Img from 'gatsby-image';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+import {graphql, useStaticQuery} from 'gatsby';
+
 import Box from '@material-ui/core/Box';
+import CoronavirusUpdate from './CoronavirusUpdate';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Img from 'gatsby-image';
 import Link from '@material-ui/core/Link';
 import MonthList from './MonthList';
 import RecurringEventsList from './RecurringEventsList';
-import CoronavirusUpdate from './CoronavirusUpdate';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 import {parseEvents} from '../utils/eventParser';
 
 const useStyles = makeStyles((theme) => ({
@@ -134,6 +135,8 @@ const UpcomingEvents = () => {
               <Typography variant="body1" align="center" component="p">
                 Join us online:{' '}
                 <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={classes.anchor}
                   href="https://zoom.us/j/545039806"
                 >

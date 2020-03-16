@@ -42,7 +42,12 @@ const CoronavirusUpdate = () => {
         <Box mb={2}>
           <Typography variant="body1">
             This is the link:{' '}
-            <Link className={classes.anchor} href="https://zoom.us/j/545039806">
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.anchor}
+              href="https://zoom.us/j/545039806"
+            >
               https://zoom.us/j/545039806
             </Link>
           </Typography>
@@ -59,6 +64,8 @@ const CoronavirusUpdate = () => {
             generosity to pay our rent and other bills. Please consider giving a
             one-time donation to help us get through this period:{' '}
             <Link
+              target="_blank"
+              rel="noopener noreferrer"
               className={classes.anchor}
               href="https://sfdharmacollective.org/donate"
             >

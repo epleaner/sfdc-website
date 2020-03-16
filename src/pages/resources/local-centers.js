@@ -1,12 +1,12 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 import Layout from '../../components/Layout';
+import OtherSits from '../../components/OtherSits';
+import React from 'react';
 import SEO from '../../components/SEO';
 import SitsAndCenters from '../../components/SitsAndCenters';
-import OtherSits from '../../components/OtherSits';
+import Typography from '@material-ui/core/Typography';
 
 const LocalSits = () => {
   return (

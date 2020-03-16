@@ -25,6 +25,8 @@ const SocialMedia = () => {
     <Grid container justify="center">
       <Grid item container justify="center" xs={2}>
         <Link
+          target="_blank"
+          rel="noopener noreferrer"
           href="https://www.facebook.com/sfdharmacollective"
           className={classes.icon}
         >
@@ -32,12 +34,19 @@ const SocialMedia = () => {
         </Link>
       </Grid>
       <Grid item container justify="center" xs={2}>
-        <Link href="https://twitter.com/SFDC_Folsom" className={classes.icon}>
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://twitter.com/SFDC_Folsom"
+          className={classes.icon}
+        >
           <TwitterIcon />
         </Link>
       </Grid>
       <Grid item container justify="center" xs={2}>
         <Link
+          target="_blank"
+          rel="noopener noreferrer"
           href="https://www.instagram.com/sfdharmacollective/"
           className={classes.icon}
         >
@@ -46,6 +55,8 @@ const SocialMedia = () => {
       </Grid>
       <Grid item container justify="center" xs={2}>
         <Link
+          target="_blank"
+          rel="noopener noreferrer"
           href="https://www.youtube.com/channel/UCxrOXx3uqvfbYhs0A7twjSw/featured"
           className={classes.icon}
         >

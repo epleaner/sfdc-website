@@ -1,12 +1,12 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
-import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
 import Layout from '../../components/Layout';
+import Link from '@material-ui/core/Link';
+import React from 'react';
 import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   podcastDescription: {
@@ -109,7 +109,12 @@ const Podcasts = () => {
               <Grid item xs={12}>
                 <Box mb={2}>
                   <Typography variant="h4" component="h1">
-                    <Link className={classes.anchor} href={podcast.url}>
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={classes.anchor}
+                      href={podcast.url}
+                    >
                       {podcast.name}
                     </Link>
                     {podcast.author.length > 0 && ` with ${podcast.author}`}
@@ -121,7 +126,10 @@ const Podcasts = () => {
                   className={classes.podcastDescription}
                   variant="body1"
                   dangerouslySetInnerHTML={{
-                    __html: `${podcast.description}`,
+                    __html: `${podcast.description.replace(
+                        /<a/g,
+                        `<a target='_blank' rel='noopener noreferrer'`,
+                    )}`,
                   }}
                 />
               </Grid>

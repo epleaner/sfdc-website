@@ -1,12 +1,12 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
 import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
+import Link from '@material-ui/core/Link';
 import LotusImagePath from '../../assets/images/lotus.png';
+import React from 'react';
+import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {maxWidth: '500px', width: '100%', height: '100%'},
@@ -124,6 +124,8 @@ const AboutUs = () => {
               <Typography variant="body1">
                 Find us on{' '}
                 <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={classes.anchor}
                   href="https://www.facebook.com/SF-Dharma-Collective-281837899302952/"
                 >
@@ -137,6 +139,8 @@ const AboutUs = () => {
             <Typography variant="body1">
               Read{' '}
               <Link
+                target="_blank"
+                rel="noopener noreferrer"
                 className={classes.anchor}
                 href="https://drive.google.com/open?id=1ODYyXcCbeR7_4x7qN78gMHDt1XM7T_zx"
               >

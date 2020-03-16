@@ -1,14 +1,13 @@
-import React from 'react';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
-
+import Box from '@material-ui/core/Box';
 import ConsciousHackingImagePath from '../../assets/images/consciousness-hacking.png';
+import Grid from '@material-ui/core/Grid';
+import Layout from '../../components/Layout';
+import React from 'react';
+import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
 import ZenHospiceImagePath from '../../assets/images/zen-hospice.jpg';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   description: {
@@ -72,7 +71,12 @@ const Offerings = () => {
                     <Typography
                       className={classes.description}
                       variant="body1"
-                      dangerouslySetInnerHTML={{__html: `${offering.body}`}}
+                      dangerouslySetInnerHTML={{
+                        __html: `${offering.body.replace(
+                            /<a/g,
+                            `<a target='_blank' rel='noopener noreferrer'`,
+                        )}`,
+                      }}
                     />
                   </Box>
                 </Grid>

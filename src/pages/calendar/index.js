@@ -1,12 +1,12 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import Layout from '../../components/Layout';
+import Link from '@material-ui/core/Link';
+import React from 'react';
 import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   iframe: {
@@ -36,6 +36,8 @@ const Calendar = () => {
               <Button color="primary" variant="outlined">
                 <Typography variant="body1">
                   <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={classes.link}
                     href="https://calendar.google.com/calendar/ical/6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com/public/basic.ics"
                   >
@@ -50,6 +52,8 @@ const Calendar = () => {
               <Button color="primary" variant="outlined">
                 <Typography variant="body1">
                   <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={classes.link}
                     href="https://calendar.google.com/calendar/embed?src=6lmk34aeh3mpas0kop9ve8hc94%40group.calendar.google.com&ctz=America%2FLos_Angeles"
                   >

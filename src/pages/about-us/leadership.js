@@ -1,11 +1,11 @@
-import React from 'react';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
-import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Layout from '../../components/Layout';
 import Link from '@material-ui/core/Link';
+import React from 'react';
+import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   list: {listStyle: 'none', padding: 0},
@@ -56,6 +56,8 @@ const Leadership = () => {
                   We meet on Monday evenings in San Francisco. If you are
                   interested in attending a meeting, please contact{' '}
                   <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={classes.anchor}
                     href="mailto:sfdharmacollective@gmail.com"
                   >
@@ -70,6 +72,8 @@ const Leadership = () => {
                 We welcome volunteers to join committees. If you are interested
                 in volunteering, please contact{' '}
                 <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={classes.anchor}
                   href="mailto:sfdcvolunteers@gmail.com"
                 >

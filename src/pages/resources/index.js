@@ -1,14 +1,14 @@
-import React from 'react';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Hidden from '@material-ui/core/Hidden';
 import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import Layout from '../../components/Layout';
 import {Link} from 'gatsby';
+import React from 'react';
+import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   buttonContainer: {

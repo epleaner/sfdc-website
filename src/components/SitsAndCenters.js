@@ -1,11 +1,11 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   card: {margin: '0 5px'},
@@ -100,7 +100,12 @@ const SitsAndCenters = () => {
               <Grid item xs={12}>
                 {data.urls.map((url, urlIndex) => (
                   <Typography key={`${data.title}${urlIndex}`} variant="body1">
-                    <Link className={classes.anchor} href={url}>
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={classes.anchor}
+                      href={url}
+                    >
                       {url}
                     </Link>
                   </Typography>
