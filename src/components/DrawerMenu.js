@@ -1,14 +1,14 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import Drawer from '@material-ui/core/Drawer';
+import DrawerMenuItem from './DrawerMenuItem';
+import ExpandingMenu from './ExpandingMenu';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Drawer from '@material-ui/core/Drawer';
-import ExpandingMenu from './ExpandingMenu';
-import DrawerMenuItem from './DrawerMenuItem';
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   list: {
@@ -37,12 +37,12 @@ const menuItems = [
     ],
   },
   {
-    name: 'Calendar',
-    path: '/calendar',
+    name: 'Upcoming Events',
+    path: '/upcoming-events',
     nested: [
       {
-        name: 'Upcoming Events',
-        path: '/calendar/upcoming-events',
+        name: 'Calendar',
+        path: '/upcoming-events/calendar',
       },
     ],
   },

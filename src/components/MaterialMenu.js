@@ -1,19 +1,19 @@
-import React from 'react';
-import {Link} from 'gatsby';
-import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import DrawerMenu from './DrawerMenu';
 import Grid from '@material-ui/core/Grid';
+import HeaderImagePath from '../assets/images/sfdc-header.png';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import {Link} from 'gatsby';
+import MenuIcon from '@material-ui/icons/Menu';
+import MenuItem from './MenuItem';
+import PopoverMenu from './PopoverMenu';
+import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Hidden from '@material-ui/core/Hidden';
+import {makeStyles} from '@material-ui/core/styles';
 import withWidth from '@material-ui/core/withWidth';
-import PopoverMenu from './PopoverMenu';
-import DrawerMenu from './DrawerMenu';
-import MenuItem from './MenuItem';
-import HeaderImagePath from '../assets/images/sfdc-header.png';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -41,9 +41,9 @@ const menuItems = [
     nested: ['Teachers', 'Leadership', 'Contact'],
   },
   {
-    name: 'Calendar',
-    path: '/calendar',
-    nested: ['Upcoming Events'],
+    name: 'Upcoming Events',
+    path: '/upcoming-events',
+    nested: ['Calendar'],
   },
   {name: 'Donate', path: 'https://sfdharmacollective.org/donate'},
 

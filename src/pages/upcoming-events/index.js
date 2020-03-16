@@ -1,9 +1,9 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import Layout from '../../components/Layout';
+import React from 'react';
 import SEO from '../../components/SEO';
+import Typography from '@material-ui/core/Typography';
 import UpcomingEvents from '../../components/UpcomingEvents';
 
 const UpcomingRecurringEvents = () => {
