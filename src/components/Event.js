@@ -1,21 +1,22 @@
 import React, {useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import {
+  humanReadableDateTime,
+  humanReadableRecurranceRules,
+  humanReadableTime,
+} from '../utils/eventParser';
+
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import Grid from '@material-ui/core/Grid';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 import moment from 'moment';
-import {
-  humanReadableRecurranceRules,
-  humanReadableDateTime,
-  humanReadableTime,
-} from '../utils/eventParser';
 
 const useStyles = makeStyles((theme) => ({
   eventHeader: {
@@ -35,9 +36,19 @@ const useStyles = makeStyles((theme) => ({
     width: '250px',
     height: '250px',
   },
+  eventDescriptionContainer: {
+    [theme.breakpoints.down('xs')]: {
+      order: 1,
+    },
+  },
+  avatarContainer: {
+    [theme.breakpoints.down('xs')]: {
+      order: 0,
+    },
+  },
 }));
 
-export default function Event(props) {
+const Event = (props) => {
   const {
     id,
     summary,
@@ -51,6 +62,11 @@ export default function Event(props) {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
+
+  const descriptionWithModifiedAnchors = description.replace(
+      /<a/g,
+      `<a target='_blank' rel='noopener noreferrer'`,
+  );
 
   const handleClick = () => {
     setOpen(!open);
@@ -98,17 +114,25 @@ export default function Event(props) {
                 xs={12}
                 sm={attachments ? 6 : 12}
                 md={attachments ? 8 : 12}
+                className={classes.eventDescriptionContainer}
               >
                 <Typography
                   variant="body1"
                   className={classes.eventDescription}
                   dangerouslySetInnerHTML={{
-                    __html: `${description || ''}`,
+                    __html: `${descriptionWithModifiedAnchors || ''}`,
                   }}
                 />
               </Grid>
               {attachments && (
-                <Grid item container xs={12} sm={6} md={4}>
+                <Grid
+                  item
+                  container
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  className={classes.avatarContainer}
+                >
                   {attachments.map(({fileId, title}) => (
                     <Grid key={fileId} item container justify="center" xs={12}>
                       <Box my={2}>
@@ -128,4 +152,6 @@ export default function Event(props) {
       />
     </ListItem>
   );
-}
+};
+
+export default Event;
