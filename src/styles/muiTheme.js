@@ -24,6 +24,15 @@ const MuiTheme = responsiveFontSizes(
               backgroundColor: 'rgba( 62,149,153,1)',
             },
           },
+          containedPrimary: {
+            'background-color': 'rgba(62,149,153,1)',
+            'border': '1px solid rgba( 62,149,153,1)',
+            '&:hover': {
+              color: 'rgba( 62,149,153,1)',
+              border: '1px solid rgba( 62,149,153,1)',
+              backgroundColor: 'rgba(244,254,254,1)',
+            },
+          },
         },
         MuiTypography: {
           colorPrimary: 'rgba(150,219,222,1)',
