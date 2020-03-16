@@ -1,22 +1,14 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
-
-const useStyles = makeStyles({
-  avatar: {
-    width: '200px',
-    height: '200px',
-    margin: 'auto',
-  },
-  testimony: {
-    whiteSpace: 'pre-wrap',
-  },
-});
-
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import MobileStepper from '@material-ui/core/MobileStepper';
+import React from 'react';
+import SwipeableViews from 'react-swipeable-views';
+import Typography from '@material-ui/core/Typography';
+import VolunteerTestimony from './VolunteerTestimony';
+import {autoPlay} from 'react-swipeable-views-utils';
 import claudiaVolunteerPath from '../assets/images/volunteer/volunteer-claudia.jpg';
 import noamVolunteerPath from '../assets/images/volunteer/volunteer-noam.jpg';
 import raeVolunteerPath from '../assets/images/volunteer/volunteer-rae.jpg';
@@ -25,6 +17,8 @@ import sueVolunteerPath from '../assets/images/volunteer/volunteer-sue.jpg';
 import suzanneVolunteerPath from '../assets/images/volunteer/volunteer-suzanne.jpg';
 import tiaVolunteerPath from '../assets/images/volunteer/volunteer-tia.jpg';
 import vickiVolunteerPath from '../assets/images/volunteer/volunteer-vicki.jpg';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const volunteerData = [
   {
@@ -77,44 +71,67 @@ const volunteerData = [
   },
 ];
 
-const VolunteerTestimonies = () => {
-  const classes = useStyles();
+function SwipeableTextMobileStepper() {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = volunteerData.length;
 
-  return volunteerData.map((volunteer) => (
-    <Grid
-      item
-      container
-      component="section"
-      alignItems="center"
-      key={volunteer.name}
-      xs={12}
-    >
-      <Grid item xs={12} md={3}>
-        <Avatar
-          className={classes.avatar}
-          src={volunteer.imgSrc}
-          alt={volunteer.name}
-        />
-      </Grid>
-      <Grid item container xs={12} md={9}>
-        <Grid item xs={12}>
-          <Typography variant="h5" component="h4">
-            {volunteer.name}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography className={classes.testimony} variant="body1">
-            {volunteer.testimony}
-          </Typography>
-        </Grid>
-      </Grid>
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) =>
+      prevActiveStep === maxSteps - 1 ? 0 : prevActiveStep + 1,
+    );
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) =>
+      prevActiveStep === 0 ? maxSteps - 1 : prevActiveStep - 1,
+    );
+  };
+
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
+
+  return (
+    <Grid container>
       <Grid item xs={12}>
-        <Box my={3}>
-          <Divider />
+        <Box mb={2}>
+          <MobileStepper
+            steps={maxSteps}
+            position="static"
+            variant="text"
+            activeStep={activeStep}
+            nextButton={
+              <Button size="small" onClick={handleNext}>
+                <KeyboardArrowRight />
+              </Button>
+            }
+            backButton={
+              <Button size="small" onClick={handleBack}>
+                <KeyboardArrowLeft />
+              </Button>
+            }
+          />
         </Box>
       </Grid>
+      <Grid item xs={12}>
+        <AutoPlaySwipeableViews
+          interval={10000}
+          axis={'x'}
+          index={activeStep}
+          onChangeIndex={handleStepChange}
+          enableMouseEvents
+        >
+          {volunteerData.map((volunteer, index) =>
+            Math.abs(activeStep - index) <= 2 ? (
+              <VolunteerTestimony key={volunteer.name} volunteer={volunteer} />
+            ) : (
+              <></>
+            ),
+          )}
+        </AutoPlaySwipeableViews>
+      </Grid>
     </Grid>
-  ));
-};
+  );
+}
 
-export default VolunteerTestimonies;
+export default SwipeableTextMobileStepper;

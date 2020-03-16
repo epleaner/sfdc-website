@@ -8,7 +8,7 @@ import Link from '@material-ui/core/Link';
 import React from 'react';
 import SEO from '../components/SEO';
 import Typography from '@material-ui/core/Typography';
-import VolunteerTestimonies from '../components/VolunteerTestimonies';
+import VolunteerTestimonyCarousel from '../components/VolunteerTestimonyCarousel';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -124,20 +124,22 @@ const Volunteer = () => {
         </Grid>
         <Grid item container component="article" xs={12}>
           <Grid item xs={12}>
-            <Box mb={4}>
+            <Box mt={8} mb={4}>
               <Typography variant="h3" component="h2">
                 Why we volunteer
               </Typography>
             </Box>
           </Grid>
           <Grid item container xs={12}>
-            <VolunteerTestimonies />
+            <VolunteerTestimonyCarousel />
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Typography align="center" variant="h3">
-            Why do you volunteer?
-          </Typography>
+          <Box mt={4}>
+            <Typography align="center" variant="h3">
+              Why do you volunteer?
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
     </Layout>
