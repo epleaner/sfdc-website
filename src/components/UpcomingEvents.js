@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {configureAnchors, goToAnchor} from 'react-scrollable-anchor';
 import {graphql, useStaticQuery} from 'gatsby';
 
 import Box from '@material-ui/core/Box';
@@ -25,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UpcomingEvents = () => {
+  configureAnchors({keepLastAnchorHash: false});
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [eventData, setEventData] = useState({});
@@ -38,6 +41,9 @@ const UpcomingEvents = () => {
         .then((responseDataItems) => parseEvents(responseDataItems))
         .then((parsedResponse) => {
           setEventData(parsedResponse);
+          if (window.location.hash) {
+            goToAnchor(window.location.hash.replace('#', ''));
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -153,7 +159,7 @@ const UpcomingEvents = () => {
             </Box>
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={3} container alignSelf="center">
+        <Grid item xs={12} sm={3} container>
           <Grid item xs={12} container justify="center">
             <Box mt={3}>
               <Img fixed={data.file.childImageSharp.fixed} alt="Lotus" />
