@@ -19,14 +19,14 @@ const useStyles = makeStyles({
   },
 });
 
-const Leadership = () => {
+const Donate = () => {
   const classes = useStyles();
 
   return (
     <Layout>
       <SEO
-        title="Leadership"
-        description="San Francisco Dharma Collective Leadership Page"
+        title="Donate"
+        description="San Francisco Dharma Collective Donate Page"
       />
       <Grid container>
         <Grid item xs={12}>
@@ -114,4 +114,4 @@ const Leadership = () => {
   );
 };
 
-export default Leadership;
+export default Donate;
