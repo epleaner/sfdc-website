@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 const podcastData = [
   {
     name: 'Aloka Vihara Forest Monastery',
-    url: 'alokavihara.org/teaching/dhamma-talks/',
+    url: 'http://alokavihara.org/teaching/dhamma-talks/',
     author: 'The Aloka Vihara nuns ',
     description:
       'The Aloka Vihara nuns have streams and recorded dharma talks.',
