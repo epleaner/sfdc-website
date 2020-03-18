@@ -70,10 +70,7 @@ const Resources = () => {
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
               <Button color="primary" className={classes.anchor}>
-                <Link
-                  to="/resources/local-sits-centers"
-                  className={classes.link}
-                >
+                <Link to="/resources/local-centers" className={classes.link}>
                   Local Sits & Centers
                 </Link>
               </Button>
@@ -116,10 +113,7 @@ const Resources = () => {
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
               <Button color="primary" className={classes.anchor}>
-                <Link
-                  to="/resources/other-offerings-sfdc"
-                  className={classes.link}
-                >
+                <Link to="/resources/other-offerings" className={classes.link}>
                   Other Offerings @ SFDC
                 </Link>
               </Button>
