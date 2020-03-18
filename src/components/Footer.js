@@ -96,6 +96,11 @@ const Footer = () => {
           for lack of funds. SFDC is wheelchair accessible and has two
           accessible bathroom stalls. We use fragrance-free cleaning products.
         </Typography>
+        <Box mb={2} />
+
+        <Typography align="center" variant="body2">
+          © 2020 San Francisco Dharma Collectiove
+        </Typography>
         <Box mb={6} />
       </Grid>
     </Grid>
