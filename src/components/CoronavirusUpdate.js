@@ -1,6 +1,7 @@
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import DonateButton from './DonateButton';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import React from 'react';
@@ -14,14 +15,6 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     backgroundColor: 'rgba(254,172,102,1)',
-  },
-  buttonLink: {
-    'textDecoration': 'none',
-    'color': 'inherit',
-    'textTransform': 'uppercase',
-    '&:hover': {
-      textDecoration: 'none',
-    },
   },
 }));
 
@@ -74,18 +67,7 @@ const CoronavirusUpdate = () => {
           </Typography>
         </Box>
         <Grid item xs={12} container justify="center">
-          <Button color="primary" size="large" variant="contained">
-            <Typography variant="body1" align="center">
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://sfdharmacollective.org/donate"
-                className={classes.buttonLink}
-              >
-                Donate
-              </Link>
-            </Typography>
-          </Button>
+          <DonateButton />
         </Grid>
       </Box>
       <Divider className={classes.divider} />

@@ -46,7 +46,7 @@ const menuItems = [
       },
     ],
   },
-  {name: 'Donate', path: 'https://sfdharmacollective.org/donate'},
+  {name: 'Donate', path: '/donate'},
   {name: 'Volunteer', path: '/volunteer'},
   {
     name: 'Resources',

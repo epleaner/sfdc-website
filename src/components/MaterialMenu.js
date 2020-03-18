@@ -45,7 +45,7 @@ const menuItems = [
     path: '/upcoming-events',
     nested: ['Calendar'],
   },
-  {name: 'Donate', path: 'https://sfdharmacollective.org/donate'},
+  {name: 'Donate', path: '/donate'},
 
   {name: 'Volunteer', path: '/volunteer'},
   {

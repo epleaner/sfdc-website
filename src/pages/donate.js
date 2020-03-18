@@ -1,27 +1,14 @@
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import DonateButton from '../components/DonateButton';
 import Grid from '@material-ui/core/Grid';
 import Layout from '../components/Layout';
 import Link from '@material-ui/core/Link';
 import React from 'react';
 import SEO from '../components/SEO';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-  link: {
-    'textDecoration': 'none',
-    'color': 'inherit',
-    'textTransform': 'uppercase',
-    '&:hover': {
-      textDecoration: 'none',
-    },
-  },
-});
 
 const Donate = () => {
-  const classes = useStyles();
-
   return (
     <Layout>
       <SEO
@@ -46,18 +33,7 @@ const Donate = () => {
         <Grid container item>
           <Grid item xs={12} container justify="center">
             <Box mb={8}>
-              <Button color="primary" size="large" variant="contained">
-                <Typography variant="body1" align="center">
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href=""
-                    className={classes.link}
-                  >
-                    Donate
-                  </Link>
-                </Typography>
-              </Button>
+              <DonateButton />
             </Box>
           </Grid>
           <Grid item xs={12}>
@@ -111,13 +87,7 @@ const Donate = () => {
           </Grid>
           <Grid item xs={12} container justify="center">
             <Box mb={2}>
-              <Button color="primary" size="large" variant="contained">
-                <Typography variant="body1" align="center">
-                  <Link href="" className={classes.link}>
-                    Donate
-                  </Link>
-                </Typography>
-              </Button>
+              <DonateButton />
             </Box>
           </Grid>
         </Grid>
