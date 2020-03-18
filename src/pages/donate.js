@@ -66,10 +66,17 @@ const Donate = () => {
           <Grid item xs={12}>
             <Box mb={2}>
               <Typography variant="body1">
-                Keeping the SF Dharma Collective open costs about $330 per day.
-                The SFDC is an all volunteer organization. All donations go
-                toward keeping the doors open and supporting our teachers. You
-                are the collective, we are the collective.
+                Keeping the SF Dharma Collective open costs about{' '}
+                <b>$330 per day</b>. The SFDC is an all volunteer organization.
+                All donations go toward keeping the doors open and supporting
+                our teachers.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={2}>
+              <Typography variant="body1">
+                You are the collective, we are the collective.
               </Typography>
             </Box>
           </Grid>
