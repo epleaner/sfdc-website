@@ -1,17 +1,25 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import {graphql, useStaticQuery} from 'gatsby';
+
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
-import Divider from '@material-ui/core/Divider';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Img from 'gatsby-image';
+import Layout from '../components/Layout';
+import Link from '@material-ui/core/Link';
 import LotusImagePath from '../assets/images/lotus.png';
+import React from 'react';
+import SEO from '../components/SEO';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  lotusImage: {maxWidth: '500px', width: '100%', height: '100%'},
+  lotusImage: {
+    maxWidth: '500px',
+    width: '100%',
+    height: '100%',
+    margin: '0 auto',
+  },
   anchor: {
     color: 'rgba(62,149,153,1)',
     textDecoration: 'none',
@@ -24,6 +32,17 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
 
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "images/lotus.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   return (
     <Layout>
       <SEO
@@ -45,13 +64,15 @@ const Home = () => {
             </Typography>
           </Grid>
           <Grid item container justify="center" xs={12}>
-            <Box mt={10}>
-              <img
-                className={classes.lotusImage}
-                src={LotusImagePath}
-                alt="Lotus"
-              />
-            </Box>
+            <Grid item xs={12}>
+              <Box mt={10}>
+                <Img
+                  className={classes.lotusImage}
+                  fluid={data.file.childImageSharp.fluid}
+                  alt="Lotus"
+                />
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
         <Grid item container xs={12}>

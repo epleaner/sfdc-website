@@ -2,7 +2,6 @@ import {graphql, useStaticQuery} from 'gatsby';
 
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import Img from 'gatsby-image';
 import Layout from '../../components/Layout';
 import React from 'react';
 import SEO from '../../components/SEO';
