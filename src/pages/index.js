@@ -47,7 +47,6 @@ const Home = () => {
     }
   `);
 
-  console.log(data);
   return (
     <Layout>
       <SEO
