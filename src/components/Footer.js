@@ -50,9 +50,10 @@ const Footer = () => {
       </Grid>
       <Grid item xs={12} container justify="center">
         {[
-          {label: 'Teachers', linkTo: '/about-us/teachers'},
-          {label: 'About Us', linkTo: '/about-us'},
           {label: 'Donate', linkTo: '/donate'},
+          {label: 'About Us', linkTo: '/about-us'},
+          {label: 'Upcoming Events', linkTo: '/upcoming-events'},
+          {label: 'Teachers', linkTo: '/about-us/teachers'},
         ].map(({label, linkTo}) => (
           <Grid item container justify="center" xs={12} sm={3} key={label}>
             <Box my={2}>
