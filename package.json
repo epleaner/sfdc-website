@@ -71,7 +71,8 @@
     "lint:css": "stylelint 'src/**/*.js'",
     "check-pretty": "prettier --list-different {,src/**/}*.{js,jsx,json,css,scss}",
     "format": "prettier --write \"src/**/*.js\"",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "pushDevToMaster": "git co master && git pull && git merge dev && git push && git co dev"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
