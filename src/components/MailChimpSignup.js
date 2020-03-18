@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
+
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import isEmail from 'validator/es/lib/isEmail';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
+import isEmail from 'validator/es/lib/isEmail';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -135,7 +136,7 @@ const MailChimpSignup = () => {
                   htmlFor="mailchimp-form"
                   color="primary"
                   type="submit"
-                  variant="outlined"
+                  variant="contained"
                 >
                   Submit
                 </Button>

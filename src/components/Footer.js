@@ -1,13 +1,13 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
-import MaterialUILink from '@material-ui/core/Link';
-import {makeStyles} from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 import {Link} from 'gatsby';
+import MaterialUILink from '@material-ui/core/Link';
+import React from 'react';
 import SocialMedia from '../components/SocialMedia';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   footer: {
@@ -44,7 +44,7 @@ const Footer = () => {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Box mb={3}>
+        <Box mb={4}>
           <SocialMedia />
         </Box>
       </Grid>
@@ -54,7 +54,7 @@ const Footer = () => {
           {label: 'About Us', linkTo: '/about-us'},
         ].map(({label, linkTo}) => (
           <Grid item container justify="center" xs={12} sm={3} key={label}>
-            <Box my={1}>
+            <Box my={2}>
               <Button color="primary" variant="outlined">
                 <Typography variant="body1" align="center">
                   <Link to={linkTo} className={classes.link}>

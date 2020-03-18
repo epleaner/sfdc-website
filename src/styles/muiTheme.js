@@ -30,7 +30,7 @@ const MuiTheme = responsiveFontSizes(
             '&:hover': {
               color: 'rgba( 62,149,153,1)',
               border: '1px solid rgba( 62,149,153,1)',
-              backgroundColor: 'rgba(244,254,254,1)',
+              backgroundColor: '#fafafa',
             },
           },
         },
