@@ -9,3 +9,5 @@ bin
 functions/*
 events_data.json
 todo
+.env.development
+.env.production
