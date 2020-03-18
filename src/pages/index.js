@@ -36,13 +36,18 @@ const Home = () => {
     query {
       file(relativePath: { eq: "images/lotus.png" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
+          fluid(
+            maxWidth: 500
+            traceSVG: { background: "#fafafa", color: "rgba(199,241,243,1)" }
+          ) {
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
     }
   `);
+
+  console.log(data);
   return (
     <Layout>
       <SEO

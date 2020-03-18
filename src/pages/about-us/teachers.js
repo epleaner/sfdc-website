@@ -22,7 +22,7 @@ const Teachers = () => {
             childImageSharp {
               fluid(maxWidth: 250) {
                 originalName
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
