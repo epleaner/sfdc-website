@@ -48,7 +48,12 @@ const Donate = () => {
             <Box mb={8}>
               <Button color="primary" size="large" variant="contained">
                 <Typography variant="body1" align="center">
-                  <Link href="" className={classes.link}>
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href=""
+                    className={classes.link}
+                  >
                     Donate
                   </Link>
                 </Typography>
