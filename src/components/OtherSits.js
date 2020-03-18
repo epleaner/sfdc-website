@@ -65,7 +65,7 @@ const otherSitsData = [
     location: 'San Jose',
   },
   {
-    url: 'Tathagata Meditation Center',
+    url: 'http://www.tathagata.org/',
     name: 'Tathagata Meditation Center',
     location: 'San Jose',
   },

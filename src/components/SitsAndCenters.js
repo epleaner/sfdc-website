@@ -33,7 +33,7 @@ const sitData = [
       'Follow @SFPOCInsightsangha',
     ],
     urls: [
-      'http://sfpocsangha@gmail.com',
+      'mailto:sfpocsangha@gmail.com',
       'http://facebook.com/SFPOCInsightSangha/',
     ],
   },
@@ -56,7 +56,10 @@ const sitData = [
       '30 minute silent meditation followed by Dharma talk by guest teachers and social time',
       'SF Buddhist Center, 37 Bartlett St., San Francisco',
     ],
-    urls: ['www.gaybuddhist.org', 'http://facebook.com/gaybuddhistfellowship/'],
+    urls: [
+      'http://www.gaybuddhist.org',
+      'http://facebook.com/gaybuddhistfellowship/',
+    ],
   },
   {
     title: 'Insight Upper Market',
@@ -106,7 +109,7 @@ const SitsAndCenters = () => {
                       className={classes.anchor}
                       href={url}
                     >
-                      {url}
+                      {url.replace(/mailto:/g, '')}
                     </Link>
                   </Typography>
                 ))}
