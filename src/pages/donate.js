@@ -48,7 +48,7 @@ const Donate = () => {
             <Box mb={2}>
               <Typography variant="body1">
                 Keeping the SF Dharma Collective open costs about{' '}
-                <b>$330 per day</b>. The SFDC is an all volunteer organization.
+                <b>$450 per day</b>. The SFDC is an all volunteer organization.
                 All donations go toward keeping the doors open and supporting
                 our teachers.
               </Typography>

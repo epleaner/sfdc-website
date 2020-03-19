@@ -29,9 +29,8 @@ const CoronavirusUpdate = () => {
           <Typography variant="body1">
             In light of the COVID-19 outbreak and guidance from government and
             medical professionals,{' '}
-            <b>we are moving our classes and sits online starting today</b>. We
-            will re-evaluate this decision on a weekly basis and keep you
-            posted.
+            <b>we are now hosting our classes and sits online</b>. We will
+            re-evaluate this decision on a weekly basis and keep you posted.
           </Typography>
         </Box>
         <Box mb={2}>
