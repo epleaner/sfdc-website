@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
       'textDecoration': 'none',
       '&:hover': {
         textDecoration: 'underline',
+        cursor: 'auto',
       },
     },
   },
@@ -53,13 +54,15 @@ const EventBody = (props) => {
           md={attachments ? 8 : 12}
           className={classes.eventDescriptionContainer}
         >
-          <Typography
-            variant="body1"
-            className={classes.eventDescription}
-            dangerouslySetInnerHTML={{
-              __html: `${descriptionWithModifiedAnchors || ''}`,
-            }}
-          />
+          <Box mb={4}>
+            <Typography
+              variant="body1"
+              className={classes.eventDescription}
+              dangerouslySetInnerHTML={{
+                __html: `${descriptionWithModifiedAnchors || ''}`,
+              }}
+            />
+          </Box>
         </Grid>
         {attachments && (
           <Grid

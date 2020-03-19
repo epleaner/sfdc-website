@@ -42,7 +42,6 @@ const UpcomingEvents = () => {
         .then((parsedResponse) => {
           setEventData(parsedResponse);
           if (window.location.hash) {
-            console.log(window.location.hash);
             goToAnchor(window.location.hash.replace('#', ''));
           }
         })

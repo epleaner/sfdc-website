@@ -17,8 +17,12 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   eventHeader: {
-    'textTransform': 'none',
-    '&:hover': {},
+    textTransform: 'none',
+    margin: `${theme.spacing(2)}px 0`,
+  },
+  icon: {
+    'transition': 'all 0.25s ease-in-out',
+    '&:hover': {color: theme.palette.primaryBlue4},
   },
 }));
 
@@ -73,15 +77,24 @@ const EventHeader = (props) => {
                   setCopied(result);
                 }}
               >
-                <LinkIcon />
+                <LinkIcon className={classes.icon} />
               </CopyToClipboard>
             </IconButton>
           </Tooltip>
         </Grid>
         <Grid item xs={6}>
-          <IconButton aria-label="expand">
-            {isOpen ? <ExpandLess /> : <ExpandMore />}
-          </IconButton>
+          <Tooltip
+            title={isOpen ? 'Hide details' : 'Show details'}
+            placement="top"
+          >
+            <IconButton aria-label="expand">
+              {isOpen ? (
+                <ExpandLess className={classes.icon} />
+              ) : (
+                <ExpandMore className={classes.icon} />
+              )}
+            </IconButton>
+          </Tooltip>
         </Grid>
       </Grid>
     </Grid>
