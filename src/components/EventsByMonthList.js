@@ -1,11 +1,11 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
+import Event from './Event.js';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import Event from './Event.js';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   divider: {
@@ -30,9 +30,7 @@ export default function EventList(props) {
       </ListItem>
       <List component="article" disablePadding>
         {events.map((event, index) => (
-          <React.Fragment key={event.id}>
-            <Event {...event} />
-          </React.Fragment>
+          <Event key={event.id} {...event} />
         ))}
       </List>
     </>
