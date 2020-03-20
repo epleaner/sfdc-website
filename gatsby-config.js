@@ -2,6 +2,20 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  host: process.env.CONTENTFUL_HOST,
+};
+
+const {spaceId, accessToken} = contentfulConfig;
+
+if (!spaceId || !accessToken) {
+  throw new Error(
+      'Contentful spaceId and the access token need to be provided.',
+  );
+}
+
 module.exports = {
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
@@ -81,6 +95,10 @@ module.exports = {
       options: {
         endpoint: process.env.GATSBY_MAILCHIMP_SUBSCRIBE_ENDPOINT,
       },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
     },
   ],
 };
