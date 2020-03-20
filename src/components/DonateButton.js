@@ -27,7 +27,7 @@ const DonateButton = () => {
           href="https://paypal.me/sfdharmacollective"
           className={classes.link}
         >
-          Donate
+          Donate via PayPal
         </Link>
       </Typography>
     </Button>

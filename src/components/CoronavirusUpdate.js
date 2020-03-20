@@ -2,6 +2,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import DonateButton from './DonateButton';
+import Venmo from './Venmo';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import React from 'react';
@@ -58,7 +59,7 @@ const CoronavirusUpdate = () => {
             collective consciousness.
           </Typography>
         </Box>
-        <Box mb={4}>
+        <Box mb={6}>
           <Typography variant="body1">
             While the center is closed, we will continue to depend on your
             generosity to pay our rent and other bills. Please consider giving a
@@ -67,6 +68,9 @@ const CoronavirusUpdate = () => {
         </Box>
         <Grid item xs={12} container justify="center">
           <DonateButton />
+        </Grid>
+        <Grid item xs={12} container justify="center">
+          <Venmo />
         </Grid>
       </Box>
       <Divider className={classes.divider} />
