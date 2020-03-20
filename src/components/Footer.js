@@ -6,6 +6,7 @@ import {Link} from 'gatsby';
 import MaterialUILink from '@material-ui/core/Link';
 import React from 'react';
 import SocialMedia from '../components/SocialMedia';
+import Venmo from '../components/Venmo';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 
@@ -44,8 +45,13 @@ const Footer = () => {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Box mb={4}>
+        <Box mb={2}>
           <SocialMedia />
+        </Box>
+      </Grid>
+      <Grid item container justify="center" xs={12}>
+        <Box mb={4}>
+          <Venmo />
         </Box>
       </Grid>
       <Grid item xs={12} container justify="center">
@@ -98,7 +104,6 @@ const Footer = () => {
           accessible bathroom stalls. We use fragrance-free cleaning products.
         </Typography>
         <Box mb={2} />
-
         <Typography align="center" variant="body2">
           © 2020 San Francisco Dharma Collectiove
         </Typography>
