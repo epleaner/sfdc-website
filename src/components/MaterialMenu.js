@@ -46,13 +46,12 @@ const menuItems = [
     nested: ['Calendar'],
   },
   {name: 'Donate', path: '/donate'},
-
   {name: 'Volunteer', path: '/volunteer'},
+  {name: 'Newsletter', path: '/newsletter'},
   {
     name: 'Resources',
     path: '/resources',
     nested: [
-      'Newsletter',
       'From Our Friends',
       'Local Centers',
       'Podcasts',
@@ -94,7 +93,7 @@ const MaterialMenu = (props) => {
               />
             </Link>
           </Typography>
-          <Hidden smDown>
+          <Hidden mdDown>
             {menuItems.map(({name, path, nested}) =>
               nested ? (
                 <PopoverMenu
@@ -112,7 +111,7 @@ const MaterialMenu = (props) => {
               ),
             )}
           </Hidden>
-          <Hidden mdUp>
+          <Hidden lgUp>
             <>
               <IconButton
                 edge="start"

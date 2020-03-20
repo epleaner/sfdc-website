@@ -10,9 +10,14 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   list: {
-    width: '100vw',
+    [theme.breakpoints.down('xs')]: {
+      width: '100vw',
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: '320px',
+    },
     paddingTop: '50px',
   },
   closeButton: {
@@ -23,7 +28,7 @@ const useStyles = makeStyles({
   nonExpandingItem: {
     height: '64px',
   },
-});
+}));
 
 const menuItems = [
   {name: 'Home', path: '/'},
@@ -48,11 +53,11 @@ const menuItems = [
   },
   {name: 'Donate', path: '/donate'},
   {name: 'Volunteer', path: '/volunteer'},
+  {name: 'Newsletter', path: '/newsletter'},
   {
     name: 'Resources',
     path: '/resources',
     nested: [
-      {name: 'Newsletter', path: '/resources/newsletter'},
       {name: 'From Our Friends', path: '/resources/from-our-friends'},
       {
         name: 'Local Centers',
