@@ -1,5 +1,4 @@
-import {graphql, useStaticQuery} from 'gatsby';
-
+import {graphql, useStaticQuery, Link as GatsbyLink} from 'gatsby';
 import Box from '@material-ui/core/Box';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
 import Divider from '@material-ui/core/Divider';
@@ -7,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
 import LotusImagePath from '../assets/images/lotus.png';
 import React from 'react';
 import SEO from '../components/SEO';
@@ -26,6 +26,14 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     backgroundColor: 'rgba(254,172,102,1)',
+  },
+  link: {
+    'textDecoration': 'none',
+    'color': 'inherit',
+    'textTransform': 'uppercase',
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
 }));
 
@@ -69,7 +77,7 @@ const Home = () => {
           </Grid>
           <Grid item container justify="center" xs={12}>
             <Grid item xs={12}>
-              <Box mt={10}>
+              <Box my={6}>
                 <Img
                   className={classes.lotusImage}
                   fluid={data.file.childImageSharp.fluid}
@@ -77,6 +85,13 @@ const Home = () => {
                 />
               </Box>
             </Grid>
+          </Grid>
+          <Grid item container justify="center" xs={12}>
+            <Button color="primary" size="large" variant="outlined">
+              <GatsbyLink to="/upcoming-events" className={classes.link}>
+                See upcoming events
+              </GatsbyLink>
+            </Button>
           </Grid>
         </Grid>
         <Grid item container xs={12}>
