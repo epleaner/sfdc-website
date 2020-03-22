@@ -26,34 +26,21 @@ const CoronavirusUpdate = () => {
     <>
       <Divider className={classes.divider} />
       <Box my={8}>
-        <Box mb={6}>
-          <Typography variant="body1">
-            In light of the COVID-19 outbreak and guidance from government and
-            medical professionals,{' '}
-            <b>we are now hosting our classes and sits online</b>. We will
-            re-evaluate this decision on a weekly basis and keep you posted.
-          </Typography>
-        </Box>
         <Box mb={2}>
           <Typography variant="body1">
-            One way we can unite immediately is by sitting together online. We
-            will be using Zoom to host most of our classes.
-          </Typography>
-        </Box>
-        <Box mb={2}>
-          <Typography variant="body1">
-            This is the link:{' '}
+            All our classes are now hosted online. Most classes are on Zoom and
+            use this link:
             <Link
               target="_blank"
               rel="noopener noreferrer"
               className={classes.anchor}
-              href="https://zoom.us/j/545039806"
+              href="http://bit.ly/sfdharma"
             >
-              https://zoom.us/j/545039806
+              http://bit.ly/sfdharma
             </Link>
           </Typography>
         </Box>
-        <Box mb={6}>
+        <Box mb={2}>
           <Typography variant="body1">
             Please join us online as we create a new means for connecting our
             collective consciousness.
@@ -63,7 +50,8 @@ const CoronavirusUpdate = () => {
           <Typography variant="body1">
             While the center is closed, we will continue to depend on your
             generosity to pay our rent and other bills. Please consider giving a
-            one-time donation to help us get through this period.
+            one-time donation to help us get through this period, or become a
+            monthly donor.
           </Typography>
         </Box>
         <Grid item xs={12} container justify="center">

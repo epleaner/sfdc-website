@@ -102,7 +102,7 @@ const UpcomingEvents = () => {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Box my={6}>
+        <Box mt={6} mb={3}>
           <CoronavirusUpdate />
         </Box>
       </Grid>
@@ -115,7 +115,7 @@ const UpcomingEvents = () => {
         className={classes.stickiedEvent}
       >
         <Grid item xs={12} sm={3} className={classes.centerAligned}>
-          <Box my={3}>
+          <Box mb={3}>
             <Typography variant="h3" align="center" component="h1">
               Morning sits
             </Typography>
@@ -125,13 +125,13 @@ const UpcomingEvents = () => {
           <Grid item xs={12} container alignContent="center" justify="center">
             <Box mb={1}>
               <Typography variant="h4" align="center" component="h2">
-                Every Weekday, Monday - Friday
+                Every day
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} container alignContent="center" justify="center">
             <Box>
-              <Typography variant="h5" align="center" component="h3">
+              <Typography variant="h6" align="center" component="h3">
                 7:30 - 8:15am
               </Typography>
             </Box>
@@ -174,7 +174,7 @@ const UpcomingEvents = () => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Box mt={10}>
+          <Box mt={6}>
             <Divider />
           </Box>
         </Grid>

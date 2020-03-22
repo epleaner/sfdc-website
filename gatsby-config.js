@@ -33,9 +33,9 @@ module.exports = {
   siteMetadata: {
     title: 'San Francisco Dharma Collective',
     description:
-      'San Francisco Dharma Collective\'s website: The SF Dharma Collective is a community-led sangha. Meditate with us.',
+      'San Francisco Dharma Collective\'s website: The SF Dharma Collective is a community-led sangha. Come meditate with us!',
     siteUrl: 'https://sfdharmacollective.org',
-    image: '/images/share.jpg',
+    image: '/src/assets/images/sfdc-header.png',
     basePath: '/',
   },
   plugins: [
