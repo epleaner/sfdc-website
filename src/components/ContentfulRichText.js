@@ -1,7 +1,9 @@
 import React from 'react';
 import RichTextToReact from 'rich-text-to-react';
-import {INLINES} from '@contentful/rich-text-types';
+import {BLOCKS, INLINES} from '@contentful/rich-text-types';
 import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 const ContentfulRichText = (props) => {
   const {json} = props;
@@ -9,7 +11,7 @@ const ContentfulRichText = (props) => {
   const renderingOptions = {
     renderMark: {},
     renderNode: {
-      [INLINES.HYPERLINK]: (node, key, next, options) => (
+      [INLINES.HYPERLINK]: (node, key) => (
         <Link
           key={key}
           target="_blank"
