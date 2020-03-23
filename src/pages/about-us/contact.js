@@ -45,7 +45,7 @@ const Contact = () => {
         </Grid>
         <Grid item xs={12}>
           <Box mb={5}>
-            <Typography align="center" variant="body1" component="h2">
+            <Typography align="center" variant="body2" component="h2">
               <i>
                 For general inquiries, please reach out to{' '}
                 <Link
@@ -62,15 +62,15 @@ const Contact = () => {
           </Box>
         </Grid>
         <Grid item xs={12} alignItems="center" container>
-          {contactData.map((data, index) => (
-            <Grid item key={index} xs={12} alignItems="center" container>
+          {contactData.map((data) => (
+            <Grid item key={data.name} xs={12} alignItems="center" container>
               <Grid item xs={12} sm={2}>
                 <Typography variant="h6" component="h2">
                   {data.name}
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={10}>
-                <Typography variant="body1">
+                <Typography variant="body2">
                   <Link
                     target="_blank"
                     rel="noopener noreferrer"
