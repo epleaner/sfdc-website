@@ -1,5 +1,6 @@
 import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
+import ContentfulPageFragment from '../../graphql-fragments/ContentfulPageFragment';
 
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -22,23 +23,13 @@ const useStyles = makeStyles((theme) => ({
 const AboutUs = () => {
   const data = useStaticQuery(graphql`
     {
-      allContentfulPageContent(filter: { pageName: { eq: "About Us" } }) {
-        edges {
-          node {
-            title
-            contentSections {
-              title
-              content {
-                json
-              }
-            }
-          }
-        }
+      pageData: contentfulPage(pageName: { eq: "About Us" }) {
+        ...ContentfulPageFragment
       }
     }
   `);
 
-  const pageContent = data.allContentfulPageContent.edges[0].node;
+  const {pageData} = data;
 
   const classes = useStyles();
 
@@ -53,7 +44,7 @@ const AboutUs = () => {
           <Grid item container alignContent="center" xs={12} md={8}>
             <Grid item xs={12}>
               <Typography variant="h2" component="h1">
-                {pageContent.title}
+                {pageData.title}
               </Typography>
             </Grid>
           </Grid>
@@ -67,7 +58,7 @@ const AboutUs = () => {
             </Grid>
           </Grid>
         </Grid>
-        {pageContent.contentSections.map(({title, content}) => (
+        {pageData.contentSections.map(({title, content}) => (
           <Grid key={title} item xs={12} container className={classes.section}>
             <Grid item xs={12}>
               <Box my={3}>
