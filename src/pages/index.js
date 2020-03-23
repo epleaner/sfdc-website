@@ -41,8 +41,8 @@ const Home = () => {
   const classes = useStyles();
 
   const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "images/lotus.png" }) {
+    {
+      lotusImage: file(relativePath: { eq: "images/lotus.png" }) {
         childImageSharp {
           fluid(
             maxWidth: 500
@@ -52,8 +52,20 @@ const Home = () => {
           }
         }
       }
+      pageData: contentfulPage(pageName: { eq: "Home" }) {
+        title
+        subTitle
+        contentSections {
+          title
+          content {
+            json
+          }
+        }
+      }
     }
   `);
+
+  const {lotusImage, pageData} = data;
 
   return (
     <Layout>
@@ -66,13 +78,13 @@ const Home = () => {
           <Grid item xs={12}>
             <Box mb={5} mt={2}>
               <Typography align="center" variant="h1" component="h1">
-                Meditate with us.
+                {pageData.title}
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Typography align="center" variant="h2" component="h2">
-              The SF Dharma Collective is a community-led sangha.
+              {pageData.subTitle}
             </Typography>
           </Grid>
           <Grid item container justify="center" xs={12}>
@@ -80,7 +92,7 @@ const Home = () => {
               <Box my={6}>
                 <Img
                   className={classes.lotusImage}
-                  fluid={data.file.childImageSharp.fluid}
+                  fluid={lotusImage.childImageSharp.fluid}
                   alt="Lotus"
                 />
               </Box>

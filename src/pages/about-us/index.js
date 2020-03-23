@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const AboutUs = () => {
   const data = useStaticQuery(graphql`
     {
-      allContentfulPageContent(filter: { pageName: { eq: "About Us" } }) {
+      pageData: allContentfulPage(filter: { pageName: { eq: "About Us" } }) {
         edges {
           node {
             title
@@ -38,7 +38,7 @@ const AboutUs = () => {
     }
   `);
 
-  const pageContent = data.allContentfulPageContent.edges[0].node;
+  const pageContent = data.pageData.edges[0].node;
 
   const classes = useStyles();
 
