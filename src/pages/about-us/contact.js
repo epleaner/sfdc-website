@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import Link from '@material-ui/core/Link';
 import React from 'react';
 import SEO from '../../components/SEO';
+import GoogleMap from '../../components/GoogleMap';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 
@@ -38,7 +39,25 @@ const Contact = () => {
         <Grid item xs={12}>
           <Box mb={5}>
             <Typography align="center" variant="h2" component="h1">
-              SFDC Committees' Contact Information
+              SFDC Committee Contact Information
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <Box mb={5}>
+            <Typography align="center" variant="body1" component="h2">
+              <i>
+                For general inquiries, please reach out to{' '}
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`mailto:sfdharmacollective@gmail.com`}
+                  className={classes.anchor}
+                >
+                  sfdharmacollective@gmail.com
+                </Link>
+                .
+              </i>
             </Typography>
           </Box>
         </Grid>
@@ -64,6 +83,16 @@ const Contact = () => {
               </Grid>
             </Grid>
           ))}
+        </Grid>
+        <Grid item xs={12}>
+          <Box mt={5} mb={3}>
+            <Typography align="center" variant="h3" component="h3">
+              Our Location
+            </Typography>
+          </Box>
+          <Grid item xs={12}>
+            <GoogleMap />
+          </Grid>
         </Grid>
       </Grid>
     </Layout>
