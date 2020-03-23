@@ -28,7 +28,6 @@ const AboutUs = () => {
       }
     }
   `);
-  console.log(data);
 
   const {pageData} = data;
 
