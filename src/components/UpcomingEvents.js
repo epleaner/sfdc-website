@@ -87,25 +87,24 @@ const UpcomingEvents = () => {
           <Box mb={6}>
             <Divider />
           </Box>
-          <Typography
-            gutterBottom
-            variant="body1"
-            align="center"
-            component="aside"
-          >
-            Most evenings begin with 30 minutes of meditation, followed by
-            discussion and/or reflections by the teacher.
+          <Typography gutterBottom variant="body1" align="center">
+            All our classes are now hosted online. Most classes are on Zoom and
+            use this link:{' '}
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.anchor}
+              href="http://bit.ly/sfdharma"
+            >
+              http://bit.ly/sfdharma
+            </Link>
           </Typography>
-          <Typography variant="body1" align="center" component="aside">
-            Beginning and experienced practitioners are welcome.
-          </Typography>
+          <Box mt={6}>
+            <Divider />
+          </Box>
         </Box>
       </Grid>
-      <Grid item xs={12}>
-        <Box mt={6} mb={3}>
-          <CoronavirusUpdate />
-        </Box>
-      </Grid>
+
       <Grid
         item
         xs={12}
