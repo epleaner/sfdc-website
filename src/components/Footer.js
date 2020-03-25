@@ -105,7 +105,18 @@ const Footer = () => {
         </Typography>
         <Box mb={2} />
         <Typography align="center" variant="body2">
-          © 2020 San Francisco Dharma Collectiove
+          © 2020 San Francisco Dharma Collective
+        </Typography>
+        <Typography align="center" variant="body2">
+          Website by{' '}
+          <MaterialUILink
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.anchor}
+            href="https://elipleaner.com"
+          >
+            Eli Pleaner 🐣
+          </MaterialUILink>
         </Typography>
         <Box mb={6} />
       </Grid>
