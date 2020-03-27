@@ -60,7 +60,7 @@ const MailChimpSignup = () => {
   };
 
   return (
-    <Grid container justify="center">
+    <Grid container justify="center" component="aside">
       <form
         id="mailchimp-form"
         className={classes.root}
@@ -69,14 +69,15 @@ const MailChimpSignup = () => {
       >
         <Grid container>
           <Grid item xs={12}>
-            <Typography align="center">
-              Subscribe to our mailing list
-            </Typography>
+            <Box mb={3}>
+              <Typography variant="h3" component="h1" align="center">
+                Subscribe to our mailing list
+              </Typography>
+            </Box>
           </Grid>
           <Grid item xs={12}>
             <TextField
               fullWidth
-              margin={'normal'}
               label="Email"
               variant="outlined"
               required
