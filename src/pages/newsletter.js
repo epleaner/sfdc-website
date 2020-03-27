@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import MailChimpSignup from '../components/MailChimpSignup';
+import MailChimpNewsletter from '../components/MailChimpNewsletter';
 
 const Newsletter = () => {
   return (
@@ -21,7 +22,12 @@ const Newsletter = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
+          <Box mb={3}>
+            <MailChimpNewsletter />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
           <Box mb={3}>
             <MailChimpSignup />
           </Box>

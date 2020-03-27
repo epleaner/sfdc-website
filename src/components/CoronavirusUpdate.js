@@ -43,7 +43,7 @@ const CoronavirusUpdate = () => {
       <Divider className={classes.divider} />
       <Box my={8}>
         <Box mb={8}>
-          <Typography variant="body1">
+          <Typography variant="body1" component="aside">
             <ContentfulRichText json={contentData.content.json} />
           </Typography>
         </Box>
