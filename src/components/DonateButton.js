@@ -24,7 +24,7 @@ const DonateButton = () => {
         <Link
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.paypal.com/donate/?token=sxMx_WscRfFMLTzT9C4S54_UAJmaSA1lt6z6Qmk8i7zgyxYrAhPscJOUVUis33Rj6Sf0eG&country.x=US&locale.x=US"
+          href="https://paypal.me/sfdharmacollective"
           className={classes.link}
         >
           Donate via PayPal
