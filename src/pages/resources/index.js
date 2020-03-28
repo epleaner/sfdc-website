@@ -49,6 +49,23 @@ const Resources = () => {
           <Grid item xs={12} alignItems="center" container>
             <Grid className={classes.buttonContainer} item xs={12} sm={6}>
               <Button color="primary" className={classes.anchor}>
+                <Link
+                  to="/resources/covid-19-resources"
+                  className={classes.link}
+                >
+                  COVID-19 Resources
+                </Link>
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="body1">
+                Communal, remote to help find support during COVID-19.
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} alignItems="center" container>
+            <Grid className={classes.buttonContainer} item xs={12} sm={6}>
+              <Button color="primary" className={classes.anchor}>
                 <Link to="/resources/from-our-friends" className={classes.link}>
                   From Our Friends
                 </Link>
