@@ -58,6 +58,10 @@ const menuItems = [
     name: 'Resources',
     path: '/resources',
     nested: [
+      {
+        name: 'COVID-19 Resources: Sits With Our Friends',
+        path: '/resources/covid-19-resources',
+      },
       {name: 'From Our Friends', path: '/resources/from-our-friends'},
       {
         name: 'Local Centers',

@@ -36,7 +36,7 @@ const MenuPopupState = (props) => {
   const createTextLink = (text) =>
     `/${text
         .toLowerCase()
-        .replace(/[^\w\s]/gi, '')
+        .replace(/[^\w\s\-]/gi, '')
         .replace(/\s\s*/g, '-')}`;
 
   const popupState = usePopupState({
