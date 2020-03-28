@@ -59,7 +59,7 @@ const Resources = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <Typography variant="body1">
-                Communal, remote to help find support during COVID-19.
+                Communal, online sits to help find support during COVID-19.
               </Typography>
             </Grid>
           </Grid>
