@@ -52,6 +52,7 @@ const menuItems = [
     name: 'Resources',
     path: '/resources',
     nested: [
+      'COVID-19 Resources',
       'From Our Friends',
       'Local Centers',
       'Podcasts',

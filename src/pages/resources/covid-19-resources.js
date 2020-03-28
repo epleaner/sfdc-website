@@ -7,36 +7,32 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 
 import Layout from '../../components/Layout';
-import LotusImagePath from '../../assets/images/lotus.png';
 import SEO from '../../components/SEO';
 import ContentfulRichText from '../../components/ContentfulRichText';
-import GoogleMap from '../../components/GoogleMap';
 
 const useStyles = makeStyles((theme) => ({
-  lotusImage: {maxWidth: '500px', width: '100%', height: '100%'},
   section: {
     margin: `${theme.spacing(2)}px 0`,
   },
 }));
 
-const AboutUs = () => {
+export default () => {
   const data = useStaticQuery(graphql`
     {
-      pageData: contentfulPage(pageName: { eq: "About Us" }) {
+      pageData: contentfulPage(pageName: { eq: "COVID-19 Resources" }) {
         ...ContentfulPageFragment
       }
     }
   `);
 
   const {pageData} = data;
-
   const classes = useStyles();
 
   return (
     <Layout>
       <SEO
-        title="About Us"
-        description="San Francisco Dharma Center About Page"
+        title="COVID-19 Resources"
+        description="San Francisco Dharma Center resources for Coronavirus (aka COVID-19) support"
       />
       <Grid container>
         <Grid item container xs={12}>
@@ -47,13 +43,13 @@ const AboutUs = () => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item container justify="center" xs={12} md={4}>
-            <Grid item>
-              <img
-                className={classes.lotusImage}
-                src={LotusImagePath}
-                alt="Lotus"
-              />
+          <Grid item container alignContent="center" xs={12} md={8}>
+            <Grid item xs={12}>
+              <Box mt={2}>
+                <Typography variant="h4" component="h2">
+                  {pageData.subTitle}
+                </Typography>
+              </Box>
             </Grid>
           </Grid>
         </Grid>
@@ -73,12 +69,7 @@ const AboutUs = () => {
             </Grid>
           </Grid>
         ))}
-        <Grid item xs={12}>
-          <GoogleMap />
-        </Grid>
       </Grid>
     </Layout>
   );
 };
-
-export default AboutUs;

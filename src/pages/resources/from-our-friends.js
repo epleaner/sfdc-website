@@ -88,6 +88,91 @@ const FromOurFriends = () => {
           </Box>
         </Grid>
         <Grid item xs={12} container component="article">
+          <Grid item xs={12}>
+            <Box mb={2}>
+              <Typography variant="h3" component="h2">
+                Psychology of the Bodhisattva
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={2}>
+              <Typography variant="h4" component="h3">
+                from Sacred Stream
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={2}>
+              <Typography variant="h6" component="h3">
+                SFDC Sangha can receive a $50 discount by using the code
+                SFDCBODHI50 by April 2
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={2}>
+              <Typography variant="body1">
+                Register here:{' '}
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={classes.anchor}
+                  href="https://sacredstream.org/event/psychology-of-the-bodhisattva-april-2020/"
+                >
+                  https://sacredstream.org/event/psychology-of-the-bodhisattva-april-2020/
+                </Link>
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={2}>
+              <Typography variant="body1">
+                In Buddhist practice, a Boddhisattva is a being who has attained
+                a level of realization that takes them beyond the experience of
+                suffering that characterizes cyclic existence. Rather than
+                simply rest in that realization or that state of enlightenment,
+                they return to the experience of suffering to help others free
+                themselves from pain and unhappiness.
+              </Typography>
+            </Box>
+            <Typography variant="body1">
+              There are stages of understanding that all Boddhisattvas pass
+              through in the process of attaining realization. These stages are
+              part of the path of the “Boddhisattva in training.” When a person
+              decides that they want to attain this realization for their own
+              benefit and for the benefit of others, they enter into this path.
+              This decision – to transform one’s own suffering in order to help
+              others – changes a person’s psychological orientation.
+            </Typography>
+            <Box mb={2}>
+              <Typography variant="body1">
+                In this class we will explore this psychological shift. We will
+                also explore each of the stages of the Boddhisattva path to
+                understand how to best meet the demands and potentials this path
+                offers.
+              </Typography>
+            </Box>
+            <Box mb={6}>
+              <Typography variant="body1">
+                When we make the decision to dedicate ourselves to helping
+                others, our priorities change. Although this decision can be
+                made in an instant, the process of learning how and when to best
+                help others can take longer than we might expect. Buddhist
+                philosophy offers invaluable guidance regarding what it really
+                takes to develop the capacity to truly be of service. This is
+                called the Path of the Boddhisattva. This path provides
+                invaluable insight and guidance not only about the nature of
+                service but also how being of service deepens understanding of
+                the basic teachings of Buddhist philosophy. In this class, we
+                will explore the way in which our psychological orientation
+                changes as we dedicate our self-development to the benefit of
+                all.
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} container component="article">
           <Grid item container xs={12} md={6}>
             <Grid item xs={12}>
               <Box mb={2}>
