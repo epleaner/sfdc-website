@@ -19,18 +19,21 @@ const DonateButton = () => {
   const classes = useStyles();
 
   return (
-    <Button color="primary" size="large" variant="contained">
-      <Typography variant="body1" align="center">
-        <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.paypal.com/donate/?token=sxMx_WscRfFMLTzT9C4S54_UAJmaSA1lt6z6Qmk8i7zgyxYrAhPscJOUVUis33Rj6Sf0eG&country.x=US&locale.x=US"
-          className={classes.link}
-        >
-          Donate via PayPal
-        </Link>
-      </Typography>
-    </Button>
+    <>
+      <form
+        action="https://www.paypal.com/cgi-bin/webscr"
+        method="post"
+        target="_blank"
+      >
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="D96EWSRRPKUVA" />
+        <Button type="submit" color="primary" size="large" variant="contained">
+          <Typography variant="body1" align="center">
+            Donate via PayPal
+          </Typography>
+        </Button>
+      </form>
+    </>
   );
 };
 
