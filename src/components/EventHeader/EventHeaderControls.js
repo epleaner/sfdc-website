@@ -22,6 +22,11 @@ export default (props) => {
   const {isOpen, eventUrl, copied, setCopied} = props;
 
   const location = useLocation();
+  let copyText;
+
+  if (location.href.charAt(location.href.length - 1) === '/') {
+    copyText = location.href + 'event/' + eventUrl;
+  } else copyText = location.href + '/event/' + eventUrl;
 
   const classes = useStyles();
 
@@ -40,7 +45,7 @@ export default (props) => {
             aria-label="copy"
           >
             <CopyToClipboard
-              text={`${location.href.split('#')[0]}event/${eventUrl}`}
+              text={copyText}
               onCopy={(text, result) => {
                 setCopied(result);
               }}
