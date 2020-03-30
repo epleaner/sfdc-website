@@ -4,15 +4,8 @@ import {useParams} from '@reach/router';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
 
-import {
-  humanReadableDateTime,
-  humanReadableRecurranceRules,
-  humanReadableTime,
-  formatRecurrenceRules,
-  parseEvent,
-} from '../../utils/eventParser';
+import {parseEvent} from '../../utils/eventParser';
 
 import Layout from '../Layout';
 import SEO from '../SEO';
@@ -20,37 +13,7 @@ import SEO from '../SEO';
 import EventHeaderText from '../EventHeader/EventHeaderText';
 import EventBody from '../EventBody';
 
-const useStyles = makeStyles((theme) => ({
-  eventDescription: {
-    'marginTop': theme.spacing(2),
-    '& a': {
-      'color': 'rgba(62,149,153,1)',
-      'textDecoration': 'none',
-      '&:hover': {
-        textDecoration: 'underline',
-        cursor: 'auto',
-      },
-    },
-  },
-  eventDescriptionContainer: {
-    [theme.breakpoints.down('xs')]: {
-      order: 1,
-    },
-  },
-  avatar: {
-    width: '250px',
-    height: '250px',
-  },
-  avatarContainer: {
-    [theme.breakpoints.down('xs')]: {
-      order: 0,
-    },
-  },
-}));
-
 const Calendar = () => {
-  const classes = useStyles();
-
   const {eventId, eventName} = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -77,11 +40,15 @@ const Calendar = () => {
     recurrenceRules,
   } = eventData;
 
+  const displayName = eventName
+      .split('-')
+      .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+      .join(' ');
   return (
     <Layout>
       <SEO
-        title="Event page"
-        description="San Francisco Dharma Collective Event Page"
+        title={displayName}
+        description={`San Francisco Dharma Collective Event Page: ${displayName}`}
       />
       <Grid container>
         <Grid item xs={12}>
