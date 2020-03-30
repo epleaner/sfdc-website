@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {configureAnchors, goToAnchor} from 'react-scrollable-anchor';
 import {graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -29,8 +28,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UpcomingEvents = () => {
-  configureAnchors({keepLastAnchorHash: false});
-
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [eventData, setEventData] = useState({});
@@ -38,18 +35,12 @@ const UpcomingEvents = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    fetch('/.netlify/functions/google-calendar')
+    fetch('/.netlify/functions/google-calendar?singleEvents=true')
         .then((response) => response.json())
         .then((responseJson) => responseJson.data.items)
-        .then((responseDataItems) => parseEvents(responseDataItems))
-        .then((parsedResponse) => {
-          setEventData(parsedResponse);
-          if (window.location.hash) {
-            goToAnchor(window.location.hash.replace('#', ''));
-          }
-        })
-        .catch((error) => {
-          console.log(error);
+        .then(parseEvents)
+        .then(setEventData)
+        .catch(() => {
           setError(true);
         })
         .finally(() => setIsLoading(false));
