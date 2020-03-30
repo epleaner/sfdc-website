@@ -1,5 +1,6 @@
 import React from 'react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {useLocation} from '@reach/router';
 
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -20,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
 export default (props) => {
   const {isOpen, eventUrl, copied, setCopied} = props;
 
+  const location = useLocation();
+
   const classes = useStyles();
 
   return (
@@ -37,7 +40,7 @@ export default (props) => {
             aria-label="copy"
           >
             <CopyToClipboard
-              text={`${window.location.href.split('#')[0]}event/${eventUrl}`}
+              text={`${location.href.split('#')[0]}event/${eventUrl}`}
               onCopy={(text, result) => {
                 setCopied(result);
               }}
