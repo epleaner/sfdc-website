@@ -36,7 +36,7 @@ const Event = (props) => {
       .replace(/[^a-zA-Z0-9\ ]/g, '')
       .replace(/\ +/g, '-');
 
-  const eventUrl = `${recurringEventId || id}/${urlFormattedSummary}`;
+  const eventUrl = `${urlFormattedSummary}/${recurringEventId || id}`;
 
   const [isOpen, setOpen] = React.useState(true);
   const [copied, setCopied] = React.useState(false);

@@ -54,6 +54,7 @@ const Calendar = () => {
   const {eventId, eventName} = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [error, setError] = useState(false);
   const [eventData, setEventData] = useState({});
 
@@ -63,7 +64,8 @@ const Calendar = () => {
         .then((responseJson) => responseJson.data)
         .then(parseEvent)
         .then(setEventData)
-        .then(() => setIsLoading(false));
+        .catch(() => setIsError(true))
+        .finally(() => setIsLoading(false));
   }, []);
 
   const {
@@ -82,21 +84,27 @@ const Calendar = () => {
         description="San Francisco Dharma Collective Event Page"
       />
       <Grid container>
-        {isLoading ? (
-          <Typography align="center" variant="h2">
-            Loading event...
-          </Typography>
-        ) : (
-          <>
-            <EventHeaderText
-              big
-              {...{summary, recurrenceRules, start, end}}
-            />
-            <Box mt={3}>
-              <EventBody {...{attachments, description}} />
-            </Box>
-          </>
-        )}
+        <Grid item xs={12}>
+          {isLoading ? (
+            <Typography align="center" variant="h2">
+              Loading event...
+            </Typography>
+          ) : isError ? (
+            <Typography align="center" variant="h2">
+              Sorry, couldn't find that event...
+            </Typography>
+          ) : (
+            <>
+              <EventHeaderText
+                big
+                {...{summary, recurrenceRules, start, end}}
+              />
+              <Box mt={3}>
+                <EventBody {...{attachments, description}} />
+              </Box>
+            </>
+          )}
+        </Grid>
       </Grid>
     </Layout>
   );
