@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 
 import Card from '@material-ui/core/Card';
-import EventBody from './EventBody';
+import CollapsableEventBody from './EventBody/CollapsableEventBody';
 import EventHeader from './EventHeader';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ScrollableAnchor from 'react-scrollable-anchor';
 import {makeStyles} from '@material-ui/core/styles';
 import moment from 'moment';
 
@@ -22,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const Event = (props) => {
   const {
     id,
+    recurringEventId,
     summary,
     start,
     end,
@@ -30,22 +30,15 @@ const Event = (props) => {
     attachments,
   } = props;
 
-  const hashFormattedStartDate = moment(start)
-      .format('l')
-      .replace(/\//g, '-');
-
-  const hashFormattedSummary = summary
+  const urlFormattedSummary = summary
       .trim()
       .toLowerCase()
       .replace(/[^a-zA-Z0-9\ ]/g, '')
       .replace(/\ +/g, '-');
 
-  const linkableHash = `${hashFormattedSummary}-${hashFormattedStartDate}`;
+  const eventUrl = `${recurringEventId || id}/${urlFormattedSummary}`;
 
-  let hashLinked = false;
-  if (window.location.hash.substring(1) === linkableHash) hashLinked = true;
-
-  const [isOpen, setOpen] = React.useState(hashLinked);
+  const [isOpen, setOpen] = React.useState(true);
   const [copied, setCopied] = React.useState(false);
   const [isHovered, setHovered] = React.useState(false);
 
@@ -56,36 +49,36 @@ const Event = (props) => {
   const classes = useStyles();
 
   return (
-    <ScrollableAnchor id={linkableHash}>
-      <ListItem onMouseLeave={() => setCopied(false)}>
-        <Card
-          className={classes.card}
-          raised={isHovered}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          <ListItemText
-            disableTypography
-            primary={
-              <EventHeader
-                {...{
-                  toggleOpen,
-                  isOpen,
-                  summary,
-                  recurrenceRules,
-                  start,
-                  end,
-                  linkableHash,
-                  copied,
-                  setCopied,
-                }}
-              />
-            }
-            secondary={<EventBody {...{description, attachments, isOpen}} />}
-          />
-        </Card>
-      </ListItem>
-    </ScrollableAnchor>
+    <ListItem onMouseLeave={() => setCopied(false)}>
+      <Card
+        className={classes.card}
+        raised={isHovered}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <ListItemText
+          disableTypography
+          primary={
+            <EventHeader
+              {...{
+                toggleOpen,
+                isOpen,
+                summary,
+                recurrenceRules,
+                start,
+                end,
+                eventUrl,
+                copied,
+                setCopied,
+              }}
+            />
+          }
+          secondary={
+            <CollapsableEventBody {...{description, attachments, isOpen}} />
+          }
+        />
+      </Card>
+    </ListItem>
   );
 };
 

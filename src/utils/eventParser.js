@@ -25,19 +25,16 @@ const getEventsByMonth = (unsortedEvents) => {
   return eventsByMonth;
 };
 
-const formatRecurrenceRules = (events) => {
-  return events.map((event) => {
-    const recurrenceRules = {};
-    event.recurrence[0]
-        .substring(6)
-        .toLowerCase()
-        .split(';')
-        .map((ruleTuple) => [...ruleTuple.split('=')])
-        .forEach(([rule, value]) => (recurrenceRules[rule] = value));
+const formatRecurrenceRules = (recurrence) => {
+  const recurrenceRules = {};
+  recurrence[0]
+      .substring(6)
+      .toLowerCase()
+      .split(';')
+      .map((ruleTuple) => [...ruleTuple.split('=')])
+      .forEach(([rule, value]) => (recurrenceRules[rule] = value));
 
-    event.recurrenceRules = recurrenceRules;
-    return event;
-  });
+  return recurrenceRules;
 };
 
 const createSingleEventsFromRecurringEvents = ({
@@ -49,6 +46,17 @@ const createSingleEventsFromRecurringEvents = ({
   // recurringeEvents.forEach((event) => {});
 
   return singleEvents;
+};
+
+const parseEvent = (event) => {
+  event.start = moment(event.start.dateTime);
+  event.end = moment(event.end.dateTime);
+
+  if (event.recurrence) {
+    event.recurrenceRules = formatRecurrenceRules(event.recurrence);
+  }
+
+  return event;
 };
 
 const parseEvents = (eventData) => {
@@ -63,30 +71,13 @@ const parseEvents = (eventData) => {
   const singleEvents = [];
   const recurringEvents = [];
 
-  unstickedEvents.forEach(
-      ({id, summary, start, end, description, recurrence, attachments}) => {
-        const pluckedEvent = {
-          id,
-          summary,
-          start,
-          end,
-          description,
-          recurrence,
-          attachments,
-        };
+  unstickedEvents.map(parseEvent);
 
-        pluckedEvent.start = moment(pluckedEvent.start.dateTime);
-        pluckedEvent.end = moment(pluckedEvent.end.dateTime);
-
-      pluckedEvent.recurrence ?
-        recurringEvents.push(pluckedEvent) :
-        singleEvents.push(pluckedEvent);
-      },
+  unstickedEvents.forEach((event) =>
+    event.recurrence ? recurringEvents.push(event) : singleEvents.push(event),
   );
 
-  const formattedRecurringEvents = formatRecurrenceRules(recurringEvents);
-
-  const activeRecurringEvents = formattedRecurringEvents.filter(
+  const activeRecurringEvents = recurringEvents.filter(
       ({recurrenceRules: {until}}) =>
         !until || moment(until.toUpperCase()).isAfter(moment().startOf('day')),
   );
@@ -167,7 +158,9 @@ const humanReadableTime = (start, end) =>
 
 export {
   parseEvents,
+  parseEvent,
   humanReadableRecurranceRules,
   humanReadableDateTime,
   humanReadableTime,
+  formatRecurrenceRules,
 };
