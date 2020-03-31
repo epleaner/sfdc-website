@@ -25,8 +25,8 @@ export default (props) => {
   let copyText;
 
   if (location.href.charAt(location.href.length - 1) === '/') {
-    copyText = location.href + 'event/' + eventUrl;
-  } else copyText = location.href + '/event/' + eventUrl;
+    copyText = location.href + eventUrl;
+  } else copyText = location.href + '/' + eventUrl;
 
   const classes = useStyles();
 

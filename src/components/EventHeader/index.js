@@ -47,7 +47,9 @@ const EventHeader = (props) => {
 
   return (
     <Grid container onClick={toggleOpen} className={classes.eventHeader}>
-      <EventHeaderText {...{summary, recurrenceRules, start, end}} />
+      <EventHeaderText
+        {...{summary, recurrenceRules, start, end, eventUrl}}
+      />
       <EventHeaderControls {...{copied, setCopied, eventUrl, isOpen}} />
     </Grid>
   );
