@@ -6,7 +6,6 @@ import {
   humanReadableDateTime,
   humanReadableRecurranceRules,
   humanReadableTime,
-  formatRecurrenceRules,
   parseEvent,
 } from '../../utils/eventParser';
 

@@ -37,17 +37,6 @@ const formatRecurrenceRules = (recurrence) => {
   return recurrenceRules;
 };
 
-const createSingleEventsFromRecurringEvents = ({
-  recurringeEvents,
-  monthsAhead,
-}) => {
-  const singleEvents = [];
-
-  // recurringeEvents.forEach((event) => {});
-
-  return singleEvents;
-};
-
 const parseEvent = (event) => {
   event.start = moment(event.start.dateTime);
   event.end = moment(event.end.dateTime);
@@ -79,6 +68,11 @@ const onlyActiveEvents = (events) =>
       singleEventIsActive(event),
   );
 
+const onlyActiveRecurringEvents = (events) =>
+  events.filter(
+      (event) => event.recurrenceRules && recurringEventIsActive(event),
+  );
+
 const recurringEventIsActive = (event) =>
   !event.recurrenceRules.until ||
   moment(event.recurrenceRules.until.toUpperCase()).isAfter(
@@ -87,11 +81,6 @@ const recurringEventIsActive = (event) =>
 
 const singleEventIsActive = (event) =>
   event.start.isAfter(moment().startOf('day'));
-
-const onlyActiveRecurringEvents = (events) =>
-  events.filter(
-      (event) => event.recurrenceRules && recurringEventIsActive(event),
-  );
 
 const parseEvents = (eventData) => {
   const activeEvents = filterCancelledAndEmptyEvents(eventData);
@@ -104,16 +93,9 @@ const parseEvents = (eventData) => {
 
   const [recurringEvents, singleEvents] = separateRecurringEvents(parsedEvents);
 
+  const eventsByMonth = getEventsByMonth(singleEvents);
+
   const activeRecurringEvents = onlyActiveRecurringEvents(recurringEvents);
-
-  const singleEventsFromRecurringEvents = createSingleEventsFromRecurringEvents(
-      {recurringEvents: activeRecurringEvents, monthsAhead: 6},
-  );
-
-  const eventsByMonth = getEventsByMonth([
-    ...singleEvents,
-    ...singleEventsFromRecurringEvents,
-  ]);
 
   return {
     singleEventsByMonth: eventsByMonth,
@@ -194,10 +176,8 @@ const humanReadableTime = (start, end) =>
 
 export {
   parseEvents,
-  parseEvent,
   parseQueriedEvent,
   humanReadableRecurranceRules,
   humanReadableDateTime,
   humanReadableTime,
-  formatRecurrenceRules,
 };
