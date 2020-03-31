@@ -18,7 +18,7 @@ function handleError(error, callback) {
 
 export function handler(event, context, callback) {
   const {
-    queryStringParameters: {eventId},
+    queryStringParameters: {eventName, eventDate},
   } = event;
 
   const clientEmail =
@@ -40,27 +40,38 @@ export function handler(event, context, callback) {
 
       const calendar = google.calendar('v3');
 
-      console.log('Listing calendar event for ', calendarId, eventId);
-
-      calendar.events.get(
-          {
-            auth: jwtClient,
-            calendarId: calendarId,
-            eventId: eventId,
-          },
-          function(error, response) {
-            if (error) {
-              handleError(error, callback);
-            } else {
-              console.log('Success!');
-
-              callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(response),
-              });
-            }
-          },
+      console.log(
+          'Listing calendar event for ',
+          calendarId,
+          eventName,
+          eventDate,
       );
+
+      const listOptions = {
+        auth: jwtClient,
+        calendarId: calendarId,
+        q: eventName,
+        timeMin: moment()
+            .subtract(1, 'd')
+            .format(),
+        timeMax: moment()
+            .add(3, 'M')
+            .endOf('month')
+            .format(),
+      };
+
+      calendar.events.list(listOptions, function(error, response) {
+        if (error) {
+          handleError(error, callback);
+        } else {
+          console.log('Success!');
+
+          callback(null, {
+            statusCode: 200,
+            body: JSON.stringify(response),
+          });
+        }
+      });
     }
   });
 }

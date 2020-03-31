@@ -40,7 +40,8 @@ const UpcomingEvents = () => {
         .then((responseJson) => responseJson.data.items)
         .then(parseEvents)
         .then(setEventData)
-        .catch(() => {
+        .catch((error) => {
+          console.log(error);
           setError(true);
         })
         .finally(() => setIsLoading(false));

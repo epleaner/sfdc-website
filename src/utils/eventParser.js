@@ -59,28 +59,52 @@ const parseEvent = (event) => {
   return event;
 };
 
-const parseEvents = (eventData) => {
-  const activeEvents = eventData.filter(
-      (event) => event.status !== 'cancelled' && event.description,
-  );
+const filterCancelledAndEmptyEvents = (events) =>
+  events.filter((event) => event.status !== 'cancelled' && event.description);
 
-  const unstickedEvents = activeEvents.filter(
-      (event) => event.summary !== 'Morning Sit',
-  );
-
-  const singleEvents = [];
+const separateRecurringEvents = (events) => {
   const recurringEvents = [];
-
-  unstickedEvents.map(parseEvent);
-
-  unstickedEvents.forEach((event) =>
+  const singleEvents = [];
+  events.forEach((event) =>
     event.recurrence ? recurringEvents.push(event) : singleEvents.push(event),
   );
 
-  const activeRecurringEvents = recurringEvents.filter(
-      ({recurrenceRules: {until}}) =>
-        !until || moment(until.toUpperCase()).isAfter(moment().startOf('day')),
+  return [recurringEvents, singleEvents];
+};
+
+const onlyActiveEvents = (events) =>
+  events.filter((event) =>
+    event.recurrenceRules ?
+      recurringEventIsActive(event) :
+      singleEventIsActive(event),
   );
+
+const recurringEventIsActive = (event) =>
+  !event.recurrenceRules.until ||
+  moment(event.recurrenceRules.until.toUpperCase()).isAfter(
+      moment().startOf('day'),
+  );
+
+const singleEventIsActive = (event) =>
+  event.start.isAfter(moment().startOf('day'));
+
+const onlyActiveRecurringEvents = (events) =>
+  events.filter(
+      (event) => event.recurrenceRules && recurringEventIsActive(event),
+  );
+
+const parseEvents = (eventData) => {
+  const activeEvents = filterCancelledAndEmptyEvents(eventData);
+
+  const unstickiedEvents = activeEvents.filter(
+      (event) => event.summary !== 'Morning Sit',
+  );
+
+  const parsedEvents = unstickiedEvents.map(parseEvent);
+
+  const [recurringEvents, singleEvents] = separateRecurringEvents(parsedEvents);
+
+  const activeRecurringEvents = onlyActiveRecurringEvents(recurringEvents);
 
   const singleEventsFromRecurringEvents = createSingleEventsFromRecurringEvents(
       {recurringEvents: activeRecurringEvents, monthsAhead: 6},
@@ -95,6 +119,18 @@ const parseEvents = (eventData) => {
     singleEventsByMonth: eventsByMonth,
     recurringEvents: activeRecurringEvents,
   };
+};
+
+const parseQueriedEvent = (events) => {
+  const m = moment;
+  const parsedEvents = events.map(parseEvent);
+  const activeEvents = onlyActiveEvents(parsedEvents);
+
+  if (activeEvents.length > 1) {
+    console.log('Found more than one matching event, returing first.');
+  }
+
+  return activeEvents[0];
 };
 
 const humanReadableRecurranceRules = (recurranceRules) => {
@@ -159,6 +195,7 @@ const humanReadableTime = (start, end) =>
 export {
   parseEvents,
   parseEvent,
+  parseQueriedEvent,
   humanReadableRecurranceRules,
   humanReadableDateTime,
   humanReadableTime,

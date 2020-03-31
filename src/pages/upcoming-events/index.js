@@ -17,7 +17,7 @@ const UpcomingRecurringEvents = () => {
       <NotFound default />
       <UpcomingEvents path="/" />
       <Calendar path="/calendar" />
-      <Event path="/event/:eventName/:eventId" />
+      <Event path="/event/:eventName" />
     </Router>
   );
 };

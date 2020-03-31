@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import {parseEvent} from '../../utils/eventParser';
+import {parseQueriedEvent} from '../../utils/eventParser';
 
 import Layout from '../Layout';
 import SEO from '../SEO';
@@ -14,20 +14,27 @@ import EventHeaderText from '../EventHeader/EventHeaderText';
 import EventBody from '../EventBody';
 
 const Calendar = () => {
-  const {eventId, eventName} = useParams();
+  const {eventName, eventDate} = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState(false);
   const [eventData, setEventData] = useState({});
 
+  const eventNameQueryParam = eventName.split('-').join(' ');
+
   useEffect(() => {
-    fetch(`/.netlify/functions/google-calendar-event?eventId=${eventId}`)
+    fetch(
+        `/.netlify/functions/google-calendar-event?eventName=${eventNameQueryParam}`,
+    )
         .then((response) => response.json())
-        .then((responseJson) => responseJson.data)
-        .then(parseEvent)
+        .then((responseJson) => responseJson.data.items)
+        .then(parseQueriedEvent)
         .then(setEventData)
-        .catch(() => setIsError(true))
+        .catch((error) => {
+          console.log(error);
+          setIsError(true);
+        })
         .finally(() => setIsLoading(false));
   }, []);
 

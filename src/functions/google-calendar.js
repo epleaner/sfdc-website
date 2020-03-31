@@ -49,7 +49,7 @@ export function handler(event, context, callback) {
           singleEvents: singleEvents || 'false',
           maxResults: 2500,
           timeMin: moment()
-              .startOf('week')
+              .subtract(1, 'd')
               .format(),
           timeMax: moment()
               .add(3, 'M')
