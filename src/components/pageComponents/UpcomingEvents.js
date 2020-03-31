@@ -71,7 +71,7 @@ const UpcomingEvents = () => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO
         title="Upcoming & Recurring Events"
         description="San Francisco Dharma Collective Upcoming & Recurring Events Page"
@@ -223,7 +223,7 @@ const UpcomingEvents = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Layout>
+    </>
   );
 };
 

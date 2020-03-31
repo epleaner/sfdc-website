@@ -13,8 +13,8 @@ import SEO from '../SEO';
 import EventHeaderText from '../EventHeader/EventHeaderText';
 import EventBody from '../EventBody';
 
-const Calendar = () => {
-  const {eventName, eventDate} = useParams();
+export default () => {
+  const {eventName} = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -51,8 +51,9 @@ const Calendar = () => {
       .split('-')
       .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
       .join(' ');
+
   return (
-    <Layout>
+    <>
       <SEO
         title={displayName}
         description={`San Francisco Dharma Collective Event Page: ${displayName}`}
@@ -80,8 +81,6 @@ const Calendar = () => {
           )}
         </Grid>
       </Grid>
-    </Layout>
+    </>
   );
 };
-
-export default Calendar;

@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 const Calendar = () => {
   const classes = useStyles();
   return (
-    <Layout>
+    <>
       <SEO
         title="Calendar"
         description="San Francisco Dharma Collective Calendar Page"
@@ -77,7 +77,7 @@ const Calendar = () => {
           </Box>
         </Grid>
       </Grid>
-    </Layout>
+    </>
   );
 };
 
