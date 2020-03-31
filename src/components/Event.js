@@ -38,7 +38,7 @@ const Event = (props) => {
 
   const eventUrl = `${urlFormattedSummary}/${recurringEventId || id}`;
 
-  const [isOpen, setOpen] = React.useState(true);
+  const [isOpen, setOpen] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
   const [isHovered, setHovered] = React.useState(false);
 
