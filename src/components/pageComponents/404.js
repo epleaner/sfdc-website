@@ -13,7 +13,7 @@ const NotFoundPage = () => {
       />
       <Grid container>
         <Grid item xs={12}>
-          <Box mb={3}>
+          <Box mb={10}>
             <Typography align="center" variant="h2" component="h1">
               Form is emptiness, emptiness is form. Form is not other than
               emptiness; emptiness is not other than form.
