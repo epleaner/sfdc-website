@@ -102,7 +102,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-create-client-paths`,
-      options: {prefixes: [`/upcoming-events/*`]},
+      options: {prefixes: [`/events/*`]},
     },
   ],
 };

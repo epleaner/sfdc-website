@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Layout from '../../components/Layout';
-import UpcomingEvents from '../../components/pageComponents/UpcomingEvents';
+import Calendar from '../../components/pageComponents/Calendar';
 
 export default () => {
   return (
     <Layout>
-      <UpcomingEvents />
+      <Calendar />
     </Layout>
   );
 };
