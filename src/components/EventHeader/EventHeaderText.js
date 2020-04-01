@@ -36,7 +36,7 @@ export default ({summary, recurrenceRules, start, end, big, eventUrl}) => {
               target="_blank"
               rel="noopener noreferrer"
               className={classes.link}
-              to={`/upcoming-events/${eventUrl}`}
+              to={`/${eventUrl}`}
             >
               {summary}
             </Link>

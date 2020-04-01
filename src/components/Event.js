@@ -36,7 +36,7 @@ const Event = (props) => {
       .replace(/[^a-zA-Z0-9\ ]/g, '')
       .replace(/\ +/g, '-');
 
-  const eventUrl = `event/${urlFormattedSummary}`;
+  const eventUrl = `events/${urlFormattedSummary}`;
 
   const [isOpen, setOpen] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
