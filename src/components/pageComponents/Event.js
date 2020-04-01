@@ -38,15 +38,6 @@ export default () => {
         .finally(() => setIsLoading(false));
   }, []);
 
-  const {
-    summary,
-    start,
-    end,
-    attachments,
-    description,
-    recurrenceRules,
-  } = eventData;
-
   const displayName = eventName
       .split('-')
       .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -64,18 +55,15 @@ export default () => {
             <Typography align="center" variant="h2">
               Loading event...
             </Typography>
-          ) : isError ? (
+          ) : isError || !eventData ? (
             <Typography align="center" variant="h2">
-              Sorry, couldn't find that event...
+              Sorry, we couldn't find that event.
             </Typography>
           ) : (
             <>
-              <EventHeaderText
-                big
-                {...{summary, recurrenceRules, start, end}}
-              />
+              <EventHeaderText big {...eventData} />
               <Box mt={3}>
-                <EventBody {...{attachments, description}} />
+                <EventBody {...eventData} />
               </Box>
             </>
           )}
