@@ -53,7 +53,7 @@ export default () => {
       .join(' ');
 
   return (
-    <>
+    <Layout>
       <SEO
         title={displayName}
         description={`San Francisco Dharma Collective Event Page: ${displayName}`}
@@ -81,6 +81,6 @@ export default () => {
           )}
         </Grid>
       </Grid>
-    </>
+    </Layout>
   );
 };

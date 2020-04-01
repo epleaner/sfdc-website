@@ -6,10 +6,8 @@ import Event from '../../components/pageComponents/Event';
 
 export default () => {
   return (
-    <Layout>
-      <Router basepath="/events">
-        <Event path="/:eventName" />
-      </Router>
-    </Layout>
+    <Router basepath="/events">
+      <Event path="/:eventName" />
+    </Router>
   );
 };
