@@ -17,6 +17,10 @@ function handleError(error, callback) {
 }
 
 export function handler(event, context, callback) {
+  const {
+    queryStringParameters: {singleEvents},
+  } = event;
+
   const clientEmail =
     process.env.GATSBY_GCAL_CLIENT_EMAIL || devCredentials.client_email;
 
@@ -29,43 +33,47 @@ export function handler(event, context, callback) {
   ]);
 
   jwtClient.authorize(function(error, tokens) {
-    if (error) {
+    try {
+      if (error) {
+        handleError(error, callback);
+      } else {
+        console.log('Successfully connected to Google API');
+
+        const calendar = google.calendar('v3');
+
+        console.log('Listing calendar events for ', calendarId);
+
+        const listOptions = {
+          auth: jwtClient,
+          calendarId: calendarId,
+          singleEvents: singleEvents || 'false',
+          maxResults: 2500,
+          timeMin: moment()
+              .subtract(1, 'd')
+              .format(),
+          timeMax: moment()
+              .add(3, 'M')
+              .endOf('month')
+              .format(),
+        };
+
+        if (singleEvents) listOptions.orderBy = 'startTime';
+
+        calendar.events.list(listOptions, function(error, response) {
+          if (error) {
+            handleError(error, callback);
+          } else {
+            console.log('Success!');
+
+            callback(null, {
+              statusCode: 200,
+              body: JSON.stringify(response),
+            });
+          }
+        });
+      }
+    } catch (error) {
       handleError(error, callback);
-    } else {
-      console.log('Successfully connected to Google API');
-
-      const calendar = google.calendar('v3');
-
-      console.log('Listing calendar events for ', calendarId);
-
-      calendar.events.list(
-          {
-            auth: jwtClient,
-            calendarId: calendarId,
-            singleEvents: true,
-            orderBy: 'startTime',
-            maxResults: 2500,
-            timeMin: moment()
-                .startOf('week')
-                .format(),
-            timeMax: moment()
-                .add(3, 'M')
-                .endOf('month')
-                .format(),
-          },
-          function(error, response) {
-            if (error) {
-              handleError(error, callback);
-            } else {
-              console.log('Success!');
-
-              callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(response),
-              });
-            }
-          },
-      );
     }
   });
 }
