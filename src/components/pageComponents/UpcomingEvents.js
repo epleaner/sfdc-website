@@ -100,6 +100,8 @@ const UpcomingEvents = () => {
                   >
                     http://bit.ly/sfdharma
                   </Link>
+                  You can also dial in from a phone by calling 301-715-8592 and
+                  using Meeting ID: 545 039 806.
                 </Typography>
                 <Box mt={6}>
                   <Divider />
