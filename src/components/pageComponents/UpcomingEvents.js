@@ -13,6 +13,7 @@ import Layout from '../Layout';
 import SEO from '../SEO';
 import CoronavirusUpdate from '../CoronavirusUpdate';
 import MonthList from '../MonthList';
+import MorningSit from '../MorningSit';
 import RecurringEventsList from '../RecurringEventsList';
 import {parseEvents} from '../../utils/eventParser';
 
@@ -90,8 +91,10 @@ const UpcomingEvents = () => {
                   <Divider />
                 </Box>
                 <Typography gutterBottom variant="body1" align="center">
-                  All our classes are now hosted online. Most classes are on
-                  Zoom and use this link:{' '}
+                  All our classes are now hosted online.
+                </Typography>
+                <Typography gutterBottom variant="body1" align="center">
+                  Most classes are on Zoom and use this link:{' '}
                   <Link
                     target="_blank"
                     rel="noopener noreferrer"
@@ -100,8 +103,10 @@ const UpcomingEvents = () => {
                   >
                     http://bit.ly/sfdharma
                   </Link>
-                  You can also dial in from a phone by calling 301-715-8592 and
-                  using Meeting ID: 545 039 806.
+                </Typography>
+                <Typography gutterBottom variant="body1" align="center">
+                  You can also dial in from a phone by calling{' '}
+                  <b>301-715-8592</b> and using Meeting ID: <b>545 039 806</b>.
                 </Typography>
                 <Box mt={6}>
                   <Divider />
@@ -117,98 +122,7 @@ const UpcomingEvents = () => {
               justify="center"
               className={classes.stickiedEvent}
             >
-              <Grid item xs={12} sm={3} className={classes.centerAligned}>
-                <Box mb={3}>
-                  <Typography variant="h3" align="center" component="h1">
-                    Morning sits
-                  </Typography>
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6} container>
-                <Grid
-                  item
-                  xs={12}
-                  container
-                  alignContent="center"
-                  justify="center"
-                >
-                  <Box mb={1}>
-                    <Typography variant="h4" align="center" component="h2">
-                      Every day
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  container
-                  alignContent="center"
-                  justify="center"
-                >
-                  <Box>
-                    <Typography variant="h6" align="center" component="h3">
-                      7:30 - 8:15am
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  container
-                  alignContent="center"
-                  justify="center"
-                >
-                  <Box my={3} mx={2}>
-                    <Typography variant="body1" align="center" component="p">
-                      Join us online:{' '}
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={classes.anchor}
-                        href="https://zoom.us/j/545039806"
-                      >
-                        https://zoom.us/j/545039806
-                      </Link>
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  container
-                  alignContent="center"
-                  justify="center"
-                >
-                  <Box mb={3} mx={2}>
-                    <Typography variant="body2" align="center" component="p">
-                      Arriving late and leaving early is okay for morning sits!
-                    </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-              <Grid item xs={12} sm={3} container>
-                <Grid item xs={12} container justify="center">
-                  <Box mt={3}>
-                    <Img fixed={data.file.childImageSharp.fixed} alt="Lotus" />
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box mb={2}>
-                    <Typography
-                      variant="caption"
-                      align="center"
-                      component="aside"
-                    >
-                      Morning sits are peer-led.
-                    </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-              <Grid item xs={12}>
-                <Box mt={6}>
-                  <Divider />
-                </Box>
-              </Grid>
+              <MorningSit />
             </Grid>
             {statusHeaderText !== '' && (
               <Grid item xs={12}>
