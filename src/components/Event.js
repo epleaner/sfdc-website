@@ -30,11 +30,14 @@ const Event = (props) => {
     attachments,
   } = props;
 
-  const urlFormattedSummary = summary
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-zA-Z0-9\ ]/g, '')
-      .replace(/\ +/g, '-');
+  const urlFormattedSummary = encodeURI(
+      summary
+          .trim()
+          .toLowerCase()
+          .replace(/[,\.:\(\)\-]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .split(' '),
+  ).replace(/\,/g, '-');
 
   const eventUrl = `events/${urlFormattedSummary}`;
 
