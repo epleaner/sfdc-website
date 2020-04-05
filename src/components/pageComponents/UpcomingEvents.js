@@ -102,7 +102,8 @@ const UpcomingEvents = () => {
                     href="http://bit.ly/sfdharma"
                   >
                     http://bit.ly/sfdharma
-                  </Link>
+                  </Link>{' '}
+                  (password: <b>108108</b>)
                 </Typography>
                 <Typography gutterBottom variant="body1" align="center">
                   You can also dial in from a phone by calling{' '}

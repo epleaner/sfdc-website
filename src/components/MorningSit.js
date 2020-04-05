@@ -66,7 +66,8 @@ export default () => {
                 href="//bit.ly/sfdharma"
               >
                 bit.ly/sfdharma
-              </Link>
+              </Link>{' '}
+              (password: <b>108108</b>)
             </Typography>
           </Box>
         </Grid>
