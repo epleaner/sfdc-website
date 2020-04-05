@@ -33,21 +33,18 @@ const MenuItem = (props) => {
   return (
     <Typography variant="h6" component="li" className={classes.menuListItem}>
       {path.startsWith('/') ? (
-        <Button className={classes.menuButton}>
-          <Link
-            to={path}
-            className={`${classes.link} ${currentPath === path &&
+        <Link to={path} className={`${classes.link}`}>
+          <Button
+            className={`${classes.menuButton} ${currentPath === path &&
               classes.active}`}
           >
             {name}
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       ) : (
-        <Button className={classes.menuButton}>
-          <a href={path} className={classes.link}>
-            {name}
-          </a>
-        </Button>
+        <a href={path} className={classes.link}>
+          <Button className={classes.menuButton}>{name}</Button>
+        </a>
       )}
     </Typography>
   );

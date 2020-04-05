@@ -12,7 +12,7 @@ import {Link} from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   active: {
-    borderBottom: `thin solid ${theme.palette.primaryBlue0}`,
+    borderBottom: `1px solid ${theme.palette.primaryBlue0}`,
   },
   link: {
     textDecoration: 'none',
@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: theme.spacing(1),
     fontWeight: 100,
-    color: theme.palette.backgroundColor,
   },
 }));
 
@@ -46,16 +45,18 @@ const MenuPopupState = (props) => {
 
   return (
     <React.Fragment>
-      <Button className={classes.button}>
-        <Link
-          className={`${classes.link} ${currentPath ===
+      <Link
+        className={`${classes.link}`}
+        {...bindHover(popupState)}
+        to={createTextLink(mainText)}
+      >
+        <Button
+          className={`${classes.button} ${currentPath ===
             createTextLink(mainText) && classes.active}`}
-          {...bindHover(popupState)}
-          to={createTextLink(mainText)}
         >
           {mainText}
-        </Link>
-      </Button>
+        </Button>
+      </Link>
       <Menu
         {...bindMenu(popupState)}
         getContentAnchorEl={null}
@@ -66,15 +67,16 @@ const MenuPopupState = (props) => {
           const linkText = `${createTextLink(mainText)}${createTextLink(text)}`;
 
           return (
-            <MenuItem key={index} onClick={popupState.close}>
-              <Link
-                to={linkText}
-                className={`${classes.link} ${classes.small} ${currentPath ===
-                  linkText && classes.active}`}
-              >
-                {text}
-              </Link>
-            </MenuItem>
+            <Link key={text} to={linkText} className={`${classes.link}`}>
+              <MenuItem onClick={popupState.close}>
+                <span
+                  className={`${classes.small} ${currentPath === linkText &&
+                    classes.active}`}
+                >
+                  {text}
+                </span>
+              </MenuItem>
+            </Link>
           );
         })}
       </Menu>
