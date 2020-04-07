@@ -1,10 +1,10 @@
-import moment from 'moment';
+import moment from "moment";
 
-const isAfterToday = (e) => e.start.isAfter(moment().startOf('day'));
+const isAfterToday = (e) => e.start.isAfter(moment().startOf("day"));
 
 const descendingStartDate = (a, b) => a.start.isAfter(b.start);
 
-const getReadableMonth = (e) => e.start.format('MMMM');
+const getReadableMonth = (e) => e.start.format("MMMM");
 
 const getFutureEvents = (events) =>
   events.filter(isAfterToday).sort(descendingStartDate);
@@ -19,7 +19,7 @@ const getEventsByMonth = (unsortedEvents) => {
     eventsByMonth.push({
       month: month,
       events: futureEvents.filter((event) => getReadableMonth(event) === month),
-    }),
+    })
   );
 
   return eventsByMonth;
@@ -28,11 +28,11 @@ const getEventsByMonth = (unsortedEvents) => {
 const formatRecurrenceRules = (recurrence) => {
   const recurrenceRules = {};
   recurrence[0]
-      .substring(6)
-      .toLowerCase()
-      .split(';')
-      .map((ruleTuple) => [...ruleTuple.split('=')])
-      .forEach(([rule, value]) => (recurrenceRules[rule] = value));
+    .substring(6)
+    .toLowerCase()
+    .split(";")
+    .map((ruleTuple) => [...ruleTuple.split("=")])
+    .forEach(([rule, value]) => (recurrenceRules[rule] = value));
 
   return recurrenceRules;
 };
@@ -49,13 +49,13 @@ const parseEvent = (event) => {
 };
 
 const filterCancelledAndEmptyEvents = (events) =>
-  events.filter((event) => event.status !== 'cancelled' && event.description);
+  events.filter((event) => event.status !== "cancelled" && event.description);
 
 const separateRecurringEvents = (events) => {
   const recurringEvents = [];
   const singleEvents = [];
   events.forEach((event) =>
-    event.recurrence ? recurringEvents.push(event) : singleEvents.push(event),
+    event.recurrence ? recurringEvents.push(event) : singleEvents.push(event)
   );
 
   return [recurringEvents, singleEvents];
@@ -63,30 +63,30 @@ const separateRecurringEvents = (events) => {
 
 const onlyActiveEvents = (events) =>
   events.filter((event) =>
-    event.recurrenceRules ?
-      recurringEventIsActive(event) :
-      singleEventIsActive(event),
+    event.recurrenceRules
+      ? recurringEventIsActive(event)
+      : singleEventIsActive(event)
   );
 
 const onlyActiveRecurringEvents = (events) =>
   events.filter(
-      (event) => event.recurrenceRules && recurringEventIsActive(event),
+    (event) => event.recurrenceRules && recurringEventIsActive(event)
   );
 
 const recurringEventIsActive = (event) =>
   !event.recurrenceRules.until ||
   moment(event.recurrenceRules.until.toUpperCase()).isAfter(
-      moment().startOf('day'),
+    moment().startOf("day")
   );
 
 const singleEventIsActive = (event) =>
-  event.start.isAfter(moment().startOf('day'));
+  event.start.isAfter(moment().startOf("day"));
 
 const parseEvents = (eventData) => {
   const activeEvents = filterCancelledAndEmptyEvents(eventData);
 
   const unstickiedEvents = activeEvents.filter(
-      (event) => event.summary !== 'Morning Sit',
+    (event) => event.summary !== "Morning Sit"
   );
 
   const parsedEvents = unstickiedEvents.map(parseEvent);
@@ -103,48 +103,64 @@ const parseEvents = (eventData) => {
   };
 };
 
-const parseQueriedEvent = (events) => {
+const parseQueriedEvent = (events, query) => {
   const m = moment;
   const parsedEvents = events.map(parseEvent);
   const activeEvents = onlyActiveEvents(parsedEvents);
 
   if (activeEvents.length > 1) {
-    console.log('Found more than one matching event, returing first.');
+    console.log(
+      "Found more than one matching event, returning best guess",
+      activeEvents,
+      query
+    );
+    return activeEvents.filter(
+      ({ summary, recurringEventId, recurrence, recurrenceRules }) => {
+        if (summary.toLowerCase() === query) {
+          if (recurringEventId) return false;
+          if (recurrence) {
+            console.log(recurrenceRules);
+            if (recurrenceRules.until) return false;
+            else return true;
+          } else return true;
+        } else return false;
+      }
+    )[0];
   }
 
   return activeEvents[0];
 };
 
 const humanReadableRecurranceRules = (recurranceRules) => {
-  if (!recurranceRules.freq) return '';
+  if (!recurranceRules.freq) return "";
 
   const daysOfWeekStrings = {
-    mo: 'Monday',
-    tu: 'Tuesday',
-    we: 'Wednesday',
-    th: 'Thursday',
-    fr: 'Friday',
-    sa: 'Saturday',
-    su: 'Sunday',
+    mo: "Monday",
+    tu: "Tuesday",
+    we: "Wednesday",
+    th: "Thursday",
+    fr: "Friday",
+    sa: "Saturday",
+    su: "Sunday",
   };
 
   const messageParts = [];
-  let measure = '';
+  let measure = "";
 
   if (recurranceRules.count) {
     messageParts.push(recurranceRules.count);
-  } else messageParts.push('Every');
+  } else messageParts.push("Every");
 
-  const dayRules = recurranceRules.byday.split(',');
+  const dayRules = recurranceRules.byday.split(",");
 
   if (dayRules.length > 1) {
-    measure += dayRules.map((rule) => daysOfWeekStrings[rule]).join(', ');
+    measure += dayRules.map((rule) => daysOfWeekStrings[rule]).join(", ");
   } else {
     const [full, ordinal, day] = recurranceRules.byday.match(/(-?\d)?([a-z]+)/);
 
     if (ordinal) {
       measure +=
-        ordinal === '-1' ? 'last ' : `${moment.localeData().ordinal(ordinal)} `;
+        ordinal === "-1" ? "last " : `${moment.localeData().ordinal(ordinal)} `;
     }
 
     if (day) {
@@ -152,27 +168,27 @@ const humanReadableRecurranceRules = (recurranceRules) => {
     }
   }
 
-  if (recurranceRules.count) measure += 's';
+  if (recurranceRules.count) measure += "s";
 
   messageParts.push(measure);
 
-  if (recurranceRules.freq === 'monthly') messageParts.push('of the month');
+  if (recurranceRules.freq === "monthly") messageParts.push("of the month");
 
   if (recurranceRules.until) {
     messageParts.push(
-        `until ${moment(recurranceRules.until.toUpperCase())
-            .add(1, 'months')
-            .format('MMMM YYYY')}`,
+      `until ${moment(recurranceRules.until.toUpperCase())
+        .add(1, "months")
+        .format("MMMM YYYY")}`
     );
   }
-  return messageParts.join(' ') + ', ';
+  return messageParts.join(" ") + ", ";
 };
 
 const humanReadableDateTime = (start, end) =>
-  `${start.format('dddd, MMMM Do, h:mma')} - ${end.format('h:mma')}`;
+  `${start.format("dddd, MMMM Do, h:mma")} - ${end.format("h:mma")}`;
 
 const humanReadableTime = (start, end) =>
-  `${start.format('h:mma')} - ${end.format('h:mma')}`;
+  `${start.format("h:mma")} - ${end.format("h:mma")}`;
 
 export {
   parseEvents,
