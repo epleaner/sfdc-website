@@ -9,5 +9,4 @@ bin
 functions/*
 events_data.json
 todo
-.env*
 sfdc-google-calendar-secrets.json
