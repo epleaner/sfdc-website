@@ -1,30 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
+import React, { useEffect, useState } from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
 
-import Layout from '../Layout';
-import SEO from '../SEO';
-import CoronavirusUpdate from '../CoronavirusUpdate';
-import MonthList from '../MonthList';
-import MorningSit from '../MorningSit';
-import RecurringEventsList from '../RecurringEventsList';
-import {parseEvents} from '../../utils/eventParser';
+import Layout from "../Layout";
+import SEO from "../SEO";
+import CoronavirusUpdate from "../CoronavirusUpdate";
+import MonthList from "../MonthList";
+import MorningSit from "../MorningSit";
+import RecurringEventsList from "../RecurringEventsList";
+import { parseEvents } from "../../utils/eventParser";
 
 const useStyles = makeStyles((theme) => ({
   stickiedEvent: {
     margin: `${theme.spacing(6)}px 0`,
   },
-  centerAligned: {alignSelf: 'center'},
+  centerAligned: { alignSelf: "center" },
   anchor: {
-    color: 'rgba(62,149,153,1)',
-    textDecoration: 'none',
+    color: "rgba(62,149,153,1)",
+    textDecoration: "none",
   },
 }));
 
@@ -36,16 +36,16 @@ const UpcomingEvents = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    fetch('/.netlify/functions/google-calendar?singleEvents=true')
-        .then((response) => response.json())
-        .then((responseJson) => responseJson.data.items)
-        .then(parseEvents)
-        .then(setEventData)
-        .catch((error) => {
-          console.log(error);
-          setError(true);
-        })
-        .finally(() => setIsLoading(false));
+    fetch("/.netlify/functions/google-calendar?singleEvents=true")
+      .then((response) => response.json())
+      .then((responseJson) => responseJson.data.items)
+      .then(parseEvents)
+      .then(setEventData)
+      .catch((error) => {
+        console.log(error);
+        setError(true);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   const data = useStaticQuery(graphql`
@@ -60,15 +60,15 @@ const UpcomingEvents = () => {
     }
   `);
 
-  const {singleEventsByMonth, recurringEvents} = eventData;
+  const { singleEventsByMonth } = eventData;
 
-  let statusHeaderText = '';
+  let statusHeaderText = "";
   if (error) {
     statusHeaderText =
-      'There was an error fetching our events, please try again 😑';
-  } else if (isLoading) statusHeaderText = 'Loading upcoming events...';
+      "There was an error fetching our events, please try again 😑";
+  } else if (isLoading) statusHeaderText = "Loading upcoming events...";
   else if (!singleEventsByMonth || singleEventsByMonth.length === 0) {
-    statusHeaderText = 'No events found';
+    statusHeaderText = "No events found";
   }
 
   return (
@@ -81,7 +81,7 @@ const UpcomingEvents = () => {
         <Grid item xs={12}>
           <Grid container>
             <Grid item xs={12}>
-              <Typography variant={'h2'} align="center" component="h1">
+              <Typography variant={"h2"} align="center" component="h1">
                 Events Coming Up at SFDC
               </Typography>
             </Grid>
@@ -94,7 +94,7 @@ const UpcomingEvents = () => {
                   All our classes are now hosted online.
                 </Typography>
                 <Typography gutterBottom variant="body1" align="center">
-                  Most classes are on Zoom and use this link:{' '}
+                  Most classes are on Zoom and use this link:{" "}
                   <Link
                     target="_blank"
                     rel="noopener noreferrer"
@@ -102,11 +102,11 @@ const UpcomingEvents = () => {
                     href="http://bit.ly/sfdharma"
                   >
                     http://bit.ly/sfdharma
-                  </Link>{' '}
+                  </Link>{" "}
                   (password: <b>108108</b>)
                 </Typography>
                 <Typography gutterBottom variant="body1" align="center">
-                  You can also dial in from a phone by calling{' '}
+                  You can also dial in from a phone by calling{" "}
                   <b>301-715-8592</b> and using Meeting ID: <b>545 039 806</b>.
                 </Typography>
                 <Box mt={6}>
@@ -125,10 +125,10 @@ const UpcomingEvents = () => {
             >
               <MorningSit />
             </Grid>
-            {statusHeaderText !== '' && (
+            {statusHeaderText !== "" && (
               <Grid item xs={12}>
                 <Box mt={4} mb={3}>
-                  <Typography variant={'h3'} align="center" component="h2">
+                  <Typography variant={"h3"} align="center" component="h2">
                     {statusHeaderText}
                   </Typography>
                 </Box>

@@ -79,6 +79,23 @@ const recurringEventIsActive = (event) =>
     moment().startOf("day")
   );
 
+const deduplicateEvents = (events) => {
+  // assuming events are sorted by start date
+  const toRemove = [];
+
+  events.slice(1).forEach((event, index) => {
+    if (event.start.diff(events[index].start) === 0) {
+      if (event.recurringEventId) {
+        toRemove.push(event);
+        events[index].replacedRecurring = true;
+      }
+    }
+  });
+
+  const deduplicated = events.filter((e) => toRemove.indexOf(e) === -1);
+  return deduplicated;
+};
+
 const singleEventIsActive = (event) =>
   event.start.isAfter(moment().startOf("day"));
 
@@ -91,20 +108,16 @@ const parseEvents = (eventData) => {
 
   const parsedEvents = unstickiedEvents.map(parseEvent);
 
-  const [recurringEvents, singleEvents] = separateRecurringEvents(parsedEvents);
+  const deduplicatedEvents = deduplicateEvents(parsedEvents);
 
-  const eventsByMonth = getEventsByMonth(singleEvents);
-
-  const activeRecurringEvents = onlyActiveRecurringEvents(recurringEvents);
+  const eventsByMonth = getEventsByMonth(deduplicatedEvents);
 
   return {
     singleEventsByMonth: eventsByMonth,
-    recurringEvents: activeRecurringEvents,
   };
 };
 
-const parseQueriedEvent = (events, query) => {
-  const m = moment;
+const parseQueriedEvent = (events, query, date) => {
   const parsedEvents = events.map(parseEvent);
   const activeEvents = onlyActiveEvents(parsedEvents);
 
@@ -112,24 +125,41 @@ const parseQueriedEvent = (events, query) => {
     console.log(
       "Found more than one matching event, returning best guess",
       activeEvents,
-      query
+      query,
+      date
     );
+
     return activeEvents.filter(
-      ({ summary, recurringEventId, recurrence, recurrenceRules }) => {
-        if (summary.toLowerCase() === query) {
-          if (recurringEventId) return false;
-          if (recurrence) {
-            console.log(recurrenceRules);
-            if (recurrenceRules.until) return false;
-            else return true;
-          } else return true;
-        } else return false;
+      ({ summary, start, recurringEventId, recurrence, recurrenceRules }) => {
+        // if event name equals url query
+        if (formattedSummary(summary) === query) {
+          // if wanting event on specific date (one-off event replacing recurring)
+          if (date) {
+            return !recurrence && start.format("M-D-YYYY") === date;
+          }
+          // this is hacky, for specific events that cause issues...
+          if (recurrence && recurrenceRules.until) return false;
+
+          return true;
+        }
+
+        return false;
       }
     )[0];
   }
 
   return activeEvents[0];
 };
+
+const formattedSummary = (summary) =>
+  summary
+    .trim()
+    .toLowerCase()
+    .replace(/[,\.:\(\)\-]+/g, " ")
+    .replace(/\s+/g, " ");
+
+const urlFormattedSummary = (summary) =>
+  encodeURI(formattedSummary(summary).replace(/\s/g, "-"));
 
 const humanReadableRecurranceRules = (recurranceRules) => {
   if (!recurranceRules.freq) return "";
@@ -196,4 +226,5 @@ export {
   humanReadableRecurranceRules,
   humanReadableDateTime,
   humanReadableTime,
+  urlFormattedSummary,
 };

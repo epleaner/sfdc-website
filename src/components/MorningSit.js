@@ -1,19 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
-
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+import Box from "@material-ui/core/Box";
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
-  centerAligned: {alignSelf: 'center'},
+  centerAligned: { alignSelf: "center" },
   anchor: {
-    color: 'rgba(62,149,153,1)',
-    textDecoration: 'none',
+    color: "rgba(62,149,153,1)",
+    textDecoration: "none",
   },
 }));
 
@@ -58,7 +57,7 @@ export default () => {
         <Grid item xs={12} container alignContent="center" justify="center">
           <Box my={3} mx={2}>
             <Typography variant="body1" align="center" component="p">
-              Join us online:{' '}
+              Join us online:{" "}
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
@@ -66,7 +65,7 @@ export default () => {
                 href="//bit.ly/sfdharma"
               >
                 bit.ly/sfdharma
-              </Link>{' '}
+              </Link>{" "}
               (password: <b>108108</b>)
             </Typography>
           </Box>

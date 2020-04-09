@@ -1,45 +1,40 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-import Card from '@material-ui/core/Card';
-import CollapsableEventBody from './EventBody/CollapsableEventBody';
-import EventHeader from './EventHeader';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import {makeStyles} from '@material-ui/core/styles';
-import moment from 'moment';
+import Card from "@material-ui/core/Card";
+import CollapsableEventBody from "./EventBody/CollapsableEventBody";
+import EventHeader from "./EventHeader";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import { makeStyles } from "@material-ui/core/styles";
+import { urlFormattedSummary } from "../utils/eventParser";
+import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    'width': '100%',
-    'padding': '0 20px',
-    '&:hover': {
-      cursor: 'pointer',
+    width: "100%",
+    padding: "0 20px",
+    "&:hover": {
+      cursor: "pointer",
     },
   },
 }));
 
 const Event = (props) => {
   const {
-    id,
-    recurringEventId,
     summary,
     start,
     end,
     description,
     recurrenceRules,
     attachments,
+    replacedRecurring,
   } = props;
 
-  const urlFormattedSummary = encodeURI(
-      summary
-          .trim()
-          .toLowerCase()
-          .replace(/[,\.:\(\)\-]+/g, ' ')
-          .replace(/\s+/g, ' ')
-          .split(' '),
-  ).replace(/\,/g, '-');
+  let urlEncodedSummary = urlFormattedSummary(summary);
 
-  const eventUrl = `events/${urlFormattedSummary}`;
+  if (replacedRecurring) urlEncodedSummary += `/${start.format("M-D-YYYY")}`;
+
+  const eventUrl = `events/${urlEncodedSummary}`;
 
   const [isOpen, setOpen] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
@@ -77,7 +72,7 @@ const Event = (props) => {
             />
           }
           secondary={
-            <CollapsableEventBody {...{description, attachments, isOpen}} />
+            <CollapsableEventBody {...{ description, attachments, isOpen }} />
           }
         />
       </Card>

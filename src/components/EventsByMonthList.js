@@ -1,11 +1,11 @@
-import Divider from '@material-ui/core/Divider';
-import Event from './Event.js';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import Divider from "@material-ui/core/Divider";
+import Event from "./Event.js";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import React from "react";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   divider: {
@@ -14,8 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EventList(props) {
-  const {month, events} = props;
-  const classes = useStyles();
+  const { month, events } = props;
 
   return (
     <>
@@ -29,7 +28,7 @@ export default function EventList(props) {
         />
       </ListItem>
       <List component="article" disablePadding>
-        {events.map((event, index) => (
+        {events.map((event) => (
           <Event key={event.id} {...event} />
         ))}
       </List>

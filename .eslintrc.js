@@ -22,6 +22,8 @@ module.exports = {
   'plugins': [
     'react',
   ],
-  'rules': {
-  },
+  'rules': {},
+  'editor.codeActionsOnSave': {
+    'source.fixAll': true
+  }
 };

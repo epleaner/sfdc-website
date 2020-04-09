@@ -14,7 +14,7 @@ import EventHeaderText from "../EventHeader/EventHeaderText";
 import EventBody from "../EventBody";
 
 export default () => {
-  const { eventName } = useParams();
+  const { eventName, eventDate } = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -28,7 +28,7 @@ export default () => {
     )
       .then((response) => response.json())
       .then((responseJson) => responseJson.data.items)
-      .then((items) => parseQueriedEvent(items, eventNameQueryParam))
+      .then((items) => parseQueriedEvent(items, eventNameQueryParam, eventDate))
       .then(setEventData)
       .catch((error) => {
         console.log(error);
@@ -37,10 +37,11 @@ export default () => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const displayName = eventName
-    .split("-")
-    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-    .join(" ");
+  const displayName = isLoading
+    ? "Loading event..."
+    : isError || !eventData
+    ? "Event not found"
+    : eventData.summary;
 
   return (
     <Layout>
