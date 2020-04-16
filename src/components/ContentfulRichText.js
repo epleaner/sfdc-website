@@ -3,6 +3,7 @@ import RichTextToReact from "rich-text-to-react";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 const ContentfulRichText = (props) => {
   const { json } = props;
@@ -54,8 +55,23 @@ const ContentfulRichText = (props) => {
             );
             break;
           case "application": {
-            if (mimeType === "application/pdf")
-              content = <embed src={file.url} width="100%" />;
+            content = (
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "rgba(62,149,153,1)",
+                  "&:hover": {
+                    textDecoration: "underline",
+                  },
+                }}
+                href={file.url}
+              >
+                <Typography style={{ fontSize: "1.5rem" }}>
+                  {file.fileName}
+                </Typography>
+              </Link>
+            );
             break;
           }
           default:
