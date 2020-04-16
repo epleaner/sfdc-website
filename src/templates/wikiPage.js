@@ -7,7 +7,7 @@ import SEO from "../components/SEO";
 import ContentfulRichText from "../components/ContentfulRichText";
 
 const WikiPageTemplate = ({ pageContext }) => {
-  const title = `Teaching resources for ${pageContext.name}`;
+  const title = `Teaching Resources for ${pageContext.name}`;
   return (
     <Layout>
       <SEO
