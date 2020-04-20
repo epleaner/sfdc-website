@@ -65,7 +65,6 @@ module.exports = {
       resolve: "gatsby-plugin-gtag",
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS,
-        head: true,
       },
     },
     "gatsby-plugin-sitemap",
