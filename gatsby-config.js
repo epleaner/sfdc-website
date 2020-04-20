@@ -1,7 +1,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-
+console.log("node env:", process.env.NODE_ENV);
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -65,7 +65,6 @@ module.exports = {
       resolve: "gatsby-plugin-gtag",
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS,
-        head: true,
       },
     },
     "gatsby-plugin-sitemap",
