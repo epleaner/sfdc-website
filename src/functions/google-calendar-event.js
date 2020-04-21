@@ -18,7 +18,7 @@ function handleError(error, callback) {
 
 export function handler(event, context, callback) {
   const {
-    queryStringParameters: { eventName, recurringId },
+    queryStringParameters: { eventName, recurringId, recurring },
   } = event;
 
   const clientEmail =
@@ -66,7 +66,7 @@ export function handler(event, context, callback) {
           auth: jwtClient,
           calendarId: calendarId,
           q: eventName,
-          singleEvents: "true",
+          singleEvents: recurring ? "false" : "true",
           timeMin: moment()
             .subtract(1, "d")
             .format(),

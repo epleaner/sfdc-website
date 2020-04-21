@@ -102,23 +102,24 @@ const parseEvents = (eventData) => {
   };
 };
 
-const parseQueriedEvent = (events, query, date) => {
+const parseQueriedEvent = (events, queryParams) => {
+  const { name, date, recurring } = queryParams;
+
   const parsedEvents = events.map(parseEvent);
   const activeEvents = filterOnlyActiveEvents(parsedEvents);
 
   let selectedEvent;
-
   if (activeEvents.length > 1) {
     console.log(
       "Found more than one matching event, returning best guess",
       activeEvents,
-      query,
-      date
+      queryParams
     );
 
-    selectedEvent = activeEvents.filter(
-      ({ summary, start }) =>
-        formattedSummary(summary) === query && start.format("M-D-YYYY") === date
+    selectedEvent = activeEvents.filter(({ summary, start, recurrenceRules }) =>
+      formattedSummary(summary) === name && date
+        ? start.format("M-D-YYYY") === date
+        : recurrenceRules && !recurrenceRules.until
     )[0];
   } else selectedEvent = activeEvents[0];
 

@@ -14,23 +14,30 @@ import EventHeaderText from "../EventHeader/EventHeaderText";
 import EventBody from "../EventBody";
 
 export default () => {
-  const { eventName, eventDate } = useParams();
-
+  const { recurringEventName, eventName, eventDate } = useParams();
   const [eventData, setEventData] = useState({});
   const [recurringEventData, setRecurringEventData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingRecurringEvent, setIsLoadingRecurringEvent] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const eventNameQueryParam = eventName.split("-").join(" ");
+  const eventNameQueryParam = (recurringEventName || eventName)
+    .split("-")
+    .join(" ");
 
   useEffect(() => {
-    fetch(
-      `/.netlify/functions/google-calendar-event?eventName=${eventNameQueryParam}`
-    )
+    let fetchUrl = `/.netlify/functions/google-calendar-event?eventName=${eventNameQueryParam}`;
+    if (recurringEventName) fetchUrl += "&recurring=true";
+    fetch(fetchUrl)
       .then((response) => response.json())
       .then((responseJson) => responseJson.data.items)
-      .then((items) => parseQueriedEvent(items, eventNameQueryParam, eventDate))
+      .then((items) =>
+        parseQueriedEvent(items, {
+          name: eventNameQueryParam,
+          date: eventDate,
+          recurring: recurringEventName ? true : false,
+        })
+      )
       .then(setEventData)
       .catch((error) => {
         console.log(error);

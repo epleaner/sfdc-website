@@ -20,6 +20,7 @@ const ContentfulRichText = (props) => {
             color: "rgba(62,149,153,1)",
             "&:hover": {
               textDecoration: "underline",
+              cursor: "pointer",
             },
           }}
           href={node.data.uri}
