@@ -5,7 +5,7 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
-import { parseQueriedEvent } from "../../utils/eventParser";
+import { parseQueriedEvent, parseEvent } from "../../utils/eventParser";
 
 import Layout from "../Layout";
 import SEO from "../SEO";
@@ -16,9 +16,11 @@ import EventBody from "../EventBody";
 export default () => {
   const { eventName, eventDate } = useParams();
 
+  const [eventData, setEventData] = useState({});
+  const [recurringEventData, setRecurringEventData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingRecurringEvent, setIsLoadingRecurringEvent] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [eventData, setEventData] = useState([]);
 
   const eventNameQueryParam = eventName.split("-").join(" ");
 
@@ -36,6 +38,23 @@ export default () => {
       })
       .finally(() => setIsLoading(false));
   }, []);
+
+  useEffect(() => {
+    setIsLoadingRecurringEvent(true);
+    if (eventData.recurringEventId)
+      fetch(
+        `/.netlify/functions/google-calendar-event?recurringId=${eventData.recurringEventId}`
+      )
+        .then((response) => response.json())
+        .then((responseJson) => responseJson.data)
+        .then(parseEvent)
+        .then(setRecurringEventData)
+        .catch((error) => {
+          console.log(error);
+          setIsError(true);
+        })
+        .finally(() => setIsLoadingRecurringEvent(false));
+  }, [eventData.recurringEventId]);
 
   const displayName = isLoading
     ? "Loading event..."
@@ -61,7 +80,11 @@ export default () => {
             </Typography>
           ) : (
             <>
-              <EventHeaderText big {...eventData} />
+              <EventHeaderText
+                big
+                {...eventData}
+                recurringEventData={recurringEventData}
+              />
               <Box mt={3}>
                 <EventBody {...eventData} />
               </Box>

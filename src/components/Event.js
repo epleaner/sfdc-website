@@ -7,7 +7,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import { urlFormattedSummary } from "../utils/eventParser";
-import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -27,12 +26,10 @@ const Event = (props) => {
     description,
     recurrenceRules,
     attachments,
-    replacedRecurring,
   } = props;
 
-  let urlEncodedSummary = urlFormattedSummary(summary);
-
-  if (replacedRecurring) urlEncodedSummary += `/${start.format("M-D-YYYY")}`;
+  let urlEncodedSummary =
+    urlFormattedSummary(summary) + `/${start.format("M-D-YYYY")}`;
 
   const eventUrl = `events/${urlEncodedSummary}`;
 

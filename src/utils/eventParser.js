@@ -6,6 +6,16 @@ const descendingStartDate = (a, b) => a.start.isAfter(b.start);
 
 const getReadableMonth = (e) => e.start.format("MMMM");
 
+const filterCancelledAndEmptyEvents = (events) =>
+  events.filter((event) => event.status !== "cancelled" && event.description);
+
+const filterOnlyActiveEvents = (events) =>
+  events.filter((event) =>
+    event.recurrenceRules
+      ? recurringEventIsActive(event)
+      : singleEventIsActive(event)
+  );
+
 const getFutureEvents = (events) =>
   events.filter(isAfterToday).sort(descendingStartDate);
 
@@ -47,31 +57,6 @@ const parseEvent = (event) => {
 
   return event;
 };
-
-const filterCancelledAndEmptyEvents = (events) =>
-  events.filter((event) => event.status !== "cancelled" && event.description);
-
-const separateRecurringEvents = (events) => {
-  const recurringEvents = [];
-  const singleEvents = [];
-  events.forEach((event) =>
-    event.recurrence ? recurringEvents.push(event) : singleEvents.push(event)
-  );
-
-  return [recurringEvents, singleEvents];
-};
-
-const onlyActiveEvents = (events) =>
-  events.filter((event) =>
-    event.recurrenceRules
-      ? recurringEventIsActive(event)
-      : singleEventIsActive(event)
-  );
-
-const onlyActiveRecurringEvents = (events) =>
-  events.filter(
-    (event) => event.recurrenceRules && recurringEventIsActive(event)
-  );
 
 const recurringEventIsActive = (event) =>
   !event.recurrenceRules.until ||
@@ -119,7 +104,9 @@ const parseEvents = (eventData) => {
 
 const parseQueriedEvent = (events, query, date) => {
   const parsedEvents = events.map(parseEvent);
-  const activeEvents = onlyActiveEvents(parsedEvents);
+  const activeEvents = filterOnlyActiveEvents(parsedEvents);
+
+  let selectedEvent;
 
   if (activeEvents.length > 1) {
     console.log(
@@ -129,26 +116,13 @@ const parseQueriedEvent = (events, query, date) => {
       date
     );
 
-    return activeEvents.filter(
-      ({ summary, start, recurringEventId, recurrence, recurrenceRules }) => {
-        // if event name equals url query
-        if (formattedSummary(summary) === query) {
-          // if wanting event on specific date (one-off event replacing recurring)
-          if (date) {
-            return !recurrence && start.format("M-D-YYYY") === date;
-          }
-          // this is hacky, for specific events that cause issues...
-          if (recurrence && recurrenceRules.until) return false;
-
-          return true;
-        }
-
-        return false;
-      }
+    selectedEvent = activeEvents.filter(
+      ({ summary, start }) =>
+        formattedSummary(summary) === query && start.format("M-D-YYYY") === date
     )[0];
-  }
+  } else selectedEvent = activeEvents[0];
 
-  return activeEvents[0];
+  return selectedEvent;
 };
 
 const formattedSummary = (summary) =>
@@ -164,14 +138,14 @@ const urlFormattedSummary = (summary) =>
 const humanReadableRecurranceRules = (recurranceRules) => {
   if (!recurranceRules.freq) return "";
 
-  const daysOfWeekStrings = {
-    mo: "Monday",
-    tu: "Tuesday",
-    we: "Wednesday",
-    th: "Thursday",
-    fr: "Friday",
-    sa: "Saturday",
-    su: "Sunday",
+  const daysOfWeek = {
+    mo: { text: "Monday", order: 0 },
+    tu: { text: "Tuesday", order: 1 },
+    we: { text: "Wednesday", order: 2 },
+    th: { text: "Thursday", order: 3 },
+    fr: { text: "Friday", order: 4 },
+    sa: { text: "Saturday", order: 5 },
+    su: { text: "Sunday", order: 6 },
   };
 
   const messageParts = [];
@@ -184,7 +158,10 @@ const humanReadableRecurranceRules = (recurranceRules) => {
   const dayRules = recurranceRules.byday.split(",");
 
   if (dayRules.length > 1) {
-    measure += dayRules.map((rule) => daysOfWeekStrings[rule]).join(", ");
+    measure += dayRules
+      .sort((a, b) => daysOfWeek[a].order > daysOfWeek[b].order)
+      .map((rule) => daysOfWeek[rule].text)
+      .join(", ");
   } else {
     const [full, ordinal, day] = recurranceRules.byday.match(/(-?\d)?([a-z]+)/);
 
@@ -194,7 +171,7 @@ const humanReadableRecurranceRules = (recurranceRules) => {
     }
 
     if (day) {
-      measure += `${daysOfWeekStrings[day]}`;
+      measure += `${daysOfWeek[day].text}`;
     }
   }
 
@@ -211,7 +188,7 @@ const humanReadableRecurranceRules = (recurranceRules) => {
         .format("MMMM YYYY")}`
     );
   }
-  return messageParts.join(" ") + ", ";
+  return messageParts.join(" ");
 };
 
 const humanReadableDateTime = (start, end) =>
@@ -221,6 +198,7 @@ const humanReadableTime = (start, end) =>
   `${start.format("h:mma")} - ${end.format("h:mma")}`;
 
 export {
+  parseEvent,
   parseEvents,
   parseQueriedEvent,
   humanReadableRecurranceRules,
