@@ -1,13 +1,13 @@
-import moment from "moment";
+import moment from 'moment';
 
-const isAfterToday = (e) => e.start.isAfter(moment().startOf("day"));
+const isAfterToday = (e) => e.start.isAfter(moment().startOf('day'));
 
 const descendingStartDate = (a, b) => a.start.isAfter(b.start);
 
-const getReadableMonth = (e) => e.start.format("MMMM");
+const getReadableMonth = (e) => e.start.format('MMMM');
 
 const filterCancelledAndEmptyEvents = (events) =>
-  events.filter((event) => event.status !== "cancelled" && event.description);
+  events.filter((event) => event.status !== 'cancelled' && event.description);
 
 const filterOnlyActiveEvents = (events) =>
   events.filter((event) =>
@@ -40,8 +40,8 @@ const formatRecurrenceRules = (recurrence) => {
   recurrence[0]
     .substring(6)
     .toLowerCase()
-    .split(";")
-    .map((ruleTuple) => [...ruleTuple.split("=")])
+    .split(';')
+    .map((ruleTuple) => [...ruleTuple.split('=')])
     .forEach(([rule, value]) => (recurrenceRules[rule] = value));
 
   return recurrenceRules;
@@ -61,7 +61,7 @@ const parseEvent = (event) => {
 const recurringEventIsActive = (event) =>
   !event.recurrenceRules.until ||
   moment(event.recurrenceRules.until.toUpperCase()).isAfter(
-    moment().startOf("day")
+    moment().startOf('day')
   );
 
 const deduplicateEvents = (events) => {
@@ -82,13 +82,13 @@ const deduplicateEvents = (events) => {
 };
 
 const singleEventIsActive = (event) =>
-  event.start.isAfter(moment().startOf("day"));
+  event.start.isAfter(moment().startOf('day'));
 
 const parseEvents = (eventData) => {
   const activeEvents = filterCancelledAndEmptyEvents(eventData);
 
   const unstickiedEvents = activeEvents.filter(
-    (event) => event.summary !== "Morning Sit"
+    (event) => event.summary !== 'Morning Sit'
   );
 
   const parsedEvents = unstickiedEvents.map(parseEvent);
@@ -108,67 +108,76 @@ const parseQueriedEvent = (events, queryParams) => {
   const parsedEvents = events.map(parseEvent);
   const activeEvents = filterOnlyActiveEvents(parsedEvents);
 
-  let selectedEvent;
   if (activeEvents.length > 1) {
     console.log(
-      "Found more than one matching event, returning best guess",
+      'Found more than one matching event, returning best guess',
       activeEvents,
       queryParams
     );
 
-    selectedEvent = activeEvents.filter(({ summary, start, recurrenceRules }) =>
-      formattedSummary(summary) === name && date
-        ? start.format("M-D-YYYY") === date
-        : recurrenceRules && !recurrenceRules.until
-    )[0];
-  } else selectedEvent = activeEvents[0];
+    const eventsWithMatchingSummary = activeEvents.filter(
+      ({ summary }) => formattedSummary(summary) === name
+    );
 
-  return selectedEvent;
+    if (eventsWithMatchingSummary.length === 1)
+      return eventsWithMatchingSummary[0];
+
+    const eventsWithMatchingSummaryAndDates = eventsWithMatchingSummary.filter(
+      ({ start, recurrenceRules }) =>
+        date
+          ? start.format('M-D-YYYY') === date
+          : recurrenceRules && !recurrenceRules.until
+    );
+
+    return eventsWithMatchingSummaryAndDates[0];
+  }
+
+  return activeEvents[0];
 };
 
 const formattedSummary = (summary) =>
   summary
     .trim()
     .toLowerCase()
-    .replace(/[,\.:\(\)\-]+/g, " ")
-    .replace(/\s+/g, " ");
+    .replace(/[,\.:\(\)\-]+/g, ' ')
+    .replace(/\s+/g, ' ');
 
 const urlFormattedSummary = (summary) =>
-  encodeURI(formattedSummary(summary).replace(/\s/g, "-"));
+  encodeURI(formattedSummary(summary).replace(/\s/g, '-'));
 
 const humanReadableRecurranceRules = (recurranceRules) => {
-  if (!recurranceRules.freq) return "";
+  if (!recurranceRules.freq) return '';
 
   const daysOfWeek = {
-    mo: { text: "Monday", order: 0 },
-    tu: { text: "Tuesday", order: 1 },
-    we: { text: "Wednesday", order: 2 },
-    th: { text: "Thursday", order: 3 },
-    fr: { text: "Friday", order: 4 },
-    sa: { text: "Saturday", order: 5 },
-    su: { text: "Sunday", order: 6 },
+    mo: { text: 'Monday', order: 0 },
+    tu: { text: 'Tuesday', order: 1 },
+    we: { text: 'Wednesday', order: 2 },
+    th: { text: 'Thursday', order: 3 },
+    fr: { text: 'Friday', order: 4 },
+    sa: { text: 'Saturday', order: 5 },
+    su: { text: 'Sunday', order: 6 },
   };
 
   const messageParts = [];
-  let measure = "";
+  let measure = '';
 
   if (recurranceRules.count) {
     messageParts.push(recurranceRules.count);
-  } else messageParts.push("Every");
+  } else messageParts.push('Every');
 
-  const dayRules = recurranceRules.byday.split(",");
+  const dayRules = recurranceRules.byday.split(',');
 
   if (dayRules.length > 1) {
     measure += dayRules
       .sort((a, b) => daysOfWeek[a].order > daysOfWeek[b].order)
       .map((rule) => daysOfWeek[rule].text)
-      .join(", ");
+      .join(', ');
   } else {
     const [full, ordinal, day] = recurranceRules.byday.match(/(-?\d)?([a-z]+)/);
 
     if (ordinal) {
       measure +=
-        ordinal === "-1" ? "last " : `${moment.localeData().ordinal(ordinal)} `;
+        ordinal === '-1' ? 'last ' : `${moment.localeData().ordinal(ordinal)} `;
     }
 
     if (day) {
@@ -176,27 +185,27 @@ const humanReadableRecurranceRules = (recurranceRules) => {
     }
   }
 
-  if (recurranceRules.count) measure += "s";
+  if (recurranceRules.count) measure += 's';
 
   messageParts.push(measure);
 
-  if (recurranceRules.freq === "monthly") messageParts.push("of the month");
+  if (recurranceRules.freq === 'monthly') messageParts.push('of the month');
 
   if (recurranceRules.until) {
     messageParts.push(
       `until ${moment(recurranceRules.until.toUpperCase())
-        .add(1, "months")
-        .format("MMMM YYYY")}`
+        .add(1, 'months')
+        .format('MMMM YYYY')}`
     );
   }
-  return messageParts.join(" ");
+  return messageParts.join(' ');
 };
 
 const humanReadableDateTime = (start, end) =>
-  `${start.format("dddd, MMMM Do, h:mma")} - ${end.format("h:mma")}`;
+  `${start.format('dddd, MMMM Do, h:mma')} - ${end.format('h:mma')}`;
 
 const humanReadableTime = (start, end) =>
-  `${start.format("h:mma")} - ${end.format("h:mma")}`;
+  `${start.format('h:mma')} - ${end.format('h:mma')}`;
 
 export {
   parseEvent,
