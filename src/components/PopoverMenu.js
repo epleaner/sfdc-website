@@ -1,18 +1,20 @@
 import * as React from 'react';
 import Menu from 'material-ui-popup-state/HoverMenu';
 import MenuItem from '@material-ui/core/MenuItem';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {
   usePopupState,
   bindHover,
   bindMenu,
 } from 'material-ui-popup-state/hooks';
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   active: {
     borderBottom: `1px solid ${theme.palette.primaryBlue0}`,
+    borderBottomRightRadius: '0px',
+    borderBottomLeftRadius: '0px',
   },
   link: {
     textDecoration: 'none',
@@ -30,13 +32,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MenuPopupState = (props) => {
-  const {mainText, links, currentPath} = props;
+  const { mainText, links, currentPath } = props;
   const classes = useStyles();
   const createTextLink = (text) =>
     `/${text
-        .toLowerCase()
-        .replace(/[^\w\s\-]/gi, '')
-        .replace(/\s\s*/g, '-')}`;
+      .toLowerCase()
+      .replace(/[^\w\s\-]/gi, '')
+      .replace(/\s\s*/g, '-')}`;
 
   const popupState = usePopupState({
     variant: 'popover',
@@ -60,8 +62,8 @@ const MenuPopupState = (props) => {
       <Menu
         {...bindMenu(popupState)}
         getContentAnchorEl={null}
-        anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
-        transformOrigin={{vertical: 'top', horizontal: 'center'}}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
         {links.map((text, index) => {
           const linkText = `${createTextLink(mainText)}${createTextLink(text)}`;

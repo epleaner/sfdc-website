@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
   },
   active: {
     borderBottom: `thin solid ${theme.palette.primaryBlue0}`,
+    borderBottomRightRadius: '0px',
+    borderBottomLeftRadius: '0px',
   },
   menuButton: {
     marginRight: theme.spacing(1),
@@ -25,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const MenuItem = (props) => {
   const {
     currentPath,
-    item: {name, path},
+    item: { name, path },
   } = props;
 
   const classes = useStyles();
