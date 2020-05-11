@@ -5,14 +5,14 @@ import Grid from '@material-ui/core/Grid';
 import HeaderImagePath from '../assets/images/sfdc-header.png';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from './MenuItem';
 import PopoverMenu from './PopoverMenu';
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import withWidth from '@material-ui/core/withWidth';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '10px',
   },
   headerImage: {
-    'maxWidth': '90px',
-    'transition': 'all 0.2s ease-in-out',
+    maxWidth: '110px',
+    transition: 'all 0.2s ease-in-out',
     '&:hover': {
       filter:
         'invert(82%) sepia(47%) saturate(536%) hue-rotate(136deg) brightness(84%) contrast(89%)',
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const menuItems = [
-  {name: 'Home', path: '/'},
+  { name: 'Home', path: '/' },
   {
     name: 'About Us',
     path: '/about-us',
@@ -45,9 +45,9 @@ const menuItems = [
     path: '/upcoming-events',
     nested: ['Calendar'],
   },
-  {name: 'Donate', path: '/donate'},
-  {name: 'Volunteer', path: '/volunteer'},
-  {name: 'Newsletter', path: '/newsletter'},
+  { name: 'Donate', path: '/donate' },
+  { name: 'Volunteer', path: '/volunteer' },
+  { name: 'Newsletter', path: '/newsletter' },
   {
     name: 'Resources',
     path: '/resources',
@@ -63,7 +63,7 @@ const menuItems = [
 
 const MaterialMenu = (props) => {
   const {
-    location: {pathname},
+    location: { pathname },
   } = props;
 
   const classes = useStyles();
@@ -83,19 +83,19 @@ const MaterialMenu = (props) => {
 
   return (
     <>
-      <AppBar className={classes.appBar} position="relative" elevation={0}>
-        <Toolbar disableGutters component="nav">
+      <AppBar className={classes.appBar} position='relative' elevation={0}>
+        <Toolbar disableGutters component='nav'>
           <Typography className={classes.title}>
-            <Link to="/">
+            <Link to='/'>
               <img
                 className={classes.headerImage}
                 src={HeaderImagePath}
-                alt="SFCD Logo"
+                alt='SFCD Logo'
               />
             </Link>
           </Typography>
           <Hidden mdDown>
-            {menuItems.map(({name, path, nested}) =>
+            {menuItems.map(({ name, path, nested }) =>
               nested ? (
                 <PopoverMenu
                   key={name}
@@ -107,16 +107,16 @@ const MaterialMenu = (props) => {
                 <MenuItem
                   key={name}
                   currentPath={pathname}
-                  item={{name, path}}
+                  item={{ name, path }}
                 />
-              ),
+              )
             )}
           </Hidden>
           <Hidden lgUp>
             <>
               <IconButton
-                edge="start"
-                aria-label="menu"
+                edge='start'
+                aria-label='menu'
                 onClick={toggleDrawerMenu}
               >
                 <MenuIcon />
