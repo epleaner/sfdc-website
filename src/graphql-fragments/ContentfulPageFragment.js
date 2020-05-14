@@ -1,5 +1,4 @@
-import {graphql} from 'gatsby';
-import ContentfulContentSectionFragment from './ContentfulContentSectionFragment';
+import { graphql } from 'gatsby';
 
 export const ContentfulPageFragment = graphql`
   fragment ContentfulPageFragment on ContentfulPage {

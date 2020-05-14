@@ -1,17 +1,18 @@
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
-import EcoSattvaImage from '../../assets/images/ecosattva-image.jpg';
 import Grid from '@material-ui/core/Grid';
-import Layout from '../../components/Layout';
-import Link from '@material-ui/core/Link';
-import React from 'react';
-import SEO from '../../components/SEO';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import ContentfulRichText from '../../components/ContentfulRichText';
 
-const useStyles = makeStyles({
-  italic: {fontStyle: 'italic'},
-  ecoSattvaImage: {
+const useStyles = makeStyles((theme) => ({
+  italic: { fontStyle: 'italic' },
+  image: {
     width: '100%',
     height: '100%',
     maxWidth: '300px',
@@ -21,261 +22,93 @@ const useStyles = makeStyles({
     color: 'rgba(62,149,153,1)',
     textDecoration: 'none',
   },
-});
-const programLinks = [
-  {
-    text: 'Together at an Edge: A New EcoSattva Training',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#opening',
+  offeringImage: {
+    [theme.breakpoints.up('md')]: {
+      order: 1,
+    },
   },
-  {
-    text: 'Overview of the Course',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#overview',
+  offeringBody: {
+    [theme.breakpoints.up('md')]: {
+      order: 0,
+    },
   },
-  {
-    text: 'Who is this for?',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#for',
-  },
-  {
-    text: 'Who Will Be Teaching?',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#teaching',
-  },
-  {
-    text: 'How can I participate?',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#participate',
-  },
-  {
-    text: 'What’s the Schedule and Session Format?',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#logistics',
-  },
-  {
-    text: 'Will There be Any Live Sessions?',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#live-sessions',
-  },
-  {
-    text: 'I’m Interested. What do I do Next?',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#next',
-  },
-  {
-    text: 'How Can I Help?',
-    url:
-      'https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117#help',
-  },
-];
+}));
 
 const FromOurFriends = () => {
   const classes = useStyles();
 
+  const data = useStaticQuery(graphql`
+    {
+      pageData: contentfulPage(
+        pageName: { eq: "Other Offerings from our Friends" }
+      ) {
+        ...ContentfulPageFragment
+      }
+    }
+  `);
+
+  const { pageData } = data;
+
   return (
     <Layout>
       <SEO
-        title="From Our Friends"
-        description="San Francisco Dharma Collective From Our Friends Page"
+        title={pageData.title}
+        description={`${pageData.title}. At the San Francisco Dharma Center.`}
       />
       <Grid container>
         <Grid item xs={12}>
           <Box mb={4}>
-            <Typography align="center" variant="h2" component="h1">
-              Other Offerings from our Friends
+            <Typography align='center' variant='h2' component='h1'>
+              {pageData.title}
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} container component="article">
-          <Grid item xs={12}>
-            <Box mb={2}>
-              <Typography variant="h3" component="h2">
-                Psychology of the Bodhisattva
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box mb={2}>
-              <Typography variant="h4" component="h3">
-                from Sacred Stream
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box mb={2}>
-              <Typography variant="h6" component="h3">
-                SFDC Sangha can receive a $50 discount by using the code
-                SFDCBODHI50 by April 2
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box mb={2}>
-              <Typography variant="body1">
-                Register here:{' '}
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={classes.anchor}
-                  href="https://sacredstream.org/event/psychology-of-the-bodhisattva-april-2020/"
+        {pageData.contentSections.map((contentSection) => {
+          return (
+            <Grid
+              key={contentSection.id}
+              item
+              xs={12}
+              container
+              component='article'
+            >
+              <Grid item xs={12}>
+                <Box my={2}>
+                  <Typography variant='h3' component='h2'>
+                    {contentSection.title}
+                  </Typography>
+                </Box>
+              </Grid>
+              {contentSection.media && (
+                <Grid
+                  item
+                  container
+                  xs={12}
+                  md={4}
+                  className={classes.offeringImage}
                 >
-                  https://sacredstream.org/event/psychology-of-the-bodhisattva-april-2020/
-                </Link>
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box mb={2}>
-              <Typography variant="body1">
-                In Buddhist practice, a Boddhisattva is a being who has attained
-                a level of realization that takes them beyond the experience of
-                suffering that characterizes cyclic existence. Rather than
-                simply rest in that realization or that state of enlightenment,
-                they return to the experience of suffering to help others free
-                themselves from pain and unhappiness.
-              </Typography>
-            </Box>
-            <Typography variant="body1">
-              There are stages of understanding that all Boddhisattvas pass
-              through in the process of attaining realization. These stages are
-              part of the path of the “Boddhisattva in training.” When a person
-              decides that they want to attain this realization for their own
-              benefit and for the benefit of others, they enter into this path.
-              This decision – to transform one’s own suffering in order to help
-              others – changes a person’s psychological orientation.
-            </Typography>
-            <Box mb={2}>
-              <Typography variant="body1">
-                In this class we will explore this psychological shift. We will
-                also explore each of the stages of the Boddhisattva path to
-                understand how to best meet the demands and potentials this path
-                offers.
-              </Typography>
-            </Box>
-            <Box mb={6}>
-              <Typography variant="body1">
-                When we make the decision to dedicate ourselves to helping
-                others, our priorities change. Although this decision can be
-                made in an instant, the process of learning how and when to best
-                help others can take longer than we might expect. Buddhist
-                philosophy offers invaluable guidance regarding what it really
-                takes to develop the capacity to truly be of service. This is
-                called the Path of the Boddhisattva. This path provides
-                invaluable insight and guidance not only about the nature of
-                service but also how being of service deepens understanding of
-                the basic teachings of Buddhist philosophy. In this class, we
-                will explore the way in which our psychological orientation
-                changes as we dedicate our self-development to the benefit of
-                all.
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
-        <Grid item xs={12} container component="article">
-          <Grid item container xs={12} md={6}>
-            <Grid item xs={12}>
-              <Box mb={2}>
-                <Typography variant="h3" component="h2">
-                  EcoSattva Training
-                </Typography>
-              </Box>
+                  {contentSection.media.map((media) => (
+                    <Grid item container justify='center' xs={12}>
+                      <Avatar
+                        className={classes.image}
+                        src={media.file.url}
+                        alt={media.description}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+              )}
+              <Grid
+                item
+                xs={12}
+                md={contentSection.media ? 8 : 12}
+                className={classes.offeringBody}
+              >
+                <ContentfulRichText json={contentSection.content.json} />
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Box mb={2}>
-                <Typography variant="h4" component="h3">
-                  An Online Course for Aspiring EcoSattvas
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <Box mb={1}>
-                <Typography variant="body1">
-                  With the unprecedented uncertainty we are facing, many of us
-                  are feeling on edge.
-                </Typography>
-              </Box>
-              <Box mb={1}>
-                <Typography variant="body1">
-                  Humanity <em className="italic">is</em> at an edge, as is
-                  Western Dharma. Each of us may be feeling on edge, even as we
-                  all have different edges. But with the support of Dharma and
-                  community, we can engage together at this edge.
-                </Typography>
-              </Box>
-              <Box mb={1}>
-                <Typography variant="body1">
-                  This course is designed to support self-paced and
-                  self-scheduled participation with shorter core session videos
-                  and more resources for contemplation and interacting with one
-                  another. Ideally experienced in small groups, either in-person
-                  or online, you can start the six module course at any time and
-                  move through at your own pace. Then join the monthly live
-                  sessions to connect with the global community of registered
-                  EcoSattvas in training, no matter where each is in the course.
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h6" component="h4">
-                Contents
-              </Typography>
-              <ul>
-                {programLinks.map((link, index) => (
-                  <li key={index}>
-                    <Typography variant="body1">
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={classes.anchor}
-                        href={link.url}
-                      >
-                        {link.text}
-                      </Link>
-                    </Typography>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-          </Grid>
-          <Grid item container xs={12} md={6}>
-            <Grid item container justify="center" xs={12}>
-              <Box my={3}>
-                <Avatar
-                  className={classes.ecoSattvaImage}
-                  src={EcoSattvaImage}
-                  alt="Earth from space"
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body1">
-                This course is designed to meet participants in this
-                unprecedented challenge with new insights from both the Dharma
-                as well as the growing field of climate psychology. We will
-                journey together to soothe and ultimately unbind our bodies,
-                hearts and minds so that they can actively and creatively love
-                this life. Deeply rooted, thoroughly engaged yet not dependent,
-                we can express the most authentically helpful response to
-                ecological crisis that is available to us.
-              </Typography>
-            </Grid>
-            <Grid item container justify="center" xs={12}>
-              <Box my={3}>
-                <Typography variant="h4" component="h5">
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.anchor}
-                    href="https://oneearthsangha.org/programs/ecosattva-training/?utm_source=Sangha&utm_campaign=dc46d171d2-EST19_ANNOUNCE&utm_medium=email&utm_term=0_346c404fc8-dc46d171d2-182641077&mc_cid=dc46d171d2&mc_eid=dc81671117"
-                  >
-                    Find out more here
-                  </Link>
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </Grid>
+          );
+        })}
       </Grid>
     </Layout>
   );
