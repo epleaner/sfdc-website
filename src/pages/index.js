@@ -1,10 +1,10 @@
 import React from 'react';
-import {graphql, useStaticQuery, Link as GatsbyLink} from 'gatsby';
+import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
 import Img from 'gatsby-image';
 import ContentfulPageFragment from '../graphql-fragments/ContentfulPageFragment';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'rgba(254,172,102,1)',
   },
   link: {
-    'textDecoration': 'none',
-    'color': 'inherit',
-    'textTransform': 'uppercase',
+    textDecoration: 'none',
+    color: 'inherit',
+    textTransform: 'uppercase',
     '&:hover': {
       textDecoration: 'none',
     },
@@ -59,42 +59,42 @@ const Home = () => {
     }
   `);
 
-  const {lotusImage, pageData} = data;
+  const { lotusImage, pageData } = data;
 
   return (
     <Layout>
       <SEO
-        title="Home"
-        description="Home page of San Francisco Dharma Collective, a sangha-run meditation collective in San Francisco's Mission district"
+        title='Home'
+        description='The homepage of the San Francisco Dharma Collective.'
       />
-      <Grid container justify="center">
+      <Grid container justify='center'>
         <Grid item container xs={12}>
           <Grid item xs={12}>
             <Box mb={5} mt={2}>
-              <Typography align="center" variant="h1" component="h1">
+              <Typography align='center' variant='h1' component='h1'>
                 {pageData.title}
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Typography align="center" variant="h2" component="h2">
+            <Typography align='center' variant='h2' component='h2'>
               {pageData.subTitle}
             </Typography>
           </Grid>
-          <Grid item container justify="center" xs={12}>
+          <Grid item container justify='center' xs={12}>
             <Grid item xs={12}>
               <Box my={6}>
                 <Img
                   className={classes.lotusImage}
                   fluid={lotusImage.childImageSharp.fluid}
-                  alt="Lotus"
+                  alt='Lotus'
                 />
               </Box>
             </Grid>
           </Grid>
-          <Grid item container justify="center" xs={12}>
-            <Button color="primary" size="large" variant="outlined">
-              <GatsbyLink to="/upcoming-events" className={classes.link}>
+          <Grid item container justify='center' xs={12}>
+            <Button color='primary' size='large' variant='outlined'>
+              <GatsbyLink to='/upcoming-events' className={classes.link}>
                 See upcoming events
               </GatsbyLink>
             </Button>
@@ -107,7 +107,7 @@ const Home = () => {
         </Grid>
         <Grid item xs={12}>
           <Box mb={5}>
-            <Typography align="center" variant="h3">
+            <Typography align='center' variant='h3'>
               May all beings be well and free of suffering
             </Typography>
           </Box>
