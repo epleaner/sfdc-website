@@ -1,10 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import {useStaticQuery, graphql} from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
+import defaultImagePath from '../assets/images/lotus.png';
 
-const SEO = ({title, description, image}) => {
-  const {site} = useStaticQuery(
-      graphql`
+const SEO = ({ title, description, image }) => {
+  const { site } = useStaticQuery(
+    graphql`
       query {
         site {
           siteMetadata {
@@ -15,11 +16,14 @@ const SEO = ({title, description, image}) => {
           }
         }
       }
-    `,
+    `
   );
 
-  const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.image;
-  const metaDescription = description || site.siteMetadata.description;
+  const defaultImage = site.siteMetadata.siteUrl + defaultImagePath;
+  const metaDescription = description
+    ? [description, site.siteMetadata.description].join(' ')
+    : site.siteMetadata.description;
+  const metaTitle = `${title} | ${site.siteMetadata.title}`;
   const metaImage = image || defaultImage;
 
   return (
@@ -29,26 +33,26 @@ const SEO = ({title, description, image}) => {
       }}
       title={title}
       defaultTitle={site.siteMetadata.title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-    >
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      titleTemplate={`%s | ${site.siteMetadata.title}`}>
+      <meta charSet='utf-8' />
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
       {/* General tags */}
-      <meta name="image" content={image} />
-      <meta name="description" content={metaDescription} />
-      <meta name="robots" />
+      <meta name='image' content={metaImage} />
+      <meta name='description' content={metaDescription} />
+      <meta name='robots' content='index, follow' />
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={site.siteMetadata.siteUrl} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content={metaImage} />
+      <meta property='og:url' content={site.siteMetadata.siteUrl} />
+      <meta property='og:title' content={metaTitle} />
+      <meta property='og:description' content={metaDescription} />
+      <meta property='og:image' content={metaImage} />
 
       {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:image" content={metaImage} />
-      <meta name="twitter:description" content={metaDescription} />
+      <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:url' content={site.siteMetadata.siteUrl} />
+      <meta name='twitter:title' content={metaTitle} />
+      <meta name='twitter:image' content={metaImage} />
+      <meta name='twitter:description' content={metaDescription} />
     </Helmet>
   );
 };
