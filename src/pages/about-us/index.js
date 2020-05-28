@@ -34,8 +34,8 @@ const AboutUs = () => {
   return (
     <Layout>
       <SEO
-        title='About Us'
-        description='San Francisco Dharma Center About Page'
+        title={pageData.title}
+        description='About the San Francisco Dharma Center.'
       />
       <Grid container>
         <Grid item container xs={12}>
