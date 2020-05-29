@@ -31,9 +31,9 @@ module.exports = {
   },
   siteMetadata: {
     title:
-      'San Francisco Dharma Collective, a community-run Buddhist sangha. Come meditate with us!',
+      'San Francisco Dharma Collective, a student-run independent meditation center. Come sit with us!',
     description:
-      'San Francisco Dharma Collective is a community-led Buddhist sangha. Come meditate with us!',
+      'San Francisco Dharma Collective is a student-run independent meditation center. Come sit with us!',
     siteUrl: 'https://sfdharmacollective.org',
     image: '/src/assets/images/lotus-social.png',
     basePath: '/',
