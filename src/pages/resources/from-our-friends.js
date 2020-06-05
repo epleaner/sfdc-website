@@ -1,20 +1,16 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
+import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-
 import { makeStyles } from '@material-ui/core/styles';
-
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import ContentfulRichText from '../components/ContentfulRichText';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import ContentfulRichText from '../../components/ContentfulRichText';
 
 const useStyles = makeStyles((theme) => ({
-  section: {
-    margin: `${theme.spacing(2)}px 0`,
-  },
   italic: { fontStyle: 'italic' },
   image: {
     width: '100%',
@@ -38,39 +34,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ({ pageContext: { pageData } }) => {
+const FromOurFriends = () => {
   const classes = useStyles();
+
+  const data = useStaticQuery(graphql`
+    {
+      pageData: contentfulPage(
+        pageName: { eq: "Other Offerings from our Friends" }
+      ) {
+        ...ContentfulPageFragment
+      }
+    }
+  `);
+
+  const { pageData } = data;
 
   return (
     <Layout>
-      <SEO title={pageData.title} description={pageData.subTitle} />
+      <SEO
+        title={pageData.title}
+        description={`${pageData.title}. At the San Francisco Dharma Center.`}
+      />
       <Grid container>
-        <Grid item container xs={12}>
-          <Grid item container alignContent='center' xs={12}>
-            <Grid item xs={12}>
-              <Typography variant='h2' component='h1'>
-                {pageData.title}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item container alignContent='center' xs={12}>
-            <Grid item xs={12}>
-              <Box mt={2} mb={4}>
-                <Typography variant='h4' component='h2'>
-                  {pageData.subTitle}
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
+        <Grid item xs={12}>
+          <Box mb={4}>
+            <Typography align='center' variant='h2' component='h1'>
+              {pageData.title}
+            </Typography>
+          </Box>
         </Grid>
         {pageData.contentSections.map((contentSection) => {
           return (
             <Grid
-              key={contentSection.title}
+              key={contentSection.id}
               item
               xs={12}
               container
-              component='article'>
+              component='article'
+            >
               <Grid item xs={12}>
                 <Box my={2}>
                   <Typography variant='h3' component='h2'>
@@ -84,14 +85,10 @@ export default ({ pageContext: { pageData } }) => {
                   container
                   xs={12}
                   md={4}
-                  className={classes.offeringImage}>
+                  className={classes.offeringImage}
+                >
                   {contentSection.media.map((media) => (
-                    <Grid
-                      item
-                      container
-                      justify='center'
-                      xs={12}
-                      key={media.id}>
+                    <Grid item container justify='center' xs={12}>
                       <Avatar
                         className={classes.image}
                         src={media.file.url}
@@ -105,10 +102,9 @@ export default ({ pageContext: { pageData } }) => {
                 item
                 xs={12}
                 md={contentSection.media ? 8 : 12}
-                className={classes.offeringBody}>
-                <Typography variant='body1' component='span'>
-                  <ContentfulRichText json={contentSection.content.json} />
-                </Typography>
+                className={classes.offeringBody}
+              >
+                <ContentfulRichText json={contentSection.content.json} />
               </Grid>
             </Grid>
           );
@@ -117,3 +113,5 @@ export default ({ pageContext: { pageData } }) => {
     </Layout>
   );
 };
+
+export default FromOurFriends;
