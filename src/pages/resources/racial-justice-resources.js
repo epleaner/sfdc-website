@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      pageData: contentfulPage(pageName: { eq: "COVID-19 Resources" }) {
+      pageData: contentfulPage(pageName: { eq: "Racial Justice Resources" }) {
         ...ContentfulPageFragment
       }
     }
@@ -30,10 +30,7 @@ export default () => {
 
   return (
     <Layout>
-      <SEO
-        title={pageData.title}
-        description='Resources for support during the Coronavirus (aka COVID-19) pandemic, from the San Francisco Dharma Collective.'
-      />
+      <SEO title={pageData.title} description={pageData.subTitle} />
       <Grid container>
         <Grid item container xs={12}>
           <Grid item container alignContent='center' xs={12}>
