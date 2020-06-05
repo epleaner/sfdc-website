@@ -37,12 +37,21 @@ const MaterialMenu = (props) => {
     {
       name: 'About Us',
       path: '/about-us',
-      nested: ['Teachers', 'Leadership', 'Contact'],
+      nested: [
+        { name: 'Teachers', path: '/about-us/teachers' },
+        { name: 'Leadership', path: '/about-us/leadership' },
+        { name: 'Contact', path: '/about-us/contact' },
+      ],
     },
     {
       name: 'Upcoming Events',
       path: '/upcoming-events',
-      nested: ['Calendar'],
+      nested: [
+        {
+          name: 'Calendar',
+          path: '/upcoming-events/calendar',
+        },
+      ],
     },
     { name: 'Donate', path: '/donate' },
     { name: 'Volunteer', path: '/volunteer' },
@@ -83,13 +92,30 @@ const MaterialMenu = (props) => {
   const resourceMenuItem = {
     name: 'Resources',
     path: '/resources',
-    nested: ['Local Centers', 'Podcasts', 'Other Offerings'],
+    nested: [
+      {
+        name: 'Local Centers',
+        path: '/resources/local-centers',
+      },
+      { name: 'Podcasts', path: '/resources/podcasts' },
+      {
+        name: 'Other Offerings',
+        path: '/resources/other-offerings',
+      },
+    ],
   };
 
   const contentfulPageTitles = [];
 
-  resourcePages.edges.forEach(({ node: { title } }) =>
-    contentfulPageTitles.push(title)
+  resourcePages.edges.forEach(({ node: { title, urlSlug } }) =>
+    contentfulPageTitles.push({
+      name: title,
+      path: `/resources/${urlSlug ||
+        title
+          .toLowerCase()
+          .split(' ')
+          .join('-')}`,
+    })
   );
 
   resourceMenuItem.nested.unshift(...contentfulPageTitles);
@@ -136,6 +162,7 @@ const MaterialMenu = (props) => {
                 <MenuIcon />
               </IconButton>
               <DrawerMenu
+                menuItems={menuItems}
                 toggleDrawerMenu={toggleDrawerMenu}
                 isOpen={showDrawerMenu}
                 currentPath={pathname}
