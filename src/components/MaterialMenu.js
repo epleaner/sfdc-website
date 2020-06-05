@@ -1,19 +1,17 @@
+import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import DrawerMenu from './DrawerMenu';
-import Grid from '@material-ui/core/Grid';
-import HeaderImagePath from '../assets/images/sfdc-header.png';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import { Link } from 'gatsby';
 import MenuIcon from '@material-ui/icons/Menu';
-import MenuItem from './MenuItem';
-import PopoverMenu from './PopoverMenu';
-import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import withWidth from '@material-ui/core/withWidth';
+import MenuItem from './MenuItem';
+import PopoverMenu from './PopoverMenu';
+import HeaderImagePath from '../assets/images/sfdc-header.png';
+import DrawerMenu from './DrawerMenu';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -33,35 +31,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const menuItems = [
-  { name: 'Home', path: '/' },
-  {
-    name: 'About Us',
-    path: '/about-us',
-    nested: ['Teachers', 'Leadership', 'Contact'],
-  },
-  {
-    name: 'Upcoming Events',
-    path: '/upcoming-events',
-    nested: ['Calendar'],
-  },
-  { name: 'Donate', path: '/donate' },
-  { name: 'Volunteer', path: '/volunteer' },
-  { name: 'Newsletter', path: '/newsletter' },
-  {
-    name: 'Resources',
-    path: '/resources',
-    nested: [
-      'COVID-19 Resources',
-      'From Our Friends',
-      'Local Centers',
-      'Podcasts',
-      'Other Offerings',
-    ],
-  },
-];
-
 const MaterialMenu = (props) => {
+  const menuItems = [
+    { name: 'Home', path: '/' },
+    {
+      name: 'About Us',
+      path: '/about-us',
+      nested: ['Teachers', 'Leadership', 'Contact'],
+    },
+    {
+      name: 'Upcoming Events',
+      path: '/upcoming-events',
+      nested: ['Calendar'],
+    },
+    { name: 'Donate', path: '/donate' },
+    { name: 'Volunteer', path: '/volunteer' },
+    { name: 'Newsletter', path: '/newsletter' },
+  ];
+
   const {
     location: { pathname },
   } = props;
@@ -80,6 +67,34 @@ const MaterialMenu = (props) => {
 
     setShowDrawerMenu(!showDrawerMenu);
   };
+
+  const { resourcePages } = useStaticQuery(graphql`
+    {
+      resourcePages: allContentfulResourcePage {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+    }
+  `);
+
+  const resourceMenuItem = {
+    name: 'Resources',
+    path: '/resources',
+    nested: ['Local Centers', 'Podcasts', 'Other Offerings'],
+  };
+
+  const contentfulPageTitles = [];
+
+  resourcePages.edges.forEach(({ node: { title } }) =>
+    contentfulPageTitles.push(title)
+  );
+
+  resourceMenuItem.nested.unshift(...contentfulPageTitles);
+
+  menuItems.push(resourceMenuItem);
 
   return (
     <>
@@ -117,8 +132,7 @@ const MaterialMenu = (props) => {
               <IconButton
                 edge='start'
                 aria-label='menu'
-                onClick={toggleDrawerMenu}
-              >
+                onClick={toggleDrawerMenu}>
                 <MenuIcon />
               </IconButton>
               <DrawerMenu

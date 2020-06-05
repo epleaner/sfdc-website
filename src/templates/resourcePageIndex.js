@@ -7,8 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const useStyles = makeStyles({
   buttonContainer: {
@@ -63,22 +63,7 @@ const ResourceListItem = ({ title, subTitle, urlSlug, divider = true }) => {
   );
 };
 
-const Resources = () => {
-  const { resourcePageData } = useStaticQuery(graphql`
-    {
-      resourcePageData: allContentfulResourcePage {
-        edges {
-          node {
-            title
-            page {
-              subTitle
-            }
-          }
-        }
-      }
-    }
-  `);
-
+const Resources = ({ pageContext: { resourcePages } }) => {
   return (
     <Layout>
       <SEO
@@ -87,7 +72,7 @@ const Resources = () => {
       />
       <Grid container>
         <Grid item xs={12}>
-          <Box mb={6}>
+          <Box mb={8}>
             <Typography align='center' variant='h3' component='h1'>
               In addition to our regular programming, we offer the following
               resources to our community:
@@ -95,7 +80,7 @@ const Resources = () => {
           </Box>
         </Grid>
         <Grid item xs={12} container>
-          {resourcePageData.edges.map(({ node }) => {
+          {resourcePages.edges.map(({ node }) => {
             return (
               <ResourceListItem
                 title={node.title}
