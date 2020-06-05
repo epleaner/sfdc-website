@@ -20,7 +20,7 @@
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.2.41",
-    "gatsby-plugin-material-ui": "^2.1.6",
+    "gatsby-plugin-material-ui": "^2.1.9",
     "gatsby-plugin-netlify": "^2.1.32",
     "gatsby-plugin-offline": "^3.0.34",
     "gatsby-plugin-react-helmet": "^3.1.22",
