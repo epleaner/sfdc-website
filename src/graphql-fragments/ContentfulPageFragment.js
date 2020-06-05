@@ -7,10 +7,5 @@ export const ContentfulPageFragment = graphql`
     contentSections {
       ...ContentfulContentSectionFragment
     }
-    popUp {
-      content {
-        json
-      }
-    }
   }
 `;
