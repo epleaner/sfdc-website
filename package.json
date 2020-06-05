@@ -58,6 +58,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "dev": "yarn start",
     "develop": "gatsby develop",
     "build": "gatsby build && netlify-lambda build src/functions",
     "build:app": "gatsby build",
