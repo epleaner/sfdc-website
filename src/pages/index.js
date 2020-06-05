@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-// import Alert from '@material-ui/lab/Alert';
+import Alert from '@material-ui/lab/Alert';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
 import ContentfulRichText from '../components/ContentfulRichText';
 
@@ -75,6 +75,16 @@ const Home = () => {
         <Grid item container xs={12}>
           <Grid item xs={12}>
             <Grid item xs={12}>
+              {showBanner && pageData.popUp && (
+                <Alert
+                  onClose={() => setShowBanner(false)}
+                  variant='outlined'
+                  icon={false}
+                  className={classes.themeBorder}
+                  severity='info'>
+                  <ContentfulRichText json={pageData.popUp.content.json} />
+                </Alert>
+              )}
               <Box mb={5} mt={2}>
                 <Typography align='center' variant='h1' component='h1'>
                   {pageData.title}
