@@ -1,34 +1,83 @@
+import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import Layout from '../../components/Layout';
-import { Link } from 'gatsby';
-import React from 'react';
-import SEO from '../../components/SEO';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   buttonContainer: {
-    [theme.breakpoints.up('md')]: {
-      textAlign: 'right',
-    },
+    textAlign: 'left',
   },
   link: {
-    textDecoration: 'none',
     color: 'inherit',
     textTransform: 'uppercase',
   },
   anchor: {
     color: 'rgba(62,149,153,1)',
     textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
   },
-}));
+
+  bigText: {
+    fontSize: '1.3rem',
+  },
+});
+
+const ResourceListItem = ({ title, subTitle, urlSlug, divider = true }) => {
+  const classes = useStyles();
+
+  return (
+    <Grid item xs={12} container align='flex-start' key={title}>
+      <Grid item xs={12} md={6}>
+        <Link
+          to={`/resources/${urlSlug ||
+            title
+              .toLowerCase()
+              .split(' ')
+              .join('-')}`}
+          className={`${classes.anchor} ${classes.link}`}>
+          <Typography variant='h2'>{title}</Typography>
+        </Link>
+      </Grid>
+      <Grid item xs={12} md={6} container alignItems='center'>
+        <Typography variant='body1' className={classes.bigText}>
+          {subTitle}
+        </Typography>
+      </Grid>
+      {divider && (
+        <Grid item xs={12}>
+          <Box my={8}>
+            <Divider />
+          </Box>
+        </Grid>
+      )}
+    </Grid>
+  );
+};
 
 const Resources = () => {
-  const classes = useStyles();
+  const { resourcePageData } = useStaticQuery(graphql`
+    {
+      resourcePageData: allContentfulResourcePage {
+        edges {
+          node {
+            title
+            page {
+              subTitle
+            }
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <Layout>
@@ -46,130 +95,30 @@ const Resources = () => {
           </Box>
         </Grid>
         <Grid item xs={12} container>
-          <Grid item xs={12} alignItems='center' container>
-            <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color='primary' className={classes.anchor}>
-                <Link
-                  to='/resources/racial-justice-resources'
-                  className={classes.link}>
-                  Racial Justice Resources
-                </Link>
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant='body1'>
-                Resources for racial justice.
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Hidden mdUp>
-              <Box my={1}>
-                <Divider />
-              </Box>
-            </Hidden>
-          </Grid>
-          <Grid item xs={12} alignItems='center' container>
-            <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color='primary' className={classes.anchor}>
-                <Link
-                  to='/resources/covid-19-resources'
-                  className={classes.link}>
-                  COVID-19 Resources
-                </Link>
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant='body1'>
-                Communal, online sits to help find support during COVID-19.
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Hidden mdUp>
-              <Box my={1}>
-                <Divider />
-              </Box>
-            </Hidden>
-          </Grid>
-          <Grid item xs={12} alignItems='center' container>
-            <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color='primary' className={classes.anchor}>
-                <Link to='/resources/from-our-friends' className={classes.link}>
-                  From Our Friends
-                </Link>
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant='body1'>
-                Other opportunities to study with our teachers.
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Hidden mdUp>
-              <Box my={1}>
-                <Divider />
-              </Box>
-            </Hidden>
-          </Grid>
-          <Grid item xs={12} alignItems='center' container>
-            <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color='primary' className={classes.anchor}>
-                <Link to='/resources/local-centers' className={classes.link}>
-                  Local Sits & Centers
-                </Link>
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant='body1'>
-                Other local places to study the Dharma.
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Hidden mdUp>
-              <Box my={1}>
-                <Divider />
-              </Box>
-            </Hidden>
-          </Grid>
-          <Grid item xs={12} alignItems='center' container>
-            <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color='primary' className={classes.anchor}>
-                <Link to='/resources/podcasts' className={classes.link}>
-                  Podcasts
-                </Link>
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant='body1'>
-                Our favorite sources for online Dharma, including offerings from
-                our teachers.
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Hidden mdUp>
-              <Box my={1}>
-                <Divider />
-              </Box>
-            </Hidden>
-          </Grid>
-          <Grid item xs={12} alignItems='center' container>
-            <Grid className={classes.buttonContainer} item xs={12} sm={6}>
-              <Button color='primary' className={classes.anchor}>
-                <Link to='/resources/other-offerings' className={classes.link}>
-                  Other Offerings @ SFDC
-                </Link>
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant='body1'>
-                from Yoga to Ecstatic Dance to Consciousness Hacking
-              </Typography>
-            </Grid>
-          </Grid>
+          {resourcePageData.edges.map(({ node }) => {
+            return (
+              <ResourceListItem
+                title={node.title}
+                subTitle={node.page.subTitle}
+              />
+            );
+          })}
+          <ResourceListItem
+            title='Local Sits & Centers'
+            subTitle='Other local places to study the Dharma.'
+            urlSlug='local-centers'
+          />
+          <ResourceListItem
+            title='Podcasts'
+            subTitle='Our favorite sources for online Dharma, including offerings from
+            our teachers.'
+          />
+          <ResourceListItem
+            title='Other Offerings @ SFDC'
+            subTitle='From Yoga to Ecstatic Dance to Consciousness Hacking'
+            urlSlug='other-offerings'
+            divider={false}
+          />
         </Grid>
       </Grid>
     </Layout>
