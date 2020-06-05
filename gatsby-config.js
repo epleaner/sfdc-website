@@ -39,7 +39,6 @@ module.exports = {
     basePath: '/',
   },
   plugins: [
-    `gatsby-plugin-material-ui`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -48,6 +47,7 @@ module.exports = {
         path: `${__dirname}/src/assets`,
       },
     },
+    'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-transformer-remark`,
