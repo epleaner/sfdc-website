@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MenuPopupState = ({ mainText, links, currentPath }) => {
+const MenuPopupState = (props) => {
+  const { mainText, links, currentPath } = props;
   const classes = useStyles();
   const createTextLink = (text) =>
     `/${text
@@ -45,14 +46,16 @@ const MenuPopupState = ({ mainText, links, currentPath }) => {
   });
 
   return (
-    <>
+    <React.Fragment>
       <Link
         className={`${classes.link}`}
         {...bindHover(popupState)}
-        to={createTextLink(mainText)}>
+        to={createTextLink(mainText)}
+      >
         <Button
           className={`${classes.button} ${currentPath ===
-            createTextLink(mainText) && classes.active}`}>
+            createTextLink(mainText) && classes.active}`}
+        >
           {mainText}
         </Button>
       </Link>
@@ -60,22 +63,26 @@ const MenuPopupState = ({ mainText, links, currentPath }) => {
         {...bindMenu(popupState)}
         getContentAnchorEl={null}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'center' }}>
-        {links.map(({ name, path }) => {
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        {links.map((text, index) => {
+          const linkText = `${createTextLink(mainText)}${createTextLink(text)}`;
+
           return (
-            <Link key={name} to={path} className={`${classes.link}`}>
+            <Link key={text} to={linkText} className={`${classes.link}`}>
               <MenuItem onClick={popupState.close}>
                 <span
-                  className={`${classes.small} ${currentPath === path &&
-                    classes.active}`}>
-                  {name}
+                  className={`${classes.small} ${currentPath === linkText &&
+                    classes.active}`}
+                >
+                  {text}
                 </span>
               </MenuItem>
             </Link>
           );
         })}
       </Menu>
-    </>
+    </React.Fragment>
   );
 };
 
