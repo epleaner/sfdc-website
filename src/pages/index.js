@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
 import Img from 'gatsby-image';
+import ContentfulPageFragment from '../graphql-fragments/ContentfulPageFragment';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
-import Alert from '@material-ui/lab/Alert';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
-import ContentfulRichText from '../components/ContentfulRichText';
-
 import Layout from '../components/Layout';
+import LotusImagePath from '../assets/images/lotus.png';
 import SEO from '../components/SEO';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,15 +36,10 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
-  themeBorder: {
-    border: '1px solid rgba(62,149,153,1)',
-  },
 }));
 
 const Home = () => {
   const classes = useStyles();
-
-  const [showBanner, setShowBanner] = useState(true);
 
   const data = useStaticQuery(graphql`
     {
@@ -74,28 +70,16 @@ const Home = () => {
       <Grid container justify='center'>
         <Grid item container xs={12}>
           <Grid item xs={12}>
-            <Grid item xs={12}>
-              {showBanner && pageData.popUp && (
-                <Alert
-                  onClose={() => setShowBanner(false)}
-                  variant='outlined'
-                  icon={false}
-                  className={classes.themeBorder}
-                  severity='info'>
-                  <ContentfulRichText json={pageData.popUp.content.json} />
-                </Alert>
-              )}
-              <Box mb={5} mt={2}>
-                <Typography align='center' variant='h1' component='h1'>
-                  {pageData.title}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography align='center' variant='h2' component='h2'>
-                {pageData.subTitle}
+            <Box mb={5} mt={2}>
+              <Typography align='center' variant='h1' component='h1'>
+                {pageData.title}
               </Typography>
-            </Grid>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography align='center' variant='h2' component='h2'>
+              {pageData.subTitle}
+            </Typography>
           </Grid>
           <Grid item container justify='center' xs={12}>
             <Grid item xs={12}>
