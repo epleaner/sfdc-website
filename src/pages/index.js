@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
 import Img from 'gatsby-image';
 import Box from '@material-ui/core/Box';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-// import Alert from '@material-ui/lab/Alert';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
 import ContentfulRichText from '../components/ContentfulRichText';
 
@@ -37,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   themeBorder: {
     border: '1px solid rgba(62,149,153,1)',
+    borderRadius: '5px',
   },
 }));
 
@@ -75,6 +77,24 @@ const Home = () => {
         <Grid item container xs={12}>
           <Grid item xs={12}>
             <Grid item xs={12}>
+              {showBanner && pageData.popUp && (
+                <Box p={2} className={classes.themeBorder}>
+                  <Grid item container xs={12}>
+                    <Grid item xs={11}>
+                      <ContentfulRichText json={pageData.popUp.content.json} />
+                    </Grid>
+                    <Grid item xs={1} container justify='flex-end'>
+                      <Box>
+                        <IconButton
+                          aria-label='close-banner'
+                          onClick={() => setShowBanner(false)}>
+                          <CloseIcon />
+                        </IconButton>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </Box>
+              )}
               <Box mb={5} mt={2}>
                 <Typography align='center' variant='h1' component='h1'>
                   {pageData.title}
