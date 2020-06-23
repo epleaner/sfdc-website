@@ -1,4 +1,4 @@
-import {graphql, useStaticQuery} from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -20,9 +20,9 @@ const Teachers = () => {
         edges {
           node {
             childImageSharp {
-              fluid(maxWidth: 250) {
+              fixed(width: 250, height: 250) {
                 originalName
-                ...GatsbyImageSharpFluid_tracedSVG
+                ...GatsbyImageSharpFixed_tracedSVG
               }
             }
           }
@@ -36,30 +36,30 @@ const Teachers = () => {
   return (
     <Layout>
       <SEO
-        title="Teachers"
-        description="San Francisco Dharma Collective Teachers Page"
+        title='Teachers'
+        description='San Francisco Dharma Collective Teachers Page'
       />
       <Grid container>
         <Grid item xs={12}>
           <Box mb={3}>
-            <Typography gutterBottom align="center" variant="h2" component="h1">
+            <Typography gutterBottom align='center' variant='h2' component='h1'>
               Our Teachers
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} container justify="center">
+        <Grid item xs={12} container justify='center'>
           {imageEdges
-              .sort((a, b) =>
-                a.node.childImageSharp.fluid.originalName.localeCompare(
-                    b.node.childImageSharp.fluid.originalName,
-                ),
+            .sort((a, b) =>
+              a.node.childImageSharp.fixed.originalName.localeCompare(
+                b.node.childImageSharp.fixed.originalName
               )
-              .map((edge) => (
-                <Teacher
-                  key={edge.node.childImageSharp.fluid.originalName}
-                  fluidImage={edge.node.childImageSharp.fluid}
-                />
-              ))}
+            )
+            .map((edge) => (
+              <Teacher
+                key={edge.node.childImageSharp.fixed.originalName}
+                fixedImage={edge.node.childImageSharp.fixed}
+              />
+            ))}
         </Grid>
       </Grid>
     </Layout>

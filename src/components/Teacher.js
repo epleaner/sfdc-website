@@ -12,11 +12,15 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   image: {
     borderRadius: '50%',
-    width: '100%',
-    height: '100%',
+    minWidth: '240px',
+    maxWidth: '240px',
+    minHeight: '240px',
+    maxHeight: '240px',
   },
   imageContainer: {
     margin: theme.spacing(2),
+    display: 'flex',
+    justifyContent: 'center',
   },
   card: {
     margin: theme.spacing(2),
@@ -32,11 +36,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Teacher = (props) => {
-  const { fluidImage } = props;
+  const { fixedImage } = props;
 
   const classes = useStyles();
 
-  const name = fluidImage.originalName
+  const name = fixedImage.originalName
     .replace(/_/g, ' ')
     .replace(/\.(jpg)|\.(png)/g, '');
 
@@ -52,21 +56,20 @@ const Teacher = (props) => {
     <Grid container item xs={12} sm={5} md={4}>
       <Card className={classes.card}>
         <CardMedia className={classes.imageContainer} title={name}>
-          <Img className={classes.image} fluid={fluidImage} alt={name} />
+          <Img className={classes.image} fixed={fixedImage} alt={name} />
         </CardMedia>
         <CardContent>
-          <Typography align="center" variant="body1" component="h1">
+          <Typography align='center' variant='body1' component='h1'>
             {name}
           </Typography>
           {website && (
             <Grid item xs={12}>
-              <Typography align="center" variant="body2" component="h1">
+              <Typography align='center' variant='body2' component='h1'>
                 <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className={classes.anchor}
-                  href={`https://${website}`}
-                >
+                  href={`https://${website}`}>
                   {website}
                 </Link>
               </Typography>
