@@ -1,13 +1,16 @@
+import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import { Link } from 'gatsby';
 import MaterialUILink from '@material-ui/core/Link';
-import React from 'react';
+import Typography from '@material-ui/core/Typography';
 import SocialMedia from '../components/SocialMedia';
 import Venmo from '../components/Venmo';
-import Typography from '@material-ui/core/Typography';
+import ContentfulRichText from '../components/ContentfulRichText';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -31,14 +34,23 @@ const useStyles = makeStyles({
 const Footer = () => {
   const classes = useStyles();
 
+  const data = useStaticQuery(graphql`
+    {
+      contentData: contentfulContentSection(title: { eq: "Footer" }) {
+        ...ContentfulContentSectionFragment
+      }
+    }
+  `);
+
+  const { contentData } = data;
+
   return (
     <Grid
       className={classes.footer}
       container
       direction='row'
       justify='center'
-      alignItems='center'
-    >
+      alignItems='center'>
       <Grid item xs={12}>
         <Box my={6}>
           <Divider className={classes.divider} />
@@ -86,8 +98,7 @@ const Footer = () => {
                 target='_blank'
                 rel='noopener noreferrer'
                 className={classes.anchor}
-                href='mailto:sfdharmacollective@gmail.com'
-              >
+                href='mailto:sfdharmacollective@gmail.com'>
                 sfdharmacollective@gmail.com
               </MaterialUILink>
             </span>
@@ -96,10 +107,7 @@ const Footer = () => {
       </Grid>
       <Grid item xs={12}>
         <Typography align='center' variant='body2'>
-          All classes and sits are open to all and no registration is necessary.
-          We are supported by your generosity (dana). No one is ever turned away
-          for lack of funds. SFDC is wheelchair accessible and has two
-          accessible bathroom stalls. We use fragrance-free cleaning products.
+          <ContentfulRichText json={contentData.content.json} />
         </Typography>
         <Box mb={2} />
         <Typography align='center' variant='body2'>
@@ -111,8 +119,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener noreferrer'
             className={classes.anchor}
-            href='https://elipleaner.com'
-          >
+            href='https://elipleaner.com'>
             Eli Pleaner 🐣
           </MaterialUILink>
         </Typography>
