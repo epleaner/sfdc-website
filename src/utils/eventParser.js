@@ -109,11 +109,11 @@ const parseQueriedEvent = (events, queryParams) => {
   const activeEvents = filterOnlyActiveEvents(parsedEvents);
 
   if (activeEvents.length > 1) {
-    console.log(
-      'Found more than one matching event, returning best guess',
-      activeEvents,
-      queryParams
-    );
+    // console.log(
+    //   'Found more than one matching event, returning best guess',
+    //   activeEvents,
+    //   queryParams
+    // );
 
     const eventsWithMatchingSummary = activeEvents.filter(
       ({ summary }) => formattedSummary(summary) === name
@@ -124,11 +124,18 @@ const parseQueriedEvent = (events, queryParams) => {
 
     const eventsWithMatchingSummaryAndDates = eventsWithMatchingSummary.filter(
       ({ start, recurrenceRules }) =>
-        date
-          ? start.format('M-D-YYYY') === date
-          : recurrenceRules && !recurrenceRules.until
+        date ? start.format('M-D-YYYY') === date : recurrenceRules
     );
 
+    if (eventsWithMatchingSummaryAndDates.length === 1)
+      return eventsWithMatchingSummaryAndDates[0];
+
+    const eventsWithOpenEndedRecurrence = eventsWithMatchingSummaryAndDates.filter(
+      ({ recurrenceRules }) => !recurrenceRules.until
+    );
+
+    if (eventsWithOpenEndedRecurrence.length > 0)
+      return eventsWithOpenEndedRecurrence[0];
     return eventsWithMatchingSummaryAndDates[0];
   }
 
