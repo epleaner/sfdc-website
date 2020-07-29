@@ -48,11 +48,13 @@ const formatRecurrenceRules = (recurrence) => {
 };
 
 const parseEvent = (event) => {
-  event.start = moment(event.start.dateTime);
-  event.end = moment(event.end.dateTime);
+  if (event.status !== 'cancelled') {
+    event.start = moment(event.start.dateTime);
+    event.end = moment(event.end.dateTime);
 
-  if (event.recurrence) {
-    event.recurrenceRules = formatRecurrenceRules(event.recurrence);
+    if (event.recurrence) {
+      event.recurrenceRules = formatRecurrenceRules(event.recurrence);
+    }
   }
 
   return event;
@@ -105,7 +107,8 @@ const parseEvents = (eventData) => {
 const parseQueriedEvent = (events, queryParams) => {
   const { name, date, recurring } = queryParams;
 
-  const parsedEvents = events.map(parseEvent);
+  const filteredEvents = filterCancelledAndEmptyEvents(events);
+  const parsedEvents = filteredEvents.map(parseEvent);
   const activeEvents = filterOnlyActiveEvents(parsedEvents);
 
   if (activeEvents.length > 1) {
