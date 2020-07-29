@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "@reach/router";
+import React, { useEffect, useState } from 'react';
+import { useParams } from '@reach/router';
 
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
-import { parseQueriedEvent, parseEvent } from "../../utils/eventParser";
+import { parseQueriedEvent, parseEvent } from '../../utils/eventParser';
 
-import Layout from "../Layout";
-import SEO from "../SEO";
+import Layout from '../Layout';
+import SEO from '../SEO';
 
-import EventHeaderText from "../EventHeader/EventHeaderText";
-import EventBody from "../EventBody";
+import EventHeaderText from '../EventHeader/EventHeaderText';
+import EventBody from '../EventBody';
 
 export default () => {
   const { recurringEventName, eventName, eventDate } = useParams();
@@ -22,12 +22,12 @@ export default () => {
   const [isError, setIsError] = useState(false);
 
   const eventNameQueryParam = (recurringEventName || eventName)
-    .split("-")
-    .join(" ");
+    .split('-')
+    .join(' ');
 
   useEffect(() => {
     let fetchUrl = `/.netlify/functions/google-calendar-event?eventName=${eventNameQueryParam}`;
-    if (recurringEventName) fetchUrl += "&recurring=true";
+    if (recurringEventName) fetchUrl += '&recurring=true';
     fetch(fetchUrl)
       .then((response) => response.json())
       .then((responseJson) => responseJson.data.items)
@@ -48,7 +48,7 @@ export default () => {
 
   useEffect(() => {
     setIsLoadingRecurringEvent(true);
-    if (eventData.recurringEventId)
+    if (eventData && eventData.recurringEventId)
       fetch(
         `/.netlify/functions/google-calendar-event?recurringId=${eventData.recurringEventId}`
       )
@@ -61,12 +61,12 @@ export default () => {
           setIsError(true);
         })
         .finally(() => setIsLoadingRecurringEvent(false));
-  }, [eventData.recurringEventId]);
+  }, [eventData]);
 
   const displayName = isLoading
-    ? "Loading event..."
+    ? 'Loading event...'
     : isError || !eventData
-    ? "Event not found"
+    ? 'Event not found'
     : eventData.summary;
 
   return (
@@ -78,11 +78,11 @@ export default () => {
       <Grid container>
         <Grid item xs={12}>
           {isLoading ? (
-            <Typography align="center" variant="h2">
+            <Typography align='center' variant='h2'>
               Loading event...
             </Typography>
           ) : isError || !eventData ? (
-            <Typography align="center" variant="h2">
+            <Typography align='center' variant='h2'>
               Sorry, we couldn't find that event.
             </Typography>
           ) : (
