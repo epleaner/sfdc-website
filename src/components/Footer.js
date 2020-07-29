@@ -106,7 +106,7 @@ const Footer = () => {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Typography align='center' variant='body2'>
+        <Typography component='div' align='center' variant='body2'>
           <ContentfulRichText json={contentData.content.json} />
         </Typography>
         <Box mb={2} />
