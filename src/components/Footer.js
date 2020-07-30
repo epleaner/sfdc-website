@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import MaterialUILink from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import SocialMedia from '../components/SocialMedia';
+import MailChimpSignup from '../components/MailChimpSignup';
 import Venmo from '../components/Venmo';
 import ContentfulRichText from '../components/ContentfulRichText';
 
@@ -62,8 +63,11 @@ const Footer = () => {
         </Box>
       </Grid>
       <Grid item container justify='center' xs={12}>
-        <Box mb={4}>
-          <Venmo />
+        <Venmo />
+      </Grid>
+      <Grid item xs={12} container justify='center'>
+        <Box my={5}>
+          <MailChimpSignup inline />
         </Box>
       </Grid>
       <Grid item xs={12} container justify='center'>

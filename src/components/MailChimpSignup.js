@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -7,11 +7,11 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import isEmail from 'validator/es/lib/isEmail';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    'maxWidth': '400px',
+    maxWidth: '400px',
 
     '& label.Mui-focused': {
       color: theme.palette.primaryBlue4,
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MailChimpSignup = () => {
+const MailChimpSignup = ({ inline }) => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -60,26 +60,29 @@ const MailChimpSignup = () => {
   };
 
   return (
-    <Grid container justify="center" component="aside">
+    <Grid container justify='center' component='aside'>
       <form
-        id="mailchimp-form"
+        id='mailchimp-form'
         className={classes.root}
         onSubmit={onSubmit}
-        autoComplete="off"
-      >
-        <Grid container>
+        autoComplete='off'>
+        <Grid container alignItems='center'>
           <Grid item xs={12}>
-            <Box mb={3}>
-              <Typography variant="h3" component="h1" align="center">
+            <Box mb={inline ? 0 : 3}>
+              <Typography
+                variant={inline ? 'h6' : 'h3'}
+                component='h1'
+                align='center'>
                 Subscribe to our mailing list
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={inline ? 8 : 12}>
             <TextField
+              size={inline ? 'small' : 'normal'}
               fullWidth
-              label="Email"
-              variant="outlined"
+              label='Email'
+              variant='outlined'
               required
               error={emailError}
               helperText={emailError && emailErrorMessage}
@@ -91,55 +94,60 @@ const MailChimpSignup = () => {
               }}
             />
           </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              margin={'normal'}
-              label="First Name"
-              variant="outlined"
-              value={firstName}
-              onChange={(e) => {
-                setFirstName(e.target.value);
-                setMailChimpResponse();
-              }}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              margin={'normal'}
-              label="Last Name"
-              variant="outlined"
-              value={lastName}
-              onChange={(e) => {
-                setLastName(e.target.value.trim());
-                setMailChimpResponse();
-              }}
-            />
-          </Grid>
-          <Grid item container justify="center" xs={12}>
+          {!inline && (
+            <>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  margin={'normal'}
+                  label='First Name'
+                  variant='outlined'
+                  value={firstName}
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                    setMailChimpResponse();
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  margin={'normal'}
+                  label='Last Name'
+                  variant='outlined'
+                  value={lastName}
+                  onChange={(e) => {
+                    setLastName(e.target.value.trim());
+                    setMailChimpResponse();
+                  }}
+                />
+              </Grid>
+            </>
+          )}
+          <Grid item container justify='center' xs={inline ? 4 : 12}>
             <Box my={2}>
               {mailChimpResponse ? (
-                mailChimpResponse.result === 'success' ? (
-                  <Typography color="primary">
-                    {mailChimpResponse.msg}
-                  </Typography>
-                ) : (
-                  <Typography color="error">
-                    {Array(
-                        mailChimpResponse.msg.match(/.+is already subscribed/),
-                    )[0] || 'An error occured. Please try again!'}
-                  </Typography>
-                )
+                <Box ml={3}>
+                  {mailChimpResponse.result === 'success' ? (
+                    <Typography color='primary' align='center'>
+                      {mailChimpResponse.msg}
+                    </Typography>
+                  ) : (
+                    <Typography color='error' align='center'>
+                      {Array(
+                        mailChimpResponse.msg.match(/.+is already subscribed/)
+                      )[0] || 'An error occured. Please try again!'}
+                    </Typography>
+                  )}
+                </Box>
               ) : (
                 <Button
                   disabled={isLoading}
-                  htmlFor="mailchimp-form"
-                  color="primary"
-                  type="submit"
-                  variant="contained"
-                >
-                  Submit
+                  htmlFor='mailchimp-form'
+                  color='primary'
+                  type='submit'
+                  variant='contained'>
+                  Subscribe
                 </Button>
               )}
             </Box>
