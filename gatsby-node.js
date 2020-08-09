@@ -107,7 +107,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `src/templates/resourcePageIndex.js`
   );
   createPage({
-    path: 'resources',
+    path: 'collective-dharma',
     component: resourcePageIndexTemplate,
     context: {
       resourcePages,
@@ -125,7 +125,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         .join('-');
 
     createPage({
-      path: `resources/${path}`,
+      path: `collective-dharma/${path}`,
       component: resourcePageTemplate,
       context: {
         pageData: node.page,

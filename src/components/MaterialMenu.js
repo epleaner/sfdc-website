@@ -90,17 +90,17 @@ const MaterialMenu = (props) => {
   `);
 
   const resourceMenuItem = {
-    name: 'Resources',
-    path: '/resources',
+    name: 'Collective Dharma',
+    path: '/collective-dharma',
     nested: [
       {
         name: 'Local Centers',
-        path: '/resources/local-centers',
+        path: '/collective-dharma/local-centers',
       },
-      { name: 'Podcasts', path: '/resources/podcasts' },
+      { name: 'Podcasts', path: '/collective-dharma/podcasts' },
       {
         name: 'Other Offerings',
-        path: '/resources/other-offerings',
+        path: '/collective-dharma/other-offerings',
       },
     ],
   };
@@ -110,7 +110,7 @@ const MaterialMenu = (props) => {
   resourcePages.edges.forEach(({ node: { title, urlSlug } }) =>
     contentfulPageTitles.push({
       name: title,
-      path: `/resources/${urlSlug ||
+      path: `/collective-dharma/${urlSlug ||
         title
           .toLowerCase()
           .split(' ')

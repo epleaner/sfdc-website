@@ -25,10 +25,6 @@ const useStyles = makeStyles({
       textDecoration: 'underline',
     },
   },
-
-  bigText: {
-    fontSize: '1.3rem',
-  },
 });
 
 const ResourceListItem = ({ title, subTitle, urlSlug, divider = true }) => {
@@ -38,7 +34,7 @@ const ResourceListItem = ({ title, subTitle, urlSlug, divider = true }) => {
     <Grid item xs={12} container align='flex-start' key={title}>
       <Grid item xs={12} md={6}>
         <Link
-          to={`/resources/${urlSlug ||
+          to={`/collective-dharma/${urlSlug ||
             title
               .toLowerCase()
               .split(' ')
@@ -48,9 +44,7 @@ const ResourceListItem = ({ title, subTitle, urlSlug, divider = true }) => {
         </Link>
       </Grid>
       <Grid item xs={12} md={6} container alignItems='center'>
-        <Typography variant='body1' className={classes.bigText}>
-          {subTitle}
-        </Typography>
+        <Typography variant='body1'>{subTitle}</Typography>
       </Grid>
       {divider && (
         <Grid item xs={12}>
@@ -67,8 +61,8 @@ const Resources = ({ pageContext: { resourcePages } }) => {
   return (
     <Layout>
       <SEO
-        title='Resources'
-        description='San Francisco Dharma Collective Resources Page'
+        title='Collective Dharma'
+        description={`San Francisco Dharma Collective\'s Collective Dharma Page`}
       />
       <Grid container>
         <Grid item xs={12}>
