@@ -4,6 +4,7 @@
   { "name": "Aiko Michot", "website": "rememberingtruenature.com" },
   { "name": "Adreanna Limbach", "website": "adreannalimbach.com" },
   { "name": "Amma Thanasanti", "website": "awakeningtruth.org" },
+  { "name": "Amber Field", "website": "amberfieldmusic.com" },
   { "name": "Andrew Chaiken", "website": "heart.camp" },
   { "name": "Ayya Anandabodhi", "website": "alokavihara.org" },
   { "name": "Ayya Santacitta", "website": "alokavihara.org" },
@@ -11,47 +12,49 @@
   { "name": "Cheryl Slean", "website": "CherylSleanMeditation.org" },
   { "name": "Dan Petrie", "website": "silencebetween.com" },
   { "name": "Dave Smith", "website": "davesmithdharma.com" },
-  { "name": "David McKay", "website": "www.facebook.com/theoneopendoor" },
-  { "name": "Daniel Ingram", "website": "www.dharmaoverground.org/home" },
+  { "name": "David McKay", "website": "facebook.com/theoneopendoor" },
+  { "name": "Daniel Ingram", "website": "dharmaoverground.org/home" },
   { "name": "Deborah Eden Tull", "website": "deborahedentull.com" },
-  { "name": "Devin Berry", "website": "www.spiritrock.org/devin-berry" },
+  { "name": "Devin Berry", "website": "spiritrock.org/devin-berry" },
   { "name": "Devon Cresci", "website": "facebook.com/devoncresci" },
   { "name": "Erik Davis", "website": "psychedelicsangha.org" },
+  { "name": "Ericka Huggins", "website": "erickahuggins.com" },
   { "name": "Eve Ekman", "website": "eveekman.com" },
   { "name": "Eugene Cash", "website": "sfinsight.org" },
   { "name": "Fresh! “Lev” White", "website": "affirmativeacts.org" },
-  { "name": "Gary Gach", "website": "levity.com/interbeing/" },
+  { "name": "Gary Gach", "website": "levity.com/interbeing" },
   { "name": "George Haas", "website": "mettagroup.org/about" },
   {
     "name": "Howie Cohn",
-    "website": "www.missiondharma.org/our-teacher---howard-cohn.html"
+    "website": "missiondharma.org/our-teacher---howard-cohn.html"
   },
   { "name": "Isa Gucciardi", "website": "sacredstream.org" },
+  { "name": "Jeffrey Marsh", "website": "jeffreymarsh.com" },
   { "name": "Jennifer Dumpert", "website": "liminaldreaming.com" },
   {
     "name": "Jess Dena",
-    "website": "accesscenteredmovement.wordpress.com/"
+    "website": "accesscenteredmovement.wordpress.com"
   },
   { "name": "Jessica Graham", "website": "yourwildawakening.com" },
-  { "name": "Jordanna Eve", "website": "www.intouchsf.com" },
+  { "name": "Jordanna Eve", "website": "intouchsf.com" },
   { "name": "Juliana Sloane", "website": "julianasloane.com" },
   { "name": "Kat Roubos", "website": "alivelykat.com" },
   { "name": "Kelly Yi", "website": "eastbaymindfulcenter.org" },
-  { "name": "Kevin Griffin", "website": "www.kevingriffin.net" },
+  { "name": "Kevin Griffin", "website": "kevingriffin.net" },
   {
     "name": "Khedrup Rinpoche Ugyen Tenzin Thinley Lhendup",
     "website": "khedrup.org"
   },
   { "name": "Krisztina Lazar", "website": "transcendentbird.com" },
-  { "name": "Lama Tsomo", "website": "www.lindapritzker.com/" },
+  { "name": "Lama Tsomo", "website": "lindapritzker.com" },
   { "name": "Leigh Brasington", "website": "leighb.com" },
   { "name": "Lobsang Tenpa", "website": "lobsangtenpa.com" },
-  { "name": "Lola Davina", "website": "www.loladavina.com/" },
+  { "name": "Lola Davina", "website": "loladavina.com" },
   { "name": "Michael Owens", "website": "soundcloud.com/lotus-underground" },
   { "name": "Michael Taft", "website": "deconstructingyourself.com" },
   { "name": "Mimi Moncier", "website": "gigglinglotus.com" },
   { "name": "Pawan Bareja", "website": "spiritrock.org/pawan-bareja" },
-  { "name": "Shinzen Young", "website": "www.shinzen.org" },
+  { "name": "Shinzen Young", "website": "shinzen.org" },
   { "name": "Scott Tusa", "website": "scotttusa.com" },
   {
     "name": "Steve Tierney",
@@ -60,11 +63,11 @@
   { "name": "Tina Rasmussen", "website": "AwakeningDharma.com" },
   {
     "name": "Toran \"Beja\" Ailisheva",
-    "website": "www.conspireforchange.org/"
+    "website": "conspireforchange.org"
   },
   { "name": "Venerable Dhammadipa", "website": "alokavihara.org" },
   { "name": "Venerable Tenzin Chogkyi", "website": "ventenzin.org" },
   { "name": "Vincent Horn", "website": "vincenthorn.com" },
-  { "name": "Vickie Chang, PhD", "website": "www.vickiechangphd.com" },
+  { "name": "Vickie Chang, PhD", "website": "vickiechangphd.com" },
   { "name": "Vy Le", "website": "inwavegroup.com" }
 ]

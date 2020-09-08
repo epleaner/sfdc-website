@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     transition: 'all 0.2s ease-in-out',
     '&:hover': { opacity: '.75' },
+    '&:hover h1': { textDirection: 'none' },
   },
   anchor: {
     color: 'rgba(62,149,153,1)',
@@ -52,31 +53,45 @@ const Teacher = (props) => {
 
   const website = teacherHasWebsite.length > 0 && teacherHasWebsite[0].website;
 
+  const contents = (
+    <Card className={classes.card}>
+      <CardMedia className={classes.imageContainer} title={name}>
+        <Img className={classes.image} fixed={fixedImage} alt={name} />
+      </CardMedia>
+      <CardContent>
+        <Typography align='center' variant='body1' component='h1'>
+          {name}
+        </Typography>
+        {website && (
+          <Grid item xs={12}>
+            <Typography align='center' variant='body2' component='h1'>
+              <Link
+                target='_blank'
+                rel='noopener noreferrer'
+                className={classes.anchor}
+                href={`https://${website}`}>
+                {website}
+              </Link>
+            </Typography>
+          </Grid>
+        )}
+      </CardContent>
+    </Card>
+  );
+
   return (
     <Grid container item xs={12} sm={5} md={4}>
-      <Card className={classes.card}>
-        <CardMedia className={classes.imageContainer} title={name}>
-          <Img className={classes.image} fixed={fixedImage} alt={name} />
-        </CardMedia>
-        <CardContent>
-          <Typography align='center' variant='body1' component='h1'>
-            {name}
-          </Typography>
-          {website && (
-            <Grid item xs={12}>
-              <Typography align='center' variant='body2' component='h1'>
-                <Link
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className={classes.anchor}
-                  href={`https://${website}`}>
-                  {website}
-                </Link>
-              </Typography>
-            </Grid>
-          )}
-        </CardContent>
-      </Card>
+      {website ? (
+        <Link
+          target='_blank'
+          rel='noopener noreferrer'
+          className={classes.anchor}
+          href={`https://${website}`}>
+          {contents}
+        </Link>
+      ) : (
+        contents
+      )}
     </Grid>
   );
 };
