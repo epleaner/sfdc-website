@@ -10,28 +10,23 @@ import Typography from '@material-ui/core/Typography';
 
 const Teachers = () => {
   const data = useStaticQuery(graphql`
-    query MyQuery {
-      allFile(
-        filter: {
-          extension: { regex: "/(jpg)|(jpeg)|(png)/" }
-          relativeDirectory: { eq: "images/teachers" }
+    {
+      teacherJson: contentfulTeacherList(name: { eq: "Current Teachers" }) {
+        teacherData {
+          name
+          website
         }
-      ) {
-        edges {
-          node {
-            childImageSharp {
-              fixed(width: 250, height: 250) {
-                originalName
-                ...GatsbyImageSharpFixed_tracedSVG
-              }
-            }
+        headshots {
+          title
+          fixed(width: 250, height: 250) {
+            ...GatsbyContentfulFixed_tracedSVG
           }
         }
       }
     }
   `);
 
-  const imageEdges = data.allFile.edges;
+  const { teacherJson } = data;
 
   return (
     <Layout>
@@ -48,18 +43,22 @@ const Teachers = () => {
           </Box>
         </Grid>
         <Grid item xs={12} container justify='center'>
-          {imageEdges
-            .sort((a, b) =>
-              a.node.childImageSharp.fixed.originalName.localeCompare(
-                b.node.childImageSharp.fixed.originalName
-              )
-            )
-            .map((edge) => (
-              <Teacher
-                key={edge.node.childImageSharp.fixed.originalName}
-                fixedImage={edge.node.childImageSharp.fixed}
-              />
-            ))}
+          {teacherJson.headshots
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .map(({ title, fixed }) => {
+              const data = teacherJson.teacherData
+                .filter(({ name }) => title === name)
+                .pop();
+
+              return (
+                <Teacher
+                  key={title}
+                  name={title}
+                  website={data && data.website}
+                  fixedImage={fixed}
+                />
+              );
+            })}
         </Grid>
       </Grid>
     </Layout>

@@ -37,21 +37,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Teacher = (props) => {
-  const { fixedImage } = props;
+  const { fixedImage, name, website } = props;
 
   const classes = useStyles();
-
-  const name = fixedImage.originalName
-    .replace(/_/g, ' ')
-    .replace(/\.(jpg)|\.(png)/g, '');
-
-  const teacherHasWebsite = TeacherBios.filter(
-    ({ name: teacherName, website }) => {
-      return teacherName === name;
-    }
-  );
-
-  const website = teacherHasWebsite.length > 0 && teacherHasWebsite[0].website;
 
   const contents = (
     <Card className={classes.card}>
