@@ -37,14 +37,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Teacher = (props) => {
-  const { fixedImage, name, website } = props;
+  const { headshot, name, website } = props;
 
   const classes = useStyles();
 
   const contents = (
     <Card className={classes.card}>
       <CardMedia className={classes.imageContainer} title={name}>
-        <Img className={classes.image} fixed={fixedImage} alt={name} />
+        <Img className={classes.image} fixed={headshot} alt={name} />
       </CardMedia>
       <CardContent>
         <Typography align='center' variant='body1' component='h1'>

@@ -14,7 +14,6 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
 import Layout from '../components/Layout';
-import LotusImagePath from '../assets/images/lotus.png';
 import SEO from '../components/SEO';
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +50,7 @@ const Home = () => {
 
   const data = useStaticQuery(graphql`
     {
-      lotusImage: file(relativePath: { eq: "images/lotus.png" }) {
+      lotusImage: file(relativePath: { eq: "images/lotus-anniversary.png" }) {
         childImageSharp {
           fluid(
             maxWidth: 500

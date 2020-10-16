@@ -1,12 +1,13 @@
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 import Layout from '../../components/Layout';
-import React from 'react';
 import SEO from '../../components/SEO';
 import Teacher from '../../components/Teacher';
-import Typography from '@material-ui/core/Typography';
 
 const Teachers = () => {
   const data = useStaticQuery(graphql`
@@ -28,6 +29,18 @@ const Teachers = () => {
 
   const { teacherJson } = data;
 
+  const sortedHeadshots = teacherJson.headshots.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+
+  const teacherDataWithHeadshots = sortedHeadshots.map(({ title, fixed }) => {
+    const data = teacherJson.teacherData
+      .filter(({ name }) => title === name)
+      .pop();
+
+    return { headshot: fixed, title: title, website: data && data.website };
+  });
+
   return (
     <Layout>
       <SEO
@@ -43,22 +56,14 @@ const Teachers = () => {
           </Box>
         </Grid>
         <Grid item xs={12} container justify='center'>
-          {teacherJson.headshots
-            .sort((a, b) => a.title.localeCompare(b.title))
-            .map(({ title, fixed }) => {
-              const data = teacherJson.teacherData
-                .filter(({ name }) => title === name)
-                .pop();
-
-              return (
-                <Teacher
-                  key={title}
-                  name={title}
-                  website={data && data.website}
-                  fixedImage={fixed}
-                />
-              );
-            })}
+          {teacherDataWithHeadshots.map(({ headshot, title, website }) => (
+            <Teacher
+              key={title}
+              name={title}
+              website={website}
+              headshot={headshot}
+            />
+          ))}
         </Grid>
       </Grid>
     </Layout>

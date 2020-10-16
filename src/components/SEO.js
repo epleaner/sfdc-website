@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import defaultImagePath from '../assets/images/lotus.png';
+import defaultImagePath from '../assets/images/lotus-anniversary.png';
 
 const SEO = ({ title, description, image }) => {
   const { site } = useStaticQuery(
