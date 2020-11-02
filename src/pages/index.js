@@ -78,7 +78,7 @@ const Home = () => {
         <Grid item container xs={12}>
           <Grid item xs={12}>
             <Grid item xs={12}>
-              {showBanner && pageData.popUp && (
+              {showBanner && pageData.popUp && pageData.popUp.visible && (
                 <Box p={2} className={classes.themeBorder}>
                   <Grid item container xs={12}>
                     <Grid item xs={11}>
