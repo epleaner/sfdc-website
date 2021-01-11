@@ -69,13 +69,14 @@ const recurringEventIsActive = (event) =>
 const deduplicateEvents = (events) => {
   // assuming events are sorted by start date
   const toRemove = [];
-
   events.slice(1).forEach((event, index) => {
-    if (event.start.diff(events[index].start) === 0) {
-      if (event.recurringEventId) {
-        toRemove.push(event);
-        events[index].replacedRecurring = true;
-      }
+    if (
+      event.start.diff(events[index].start) === 0 &&
+      event.recurringEventId &&
+      event.summary === events[index].summary
+    ) {
+      toRemove.push(event);
+      events[index].replacedRecurring = true;
     }
   });
 
