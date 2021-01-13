@@ -24,8 +24,7 @@ const ContentfulRichText = (props) => {
               cursor: 'pointer',
             },
           }}
-          href={node.data.uri}
-        >
+          href={node.data.uri}>
           {node.content[0].value}
         </Link>
       ),
@@ -121,8 +120,7 @@ const ContentfulRichText = (props) => {
                     textDecoration: 'underline',
                   },
                 }}
-                href={file.url}
-              >
+                href={file.url}>
                 <Typography style={{ fontSize: '1.5rem' }}>
                   {file.fileName}
                 </Typography>

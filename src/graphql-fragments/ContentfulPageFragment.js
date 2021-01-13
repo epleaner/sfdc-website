@@ -7,10 +7,16 @@ export const ContentfulPageFragment = graphql`
     contentSections {
       ...ContentfulContentSectionFragment
     }
-    popUp {
+    infoBanners {
       visible
+      title
       content {
         json
+      }
+      media {
+        fixed(width: 150) {
+          ...GatsbyContentfulFixed_withWebp
+        }
       }
     }
   }

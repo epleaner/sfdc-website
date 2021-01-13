@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
 import Img from 'gatsby-image';
+import Avatar from '@material-ui/core/Avatar';
+
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import ContentfulRichText from '../components/ContentfulRichText';
@@ -23,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     margin: '0 auto',
   },
+  avatar: {
+    width: 150,
+    height: 150,
+  },
   anchor: {
     color: 'rgba(62,149,153,1)',
     textDecoration: 'none',
@@ -41,6 +47,24 @@ const useStyles = makeStyles((theme) => ({
   themeBorder: {
     border: '1px solid rgba(62,149,153,1)',
     borderRadius: '5px',
+  },
+  bannerImageOrder: {
+    [theme.breakpoints.down('xs')]: {
+      order: 0,
+      justifyContent: 'start',
+    },
+    display: 'flex',
+    justifyContent: 'end',
+  },
+  bannerImageContainer: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+    },
+  },
+  bannerTextOrder: {
+    [theme.breakpoints.down('xs')]: {
+      order: 1,
+    },
   },
 }));
 
@@ -78,24 +102,43 @@ const Home = () => {
         <Grid item container xs={12}>
           <Grid item xs={12}>
             <Grid item xs={12}>
-              {showBanner && pageData.popUp && pageData.popUp.visible && (
-                <Box p={2} className={classes.themeBorder}>
-                  <Grid item container xs={12}>
-                    <Grid item xs={11}>
-                      <ContentfulRichText json={pageData.popUp.content.json} />
-                    </Grid>
-                    <Grid item xs={1} container justify='flex-end'>
-                      <Box>
-                        <IconButton
-                          aria-label='close-banner'
-                          onClick={() => setShowBanner(false)}>
-                          <CloseIcon />
-                        </IconButton>
-                      </Box>
-                    </Grid>
-                  </Grid>
-                </Box>
-              )}
+              {pageData.infoBanners.map((infoBanner) => {
+                if (infoBanner.visible) {
+                  return (
+                    <Box
+                      key={infoBanner.title}
+                      p={2}
+                      className={classes.themeBorder}>
+                      <Grid item container xs={12}>
+                        <Grid
+                          item
+                          xs={12}
+                          sm={8}
+                          className={classes.bannerTextOrder}>
+                          <ContentfulRichText json={infoBanner.content.json} />
+                        </Grid>
+                        <Grid
+                          item
+                          xs={12}
+                          sm={4}
+                          className={classes.bannerImageOrder}>
+                          {infoBanner.media.map((img) => (
+                            <div
+                              className={classes.bannerImageContainer}
+                              key={img.id}>
+                              <Avatar
+                                className={classes.avatar}
+                                key={img.id}
+                                src={img.fixed.src}
+                              />
+                            </div>
+                          ))}
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  );
+                }
+              })}
             </Grid>
             <Box mb={5} mt={2}>
               <Typography align='center' variant='h1' component='h1'>
