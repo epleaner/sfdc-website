@@ -108,6 +108,7 @@ const Home = () => {
                     <Box
                       key={infoBanner.title}
                       p={2}
+                      marginBottom={4}
                       className={classes.themeBorder}>
                       <Grid item container xs={12}>
                         <Grid
