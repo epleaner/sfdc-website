@@ -74,7 +74,7 @@ const Home = () => {
 
   const data = useStaticQuery(graphql`
     {
-      lotusImage: file(relativePath: { eq: "images/lotus-anniversary.png" }) {
+      lotusImage: file(relativePath: { eq: "images/onelotus.png" }) {
         childImageSharp {
           fluid(
             maxWidth: 500

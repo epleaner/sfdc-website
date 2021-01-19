@@ -35,7 +35,7 @@ module.exports = {
     description:
       'San Francisco Dharma Collective is a student-run independent meditation center. Come sit with us!',
     siteUrl: 'https://sfdharmacollective.org',
-    image: '/src/assets/images/lotus-anniversary.png',
+    image: '/src/assets/images/onelotus.png',
     basePath: '/',
   },
   plugins: [

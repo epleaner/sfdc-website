@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../../components/Layout';
-import LotusImagePath from '../../assets/images/lotus-anniversary.png';
+import LotusImagePath from '../../assets/images/onelotus.png';
 import SEO from '../../components/SEO';
 import ContentfulRichText from '../../components/ContentfulRichText';
 
