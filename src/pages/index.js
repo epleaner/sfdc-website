@@ -123,17 +123,18 @@ const Home = () => {
                           xs={12}
                           sm={4}
                           className={classes.bannerImageOrder}>
-                          {infoBanner.media.map((img) => (
-                            <div
-                              className={classes.bannerImageContainer}
-                              key={img.id}>
-                              <Avatar
-                                className={classes.avatar}
-                                key={img.id}
-                                src={img.fixed.src}
-                              />
-                            </div>
-                          ))}
+                          {infoBanner.media &&
+                            infoBanner.media.map((img) => (
+                              <div
+                                className={classes.bannerImageContainer}
+                                key={img.id}>
+                                <Avatar
+                                  className={classes.avatar}
+                                  key={img.id}
+                                  src={img.fixed.src}
+                                />
+                              </div>
+                            ))}
                         </Grid>
                       </Grid>
                     </Box>
