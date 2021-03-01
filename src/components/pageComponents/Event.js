@@ -5,7 +5,11 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import { parseQueriedEvent, parseEvent } from '../../utils/eventParser';
+import {
+  parseQueriedEvent,
+  parseEvent,
+  toTitleCase,
+} from '../../utils/eventParser';
 
 import Layout from '../Layout';
 import SEO from '../SEO';
@@ -63,11 +67,12 @@ export default () => {
         .finally(() => setIsLoadingRecurringEvent(false));
   }, [eventData]);
 
-  const displayName = isLoading
-    ? 'Loading event...'
-    : isError || !eventData
-    ? 'Event not found'
-    : eventData.summary;
+  const displayName = recurringEventName
+    ? toTitleCase(recurringEventName.replaceAll('-', ' '))
+    : `${toTitleCase(eventName.replaceAll('-', ' '))} – ${eventDate.replaceAll(
+        '-',
+        '/'
+      )}`;
 
   return (
     <Layout>

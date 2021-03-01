@@ -156,6 +156,13 @@ const formattedSummary = (summary) =>
 const urlFormattedSummary = (summary) =>
   encodeURI(formattedSummary(summary).replace(/\s/g, '-'));
 
+const toTitleCase = (text) =>
+  text
+    .toLowerCase()
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ');
+
 const humanReadableRecurranceRules = (recurranceRules) => {
   if (!recurranceRules.freq) return '';
 
@@ -226,4 +233,5 @@ export {
   humanReadableDateTime,
   humanReadableTime,
   urlFormattedSummary,
+  toTitleCase,
 };
