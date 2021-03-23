@@ -1,9 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 import defaultImagePath from '../assets/images/onelotus.png';
 
 const SEO = ({ title, description, image }) => {
+  const { pathname } = useLocation();
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -42,14 +44,14 @@ const SEO = ({ title, description, image }) => {
       <meta name='robots' content='index, follow' />
 
       {/* OpenGraph tags */}
-      <meta property='og:url' content={site.siteMetadata.siteUrl} />
+      <meta property='og:url' content={site.siteMetadata.siteUrl + pathname} />
       <meta property='og:title' content={metaTitle} />
       <meta property='og:description' content={metaDescription} />
       <meta property='og:image' content={metaImage} />
 
       {/* Twitter Card tags */}
       <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:url' content={site.siteMetadata.siteUrl} />
+      <meta name='twitter:url' content={site.siteMetadata.siteUrl + pathname} />
       <meta name='twitter:title' content={metaTitle} />
       <meta name='twitter:image' content={metaImage} />
       <meta name='twitter:description' content={metaDescription} />

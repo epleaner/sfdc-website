@@ -78,7 +78,7 @@ export default () => {
     <Layout>
       <SEO
         title={displayName}
-        description={`San Francisco Dharma Collective Event Page: ${displayName}`}
+        description={`San Francisco Dharma Collective Event: ${displayName}`}
       />
       <Grid container>
         <Grid item xs={12}>
