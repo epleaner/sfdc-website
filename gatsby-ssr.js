@@ -1,3 +1,6 @@
+const React = require('react');
+const { Helmet } = require('react-helmet');
+
 export const onRenderBody = ({
   setHeadComponents,
   setHtmlAttributes,
