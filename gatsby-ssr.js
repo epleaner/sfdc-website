@@ -35,12 +35,9 @@ export const onPreRenderHTML = ({
     'style',
   ];
   console.log(headComponents, headComponents.slice(0));
-  const sortedHeadComponents = headComponents
-    .slice(0)
-    .flat()
-    .sort((x, y) => {
-      return order.indexOf(x.type) - order.indexOf(y.type);
-    });
+  const sortedHeadComponents = headComponents.slice(0).sort((x, y) => {
+    return order.indexOf(x.type) - order.indexOf(y.type);
+  });
 
   replaceHeadComponents(sortedHeadComponents);
 };
