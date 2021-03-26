@@ -50,11 +50,14 @@ const SEO = ({ title, description, image }) => {
       <meta property='og:image' content={metaImage} />
 
       {/* Twitter Card tags */}
-      <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:url' content={site.siteMetadata.siteUrl + pathname} />
-      <meta name='twitter:title' content={metaTitle} />
-      <meta name='twitter:image' content={metaImage} />
-      <meta name='twitter:description' content={metaDescription} />
+      <meta property='twitter:card' content='summary_large_image' />
+      <meta
+        property='twitter:url'
+        content={site.siteMetadata.siteUrl + pathname}
+      />
+      <meta property='twitter:title' content={metaTitle} />
+      <meta property='twitter:image' content={metaImage} />
+      <meta property='twitter:description' content={metaDescription} />
     </Helmet>
   );
 };
