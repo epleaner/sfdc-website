@@ -34,7 +34,7 @@ export const onPreRenderHTML = ({
     'script',
     'style',
   ];
-
+  console.log(headComponents, headComponents.slice(0));
   const sortedHeadComponents = headComponents
     .slice(0)
     .flat()
