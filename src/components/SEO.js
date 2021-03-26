@@ -44,10 +44,10 @@ const SEO = ({ title, description, image }) => {
       <meta name='robots' content='index, follow' />
 
       {/* OpenGraph tags */}
-      <meta property='og:url' content={site.siteMetadata.siteUrl + pathname} />
-      <meta property='og:title' content={metaTitle} />
-      <meta property='og:description' content={metaDescription} />
-      <meta property='og:image' content={metaImage} />
+      <meta name='og:url' content={site.siteMetadata.siteUrl + pathname} />
+      <meta name='og:title' content={metaTitle} />
+      <meta name='og:description' content={metaDescription} />
+      <meta name='og:image' content={metaImage} />
 
       {/* Twitter Card tags */}
       <meta property='twitter:card' content='summary_large_image' />
