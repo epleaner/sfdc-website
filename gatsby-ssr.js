@@ -34,10 +34,10 @@ export const onPreRenderHTML = ({
     'script',
     'style',
   ];
-  console.log(headComponents, headComponents.slice(0));
-  const sortedHeadComponents = headComponents.slice(0).sort((x, y) => {
+
+  headComponents.sort((x, y) => {
     return order.indexOf(x.type) - order.indexOf(y.type);
   });
 
-  replaceHeadComponents(sortedHeadComponents);
+  replaceHeadComponents(headComponents);
 };
