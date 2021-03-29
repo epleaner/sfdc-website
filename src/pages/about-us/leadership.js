@@ -44,61 +44,62 @@ const Leadership = () => {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <>
       <SEO
         title='Leadership'
         description='The San Francisco Dharma Collective is a sangha-led dharma community. Meet our leadership.'
       />
-      <Grid container>
-        <Grid item container>
-          <Grid item xs={12}>
-            <Box mb={3}>
-              <Typography align='center' variant='h2' component='h1'>
-                {pageData.title}
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box mb={10}>
-              <Typography align='center' variant='h5' component='h2'>
-                {pageData.subTitle}
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid container item>
+      <Layout>
+        <Grid container>
+          <Grid item container>
             <Grid item xs={12}>
-              <Box mb={2}>
-                <Typography variant='body1' component='section'>
-                  <ContentfulRichText json={blurbSection.content.json} />
+              <Box mb={3}>
+                <Typography align='center' variant='h2' component='h1'>
+                  {pageData.title}
                 </Typography>
               </Box>
             </Grid>
-          </Grid>
-          {boardMembersSection && (
-            <Grid item container xs={12}>
+            <Grid item xs={12}>
+              <Box mb={10}>
+                <Typography align='center' variant='h5' component='h2'>
+                  {pageData.subTitle}
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid container item>
               <Grid item xs={12}>
-                <Box mt={10} mb={4}>
-                  <Typography align='center' variant='h3' component='h3'>
-                    {boardMembersSection.title}
+                <Box mb={2}>
+                  <Typography variant='body1' component='section'>
+                    <ContentfulRichText json={blurbSection.content.json} />
                   </Typography>
                 </Box>
               </Grid>
-              {boardMembersLists.map((ulRichText) => (
-                <Grid item container justify='center' xs={12} sm={4}>
-                  <Typography
-                    className={classes.list}
-                    align='center'
-                    variant='body1'
-                  >
-                    <ContentfulRichText json={ulRichText} />
-                  </Typography>
-                </Grid>
-              ))}
             </Grid>
-          )}
+            {boardMembersSection && (
+              <Grid item container xs={12}>
+                <Grid item xs={12}>
+                  <Box mt={10} mb={4}>
+                    <Typography align='center' variant='h3' component='h3'>
+                      {boardMembersSection.title}
+                    </Typography>
+                  </Box>
+                </Grid>
+                {boardMembersLists.map((ulRichText) => (
+                  <Grid item container justify='center' xs={12} sm={4}>
+                    <Typography
+                      className={classes.list}
+                      align='center'
+                      variant='body1'>
+                      <ContentfulRichText json={ulRichText} />
+                    </Typography>
+                  </Grid>
+                ))}
+              </Grid>
+            )}
+          </Grid>
         </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

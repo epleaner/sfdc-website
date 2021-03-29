@@ -9,31 +9,33 @@ import MailChimpNewsletter from '../components/MailChimpNewsletter';
 
 const Newsletter = () => {
   return (
-    <Layout>
+    <>
       <SEO
-        title="Newsletter"
-        description="San Francisco Dharma Collective Newsletter Page"
+        title='Newsletter'
+        description='San Francisco Dharma Collective Newsletter Page'
       />
-      <Grid container justify="center">
-        <Grid item xs={12}>
-          <Box mb={6}>
-            <Typography align="center" variant="h2" component="h1">
-              Keep up to date with sangha news and offerings
-            </Typography>
-          </Box>
+      <Layout>
+        <Grid container justify='center'>
+          <Grid item xs={12}>
+            <Box mb={6}>
+              <Typography align='center' variant='h2' component='h1'>
+                Keep up to date with sangha news and offerings
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box mb={3}>
+              <MailChimpNewsletter />
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box mb={3}>
+              <MailChimpSignup />
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Box mb={3}>
-            <MailChimpNewsletter />
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Box mb={3}>
-            <MailChimpSignup />
-          </Box>
-        </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

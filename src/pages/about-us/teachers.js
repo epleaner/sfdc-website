@@ -42,31 +42,37 @@ const Teachers = () => {
   });
 
   return (
-    <Layout>
+    <>
       <SEO
         title='Teachers'
         description='San Francisco Dharma Collective Teachers Page'
       />
-      <Grid container>
-        <Grid item xs={12}>
-          <Box mb={3}>
-            <Typography gutterBottom align='center' variant='h2' component='h1'>
-              Our Teachers
-            </Typography>
-          </Box>
+      <Layout>
+        <Grid container>
+          <Grid item xs={12}>
+            <Box mb={3}>
+              <Typography
+                gutterBottom
+                align='center'
+                variant='h2'
+                component='h1'>
+                Our Teachers
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} container justify='center'>
+            {teacherDataWithHeadshots.map(({ headshot, title, website }) => (
+              <Teacher
+                key={title}
+                name={title}
+                website={website}
+                headshot={headshot}
+              />
+            ))}
+          </Grid>
         </Grid>
-        <Grid item xs={12} container justify='center'>
-          {teacherDataWithHeadshots.map(({ headshot, title, website }) => (
-            <Teacher
-              key={title}
-              name={title}
-              website={website}
-              headshot={headshot}
-            />
-          ))}
-        </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

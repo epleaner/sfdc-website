@@ -59,48 +59,50 @@ const ResourceListItem = ({ title, subTitle, urlSlug, divider = true }) => {
 
 const Resources = ({ pageContext: { resourcePages } }) => {
   return (
-    <Layout>
+    <>
       <SEO
         title='Collective Dharma'
         description={`San Francisco Dharma Collective\'s Collective Dharma Page`}
       />
-      <Grid container>
-        <Grid item xs={12}>
-          <Box mb={8}>
-            <Typography align='center' variant='h3' component='h1'>
-              In addition to our regular programming, we offer the following
-              resources to our community:
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12} container>
-          {resourcePages.edges.map(({ node }) => {
-            return (
-              <ResourceListItem
-                title={node.title}
-                subTitle={node.page.subTitle}
-              />
-            );
-          })}
-          <ResourceListItem
-            title='Local Sits & Centers'
-            subTitle='Other local places to study the Dharma.'
-            urlSlug='local-centers'
-          />
-          <ResourceListItem
-            title='Podcasts'
-            subTitle='Our favorite sources for online Dharma, including offerings from
+      <Layout>
+        <Grid container>
+          <Grid item xs={12}>
+            <Box mb={8}>
+              <Typography align='center' variant='h3' component='h1'>
+                In addition to our regular programming, we offer the following
+                resources to our community:
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} container>
+            {resourcePages.edges.map(({ node }) => {
+              return (
+                <ResourceListItem
+                  title={node.title}
+                  subTitle={node.page.subTitle}
+                />
+              );
+            })}
+            <ResourceListItem
+              title='Local Sits & Centers'
+              subTitle='Other local places to study the Dharma.'
+              urlSlug='local-centers'
+            />
+            <ResourceListItem
+              title='Podcasts'
+              subTitle='Our favorite sources for online Dharma, including offerings from
             our teachers.'
-          />
-          <ResourceListItem
-            title='Other Offerings @ SFDC'
-            subTitle='From Yoga to Ecstatic Dance to Consciousness Hacking'
-            urlSlug='other-offerings'
-            divider={false}
-          />
+            />
+            <ResourceListItem
+              title='Other Offerings @ SFDC'
+              subTitle='From Yoga to Ecstatic Dance to Consciousness Hacking'
+              urlSlug='other-offerings'
+              divider={false}
+            />
+          </Grid>
         </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

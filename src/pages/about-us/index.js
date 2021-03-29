@@ -32,48 +32,55 @@ const AboutUs = () => {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <>
       <SEO
         title={pageData.title}
         description='About the San Francisco Dharma Center.'
       />
-      <Grid container>
-        <Grid item container xs={12}>
-          <Grid item container alignContent='center' xs={12} md={8}>
-            <Grid item xs={12}>
-              <Typography variant='h2' component='h1'>
-                {pageData.title}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item container justify='center' xs={12} md={4}>
-            <Grid item>
-              <img
-                className={classes.lotusImage}
-                src={LotusImagePath}
-                alt='Lotus'
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-        {pageData.contentSections.map(({ title, content }) => (
-          <Grid key={title} item xs={12} container className={classes.section}>
-            <Grid item xs={12}>
-              <Box my={3}>
-                <Typography variant='h3' component='h2'>
-                  {title}
+      <Layout>
+        <Grid container>
+          <Grid item container xs={12}>
+            <Grid item container alignContent='center' xs={12} md={8}>
+              <Grid item xs={12}>
+                <Typography variant='h2' component='h1'>
+                  {pageData.title}
                 </Typography>
-              </Box>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Typography variant='body1' component='span'>
-                <ContentfulRichText json={content.json} />
-              </Typography>
+            <Grid item container justify='center' xs={12} md={4}>
+              <Grid item>
+                <img
+                  className={classes.lotusImage}
+                  src={LotusImagePath}
+                  alt='Lotus'
+                />
+              </Grid>
             </Grid>
           </Grid>
-        ))}
-      </Grid>
-    </Layout>
+          {pageData.contentSections.map(({ title, content }) => (
+            <Grid
+              key={title}
+              item
+              xs={12}
+              container
+              className={classes.section}>
+              <Grid item xs={12}>
+                <Box my={3}>
+                  <Typography variant='h3' component='h2'>
+                    {title}
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant='body1' component='span'>
+                  <ContentfulRichText json={content.json} />
+                </Typography>
+              </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      </Layout>
+    </>
   );
 };
 

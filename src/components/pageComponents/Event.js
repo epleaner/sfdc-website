@@ -75,35 +75,37 @@ export default () => {
       )}`;
 
   return (
-    <Layout>
+    <>
       <SEO
         title={displayName}
         description={`San Francisco Dharma Collective Event: ${displayName}`}
       />
-      <Grid container>
-        <Grid item xs={12}>
-          {isLoading ? (
-            <Typography align='center' variant='h2'>
-              Loading event...
-            </Typography>
-          ) : isError || !eventData ? (
-            <Typography align='center' variant='h2'>
-              Sorry, we couldn't find that event.
-            </Typography>
-          ) : (
-            <>
-              <EventHeaderText
-                big
-                {...eventData}
-                recurringEventData={recurringEventData}
-              />
-              <Box mt={3}>
-                <EventBody {...eventData} />
-              </Box>
-            </>
-          )}
+      <Layout>
+        <Grid container>
+          <Grid item xs={12}>
+            {isLoading ? (
+              <Typography align='center' variant='h2'>
+                Loading event...
+              </Typography>
+            ) : isError || !eventData ? (
+              <Typography align='center' variant='h2'>
+                Sorry, we couldn't find that event.
+              </Typography>
+            ) : (
+              <>
+                <EventHeaderText
+                  big
+                  {...eventData}
+                  recurringEventData={recurringEventData}
+                />
+                <Box mt={3}>
+                  <EventBody {...eventData} />
+                </Box>
+              </>
+            )}
+          </Grid>
         </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };

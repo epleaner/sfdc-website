@@ -42,78 +42,80 @@ export default ({ pageContext: { pageData } }) => {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <>
       <SEO title={pageData.title} description={pageData.subTitle} />
-      <Grid container>
-        <Grid item container xs={12}>
-          <Grid item container alignContent='center' xs={12}>
-            <Grid item xs={12}>
-              <Typography variant='h2' component='h1'>
-                {pageData.title}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item container alignContent='center' xs={12}>
-            <Grid item xs={12}>
-              <Box mt={2} mb={4}>
-                <Typography variant='h4' component='h2'>
-                  {pageData.subTitle}
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </Grid>
-        {pageData.contentSections.map((contentSection) => {
-          return (
-            <Grid
-              key={contentSection.title}
-              item
-              xs={12}
-              container
-              component='article'>
+      <Layout>
+        <Grid container>
+          <Grid item container xs={12}>
+            <Grid item container alignContent='center' xs={12}>
               <Grid item xs={12}>
-                <Box my={2}>
-                  <Typography variant='h3' component='h2'>
-                    {contentSection.title}
+                <Typography variant='h2' component='h1'>
+                  {pageData.title}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid item container alignContent='center' xs={12}>
+              <Grid item xs={12}>
+                <Box mt={2} mb={4}>
+                  <Typography variant='h4' component='h2'>
+                    {pageData.subTitle}
                   </Typography>
                 </Box>
               </Grid>
-              {contentSection.media && (
-                <Grid
-                  item
-                  container
-                  xs={12}
-                  md={4}
-                  className={classes.offeringImage}>
-                  {contentSection.media.map((media) => (
-                    <Grid
-                      item
-                      container
-                      justify='center'
-                      xs={12}
-                      key={media.id}>
-                      <Avatar
-                        className={classes.image}
-                        src={media.file.url}
-                        alt={media.description}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              )}
+            </Grid>
+          </Grid>
+          {pageData.contentSections.map((contentSection) => {
+            return (
               <Grid
+                key={contentSection.title}
                 item
                 xs={12}
-                md={contentSection.media ? 8 : 12}
-                className={classes.offeringBody}>
-                <Typography variant='body1' component='span'>
-                  <ContentfulRichText json={contentSection.content.json} />
-                </Typography>
+                container
+                component='article'>
+                <Grid item xs={12}>
+                  <Box my={2}>
+                    <Typography variant='h3' component='h2'>
+                      {contentSection.title}
+                    </Typography>
+                  </Box>
+                </Grid>
+                {contentSection.media && (
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    md={4}
+                    className={classes.offeringImage}>
+                    {contentSection.media.map((media) => (
+                      <Grid
+                        item
+                        container
+                        justify='center'
+                        xs={12}
+                        key={media.id}>
+                        <Avatar
+                          className={classes.image}
+                          src={media.file.url}
+                          alt={media.description}
+                        />
+                      </Grid>
+                    ))}
+                  </Grid>
+                )}
+                <Grid
+                  item
+                  xs={12}
+                  md={contentSection.media ? 8 : 12}
+                  className={classes.offeringBody}>
+                  <Typography variant='body1' component='span'>
+                    <ContentfulRichText json={contentSection.content.json} />
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Layout>
+            );
+          })}
+        </Grid>
+      </Layout>
+    </>
   );
 };

@@ -21,47 +21,49 @@ const Donate = () => {
   `);
 
   return (
-    <Layout>
+    <>
       <SEO
         title={pageData.title}
         description='Donate to the San Francisco Dharma Collective.'
       />
-      <Grid container>
-        <Grid item xs={12}>
-          <Box mb={3}>
-            <Typography align='center' variant='h2' component='h1'>
-              {pageData.title}
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Box mb={10}>
-            <Typography align='center' variant='h5' component='h2'>
-              <i>{pageData.subTitle}</i>
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid container item>
-          <Grid item xs={12} container justify='center'>
-            <Box mb={4}>
-              <DonateButton />
-            </Box>
-          </Grid>
-          <Grid item xs={12} container justify='center'>
-            <Box mb={6}>
-              <Venmo />
-            </Box>
-          </Grid>
-          {pageData.contentSections.map(({ title, content }) => (
-            <Grid key={title} item xs={12}>
-              <Typography align='center' variant='body1' component='span'>
-                <ContentfulRichText json={content.json} />
+      <Layout>
+        <Grid container>
+          <Grid item xs={12}>
+            <Box mb={3}>
+              <Typography align='center' variant='h2' component='h1'>
+                {pageData.title}
               </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={10}>
+              <Typography align='center' variant='h5' component='h2'>
+                <i>{pageData.subTitle}</i>
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid container item>
+            <Grid item xs={12} container justify='center'>
+              <Box mb={4}>
+                <DonateButton />
+              </Box>
             </Grid>
-          ))}
+            <Grid item xs={12} container justify='center'>
+              <Box mb={6}>
+                <Venmo />
+              </Box>
+            </Grid>
+            {pageData.contentSections.map(({ title, content }) => (
+              <Grid key={title} item xs={12}>
+                <Typography align='center' variant='body1' component='span'>
+                  <ContentfulRichText json={content.json} />
+                </Typography>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

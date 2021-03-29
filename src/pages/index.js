@@ -93,99 +93,103 @@ const Home = () => {
   const { lotusImage, pageData } = data;
 
   return (
-    <Layout>
+    <>
       <SEO
         title='Home'
         description='The homepage of the San Francisco Dharma Collective.'
       />
-      <Grid container justify='center'>
-        <Grid item container xs={12}>
-          <Grid item xs={12}>
+      <Layout>
+        <Grid container justify='center'>
+          <Grid item container xs={12}>
             <Grid item xs={12}>
-              {pageData.infoBanners.map((infoBanner) => {
-                if (infoBanner.visible) {
-                  return (
-                    <Box
-                      key={infoBanner.title}
-                      p={2}
-                      marginBottom={4}
-                      className={classes.themeBorder}>
-                      <Grid item container xs={12}>
-                        <Grid
-                          item
-                          xs={12}
-                          sm={8}
-                          className={classes.bannerTextOrder}>
-                          <ContentfulRichText json={infoBanner.content.json} />
+              <Grid item xs={12}>
+                {pageData.infoBanners.map((infoBanner) => {
+                  if (infoBanner.visible) {
+                    return (
+                      <Box
+                        key={infoBanner.title}
+                        p={2}
+                        marginBottom={4}
+                        className={classes.themeBorder}>
+                        <Grid item container xs={12}>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={8}
+                            className={classes.bannerTextOrder}>
+                            <ContentfulRichText
+                              json={infoBanner.content.json}
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={4}
+                            className={classes.bannerImageOrder}>
+                            {infoBanner.media &&
+                              infoBanner.media.map((img) => (
+                                <div
+                                  className={classes.bannerImageContainer}
+                                  key={img.id}>
+                                  <Avatar
+                                    className={classes.avatar}
+                                    key={img.id}
+                                    src={img.fixed.src}
+                                  />
+                                </div>
+                              ))}
+                          </Grid>
                         </Grid>
-                        <Grid
-                          item
-                          xs={12}
-                          sm={4}
-                          className={classes.bannerImageOrder}>
-                          {infoBanner.media &&
-                            infoBanner.media.map((img) => (
-                              <div
-                                className={classes.bannerImageContainer}
-                                key={img.id}>
-                                <Avatar
-                                  className={classes.avatar}
-                                  key={img.id}
-                                  src={img.fixed.src}
-                                />
-                              </div>
-                            ))}
-                        </Grid>
-                      </Grid>
-                    </Box>
-                  );
-                }
-              })}
+                      </Box>
+                    );
+                  }
+                })}
+              </Grid>
+              <Box mb={5} mt={2}>
+                <Typography align='center' variant='h1' component='h1'>
+                  {pageData.title}
+                </Typography>
+              </Box>
             </Grid>
-            <Box mb={5} mt={2}>
-              <Typography align='center' variant='h1' component='h1'>
-                {pageData.title}
+            <Grid item xs={12}>
+              <Typography align='center' variant='h2' component='h2'>
+                {pageData.subTitle}
               </Typography>
+            </Grid>
+            <Grid item container justify='center' xs={12}>
+              <Grid item xs={12}>
+                <Box my={6}>
+                  <Img
+                    className={classes.lotusImage}
+                    fluid={lotusImage.childImageSharp.fluid}
+                    alt='Lotus'
+                  />
+                </Box>
+              </Grid>
+            </Grid>
+            <Grid item container justify='center' xs={12}>
+              <Button color='primary' size='large' variant='outlined'>
+                <GatsbyLink to='/upcoming-events' className={classes.link}>
+                  See upcoming events
+                </GatsbyLink>
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid item container xs={12}>
+            <Box my={10}>
+              <CoronavirusUpdate />
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Typography align='center' variant='h2' component='h2'>
-              {pageData.subTitle}
-            </Typography>
-          </Grid>
-          <Grid item container justify='center' xs={12}>
-            <Grid item xs={12}>
-              <Box my={6}>
-                <Img
-                  className={classes.lotusImage}
-                  fluid={lotusImage.childImageSharp.fluid}
-                  alt='Lotus'
-                />
-              </Box>
-            </Grid>
-          </Grid>
-          <Grid item container justify='center' xs={12}>
-            <Button color='primary' size='large' variant='outlined'>
-              <GatsbyLink to='/upcoming-events' className={classes.link}>
-                See upcoming events
-              </GatsbyLink>
-            </Button>
+            <Box mb={5}>
+              <Typography align='center' variant='h3'>
+                May all beings be well and free of suffering
+              </Typography>
+            </Box>
           </Grid>
         </Grid>
-        <Grid item container xs={12}>
-          <Box my={10}>
-            <CoronavirusUpdate />
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Box mb={5}>
-            <Typography align='center' variant='h3'>
-              May all beings be well and free of suffering
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 
