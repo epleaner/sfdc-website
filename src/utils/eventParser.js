@@ -219,6 +219,11 @@ const humanReadableRecurranceRules = (recurranceRules) => {
   return messageParts.join(' ');
 };
 
+const getTimeZone = (e) => {
+  const dtf = Intl.DateTimeFormat(undefined, { timeZoneName: 'short' });
+  return dtf.formatToParts(e).find((part) => part.type == 'timeZoneName').value;
+};
+
 const humanReadableDateTime = (start, end) => {
   `${start.local().format('dddd, MMMM Do, h:mma')} - ${end
     .local()
@@ -229,11 +234,6 @@ const humanReadableTime = (start, end) =>
   `${start.local().format('h:mma')} - ${end
     .local()
     .format('h:mma')} ${getTimeZone(end.local())}`;
-
-const getTimeZone = (e) => {
-  const dtf = Intl.DateTimeFormat(undefined, { timeZoneName: 'short' });
-  return dtf.formatToParts(e).find((part) => part.type == 'timeZoneName').value;
-};
 
 export {
   parseEvent,
