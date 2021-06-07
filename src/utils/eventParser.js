@@ -225,14 +225,6 @@ const getTimeZone = (e) => {
 };
 
 const humanReadableDateTime = (start, end) => {
-  console.log(
-    start,
-    start.local().format('dddd, MMMM Do, h:mma'),
-    end,
-    end.local().format('h:mma'),
-    getTimeZone(end.local())
-  );
-
   return `${start
     .local()
     .format('dddd, MMMM Do, h:mma')} - ${end
