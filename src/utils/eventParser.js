@@ -224,11 +224,10 @@ const getTimeZone = (e) => {
   return dtf.formatToParts(e).find((part) => part.type == 'timeZoneName').value;
 };
 
-const humanReadableDateTime = (start, end) => {
+const humanReadableDateTime = (start, end) =>
   `${start.local().format('dddd, MMMM Do, h:mma')} - ${end
     .local()
     .format('h:mma')} ${getTimeZone(end.local())}`;
-};
 
 const humanReadableTime = (start, end) =>
   `${start.local().format('h:mma')} - ${end

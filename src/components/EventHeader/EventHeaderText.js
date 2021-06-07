@@ -40,13 +40,6 @@ export default ({
 }) => {
   const classes = useStyles();
 
-  console.log(
-    start,
-    end,
-    humanReadableTime(start, end),
-    humanReadableDateTime(start, end)
-  );
-
   return (
     <Grid item container xs={big ? 12 : 10}>
       <Grid item xs={12}>
