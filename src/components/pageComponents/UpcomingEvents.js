@@ -75,7 +75,11 @@ const UpcomingEvents = () => {
             </Grid>
             <Grid item xs={12}>
               <Box mt={6}>
-                <Box mb={6}>
+                <Typography variant={'h6'} align='center' component='h2'>
+                  Event times have been automatically converted to local
+                  timezone
+                </Typography>
+                <Box my={6}>
                   <Divider />
                 </Box>
                 <Typography gutterBottom variant='body1' align='center'>

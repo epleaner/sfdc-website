@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
@@ -7,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
+
+import { humanReadableTime } from '../utils/eventParser';
 
 const useStyles = makeStyles((theme) => ({
   centerAligned: { alignSelf: 'center' },
@@ -29,6 +32,9 @@ export default () => {
     }
   `);
 
+  const localStartTime = moment('7:30 AM -07:00', 'LT ZZ').local();
+  const localEndTime = moment('8:15 AM -07:00', 'LT ZZ').local();
+
   const classes = useStyles();
   return (
     <>
@@ -50,7 +56,7 @@ export default () => {
         <Grid item xs={12} container alignContent='center' justify='center'>
           <Box>
             <Typography variant='h6' align='center' component='h3'>
-              7:30 - 8:15am PST
+              {humanReadableTime(localStartTime, localEndTime)}
             </Typography>
           </Box>
         </Grid>
