@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
   },
   divider: {
-    backgroundColor: 'rgba(254,172,102,1)',
+    backgroundColor: 'rgba(62,149,153,1)',
   },
 }));
 

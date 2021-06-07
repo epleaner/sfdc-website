@@ -157,8 +157,17 @@ const Home = () => {
               </Typography>
             </Grid>
             <Grid item container justify='center' xs={12}>
+              <Box my={8}>
+                <Button color='primary' size='large' variant='outlined'>
+                  <GatsbyLink to='/upcoming-events' className={classes.link}>
+                    See upcoming events
+                  </GatsbyLink>
+                </Button>
+              </Box>
+            </Grid>
+            <Grid item container justify='center' xs={12}>
               <Grid item xs={12}>
-                <Box my={6}>
+                <Box>
                   <Img
                     className={classes.lotusImage}
                     fluid={lotusImage.childImageSharp.fluid}
@@ -166,13 +175,6 @@ const Home = () => {
                   />
                 </Box>
               </Grid>
-            </Grid>
-            <Grid item container justify='center' xs={12}>
-              <Button color='primary' size='large' variant='outlined'>
-                <GatsbyLink to='/upcoming-events' className={classes.link}>
-                  See upcoming events
-                </GatsbyLink>
-              </Button>
             </Grid>
           </Grid>
           <Grid item container xs={12}>
