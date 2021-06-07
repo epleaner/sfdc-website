@@ -4,13 +4,26 @@
 
 [sfdharmacollective.org](sfdharmacollective.org)
 
-`yarn` will install dependencies.
+### Environment requirements:
+
+- `yarn` will install package dependencies
+- Contentful API integration:
+  - `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` are required in PATH
+    - These can be found within Contentful > Settings > API Keys > Content delivery / preview tokens > "SFDC Website"
+- Google Calendar integration:
+  - `GATSBY_GCAL_CLIENT_EMAIL` and `GATSBY_GCAL_PRIVATE_KEY` are required in PATH
+    - These can be found within Google Cloud Platform > SFDC Project > IAM & Admin > Service Accounts
+- Mailchip integration:
+  - `GATSBY_MAILCHIMP_SUBSCRIBE_ENDPOINT` is required in PATH
+    - The easiest way to find this is within Netlify's [Environment Variables configuration](https://app.netlify.com/sites/sfdharmacollective/settings/deploys#environment)
+
+### Development:
 
 `yarn start` will run both the frontend and a server proxy for Netlify lambda functions (required for events).
 
-Netlify builds automatically on remote pushes to dev and master branches.
+### Deployment:
+
+[Netlify](https://app.netlify.com/sites/sfdharmacollective/overview) builds automatically on remote pushes to dev and master branches.
 
 To build locally:
 `yarn build` will build both the frontend and Netlify lambda functions.
-
-Made with 💙
