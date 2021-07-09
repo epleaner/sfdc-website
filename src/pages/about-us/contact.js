@@ -1,3 +1,5 @@
+import { graphql, useStaticQuery } from 'gatsby';
+
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Layout from '../../components/Layout';
@@ -15,18 +17,27 @@ const useStyles = makeStyles({
   },
 });
 
-const contactData = [
-  { name: 'Programming', email: 'programming.sfdharmacollective@gmail.com' },
-  { name: 'Volunteers', email: 'sfdcvolunteers@gmail.com' },
-  { name: 'Marketing', email: 'sfdharmacollective@gmail.com' },
-  { name: 'Finance', email: 'finance.sfdharmacollective@gmail.com ' },
-  { name: 'Buildings', email: 'sfdharmacollective@gmail.com' },
-  { name: 'Teacher', email: 'sfdharmacollective@gmail.com' },
-  { name: 'Arts', email: 'art.sfdharmacollective@gmail.com' },
-];
-
 const Contact = () => {
   const classes = useStyles();
+
+  const data = useStaticQuery(graphql`
+    {
+      contactJson: allContentfulContactInformation {
+        nodes {
+          data {
+            email
+            name
+          }
+        }
+      }
+    }
+  `);
+
+  const {
+    contactJson: { nodes },
+  } = data;
+
+  const contactData = nodes[0].data;
 
   return (
     <>
