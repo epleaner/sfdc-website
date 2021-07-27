@@ -103,7 +103,7 @@ const Home = () => {
           <Grid item container xs={12}>
             <Grid item xs={12}>
               <Grid item xs={12}>
-                {pageData.infoBanners.map((infoBanner) => {
+                {pageData.infoBanners?.map((infoBanner) => {
                   if (infoBanner.visible) {
                     return (
                       <Box
