@@ -32,8 +32,8 @@ export default () => {
     }
   `);
 
-  const localStartTime = moment('7:30 AM -07:00', 'LT ZZ').local();
-  const localEndTime = moment('8:15 AM -07:00', 'LT ZZ').local();
+  const localStartTime = moment('7:30 AM', 'LT ZZ').local();
+  const localEndTime = moment('8:15 AM', 'LT ZZ').local();
 
   const classes = useStyles();
   return (
