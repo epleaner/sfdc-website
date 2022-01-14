@@ -18,13 +18,15 @@ import CoronavirusUpdate from '../components/CoronavirusUpdate';
 import Banner from '../components/Banner';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import Hero from '../components/Hero';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {
-    maxWidth: '500px',
+    maxWidth: '250px',
     width: '100%',
     height: '100%',
     margin: '0 auto',
+    color: 'black',
   },
   avatar: {
     width: 150,
@@ -70,17 +72,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
-  const [showBanner, setShowBanner] = useState(true);
   const classes = useStyles();
 
   const data = useStaticQuery(graphql`
     {
       lotusImage: file(relativePath: { eq: "images/onelotus.png" }) {
         childImageSharp {
-          fluid(
-            maxWidth: 500
-            traceSVG: { background: "#fafafa", color: "rgba(199,241,243,1)" }
-          ) {
+          fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
@@ -102,57 +100,27 @@ const Home = () => {
       <Layout>
         <Grid container justify='center'>
           <Grid item container xs={12}>
+            <Hero {...{ pageData, classes, lotusImage }} />
             <Grid item xs={12}>
-              <Grid item xs={12}>
-                {pageData.infoBanners?.map((infoBanner) => {
-                  if (infoBanner.visible) {
-                    return <Banner {...infoBanner} classes={classes} />;
-                  }
-                })}
-              </Grid>
-              <Box mb={5} mt={2}>
-                <Typography align='center' variant='h1' component='h1'>
-                  {pageData.title}
+              {pageData.infoBanners?.map((infoBanner) => {
+                if (infoBanner.visible) {
+                  return <Banner {...infoBanner} classes={classes} />;
+                }
+              })}
+            </Grid>
+
+            <Grid item container xs={12}>
+              <Box my={10}>
+                <CoronavirusUpdate />
+              </Box>
+            </Grid>
+            <Grid item xs={12}>
+              <Box mb={5}>
+                <Typography align='center' variant='h3'>
+                  May all beings be well and free of suffering
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={12}>
-              <Typography align='center' variant='h2' component='h2'>
-                {pageData.subTitle}
-              </Typography>
-            </Grid>
-            <Grid item container justify='center' xs={12}>
-              <Box my={8}>
-                <Button color='primary' size='large' variant='outlined'>
-                  <GatsbyLink to='/upcoming-events' className={classes.link}>
-                    See upcoming events
-                  </GatsbyLink>
-                </Button>
-              </Box>
-            </Grid>
-            <Grid item container justify='center' xs={12}>
-              <Grid item xs={12}>
-                <Box>
-                  <Img
-                    className={classes.lotusImage}
-                    fluid={lotusImage.childImageSharp.fluid}
-                    alt='Lotus'
-                  />
-                </Box>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item container xs={12}>
-            <Box my={10}>
-              <CoronavirusUpdate />
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box mb={5}>
-              <Typography align='center' variant='h3'>
-                May all beings be well and free of suffering
-              </Typography>
-            </Box>
           </Grid>
         </Grid>
       </Layout>
