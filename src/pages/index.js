@@ -15,6 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
+import Banner from '../components/Banner';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
@@ -49,21 +50,21 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '5px',
   },
   bannerImageOrder: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       order: 0,
-      justifyContent: 'start',
     },
     display: 'flex',
-    justifyContent: 'end',
   },
   bannerImageContainer: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'flex',
     },
   },
-  bannerTextOrder: {
+  bannerText: {
+    paddingRight: '30px',
     [theme.breakpoints.down('xs')]: {
       order: 1,
+      paddingRight: '0px',
     },
   },
 }));
@@ -105,43 +106,7 @@ const Home = () => {
               <Grid item xs={12}>
                 {pageData.infoBanners?.map((infoBanner) => {
                   if (infoBanner.visible) {
-                    return (
-                      <Box
-                        key={infoBanner.title}
-                        p={2}
-                        marginBottom={4}
-                        className={classes.themeBorder}>
-                        <Grid item container xs={12}>
-                          <Grid
-                            item
-                            xs={12}
-                            sm={8}
-                            className={classes.bannerTextOrder}>
-                            <ContentfulRichText
-                              json={infoBanner.content.json}
-                            />
-                          </Grid>
-                          <Grid
-                            item
-                            xs={12}
-                            sm={4}
-                            className={classes.bannerImageOrder}>
-                            {infoBanner.media &&
-                              infoBanner.media.map((img) => (
-                                <div
-                                  className={classes.bannerImageContainer}
-                                  key={img.id}>
-                                  <Avatar
-                                    className={classes.avatar}
-                                    key={img.id}
-                                    src={img.fixed.src}
-                                  />
-                                </div>
-                              ))}
-                          </Grid>
-                        </Grid>
-                      </Box>
-                    );
+                    return <Banner {...infoBanner} classes={classes} />;
                   }
                 })}
               </Grid>

@@ -39,6 +39,7 @@ module.exports = {
     basePath: '/',
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
