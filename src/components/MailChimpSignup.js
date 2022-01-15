@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MailChimpSignup = ({ inline }) => {
+const MailChimpSignup = ({ inline, small, oneLine }) => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -60,24 +60,25 @@ const MailChimpSignup = ({ inline }) => {
   };
 
   return (
-    <Grid container justify='center' component='aside'>
+    <Grid container justify={oneLine ? '' : 'center'} component='aside'>
       <form
         id='mailchimp-form'
         className={classes.root}
         onSubmit={onSubmit}
-        autoComplete='off'>
-        <Grid container alignItems='center'>
-          <Grid item xs={12}>
+        autoComplete='off'
+        className={`${oneLine && 'w-full shadow-md mb-10 rounded-sm'}`}>
+        <Grid container alignItems='center' justify={'space-between'}>
+          <Grid item xs={oneLine ? 4 : 12}>
             <Box mb={inline ? 0 : 3}>
               <Typography
-                variant={inline ? 'h6' : 'h3'}
+                variant={small ? 'body2' : inline ? 'h6' : 'h3'}
                 component='h1'
                 align='center'>
                 Subscribe to our mailing list
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={inline ? 8 : 12}>
+          <Grid item xs={oneLine ? 4 : small ? 7 : inline ? 8 : 12}>
             <TextField
               size={inline ? 'small' : 'normal'}
               fullWidth
@@ -124,7 +125,12 @@ const MailChimpSignup = ({ inline }) => {
               </Grid>
             </>
           )}
-          <Grid item container justify='center' xs={inline ? 4 : 12}>
+          <Grid
+            item
+            container
+            justify='center'
+            alignItems='center'
+            xs={oneLine ? 4 : small ? 5 : inline ? 4 : 12}>
             <Box my={2}>
               {mailChimpResponse ? (
                 <Box ml={3}>

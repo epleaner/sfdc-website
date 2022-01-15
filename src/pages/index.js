@@ -12,6 +12,7 @@ import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Donate from '../components/HomePage/Donate';
 import EventsThisWeek from '../components/HomePage/EventsThisWeek';
+import NewsletterPopup from '../components/HomePage/NewsletterPopup';
 import MailChimpSignup from '../components/MailChimpSignup';
 import MorningSit from '../components/MorningSit';
 

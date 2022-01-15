@@ -1,12 +1,13 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import {ThemeProvider} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiTheme from '../styles/muiTheme';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import NewsletterBanner from '../components/NewsletterBanner';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,9 +38,10 @@ const Layout = (props) => {
       <ThemeProvider theme={MuiTheme}>
         <Container className={classes.root}>
           <Box mb={3}>
+            <NewsletterBanner />
             <Header />
           </Box>
-          <main id="main">{props.children}</main>
+          <main id='main'>{props.children}</main>
           <Footer />
         </Container>
       </ThemeProvider>
