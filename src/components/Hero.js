@@ -41,7 +41,7 @@ const Hero = ({ pageData, classes, lotusImage }) => {
 
       <Grid item container justify='center' xs={12}>
         <Grid item xs={12}>
-          <Box my={8}>
+          <Box className='my-10'>
             <Img
               className={classes.lotusImage}
               fluid={lotusImage.childImageSharp.fluid}
