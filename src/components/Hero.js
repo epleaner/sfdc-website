@@ -23,13 +23,14 @@ const Hero = ({ pageData, classes, lotusImage }) => {
 
   const { missionData } = data;
 
-  console.log(missionData);
   return (
     <Grid item container>
       <Grid item xs={12}>
         <Box mb={5} mt={2}>
           <Typography align='center' variant='h1' component='h1'>
-            {pageData.title}
+            <span className='xs:text-5xl  sm:text-inherit'>
+              {pageData.title}
+            </span>
           </Typography>
         </Box>
       </Grid>
@@ -40,15 +41,13 @@ const Hero = ({ pageData, classes, lotusImage }) => {
       </Grid>
 
       <Grid item container justify='center' xs={12}>
-        <Grid item xs={12}>
-          <Box className='my-10'>
-            <Img
-              className={classes.lotusImage}
-              fluid={lotusImage.childImageSharp.fluid}
-              alt='Lotus'
-            />
-          </Box>
-        </Grid>
+        <Box className='my-10 w-24 sm:w-full'>
+          <Img
+            className={classes.lotusImage}
+            fluid={lotusImage.childImageSharp.fluid}
+            alt='Lotus'
+          />
+        </Box>
       </Grid>
       <Grid item container justify='center' xs={12}>
         <Box mb={10}>
