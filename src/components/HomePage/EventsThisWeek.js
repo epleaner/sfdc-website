@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
 
-import Layout from '../Layout';
-import SEO from '../SEO';
-import CoronavirusUpdate from '../CoronavirusUpdate';
-import MonthList from '../MonthList';
-import MorningSit from '../MorningSit';
-import RecurringEventsList from '../RecurringEventsList';
 import Event from '../Event.js';
 
 import { parseEvents } from '../../utils/eventParser';
