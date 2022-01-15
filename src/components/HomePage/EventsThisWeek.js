@@ -15,6 +15,8 @@ import CoronavirusUpdate from '../CoronavirusUpdate';
 import MonthList from '../MonthList';
 import MorningSit from '../MorningSit';
 import RecurringEventsList from '../RecurringEventsList';
+import Event from '../Event.js';
+
 import { parseEvents } from '../../utils/eventParser';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +38,7 @@ const UpcomingEvents = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    fetch('/.netlify/functions/google-calendar?singleEvents=true')
+    fetch('/.netlify/functions/google-calendar-this-week?singleEvents=true')
       .then((response) => response.json())
       .then((responseJson) => responseJson.data.items)
       .then(parseEvents)
@@ -59,83 +61,40 @@ const UpcomingEvents = () => {
     statusHeaderText = 'No events found';
   }
 
+  console.log(singleEventsByMonth);
+
   return (
-    <>
-      <SEO
-        title='Upcoming & Recurring Events'
-        description='San Francisco Dharma Collective Upcoming & Recurring Events Page'
-      />
+    <Box mb={10}>
       <Grid container>
         <Grid item xs={12}>
           <Grid container>
             <Grid item xs={12}>
               <Typography variant={'h2'} align='center' component='h1'>
-                Events Coming Up at SFDC
+                Events this week at SFDC
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Box mt={6}>
+              <Box my={2}>
                 <Typography variant={'h6'} align='center' component='h2'>
                   Event times have been automatically converted to local
                   timezone
                 </Typography>
-                <Box my={6}>
-                  <Divider />
-                </Box>
-                <Typography gutterBottom variant='body1' align='center'>
-                  All our classes are now hosted online.
-                </Typography>
-                <Typography gutterBottom variant='body1' align='center'>
-                  Most classes are on Zoom and use this link:{' '}
-                  <Link
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className={classes.anchor}
-                    href='http://bit.ly/sfdharma'>
-                    http://bit.ly/sfdharma
-                  </Link>{' '}
-                  (password: <b>108108</b>)
-                </Typography>
-                <Typography gutterBottom variant='body1' align='center'>
-                  You can also dial in from a phone by calling{' '}
-                  <b>301-715-8592</b> and using Meeting ID: <b>545 039 806</b>.
-                </Typography>
-                <Box mt={6}>
-                  <Divider />
-                </Box>
               </Box>
             </Grid>
-
-            <Grid
-              item
-              xs={12}
-              container
-              component='article'
-              justify='center'
-              className={classes.stickiedEvent}>
-              <MorningSit />
-              <Grid item xs={12}>
-                <Box mt={6}>
-                  <Divider />
-                </Box>
-              </Grid>
-            </Grid>
-            {statusHeaderText !== '' && (
-              <Grid item xs={12}>
-                <Box mt={4} mb={3}>
-                  <Typography variant={'h3'} align='center' component='h2'>
-                    {statusHeaderText}
-                  </Typography>
-                </Box>
-              </Grid>
-            )}
             <Grid item xs={12}>
-              <MonthList eventData={singleEventsByMonth} />
+              {singleEventsByMonth &&
+                singleEventsByMonth.map(
+                  (es) =>
+                    es.events &&
+                    es.events.map((event) => (
+                      <Event key={event.id} {...event} />
+                    ))
+                )}
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </>
+    </Box>
   );
 };
 

@@ -97,11 +97,6 @@ export default () => {
           </Box>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <Box mt={6}>
-          <Divider />
-        </Box>
-      </Grid>
     </>
   );
 };

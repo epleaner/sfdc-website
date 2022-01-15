@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 
 const Hero = ({ pageData, classes, lotusImage }) => {
   return (
-    <>
+    <Grid item container>
       <Grid item xs={12}>
         <Box mb={5} mt={2}>
           <Typography align='center' variant='h1' component='h1'>
@@ -43,7 +43,7 @@ const Hero = ({ pageData, classes, lotusImage }) => {
           </Button>
         </Box>
       </Grid>
-    </>
+    </Grid>
   );
 };
 

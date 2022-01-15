@@ -11,7 +11,9 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Donate from '../components/HomePage/Donate';
+import EventsThisWeek from '../components/HomePage/EventsThisWeek';
 import MailChimpSignup from '../components/MailChimpSignup';
+import MorningSit from '../components/MorningSit';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {
@@ -102,6 +104,16 @@ const Home = () => {
             <Grid item container xs={12}>
               <Box mb={10}>
                 <CoronavirusUpdate />
+                <Box mb={8}>
+                  <Grid
+                    item
+                    xs={12}
+                    container
+                    component='article'
+                    justify='center'>
+                    <MorningSit />
+                  </Grid>
+                </Box>
                 <Box mb={10}>
                   <Donate />
                 </Box>
@@ -117,6 +129,7 @@ const Home = () => {
                 })}
               </Box>
             </Grid>
+            <EventsThisWeek />
             <Grid item xs={12}>
               <Box mb={5}>
                 <Typography align='center' variant='h3'>
