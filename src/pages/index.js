@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
-import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
-import Img from 'gatsby-image';
-import Avatar from '@material-ui/core/Avatar';
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import ContentfulRichText from '../components/ContentfulRichText';
-import ContentfulPageFragment from '../graphql-fragments/ContentfulPageFragment';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
 import CoronavirusUpdate from '../components/CoronavirusUpdate';
 import Banner from '../components/Banner';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
+import Donate from '../components/HomePage/Donate';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {
@@ -86,10 +78,13 @@ const Home = () => {
       pageData: contentfulPage(pageName: { eq: "Home" }) {
         ...ContentfulPageFragment
       }
+      donateData: contentfulPage(pageName: { eq: "Donate" }) {
+        ...ContentfulPageFragment
+      }
     }
   `);
 
-  const { lotusImage, pageData } = data;
+  const { lotusImage, pageData, donateData } = data;
 
   return (
     <>
@@ -100,18 +95,22 @@ const Home = () => {
       <Layout>
         <Grid container justify='center'>
           <Grid item container xs={12}>
-            <Hero {...{ pageData, classes, lotusImage }} />
-            <Grid item xs={12}>
-              {pageData.infoBanners?.map((infoBanner) => {
-                if (infoBanner.visible) {
-                  return <Banner {...infoBanner} classes={classes} />;
-                }
-              })}
-            </Grid>
-
+            <Box mb={10}>
+              <Hero {...{ pageData, classes, lotusImage }} />
+            </Box>
             <Grid item container xs={12}>
-              <Box my={10}>
+              <Box mb={10}>
                 <CoronavirusUpdate />
+                <Donate />
+              </Box>
+            </Grid>
+            <Grid item xs={12}>
+              <Box mb={10}>
+                {pageData.infoBanners?.map((infoBanner) => {
+                  if (infoBanner.visible) {
+                    return <Banner {...infoBanner} classes={classes} />;
+                  }
+                })}
               </Box>
             </Grid>
             <Grid item xs={12}>

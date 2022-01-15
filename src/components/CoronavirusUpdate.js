@@ -37,21 +37,11 @@ const CoronavirusUpdate = () => {
 
   return (
     <>
-      <Divider className={classes.divider} />
-      <Box my={8}>
-        <Box mb={8}>
-          <Typography variant='body1' component='aside'>
-            <ContentfulRichText json={contentData.content.json} />
-          </Typography>
-        </Box>
-        <Grid item xs={12} container justify='center'>
-          <DonateButton />
-        </Grid>
-        <Grid item xs={12} container justify='center'>
-          <Venmo />
-        </Grid>
+      <Box mb={8} px={2}>
+        <Typography variant='body1' component='aside'>
+          <ContentfulRichText json={contentData.content.json} />
+        </Typography>
       </Box>
-      <Divider className={classes.divider} />
     </>
   );
 };
