@@ -66,9 +66,10 @@ const MailChimpSignup = ({ inline, small, oneLine }) => {
         className={classes.root}
         onSubmit={onSubmit}
         autoComplete='off'
-        className={`${oneLine && 'w-full shadow-md mb-10 rounded-sm'}`}>
+        className={`${oneLine &&
+          'w-full shadow-md px-2 mt-2 md:mt-0 mb-10 rounded-sm'}`}>
         <Grid container alignItems='center' justify={'space-between'}>
-          <Grid item xs={oneLine ? 4 : 12}>
+          <Grid item xs={oneLine ? 12 : 12} sm={oneLine ? 4 : 12}>
             <Box mb={inline ? 0 : 3}>
               <Typography
                 variant={small ? 'body2' : inline ? 'h6' : 'h3'}
