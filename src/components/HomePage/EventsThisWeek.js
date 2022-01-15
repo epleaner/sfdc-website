@@ -25,8 +25,6 @@ const UpcomingEvents = () => {
   const [error, setError] = useState(false);
   const [eventData, setEventData] = useState({});
 
-  const classes = useStyles();
-
   useEffect(() => {
     fetch('/.netlify/functions/google-calendar-this-week?singleEvents=true')
       .then((response) => response.json())
@@ -50,8 +48,6 @@ const UpcomingEvents = () => {
   else if (!singleEventsByMonth || singleEventsByMonth.length === 0) {
     statusHeaderText = 'No events found';
   }
-
-  console.log(singleEventsByMonth);
 
   return (
     <Box mb={10}>

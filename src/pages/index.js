@@ -115,10 +115,7 @@ const Home = () => {
                     <MorningSit />
                   </Grid>
                 </Box>
-                <Box mb={10}>
-                  <Donate />
-                </Box>
-                <MailChimpSignup inline />
+                <Donate />
               </Box>
             </Grid>
             <Grid item xs={12}>
