@@ -12,8 +12,7 @@ import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Donate from '../components/HomePage/Donate';
 import EventsThisWeek from '../components/HomePage/EventsThisWeek';
-import NewsletterPopup from '../components/HomePage/NewsletterPopup';
-import MailChimpSignup from '../components/MailChimpSignup';
+import Volunteer from '../components/HomePage/Volunteer';
 import MorningSit from '../components/MorningSit';
 
 const useStyles = makeStyles((theme) => ({
@@ -128,6 +127,9 @@ const Home = () => {
               </Box>
             </Grid>
             <EventsThisWeek />
+            <Box mb={10}>
+              <Volunteer />
+            </Box>
             <Grid item xs={12}>
               <Box mb={5}>
                 <Typography align='center' variant='h3'>

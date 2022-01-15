@@ -82,7 +82,7 @@ const Volunteer = () => {
                     help with PR / Marketing / Social Media
                   </Typography>
                   <Typography variant='body1' component='li'>
-                    website development
+                    support website design
                   </Typography>
                 </ul>
               </Grid>
