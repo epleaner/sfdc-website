@@ -55,7 +55,6 @@ const MaterialMenu = (props) => {
     },
     { name: 'Donate', path: '/donate' },
     { name: 'Volunteer', path: '/volunteer' },
-    { name: 'Newsletter', path: '/newsletter' },
   ];
 
   const {
@@ -90,7 +89,7 @@ const MaterialMenu = (props) => {
   `);
 
   const resourceMenuItem = {
-    name: 'Collective Dharma',
+    name: 'Collective Dharma Resources',
     path: '/collective-dharma',
     nested: [
       {
@@ -101,6 +100,10 @@ const MaterialMenu = (props) => {
       {
         name: 'Other Offerings',
         path: '/collective-dharma/other-offerings',
+      },
+      {
+        name: 'SFDC Newsletter',
+        path: '/newsletter',
       },
     ],
   };
