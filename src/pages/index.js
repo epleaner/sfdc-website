@@ -11,6 +11,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Donate from '../components/HomePage/Donate';
+import MailChimpSignup from '../components/MailChimpSignup';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {
@@ -101,7 +102,10 @@ const Home = () => {
             <Grid item container xs={12}>
               <Box mb={10}>
                 <CoronavirusUpdate />
-                <Donate />
+                <Box mb={10}>
+                  <Donate />
+                </Box>
+                <MailChimpSignup inline />
               </Box>
             </Grid>
             <Grid item xs={12}>

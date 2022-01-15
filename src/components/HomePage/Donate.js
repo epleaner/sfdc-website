@@ -44,7 +44,7 @@ const Donate = () => {
             </Box>
           </Grid>
           <Grid item xs={12} container justify='center'>
-            <Box mb={6}>
+            <Box mb={4}>
               <Venmo />
             </Box>
           </Grid>
