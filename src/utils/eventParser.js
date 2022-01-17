@@ -183,23 +183,31 @@ const humanReadableRecurranceRules = (recurranceRules) => {
     messageParts.push(recurranceRules.count);
   } else messageParts.push('Every');
 
-  const dayRules = recurranceRules.byday.split(',');
+  if (recurranceRules.freq === 'daily') messageParts.push('Day');
 
-  if (dayRules.length > 1) {
-    measure += dayRules
-      .sort((a, b) => daysOfWeek[a].order > daysOfWeek[b].order)
-      .map((rule) => daysOfWeek[rule].text)
-      .join(', ');
-  } else {
-    const [full, ordinal, day] = recurranceRules.byday.match(/(-?\d)?([a-z]+)/);
+  if (recurranceRules.byday) {
+    const dayRules = recurranceRules.byday.split(',') || [];
 
-    if (ordinal) {
-      measure +=
-        ordinal === '-1' ? 'last ' : `${moment.localeData().ordinal(ordinal)} `;
-    }
+    if (dayRules.length > 1) {
+      measure += dayRules
+        .sort((a, b) => daysOfWeek[a].order > daysOfWeek[b].order)
+        .map((rule) => daysOfWeek[rule].text)
+        .join(', ');
+    } else {
+      const [full, ordinal, day] = recurranceRules.byday.match(
+        /(-?\d)?([a-z]+)/
+      );
 
-    if (day) {
-      measure += `${daysOfWeek[day].text}`;
+      if (ordinal) {
+        measure +=
+          ordinal === '-1'
+            ? 'last '
+            : `${moment.localeData().ordinal(ordinal)} `;
+      }
+
+      if (day) {
+        measure += `${daysOfWeek[day].text}`;
+      }
     }
   }
 
@@ -211,9 +219,9 @@ const humanReadableRecurranceRules = (recurranceRules) => {
 
   if (recurranceRules.until) {
     messageParts.push(
-      `until ${moment(recurranceRules.until.toUpperCase())
-        .add(1, 'months')
-        .format('MMMM YYYY')}`
+      `through ${moment(recurranceRules.until.toUpperCase()).format(
+        'MMMM D YYYY'
+      )}`
     );
   }
   return messageParts.join(' ');

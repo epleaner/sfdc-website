@@ -75,7 +75,7 @@ const MailChimpSignup = ({ inline, small, oneLine }) => {
                 variant={small ? 'body2' : inline ? 'h6' : 'h3'}
                 component='h1'
                 align='center'>
-                Subscribe to our mailing list
+                Join our email list!
               </Typography>
             </Box>
           </Grid>
