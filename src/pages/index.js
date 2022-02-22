@@ -104,7 +104,7 @@ const Home = () => {
             <Grid item container xs={12}>
               <Box mb={10}>
                 <CoronavirusUpdate />
-                <Box mb={8}>
+                <Box my={8}>
                   <Grid
                     item
                     xs={12}

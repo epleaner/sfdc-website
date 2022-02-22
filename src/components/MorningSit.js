@@ -63,7 +63,7 @@ export default () => {
         <Grid item xs={12} container alignContent='center' justify='center'>
           <Box my={3} mx={2}>
             <Typography variant='body1' align='center' component='p'>
-              Join us online:{' '}
+              Join us at 2929 24th Street or online:{' '}
               <Link
                 target='_blank'
                 rel='noopener noreferrer'

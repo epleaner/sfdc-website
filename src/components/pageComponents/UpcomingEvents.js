@@ -82,30 +82,13 @@ const UpcomingEvents = () => {
                 <Box my={6}>
                   <Divider />
                 </Box>
-                <Typography gutterBottom variant='body1' align='center'>
-                  All our classes are now hosted online.
-                </Typography>
-                <Typography gutterBottom variant='body1' align='center'>
-                  Most classes are on Zoom and use this link:{' '}
-                  <Link
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className={classes.anchor}
-                    href='http://bit.ly/sfdharma'>
-                    http://bit.ly/sfdharma
-                  </Link>{' '}
-                  (password: <b>108108</b>)
-                </Typography>
-                <Typography gutterBottom variant='body1' align='center'>
-                  You can also dial in from a phone by calling{' '}
-                  <b>301-715-8592</b> and using Meeting ID: <b>545 039 806</b>.
-                </Typography>
+                <CoronavirusUpdate />
+
                 <Box mt={6}>
                   <Divider />
                 </Box>
               </Box>
             </Grid>
-
             <Grid
               item
               xs={12}
