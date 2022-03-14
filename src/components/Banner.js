@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 
 const Banner = ({ classes, title, content, media }) => {
   return (
-    <Box key={title} p={2} marginBottom={4}>
+    <Box key={title} p={2} marginBottom={2}>
       <Grid item container xs={12}>
         <Grid item xs={12} sm={10} className={`${classes.bannerText}`}>
           <ContentfulRichText json={content.json} />

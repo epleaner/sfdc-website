@@ -101,6 +101,15 @@ const Home = () => {
             <Box mb={10}>
               <Hero {...{ pageData, classes, lotusImage }} />
             </Box>
+            <Grid item xs={12}>
+              <Box mb={10}>
+                {pageData.infoBanners?.map((infoBanner) => {
+                  if (infoBanner.visible) {
+                    return <Banner {...infoBanner} classes={classes} />;
+                  }
+                })}
+              </Box>
+            </Grid>
             <Grid item container xs={12}>
               <Box mb={10}>
                 <CoronavirusUpdate />
@@ -117,15 +126,7 @@ const Home = () => {
                 <Donate />
               </Box>
             </Grid>
-            <Grid item xs={12}>
-              <Box mb={10}>
-                {pageData.infoBanners?.map((infoBanner) => {
-                  if (infoBanner.visible) {
-                    return <Banner {...infoBanner} classes={classes} />;
-                  }
-                })}
-              </Box>
-            </Grid>
+
             <EventsThisWeek />
             <Box mb={10}>
               <Volunteer />
