@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 const ContentfulRichText = (props) => {
   const { json } = props;
 
+  console.log(json);
+
   const renderingOptions = {
     renderMark: {},
     renderNode: {
@@ -28,6 +30,7 @@ const ContentfulRichText = (props) => {
           {node.content[0].value}
         </Link>
       ),
+      [BLOCKS.HR]: () => <Box my={4} />,
       [BLOCKS.HEADING_1]: (node, key) => (
         <Grid key={key} item xs={12}>
           <Box mb={2}>

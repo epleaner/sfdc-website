@@ -28,7 +28,7 @@ const CoronavirusUpdate = () => {
   const data = useStaticQuery(graphql`
     {
       contentData: contentfulContentSection(
-        title: { eq: "Coronavirus Update" }
+        title: { eq: "Hybrid Information" }
       ) {
         ...ContentfulContentSectionFragment
       }
@@ -38,52 +38,11 @@ const CoronavirusUpdate = () => {
   const { contentData } = data;
 
   return (
-    <>
-      <Box>
-        <Typography variant='body1' component='aside'>
-          <Grid item xs={12}>
-            <Typography gutterBottom variant='h4' align='center'>
-              Our classes will gradually be moving to a hybrid model.
-            </Typography>
-            <br />
-            <Typography gutterBottom variant='body1' align='center'>
-              See individual class listings for in-person meetings at 2929 24th
-              Street.
-            </Typography>
-            <Typography gutterBottom variant='body1' align='center'>
-              All class will continue to be hosted online.{' '}
-            </Typography>
-            <br />
-            <Typography gutterBottom variant='body1' align='center'>
-              The Zoom link is:{' '}
-              <Link
-                target='_blank'
-                rel='noopener noreferrer'
-                className={classes.anchor}
-                href='http://bit.ly/sfdharma'>
-                http://bit.ly/sfdharma
-              </Link>{' '}
-              (password: <b>108108</b>)
-            </Typography>
-            <Typography gutterBottom variant='body1' align='center'>
-              You can also dial in from a phone by calling <b>301-715-8592</b>{' '}
-              and using Meeting ID: <b>545 039 806</b>.
-            </Typography>
-            <Typography gutterBottom variant='body1' align='center'>
-              <b>
-                <Link
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className={classes.anchor}
-                  href='https://docs.google.com/document/d/1jzs5GY0A4NRIH9y-OJReM4RhNbRGYzXL-MKF1BrOFb0/edit?mc_cid=19929305ae&mc_eid=UNIQID'>
-                  See here for Covid Policy and Protocols{' '}
-                </Link>
-              </b>
-            </Typography>
-          </Grid>
-        </Typography>
-      </Box>
-    </>
+    <Box mb={8}>
+      <Typography gutterBottom align='center'>
+        <ContentfulRichText json={contentData.content.json} />
+      </Typography>
+    </Box>
   );
 };
 
