@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ContentfulRichText from './ContentfulRichText';
+import EventsToday from './HomePage/EventsToday';
 
 const Hero = ({ pageData, classes, lotusImage }) => {
   const data = useStaticQuery(graphql`
@@ -28,7 +29,7 @@ const Hero = ({ pageData, classes, lotusImage }) => {
       <Grid item xs={12}>
         <Box mb={5} mt={2}>
           <Typography align='center' variant='h1' component='h1'>
-            <span className='xs:text-5xl  sm:text-inherit'>
+            <span className='xs:text-5xl sm:text-inherit'>
               {pageData.title}
             </span>
           </Typography>
@@ -41,7 +42,7 @@ const Hero = ({ pageData, classes, lotusImage }) => {
       </Grid>
 
       <Grid item container justify='center' xs={12}>
-        <Box className='my-10 w-24 sm:w-full'>
+        <Box className='w-24 my-10 sm:w-full'>
           <Img
             className={classes.lotusImage}
             fluid={lotusImage.childImageSharp.fluid}
@@ -58,6 +59,7 @@ const Hero = ({ pageData, classes, lotusImage }) => {
           </Button>
         </Box>
       </Grid>
+      <EventsToday />
       <Grid item container justify='center' xs={12}>
         <Box>
           <Typography variant='h3' component='span' align='center'>

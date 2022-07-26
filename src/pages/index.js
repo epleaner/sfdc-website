@@ -12,6 +12,7 @@ import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Donate from '../components/HomePage/Donate';
 import EventsThisWeek from '../components/HomePage/EventsThisWeek';
+import EventsToday from '../components/HomePage/EventsToday';
 import Volunteer from '../components/HomePage/Volunteer';
 import MorningSit from '../components/MorningSit';
 
@@ -126,7 +127,6 @@ const Home = () => {
                 <Donate />
               </Box>
             </Grid>
-
             <EventsThisWeek />
             <Box mb={10}>
               <Volunteer />

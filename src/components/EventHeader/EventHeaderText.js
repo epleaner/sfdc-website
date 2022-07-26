@@ -37,13 +37,16 @@ export default ({
   big,
   eventUrl,
   recurringEventData,
+  centered = false,
 }) => {
   const classes = useStyles();
 
   return (
     <Grid item container xs={big ? 12 : 10}>
       <Grid item xs={12}>
-        <Typography align='left' variant={big ? 'h3' : 'h5'}>
+        <Typography
+          align={centered ? 'center' : 'left'}
+          variant={big ? 'h3' : 'h5'}>
           {big ? (
             summary
           ) : (
@@ -58,7 +61,10 @@ export default ({
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography align='left' variant='body2' color='textPrimary'>
+        <Typography
+          align={centered ? 'center' : 'left'}
+          variant='body2'
+          color='textPrimary'>
           {recurrenceRules
             ? `${humanReadableRecurranceRules(recurrenceRules)}, 
 ${humanReadableTime(start, end)}`
