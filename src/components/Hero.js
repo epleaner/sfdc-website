@@ -62,7 +62,7 @@ const Hero = ({ pageData, classes, lotusImage }) => {
       <EventsToday />
       <Grid item container justify='center' xs={12}>
         <Box>
-          <Typography variant='h3' component='span' align='center'>
+          <Typography variant='h2' component='span' align='center'>
             <ContentfulRichText json={missionData.content.json} />
           </Typography>
         </Box>

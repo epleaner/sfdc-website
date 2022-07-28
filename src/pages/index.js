@@ -103,6 +103,9 @@ const Home = () => {
               <Hero {...{ pageData, classes, lotusImage }} />
             </Box>
             <Grid item xs={12}>
+              <Box ml={2} mb={2}>
+                <Typography variant={'h3'}>Announcements</Typography>
+              </Box>
               <Box mb={10}>
                 {pageData.infoBanners?.map((infoBanner) => {
                   if (infoBanner.visible) {

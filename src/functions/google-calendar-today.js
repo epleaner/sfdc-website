@@ -49,9 +49,11 @@ export function handler(event, context, callback) {
           singleEvents: singleEvents || 'false',
           maxResults: 2500,
           timeMin: moment()
-            .subtract(1, 'd')
+            .startOf('day')
             .format(),
-          timeMax: moment().format(),
+          timeMax: moment()
+            .endOf('day')
+            .format(),
         };
 
         if (singleEvents) listOptions.orderBy = 'startTime';
