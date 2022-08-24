@@ -9,8 +9,6 @@ import Typography from '@material-ui/core/Typography';
 const ContentfulRichText = (props) => {
   const { json } = props;
 
-  console.log(json);
-
   const renderingOptions = {
     renderMark: {},
     renderNode: {
