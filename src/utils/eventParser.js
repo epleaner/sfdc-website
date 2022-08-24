@@ -91,7 +91,7 @@ const parseEvents = (eventData) => {
   const activeEvents = filterCancelledAndEmptyEvents(eventData);
 
   const unstickiedEvents = activeEvents.filter(
-    (event) => event.summary !== 'Morning Sit'
+    (event) => !event.summary.includes('Morning Sit')
   );
 
   const parsedEvents = unstickiedEvents.map(parseEvent);
