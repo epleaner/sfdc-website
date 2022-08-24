@@ -52,11 +52,24 @@ const Hero = ({ pageData, classes, lotusImage }) => {
       </Grid>
       <Grid item container justify='center' xs={12}>
         <Box mb={10}>
-          <Button color='primary' size='large' variant='outlined'>
-            <GatsbyLink to='/upcoming-events' className={classes.link}>
-              See upcoming events
-            </GatsbyLink>
-          </Button>
+          <Grid container justify='center' xs={12}>
+            <Grid item container justify='center' xs={12}>
+              <Box mb={2}>
+                <Button color='primary' size='large' variant='outlined'>
+                  <GatsbyLink to='/upcoming-events' className={classes.link}>
+                    See upcoming events
+                  </GatsbyLink>
+                </Button>
+              </Box>
+            </Grid>
+            <Grid item container justify='center' xs={12}>
+              <Button color='primary' size='large' variant='contained'>
+                <GatsbyLink to='/donate' className={classes.link}>
+                  Donate
+                </GatsbyLink>
+              </Button>
+            </Grid>
+          </Grid>
         </Box>
       </Grid>
       <EventsToday />

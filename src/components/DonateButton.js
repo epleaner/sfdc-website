@@ -3,6 +3,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
 import Box from '@material-ui/core/Box';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DonateButton = () => {
+const DonateButton = ({ inputText }) => {
   const classes = useStyles();
   return (
     <>
@@ -23,12 +24,7 @@ const DonateButton = () => {
         <input type='hidden' name='cmd' value='_s-xclick' />
         <input type='hidden' name='hosted_button_id' value='6GNKVRA5CQ7E2' />
         <Box className={classes.input}>
-          <Input
-            type='text'
-            name='custom'
-            required
-            placeholder='Teacher or class'
-          />
+          <Input type='text' name='custom' required placeholder={inputText} />
         </Box>
         <Box>
           <Button
@@ -36,9 +32,11 @@ const DonateButton = () => {
             color='primary'
             size='large'
             variant='contained'>
-            <Typography variant='body1' align='center'>
-              Donate via PayPal
-            </Typography>
+            <Box>
+              <Typography variant='body1' align='center'>
+                Donate via PayPal or Credit Card
+              </Typography>
+            </Box>
           </Button>
         </Box>
       </form>

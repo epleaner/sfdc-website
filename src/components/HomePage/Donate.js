@@ -28,19 +28,17 @@ const Donate = () => {
             </Typography>
           </Box>
         </Grid>
-        <Box mb={4}>
-          {pageData.contentSections.map(({ title, content }) => (
-            <Grid key={title} item xs={12}>
-              <Typography align='center' variant='body1' component='span'>
-                <ContentfulRichText json={content.json} />
-              </Typography>
-            </Grid>
-          ))}
-        </Box>
+        <Grid item xs={12}>
+          <Box mb={4}>
+            <Typography align='center' variant='h5' component='h2'>
+              <i>{pageData.subTitle}</i>
+            </Typography>
+          </Box>
+        </Grid>
         <Grid container item>
           <Grid item xs={12} container justify='center'>
             <Box mb={4}>
-              <DonateButton />
+              <DonateButton inputText='Teacher or class' />
             </Box>
           </Grid>
           <Grid item xs={12} container justify='center'>
@@ -48,11 +46,22 @@ const Donate = () => {
               <Venmo />
             </Box>
           </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography align='center' variant='h5' component='h2'>
-            <i>{pageData.subTitle}</i>
-          </Typography>
+          <Box mb={4}>
+            <Typography align='center' variant='body1' component='span'>
+              <ContentfulRichText json={pageData.footer.json} />
+            </Typography>
+          </Box>
+          <Box>
+            {pageData.contentSections.map(({ title, content }) => (
+              <Grid key={title} item xs={12}>
+                <Box mb={4}>
+                  <Typography align='center' variant='body1' component='span'>
+                    <ContentfulRichText json={content.json} />
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Box>
         </Grid>
       </Grid>
     </>

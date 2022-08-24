@@ -4,6 +4,9 @@ export const ContentfulPageFragment = graphql`
   fragment ContentfulPageFragment on ContentfulPage {
     title
     subTitle
+    footer {
+      json
+    }
     contentSections {
       ...ContentfulContentSectionFragment
     }
