@@ -24,7 +24,13 @@ const DonateButton = ({ inputText }) => {
         <input type='hidden' name='cmd' value='_s-xclick' />
         <input type='hidden' name='hosted_button_id' value='6GNKVRA5CQ7E2' />
         <Box className={classes.input}>
-          <Input type='text' name='custom' required placeholder={inputText} />
+          <Input
+            type='text'
+            name='custom'
+            required
+            placeholder={inputText}
+            fullWidth
+          />
         </Box>
         <Box>
           <Button

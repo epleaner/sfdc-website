@@ -38,7 +38,7 @@ const Donate = () => {
         <Grid container item>
           <Grid item xs={12} container justify='center'>
             <Box mb={4}>
-              <DonateButton inputText='Teacher or class' />
+              <DonateButton inputText='Teacher, class, general note, et cetera...' />
             </Box>
           </Grid>
           <Grid item xs={12} container justify='center'>
