@@ -72,7 +72,7 @@ export function handler(event, context, callback) {
           if (error) {
             handleError(error, callback);
           } else {
-            console.log('Success!');
+            console.log('Success!', JSON.stringify(response));
 
             callback(null, {
               statusCode: 200,
