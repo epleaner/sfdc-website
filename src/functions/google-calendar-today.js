@@ -42,6 +42,16 @@ export function handler(event, context, callback) {
         const calendar = google.calendar('v3');
 
         console.log('Listing calendar events for ', calendarId);
+        console.log(
+          'time range: ',
+          moment()
+            .startOf('day')
+            .format(),
+          'to ',
+          moment()
+            .endOf('day')
+            .format()
+        );
 
         const listOptions = {
           auth: jwtClient,
