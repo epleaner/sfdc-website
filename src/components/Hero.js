@@ -72,7 +72,7 @@ const Hero = ({ pageData, classes, lotusImage }) => {
           </Grid>
         </Box>
       </Grid>
-      <EventsToday />
+      {/* <EventsToday /> */}
       <Grid item container justify='center' xs={12}>
         <Box>
           <Typography variant='h2' component='span' align='center'>
