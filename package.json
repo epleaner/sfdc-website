@@ -34,7 +34,7 @@
     "gatsby-remark-prismjs": "^3.3.31",
     "gatsby-source-contentful": "^2.2.2",
     "gatsby-source-filesystem": "^2.1.51",
-    "gatsby-transformer-remark": "^2.6.50",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.3.18",
     "googleapis": "^47.0.0",
     "inquirer": "^7.0.4",
