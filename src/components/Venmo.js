@@ -46,7 +46,7 @@ const Venmo = () => {
         </Grid>
         <Grid item xs={12} container justify='center'>
           <Typography variant='body2' align='center' component='span'>
-            @Sf-dharma-collective
+            @SFDharma-Collective
           </Typography>
         </Grid>
       </Link>
