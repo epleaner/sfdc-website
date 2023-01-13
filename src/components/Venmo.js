@@ -29,7 +29,7 @@ const Venmo = () => {
         target='_blank'
         rel='noopener noreferrer'
         className={classes.link}
-        href='https://venmo.com/SF-dharma-collective'>
+        href='https://venmo.com/SFDharma-Collective'>
         <Grid item xs={12} container justify='center'>
           <svg className={classes.icon}>
             <defs>
