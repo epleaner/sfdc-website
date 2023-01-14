@@ -34,10 +34,14 @@ const useStyles = makeStyles((theme) => ({
 const MenuPopupState = ({ mainText, links, currentPath }) => {
   const classes = useStyles();
   const createTextLink = (text) =>
-    `/${text
-      .toLowerCase()
-      .replace(/[^\w\s\-]/gi, '')
-      .replace(/\s\s*/g, '-')}`;
+    `/${
+      text === 'Collective Dharma Resources'
+        ? 'Collective Dharma'
+        : text
+            .toLowerCase()
+            .replace(/[^\w\s\-]/gi, '')
+            .replace(/\s\s*/g, '-')
+    }`;
 
   const popupState = usePopupState({
     variant: 'popover',
