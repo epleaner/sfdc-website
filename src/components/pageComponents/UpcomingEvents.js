@@ -52,8 +52,16 @@ const UpcomingEvents = () => {
 
   let statusHeaderText = '';
   if (error) {
-    statusHeaderText =
-      'There was an error fetching our events, please try again 😑';
+    statusHeaderText = (
+      <>
+        There was an error fetching our events, please check{' '}
+        <a
+          className={classes.anchor}
+          href='https://calendar.google.com/calendar/u/0/embed?src=6lmk34aeh3mpas0kop9ve8hc94@group.calendar.google.com&ctz=America/Los_Angeles'>
+          our Google Calendar.
+        </a>
+      </>
+    );
   } else if (isLoading) statusHeaderText = 'Loading upcoming events...';
   else if (!singleEventsByMonth || singleEventsByMonth.length === 0) {
     statusHeaderText = 'No events found';
