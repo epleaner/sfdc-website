@@ -25,6 +25,8 @@ const UpcomingEvents = () => {
   const [error, setError] = useState(false);
   const [eventData, setEventData] = useState({});
 
+  const classes = useStyles();
+
   useEffect(() => {
     fetch('/.netlify/functions/google-calendar-this-week?singleEvents=true')
       .then((response) => response.json())
@@ -62,20 +64,32 @@ const UpcomingEvents = () => {
             <Grid item xs={12}>
               <Box my={2}>
                 <Typography variant={'h6'} align='center' component='h2'>
-                  Event times have been automatically converted to local
-                  timezone
+                  {error
+                    ? 'Sorry, temporarily unavailable. Please check out our Google Calendar.'
+                    : 'Event times have been automatically converted to local timezone'}
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={12}>
-              {singleEventsByMonth &&
+              {error ? (
+                <Typography
+                  variant={'h3'}
+                  align='center'
+                  className={classes.anchor}>
+                  <a href='https://calendar.google.com/calendar/u/0/embed?src=6lmk34aeh3mpas0kop9ve8hc94@group.calendar.google.com&ctz=America/Los_Angeles'>
+                    Google Calendar
+                  </a>
+                </Typography>
+              ) : (
+                singleEventsByMonth &&
                 singleEventsByMonth.map(
                   (es) =>
                     es.events &&
                     es.events.map((event) => (
                       <Event key={event.id} {...event} />
                     ))
-                )}
+                )
+              )}
             </Grid>
           </Grid>
         </Grid>
