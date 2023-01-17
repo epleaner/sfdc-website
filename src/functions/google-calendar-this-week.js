@@ -2,8 +2,6 @@ const moment = require('moment');
 const { google } = require('googleapis');
 const Base64 = require('js-base64').Base64;
 
-const devCredentials = require('../../credentials.json');
-
 const devCalendarId = 'efn6ejscdben4hvlh3msn9knlk@group.calendar.google.com';
 const publicCalendarId = '6lmk34aeh3mpas0kop9ve8hc94@group.calendar.google.com';
 const calendarId = publicCalendarId;
@@ -21,12 +19,9 @@ export function handler(event, context, callback) {
     queryStringParameters: { singleEvents },
   } = event;
 
-  const clientEmail =
-    process.env.GATSBY_GCAL_CLIENT_EMAIL || devCredentials.client_email;
+  const clientEmail = process.env.GATSBY_GCAL_CLIENT_EMAIL;
 
-  const privateKey = Base64.decode(
-    process.env.GATSBY_GCAL_PRIVATE_KEY || devCredentials.private_key_base64
-  );
+  const privateKey = Base64.decode(process.env.GATSBY_GCAL_PRIVATE_KEY);
 
   const jwtClient = new google.auth.JWT(clientEmail, null, privateKey, [
     'https://www.googleapis.com/auth/calendar',
