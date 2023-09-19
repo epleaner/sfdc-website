@@ -4,6 +4,33 @@
   "version": "1.0.0",
   "repository": "https://github.com/epleaner/sfdc-website",
   "author": "Eli Pleaner <eliipleaner@gmail.com>",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "start": "run-p start:**",
+    "dev": "yarn start",
+    "frontend": "gatsby develop",
+    "start:app": "yarn frontend",
+    "start:lambda": "netlify-lambda serve src/functions",
+    "build": "gatsby build && netlify-lambda build src/functions",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build src/functions",
+    "serve": "gatsby serve",
+    "test": "yarn run lint:css && yarn run lint:js && yarn run check-pretty",
+    "lint:js": "eslint --ext .js,.jsx .",
+    "lint:css": "stylelint 'src/**/*.js'",
+    "check-pretty": "prettier --list-different {,src/**/}*.{js,jsx,json,css,scss}",
+    "format": "prettier --write \"src/**/*.js\"",
+    "clean": "gatsby clean",
+    "pushDevToMaster": "git co master && git pull && git merge dev && git push && git co dev",
+    "netlify-lambda:install": "netlify-lambda install src/functions"
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.3",
     "@material-ui/icons": "^4.9.1",
@@ -57,33 +84,6 @@
     "sharp": "^0.28.1",
     "tailwindcss": "^3.0.13",
     "validator": "^12.2.0"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "engines": {
-    "node": ">=12"
-  },
-  "scripts": {
-    "start": "run-p start:**",
-    "dev": "yarn start",
-    "frontend": "gatsby develop",
-    "start:app": "yarn frontend",
-    "start:lambda": "netlify-lambda serve src/functions",
-    "build": "gatsby build && netlify-lambda build src/functions",
-    "build:app": "gatsby build",
-    "build:lambda": "netlify-lambda build src/functions",
-    "serve": "gatsby serve",
-    "test": "yarn run lint:css && yarn run lint:js && yarn run check-pretty",
-    "lint:js": "eslint --ext .js,.jsx .",
-    "lint:css": "stylelint 'src/**/*.js'",
-    "check-pretty": "prettier --list-different {,src/**/}*.{js,jsx,json,css,scss}",
-    "format": "prettier --write \"src/**/*.js\"",
-    "clean": "gatsby clean",
-    "pushDevToMaster": "git co master && git pull && git merge dev && git push && git co dev",
-    "netlify-lambda:install": "netlify-lambda install src/functions"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

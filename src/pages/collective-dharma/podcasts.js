@@ -27,18 +27,18 @@ const useStyles = makeStyles({
 
 const podcastData = [
   {
-    name: 'Aloka Vihara Forest Monastery',
+    name: 'Aloka Earth Room',
     url: 'http://alokavihara.org/teaching/dhamma-talks/',
-    author: 'The Aloka Vihara nuns ',
+    author: 'Aloka Vihara',
     description:
-      'The Aloka Vihara nuns have streams and recorded dharma talks.',
+      'Ayya Anandabodhi and Ayya Santacitta offer <a href="https://alokavihara.org/about/videos/">video</a> and <a href="https://alokavihara.org/teaching/dhamma-talks/">audio</a> dharma talks.',
   },
   {
     name: 'Buddhist Geeks ',
     url: 'http://www.buddhistgeeks.org',
     author: 'Vincent Horn',
     description:
-      "The purpose of Buddhist Geeks is understood as an active exploration of Dharma in the Age of the Network.  How are the various networks that we're connected through changing how we practice Dharma?  How are they changing the human challenges that we're looking to different forms of dharma to help resolve?  What is Dharma in the Age of the Network?\n\nListen to our very own Kati's interview with Vincent about the formation of our collective: <a href='https://art19.com/shows/buddhist-geeks/episodes/578bd946-1d26-456e-912b-777471fae4be'>The SF Dharma Collective / Buddhist Geeks</a>",
+      "The purpose of Buddhist Geeks is understood as an active exploration of Dharma in the Age of the Network.  How are the various networks that we're connected through changing how we practice Dharma?  How are they changing the human challenges that we're looking to different forms of dharma to help resolve?  What is Dharma in the Age of the Network?\n\nListen to Vincent interview Kati Devaney about the formation of our collective: <a href='https://art19.com/shows/buddhist-geeks/episodes/578bd946-1d26-456e-912b-777471fae4be'>The SF Dharma Collective / Buddhist Geeks</a>",
   },
   {
     name: 'Dave Smith Dharma',
@@ -46,7 +46,7 @@ const podcastData = [
       'https://itunes.apple.com/us/podcast/dave-smith-dharma/id1257410459?mt=2',
     author: '',
     description:
-      'Talks and meditation instructions from Dave Smith, Dharma Teacher, Mindfulness Trainer, Secular Humanist, recovering buddhist. The Buddha is said to have taught one thing, suffering and the end of suffering. Dharma practice is a system of living that requires meditative training, ethical and compassionate actions and behaviors, and a wise understanding of the limitations of the human condition.',
+      'Talks and meditation instructions from Dave Smith, Dharma Teacher, Mindfulness Trainer, Secular Humanist, recovering buddhist. The Buddha is said to have taught one thing, suffering and the end of suffering. Dharma practice is a system of living that requires meditative training, ethical and compassionate actions and behaviors, and a wise understanding of the limitations of the human condition.\n\nTo find out more, or to join one of my many programs check my site: https://www.davesmithdharma.com/',
   },
   {
     name: 'Dharma Seed',
