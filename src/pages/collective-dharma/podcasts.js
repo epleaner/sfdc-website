@@ -46,7 +46,7 @@ const podcastData = [
       'https://itunes.apple.com/us/podcast/dave-smith-dharma/id1257410459?mt=2',
     author: '',
     description:
-      'Talks and meditation instructions from Dave Smith, Dharma Teacher, Mindfulness Trainer, Secular Humanist, recovering buddhist. The Buddha is said to have taught one thing, suffering and the end of suffering. Dharma practice is a system of living that requires meditative training, ethical and compassionate actions and behaviors, and a wise understanding of the limitations of the human condition.\n\nTo find out more, or to join one of my many programs check my site: https://www.davesmithdharma.com/',
+      'Talks and meditation instructions from Dave Smith, Dharma Teacher, Mindfulness Trainer, Secular Humanist, recovering buddhist. The Buddha is said to have taught one thing, suffering and the end of suffering. Dharma practice is a system of living that requires meditative training, ethical and compassionate actions and behaviors, and a wise understanding of the limitations of the human condition.\n\nTo find out more, or to join one of my many programs check my site: <a href="https://www.davesmithdharma.com/">https://www.davesmithdharma.com/</a>',
   },
   {
     name: 'Dharma Seed',
