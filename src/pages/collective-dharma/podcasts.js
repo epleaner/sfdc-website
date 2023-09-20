@@ -27,9 +27,10 @@ const useStyles = makeStyles({
 
 const podcastData = [
   {
-    name: 'Aloka Earth Room',
-    url: 'http://alokavihara.org/teaching/dhamma-talks/',
-    author: 'Aloka Vihara',
+    name:
+      '<a href="http://alokavihara.org/teaching/dhamma-talks/">Aloka Earth Room</a> and <a href="https://alokavihara.org/about-aloka-vihara/">Aloka Vihara</a>',
+    url: '',
+    author: '',
     description:
       'Ayya Anandabodhi and Ayya Santacitta offer <a href="https://alokavihara.org/about/videos/">video</a> and <a href="https://alokavihara.org/teaching/dhamma-talks/">audio</a> dharma talks.',
   },
@@ -110,13 +111,28 @@ const Podcasts = () => {
                 <Grid item xs={12}>
                   <Box mb={2}>
                     <Typography variant='h4' component='h1'>
-                      <Link
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className={classes.anchor}
-                        href={podcast.url}>
-                        {podcast.name}
-                      </Link>
+                      {podcast.url.length > 0 ? (
+                        <Link
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className={classes.anchor}
+                          href={podcast.url}>
+                          {podcast.name}
+                        </Link>
+                      ) : (
+                        <Typography
+                          variant='h4'
+                          component='h1'
+                          className={classes.podcastDescription}
+                          dangerouslySetInnerHTML={{
+                            __html: `${podcast.name.replace(
+                              /<a/g,
+                              `<a target='_blank' rel='noopener noreferrer'`
+                            )}`,
+                          }}
+                        />
+                      )}
+
                       {podcast.author.length > 0 && ` with ${podcast.author}`}
                     </Typography>
                   </Box>
