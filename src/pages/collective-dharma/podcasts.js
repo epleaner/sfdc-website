@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 const podcastData = [
   {
     name:
-      '<a href="http://alokavihara.org/teaching/dhamma-talks/">Aloka Earth Room</a> and <a href="https://alokavihara.org/about-aloka-vihara/">Aloka Vihara</a>',
+      '<a href="https://alokavihara.org/aloka-earth-room/">Aloka Earth Room</a> and <a href="https://alokavihara.org/about-aloka-vihara/">Aloka Vihara</a>',
     url: '',
     author: '',
     description:
