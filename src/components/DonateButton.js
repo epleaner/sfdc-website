@@ -40,7 +40,23 @@ const DonateButton = ({ inputText }) => {
             variant='contained'>
             <Box>
               <Typography variant='body1' align='center'>
-                Donate via PayPal or Credit Card
+                PayPal or Credit Card
+              </Typography>
+            </Box>
+          </Button>
+          <Button
+            type='submit'
+            color='primary'
+            size='large'
+            variant='contained'
+            style={{ marginLeft: '10px' }}>
+            <Box>
+              <Typography variant={'body1'} align='center'>
+                <a
+                  href='https://donate.stripe.com/fZe01jdnaczMfW8145'
+                  rel='noopener noreferrer'>
+                  Stripe
+                </a>
               </Typography>
             </Box>
           </Button>

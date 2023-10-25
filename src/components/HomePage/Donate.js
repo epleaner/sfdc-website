@@ -2,12 +2,23 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 import DonateButton from '../../components/DonateButton';
 import Venmo from '../../components/Venmo';
 import ContentfulRichText from '../../components/ContentfulRichText';
+
+const useStyles = makeStyles((theme) => ({
+  anchor: {
+    color: 'rgba(62,149,153,1)',
+    textDecoration: 'none',
+    fontWeight: '500',
+  },
+}));
 
 const Donate = () => {
   const { pageData } = useStaticQuery(graphql`
@@ -17,6 +28,8 @@ const Donate = () => {
       }
     }
   `);
+
+  const classes = useStyles();
 
   return (
     <>
@@ -37,12 +50,13 @@ const Donate = () => {
         </Grid>
         <Grid container item>
           <Grid item xs={12} container justify='center'>
-            <Box mb={4}>
-              <DonateButton inputText='Teacher, class, general note, et cetera...' />
-            </Box>
+            <DonateButton inputText='Teacher, class, general note, et cetera...' />
           </Grid>
           <Grid item xs={12} container justify='center'>
-            <Box mb={4}>
+            <Box mb={2}></Box>
+          </Grid>
+          <Grid item xs={12} container justify='center'>
+            <Box mb={8}>
               <Venmo />
             </Box>
           </Grid>

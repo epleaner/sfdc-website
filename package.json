@@ -13,7 +13,7 @@
     "node": ">=12"
   },
   "scripts": {
-    "start": "run-p start:**",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider run-p start:**",
     "dev": "yarn start",
     "frontend": "gatsby develop",
     "start:app": "yarn frontend",
