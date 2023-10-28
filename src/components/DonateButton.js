@@ -55,7 +55,7 @@ const DonateButton = ({ inputText }) => {
                 <a
                   href='https://donate.stripe.com/fZe01jdnaczMfW8145'
                   rel='noopener noreferrer'>
-                  Stripe
+                  Stripe or Credit Card
                 </a>
               </Typography>
             </Box>
