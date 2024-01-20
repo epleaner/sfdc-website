@@ -106,13 +106,16 @@ const Home = () => {
               <Box ml={2} mb={2}>
                 <Typography variant={'h3'}>Announcements</Typography>
               </Box>
-              <Box mb={10}>
-                {pageData.infoBanners?.map((infoBanner) => {
-                  if (infoBanner.visible) {
-                    return <Banner {...infoBanner} classes={classes} />;
-                  }
-                })}
-              </Box>
+
+              {pageData && (
+                <Box mb={10}>
+                  {pageData.infoBanners?.map((infoBanner) => {
+                    if (infoBanner.visible) {
+                      return <Banner {...infoBanner} classes={classes} />;
+                    }
+                  })}
+                </Box>
+              )}
             </Grid>
             <Grid item container xs={12}>
               <Box mb={10}>
