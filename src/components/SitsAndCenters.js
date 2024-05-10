@@ -5,10 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  card: {margin: '0 5px'},
+  card: { margin: '0 5px' },
   anchor: {
     color: 'rgba(62,149,153,1)',
     textDecoration: 'none',
@@ -17,10 +17,34 @@ const useStyles = makeStyles({
 
 const sitData = [
   {
+    title: 'Jikoji Zen Center',
+    body: [
+      "Jikoji Zen Center is a jewel-box of a Soto Zen monastery. It's located next door to San José, in the foothills of Los Gatos, which are above San José. It is within the Penninsula Open Space Preserve.",
+      "It was founded by Kobun Chino Otogawa Roshi in the 1970's. Suzuki Roshi brought Kobun Roshi to the US from Eiheiji  to help Suzuki Roshi start  the Practice at Tassajara and more.",
+      'Jikoji offers weekly hybrid practice opportunities as well as day-long and longer retreats/Seshins. All teachings are held on a donation basis. All are welcomed there.',
+      'Jikoji also makes its facilities available to Insight Meditation and other Buddhist groups/teachers who hold their retreats and day-longs there.',
+    ],
+    urls: ['https://www.jikoji.org/'],
+  },
+  {
+    title: 'Floating Zendo',
+    body: [
+      'Founded decades ago by students of Kobun Chino Otogawa Roshi, the Floating Zendo offers an online weekly sit (with a Dharma talk by amazing teachers) on Tuesday evenings and a monthly in-person sit on a Saturday at the San José Friends House. Many of its students and teachers also train at Jikoji Zen Center.',
+    ],
+    urls: ['https://floatingzendo.org/'],
+  },
+  {
+    title: 'Kannon Do Zen Center',
+    body: [
+      'The Kannon Do Zen Center is in Mountain View – nestled between Palo Alto and San Jose. Suzuki Roshi\'s early students founded "Haiku Zendo". Lead by Kobun Chino Otake, Haiko Zendo morphed from a home\'s garage in Los Altos into two centers:  Kannon Do Zen Center and Jikoji',
+    ],
+    urls: ['https://kannondo.org/'],
+  }, //
+  {
     title: 'Mission Dharma',
     body: [
       'Sangha led by Howarsd Cohn.',
-      'St. John\'s Episcopal Church at the corner of 15th St and Julian',
+      "St. John's Episcopal Church at the corner of 15th St and Julian",
       'Tuesdays  7:00 - 8:30 pm',
     ],
     urls: ['http://www.missiondharma.org/'],
@@ -76,13 +100,13 @@ const SitsAndCenters = () => {
   const classes = useStyles();
 
   return sitData.map((data) => (
-    <Grid key={data.title} item container component="article" xs={12} sm={6}>
+    <Grid key={data.title} item container component='article' xs={12} sm={6}>
       <Box mb={4}>
         <Card className={classes.card}>
           <CardContent>
             <Grid item container xs={12}>
               <Grid item xs={12}>
-                <Typography variant="h4" component="h1">
+                <Typography variant='h4' component='h1'>
                   {data.title}
                 </Typography>
               </Grid>
@@ -90,11 +114,10 @@ const SitsAndCenters = () => {
                 <ul>
                   {data.body.map((bodyText, bodyIndex) => (
                     <Typography
-                      variant="body1"
-                      component="li"
+                      variant='body1'
+                      component='li'
                       className={classes.listItem}
-                      key={`${data.title}${bodyIndex}`}
-                    >
+                      key={`${data.title}${bodyIndex}`}>
                       {bodyText}
                     </Typography>
                   ))}
@@ -102,13 +125,12 @@ const SitsAndCenters = () => {
               </Grid>
               <Grid item xs={12}>
                 {data.urls.map((url, urlIndex) => (
-                  <Typography key={`${data.title}${urlIndex}`} variant="body1">
+                  <Typography key={`${data.title}${urlIndex}`} variant='body1'>
                     <Link
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target='_blank'
+                      rel='noopener noreferrer'
                       className={classes.anchor}
-                      href={url}
-                    >
+                      href={url}>
                       {url.replace(/mailto:/g, '')}
                     </Link>
                   </Typography>
