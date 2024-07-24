@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Card from "@material-ui/core/Card";
-import CollapsableEventBody from "./EventBody/CollapsableEventBody";
-import EventHeader from "./EventHeader";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles } from "@material-ui/core/styles";
-import { urlFormattedSummary } from "../utils/eventParser";
+import Card from '@material-ui/core/Card';
+import CollapsableEventBody from './EventBody/CollapsableEventBody';
+import EventHeader from './EventHeader';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core/styles';
+import { urlFormattedSummary } from '../utils/eventParser';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    width: "100%",
-    padding: "0 20px",
-    "&:hover": {
-      cursor: "pointer",
+    width: '100%',
+    padding: '0 20px',
+    '&:hover': {
+      cursor: 'pointer',
     },
   },
 }));
@@ -29,7 +29,7 @@ const Event = (props) => {
   } = props;
 
   let urlEncodedSummary =
-    urlFormattedSummary(summary) + `/${start.format("M-D-YYYY")}`;
+    urlFormattedSummary(summary) + `/${start.format('M-D-YYYY')}`;
 
   const eventUrl = `events/${urlEncodedSummary}`;
 
@@ -43,14 +43,17 @@ const Event = (props) => {
 
   const classes = useStyles();
 
+  if (summary.toLowerCase().includes('sitting in place')) {
+    return null;
+  }
+
   return (
     <ListItem onMouseLeave={() => setCopied(false)}>
       <Card
         className={classes.card}
         raised={isHovered}
         onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
+        onMouseLeave={() => setHovered(false)}>
         <ListItemText
           disableTypography
           primary={

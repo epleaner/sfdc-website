@@ -15,6 +15,8 @@ import EventsThisWeek from '../components/HomePage/EventsThisWeek';
 import EventsToday from '../components/HomePage/EventsToday';
 import Volunteer from '../components/HomePage/Volunteer';
 import MorningSit from '../components/MorningSit';
+import SittingInPlace from '../components/SittingInPlace';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   lotusImage: {
@@ -120,6 +122,19 @@ const Home = () => {
             <Grid item container xs={12}>
               <Box mb={10}>
                 <CoronavirusUpdate />
+                <Box my={6}>
+                  <Divider />
+                </Box>
+                <Box my={8}>
+                  <Grid
+                    item
+                    xs={12}
+                    container
+                    component='article'
+                    justify='center'>
+                    <SittingInPlace />
+                  </Grid>
+                </Box>
                 <Box my={8}>
                   <Grid
                     item
@@ -129,6 +144,9 @@ const Home = () => {
                     justify='center'>
                     <MorningSit />
                   </Grid>
+                </Box>
+                <Box my={6}>
+                  <Divider />
                 </Box>
                 <Donate />
               </Box>

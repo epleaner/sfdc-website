@@ -16,6 +16,7 @@ import MonthList from '../MonthList';
 import MorningSit from '../MorningSit';
 import RecurringEventsList from '../RecurringEventsList';
 import { parseEvents } from '../../utils/eventParser';
+import SittingInPlace from '../SittingInPlace';
 
 const useStyles = makeStyles((theme) => ({
   stickiedEvent: {
@@ -87,15 +88,21 @@ const UpcomingEvents = () => {
                   Event times have been automatically converted to local
                   timezone
                 </Typography>
-                <Box my={6}>
-                  <Divider />
-                </Box>
+                <Box my={12}></Box>
                 <CoronavirusUpdate />
-
-                <Box mt={6}>
+                <Box mt={12} mb={6}>
                   <Divider />
                 </Box>
               </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              container
+              component='article'
+              justify='center'
+              className={classes.stickiedEvent}>
+              <SittingInPlace />
             </Grid>
             <Grid
               item
