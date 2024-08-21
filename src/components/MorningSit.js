@@ -38,14 +38,14 @@ export default () => {
   const classes = useStyles();
   return (
     <>
-      <Grid item xs={12} sm={3} className={classes.centerAligned}>
+      <Grid item xs={12} className={classes.centerAligned}>
         <Box mb={3}>
           <Typography variant='h3' align='center' component='h1'>
             Morning sits
           </Typography>
         </Box>
       </Grid>
-      <Grid item xs={12} sm={6} container>
+      <Grid item xs={12} container>
         <Grid item xs={12} container alignContent='center' justify='center'>
           <Box mb={1}>
             <Typography variant='h4' align='center' component='h2'>
@@ -83,7 +83,7 @@ export default () => {
           </Box>
         </Grid>
       </Grid>
-      <Grid item xs={12} sm={3} container>
+      <Grid item xs={12} container>
         <Grid item xs={12} container justify='center'>
           <Box mt={3}>
             <Img fixed={data.file.childImageSharp.fixed} alt='Lotus' />

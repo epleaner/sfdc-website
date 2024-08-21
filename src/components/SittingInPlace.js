@@ -36,7 +36,7 @@ export default () => {
   const classes = useStyles();
   return (
     <>
-      <Grid item xs={12} sm={4} className={classes.centerAligned}>
+      <Grid item xs={12} className={classes.centerAligned}>
         <Box mb={3}>
           <Typography variant='h3' align='center' component='h1'>
             <Link
@@ -49,7 +49,7 @@ export default () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid item xs={12} sm={8} container className={classes.centerAligned}>
+      <Grid item xs={12} container className={classes.centerAligned}>
         <Grid item xs={12} container alignContent='center' justify='center'>
           <Box mb={1}>
             <Typography variant='h4' align='center' component='h2'>
