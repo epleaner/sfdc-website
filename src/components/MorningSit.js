@@ -68,8 +68,8 @@ export default () => {
                 target='_blank'
                 rel='noopener noreferrer'
                 className={classes.anchor}
-                href='//bit.ly/sfdharma'>
-                bit.ly/sfdharma
+                href='//tinyurl.com/SFDharma'>
+                tinyurl.com/SFDharma
               </Link>{' '}
               (password: <b>108108</b>)
             </Typography>
