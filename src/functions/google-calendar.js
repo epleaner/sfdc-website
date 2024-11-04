@@ -52,7 +52,7 @@ export function handler(event, context, callback) {
             .subtract(1, 'd')
             .format(),
           timeMax: moment()
-            .add(3, 'M')
+            .add(5, 'M')
             .endOf('month')
             .format(),
         };
