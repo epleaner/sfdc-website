@@ -10,8 +10,7 @@ const url =
 exports.handler = async function(event, context) {
   try {
     const response = await fetch(
-        'https://google.us19.list-manage.com/generate-js/?u=df330e3b313bd3dc498ed9b97&fid=2457&show=10',
-        {headers: headers},
+      url, {headers},
     );
 
     if (!response.ok) {
