@@ -125,16 +125,7 @@ const Home = () => {
                 <Box my={6}>
                   <Divider />
                 </Box>
-                <Box my={8}>
-                  <Grid
-                    item
-                    xs={12}
-                    container
-                    component='article'
-                    justify='center'>
-                    <SittingInPlace />
-                  </Grid>
-                </Box>
+                
                 <Box my={8}>
                   <Grid
                     item

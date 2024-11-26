@@ -95,15 +95,7 @@ const UpcomingEvents = () => {
                 </Box>
               </Box>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              container
-              component='article'
-              justify='center'
-              className={classes.stickiedEvent}>
-              <SittingInPlace />
-            </Grid>
+            
             <Grid
               item
               xs={12}
