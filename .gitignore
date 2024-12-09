@@ -11,3 +11,4 @@ events_data.json
 todo
 sfdc-google-calendar-secrets.json
 .env*
+.DS_Store
