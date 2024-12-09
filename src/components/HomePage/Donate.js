@@ -66,7 +66,7 @@ const Donate = () => {
             </Typography>
           </Box>
           <Box>
-            {pageData.contentSections.map(({ title, content }) => (
+            {pageData.contentSections?.map(({ title, content }) => (
               <Grid key={title} item xs={12}>
                 <Box mb={4}>
                   <Typography align='center' variant='body1' component='span'>

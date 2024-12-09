@@ -64,7 +64,7 @@ export default ({ pageContext: { pageData } }) => {
               </Grid>
             </Grid>
           </Grid>
-          {pageData.contentSections.map((contentSection) => {
+          {pageData.contentSections?.map((contentSection) => {
             return (
               <Grid
                 key={contentSection.title}

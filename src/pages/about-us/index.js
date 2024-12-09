@@ -57,7 +57,7 @@ const AboutUs = () => {
               </Grid>
             </Grid>
           </Grid>
-          {pageData.contentSections.map(({ title, content }) => (
+          {pageData.contentSections?.map(({ title, content }) => (
             <Grid
               key={title}
               item
