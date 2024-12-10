@@ -18,7 +18,7 @@ const Banner = ({ classes, title, content, media }) => {
           xs={12}
           sm={2}
           className={`${classes.bannerImageOrder} flex items-center justify-center`}>
-          <div className='mb-4'>
+          <div className='mb-4 flex flex-col gap-2'>
             {media &&
               media.map((img) => (
                 <div className={classes.bannerImageContainer} key={img.id}>

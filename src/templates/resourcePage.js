@@ -9,11 +9,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import Banner from '../components/Banner';
 import ContentfulRichText from '../components/ContentfulRichText';
 
 const useStyles = makeStyles((theme) => ({
   section: {
     margin: `${theme.spacing(2)}px 0`,
+  },
+  avatar: {
+    width: 150,
+    height: 150,
   },
   italic: { fontStyle: 'italic' },
   image: {
@@ -34,6 +39,24 @@ const useStyles = makeStyles((theme) => ({
   offeringBody: {
     [theme.breakpoints.up('md')]: {
       order: 0,
+    },
+  },
+  bannerImageOrder: {
+    [theme.breakpoints.down('md')]: {
+      order: 0,
+    },
+    display: 'flex',
+  },
+  bannerImageContainer: {
+    [theme.breakpoints.down('md')]: {
+      display: 'flex',
+    },
+  },
+  bannerText: {
+    paddingRight: '30px',
+    [theme.breakpoints.down('xs')]: {
+      order: 1,
+      paddingRight: '0px',
     },
   },
 }));
@@ -64,6 +87,15 @@ export default ({ pageContext: { pageData } }) => {
               </Grid>
             </Grid>
           </Grid>
+          {pageData && (
+            <Box mb={10}>
+              {pageData.infoBanners?.map((infoBanner) => {
+                if (infoBanner.visible) {
+                  return <Banner {...infoBanner} classes={classes} />;
+                }
+              })}
+            </Box>
+          )}
           {pageData.contentSections?.map((contentSection) => {
             return (
               <Grid

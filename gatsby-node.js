@@ -25,6 +25,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               page {
                 title
                 subTitle
+                infoBanners {
+                  visible
+                  title
+                  content {
+                    json
+                  }
+                  media {
+                    fixed(width: 150) {
+                      ... on ContentfulFixed {
+                        base64
+                        width
+                        height
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                      }
+                    }
+                  }
+                }
                 contentSections {
                   title
                   content {
