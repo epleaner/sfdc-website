@@ -39,7 +39,7 @@ const MaterialMenu = (props) => {
       path: '/about-us',
       nested: [
         { name: 'Teachers', path: '/about-us/teachers' },
-        { name: 'New Initatives', path: '/collective-dharma/new-initiatives' },
+        { name: 'New Initiatives', path: '/about-us/new-initiatives' },
         { name: 'Leadership', path: '/about-us/leadership' },
         { name: 'Contact', path: '/about-us/contact' },
       ],
