@@ -41,7 +41,7 @@ export default () => {
       <Grid item xs={12} className={classes.centerAligned}>
         <Box mb={3}>
           <Typography variant='h3' align='center' component='h1'>
-            Morning sits
+            Morning Meditations
           </Typography>
         </Box>
       </Grid>
@@ -78,7 +78,7 @@ export default () => {
         <Grid item xs={12} container alignContent='center' justify='center'>
           <Box mb={3} mx={2}>
             <Typography variant='body2' align='center' component='p'>
-              Arriving late and leaving early is okay for morning sits!
+              Arriving late and leaving early is okay for morning meditations!
             </Typography>
           </Box>
         </Grid>
@@ -92,7 +92,7 @@ export default () => {
         <Grid item xs={12}>
           <Box mb={2}>
             <Typography variant='caption' align='center' component='aside'>
-              Morning sits are peer-led.
+              Morning meditations are peer-led.
             </Typography>
           </Box>
         </Grid>

@@ -12,8 +12,8 @@ const LocalSits = () => {
   return (
     <>
       <SEO
-        title='Local Sits and Centers'
-        description='San Francisco Dharma Collective Local Sits and Centers Page'
+        title='Local Practices and Centers'
+        description='San Francisco Dharma Collective Local Practices and Centers Page'
       />
       <Layout>
         <Grid container>
@@ -21,7 +21,7 @@ const LocalSits = () => {
             <Grid item xs={12}>
               <Box mb={4}>
                 <Typography align='center' variant='h2' component='h1'>
-                  Bay Area Sits and Centers
+                  Bay Area Practices and Centers
                 </Typography>
               </Box>
             </Grid>
@@ -38,7 +38,7 @@ const LocalSits = () => {
             <Grid item xs={12}>
               <Box mb={4}>
                 <Typography align='center' variant='h2' component='h2'>
-                  Other sits
+                  Other Practices
                 </Typography>
               </Box>
             </Grid>

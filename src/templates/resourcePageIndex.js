@@ -84,7 +84,7 @@ const Resources = ({ pageContext: { resourcePages } }) => {
               );
             })}
             <ResourceListItem
-              title='Local Sits & Centers'
+              title='Local Practices & Centers'
               subTitle='Other local places to study the Dharma.'
               urlSlug='local-centers'
             />
