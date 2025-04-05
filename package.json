@@ -68,7 +68,7 @@
     "js-base64": "^2.5.2",
     "lodash": "^4.17.15",
     "material-ui-popup-state": "^1.5.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-fetch": "^2.6.0",
     "path": "^0.12.7",
     "postcss": "^8.4.5",
