@@ -20,7 +20,7 @@ const Teachers = () => {
         headshots {
           title
           fixed(width: 250, height: 250) {
-            ...GatsbyContentfulFixed_tracedSVG
+            ...GatsbyContentfulFixed_withWebp
           }
         }
       }
